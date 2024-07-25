@@ -8,23 +8,20 @@ info:
   reference:
     - https://activeadmin.info/
   classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
     cwe-id: CWE-200
-    cpe: cpe:2.3:a:activeadmin:activeadmin:*:*:*:*:ruby:*:*:*
-  metadata:
-    max-request: 1
-    product: activeadmin
-    vendor: activeadmin
   tags: panel,activeadmin
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}/admin/login'
-
     matchers:
       - type: word
         words:
           - "active_admin_content"
           - "active_admin-"
         condition: and
-# digest: 4b0a004830460221008ff7c3e5ca9ea60724d5aa6d320d161dad483cbbe185ad21cda9f0bc96afe14002210096167ed3964f4ff49a5ac96d58bbfb00c29ee1301adad51286857d0cd9f279b3:922c64590222798bb761d5b6d8e72950
+
+# Enhanced by mp on 2022/03/22
