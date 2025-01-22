@@ -10,11 +10,10 @@ info:
     - https://gitlab.com/gitlab-org/gitlab/-/issues/371396
     - https://gitlab.com/gitlab-org/gitlab/-/issues/388379
   metadata:
-    max-request: 1
     verified: "true"
   tags: gitlab,token,exposure
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"
