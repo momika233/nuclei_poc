@@ -10,12 +10,13 @@ info:
     cvss-score: 0.0
     cwe-id: CWE-200
   metadata:
+    max-request: 1
     verified: true
     shodan-query: http.html:"FTM manager"
     google-query: intitle:"FTM manager"
   tags: panel,ftm
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

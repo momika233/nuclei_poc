@@ -1,29 +1,18 @@
 id: exposed-docker-api
-
 info:
-  name: Exposed Docker API
-  author: furkansenan,dwisiswant0
-  severity: info
-  tags: docker,unauth,devops
+  name: Exposed Docker API Check
+  author: CyberCavalcante
+  severity: high
 
-requests:
-  - method: GET
-    path:
-      - "http://{{Hostname}}/version"
-      - "http://{{Hostname}}/v1.24/version"
+network:
+  - payload: null
+    protocol: tcp
+    ports:
+      - 2375
+      - 2376
 
-    matchers-condition: and
     matchers:
       - type: word
         words:
-          - "application/json"
-        part: header
-      - type: word
-        words:
-          - "KernelVersion"
-          - "BuildTime"
-        condition: and
-        part: body
-      - type: status
-        status:
-          - 200
+          - "Docker"
+

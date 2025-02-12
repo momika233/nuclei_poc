@@ -8,10 +8,11 @@ info:
     - https://github.com/praetorian-inc/noseyparker/blob/main/data/default/rules/nuget.yml
     - https://docs.microsoft.com/en-us/nuget/nuget-org/publish-a-package#create-api-keys
   metadata:
-    verified: "true"
+    max-request: 1
+    verified: true
   tags: nuget,token,exposure
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

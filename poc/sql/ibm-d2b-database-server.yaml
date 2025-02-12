@@ -16,7 +16,7 @@ info:
     max-request: 2
     verified: true
     shodan-query: product:"IBM DB2 Database Server"
-  tags: network,ibm,database,db,db2,detect
+  tags: network,ibm,database,db,db2
 
 tcp:
   - inputs:
@@ -35,3 +35,5 @@ tcp:
           - "DB2"
           - "SQLJS1D"
         condition: or
+
+# Enhanced by md on 2023/03/22

@@ -1,4 +1,5 @@
 id: omni-commerce-connect-detect
+
 info:
   name: Omni Commerce Connect (OCC) Rest APIs
   description: The Omni Commerce Connect (OCC) API exposes a broad set of commerce and data services. It enables you to integrate SAP Commerce functionality anywhere in your application landscape.
@@ -7,13 +8,16 @@ info:
   reference:
     - https://help.sap.com/docs/SAP_COMMERCE/e5d7cec9064f453b84235dc582b886da/8c19ab00866910148f87bf32d4a60d38.html?locale=en-US
   metadata:
+    max-request: 1
     verified: true
     shodan-query: title:"Hybris"
   tags: tech,sap,hybris,omni
-requests:
+
+http:
   - method: GET
     path:
       - "{{BaseURL}}/occ/v2/d2OzBcy"
+
     matchers:
       - type: word
         part: body

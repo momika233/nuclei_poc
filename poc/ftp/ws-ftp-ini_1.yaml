@@ -5,11 +5,12 @@ info:
   author: DhiyaneshDK
   severity: low
   metadata:
+    max-request: 1
     verified: true
     google-query: intitle:"Index of" ws_ftp.ini
   tags: exposure,ftp,files
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/ws_ftp.ini'

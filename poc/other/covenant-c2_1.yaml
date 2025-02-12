@@ -12,7 +12,7 @@ info:
     max-request: 1
     verified: true
     shodan-query: ssl:”Covenant” http.component:”Blazor”
-  tags: c2,ir,osint,covenant,panel
+  tags: c2,ir,osint,covenant
 
 http:
   - method: GET

@@ -13,11 +13,12 @@ info:
     cvss-score: 7.2
     cwe-id: CWE-79
   metadata:
+    max-request: 2
     verified: true
     shodan-query: http.html:"yeswiki"
   tags: yeswiki,xss,stored,huntr
 
-requests:
+http:
   - raw:
       - |
         POST /?BazaR&vue=saisir&action=saisir_fiche&id=2 HTTP/1.1
@@ -63,7 +64,7 @@ requests:
     matchers:
       - type: dsl
         dsl:
-          - "contains(all_headers_2, 'text/html') && contains(all_headers_2, 'YesWiki')"
+          - "contains(header_2, 'text/html') && contains(header_2, 'YesWiki')"
           - "status_code_2 == 200"
           - contains(body_2, '><img src=x onerror=console.log(123);>')
         condition: and

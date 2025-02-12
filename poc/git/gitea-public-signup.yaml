@@ -10,11 +10,12 @@ info:
     - https://www.youtube.com/watch?v=oHhofSj9lEM&t=157s
     - https://gitea.io/en-us/
   metadata:
+    max-request: 1
     verified: true
     shodan-query: html:"Powered by Gitea"
   tags: misconfig,gitea
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/user/sign_up'

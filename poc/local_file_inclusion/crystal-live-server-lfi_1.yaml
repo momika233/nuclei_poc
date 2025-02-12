@@ -11,8 +11,10 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-22
   tags: lfi,crystal
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/../../../../../../../../../../../../windows/win.ini"

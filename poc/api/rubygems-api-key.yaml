@@ -9,10 +9,11 @@ info:
     - https://guides.rubygems.org/rubygems-org-api/
     - https://guides.rubygems.org/api-key-scopes/
   metadata:
-    verified: "true"
+    max-request: 1
+    verified: true
   tags: rubygems,token,exposure,ruby
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

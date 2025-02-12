@@ -9,10 +9,11 @@ info:
     - https://github.com/pypa/warehouse/issues/6051
     - https://pypi.org/project/pypitoken/
   metadata:
-    verified: "true"
+    max-request: 1
+    verified: true
   tags: pypi,token,exposure
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

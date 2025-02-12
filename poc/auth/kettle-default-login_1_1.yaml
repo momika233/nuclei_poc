@@ -10,12 +10,11 @@ info:
     cvss-score: 5.8
     cwe-id: CWE-522
   metadata:
-    max-request: 1
     verified: true
     shodan-query: basic realm="Kettle"
   tags: default-login,kettle
 
-http:
+requests:
   - raw:
       - |
         GET / HTTP/1.1
