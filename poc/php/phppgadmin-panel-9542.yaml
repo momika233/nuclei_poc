@@ -3,7 +3,7 @@ info:
   name: phpPgAdmin Panel
   author: Ganofins
   severity: info
-  tags: panel,phppgadmin
+  tags: panel
 requests:
   - method: GET
     path:

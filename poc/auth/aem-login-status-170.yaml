@@ -8,11 +8,10 @@ info:
   tags: aem
 
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}/system/sling/loginstatus.css'
-
     matchers-condition: and
     matchers:
       - type: status
@@ -22,3 +21,4 @@ http:
       - type: word
         words:
           - 'CREDENTIAL_CHALLENGE'
+        condition: and

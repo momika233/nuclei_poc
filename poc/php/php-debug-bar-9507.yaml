@@ -1,15 +1,11 @@
 id: php-debug-bar
-
 info:
-  name: PHP Debug Bar
+  name: PHP Debug bar
   author: dhiyaneshDk
   severity: high
-  description: The PHP Debug Bar tool was discovered, which allows the attacker to obtain sensitive information, e.g. application configuration.
   tags: debug,logs,exposure
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/_debugbar/open?max=20&offset=0"

@@ -1,23 +1,16 @@
 id: alibaba-canal-info-leak
 
 info:
-  name: Alibaba Canal Config - Detect
+  name: Alibaba Canal Info Leak
   author: pikpikcu
   severity: info
-  description: Alibaba Canal configuration information was detected.
   reference:
     - https://github.com/alibaba/canal/issues/632
     - https://netty.io/wiki/reference-counted-objects.html
     - https://my.oschina.net/u/4581879/blog/4753320
-  classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
-    cwe-id: CWE-200
   tags: config,exposure,alibaba
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/api/v1/canal/config/1/1"
@@ -40,5 +33,3 @@ http:
           - "ncanal.aliyun.secretKey"
         condition: and
         part: body
-
-# Enhanced by mp on 2023/02/05

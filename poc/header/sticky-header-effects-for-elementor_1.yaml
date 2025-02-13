@@ -11,8 +11,9 @@ info:
     wpscan: https://wpscan.com/plugin/sticky-header-effects-for-elementor
   tags: tech,wordpress,wp-plugin,top-200
 
-http:
+requests:
   - method: GET
+
     path:
       - "{{BaseURL}}/wp-content/plugins/sticky-header-effects-for-elementor/readme.txt"
 
