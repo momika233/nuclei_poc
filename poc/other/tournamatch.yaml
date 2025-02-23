@@ -2,14 +2,14 @@ id: tournamatch
 
 info:
   name: >
-    WordPress Plugin Tournamatch < 4.6.1 - Authenticated (Subscriber+) Stored Cross-Site Scripting
+    WordPress Plugin Tournamatch < 4.6.1 - Authenticated (Admin+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c1005616-f3b5-45fa-97f8-784429a4a168?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/18643abb-171c-43d9-ad62-3414679eb402?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

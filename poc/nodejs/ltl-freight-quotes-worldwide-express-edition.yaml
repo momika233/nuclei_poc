@@ -1,15 +1,15 @@
-id: ltl-freight-quotes-worldwide-express-edition-71089f8fecb3f906f35417fd0f41cca2
+id: ltl-freight-quotes-worldwide-express-edition
 
 info:
   name: >
-    LTL Freight Quotes – Worldwide Express Edition <= 5.0.20 - Unauthenticated SQL Injection
+    LTL Freight Quotes - Worldwide Express Edition <= 5.0.20 - Unauthenticated SQL Injection
   author: topscoder
   severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0d379aab-9fc7-4012-83d9-f55a1bd26918?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4e72828e-a6f6-43fc-8a10-d9908004c0fc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -2,13 +2,14 @@ id: shiftcontroller
 
 info:
   name: >
-    ShiftController Employee Shift Scheduling <= 4.9.23 - Unauthenticated Stored Cross-Site Scripting via 'hc-title'
+    ShiftController Employee Shift Scheduling <= 4.9.57 - Authenticated (Contributor+) PHP Object Injection
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bc38990f-0079-46de-8197-0187189d90d9?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9c8ab916-240d-43c3-92d4-7efd75862a5e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/shiftcontroller/"
     google-query: inurl:"/wp-content/plugins/shiftcontroller/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,shiftcontroller,high
+  tags: cve,wordpress,wp-plugin,shiftcontroller,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.9.23')
+          - compare_versions(version, '<= 4.9.57')

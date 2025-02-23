@@ -10,14 +10,14 @@ info:
     max-request: 2
     verified: true
     shodan-query: 'port:3310 product:"ClamAV"'
-  tags: network,clamav
+  tags: network,clamav,detect
 
 tcp:
   - inputs:
       - data: "VERSION"
     host:
       - "{{Hostname}}"
-      - "{{Host}}:3310"
+    port: 3310
 
     matchers:
       - type: regex

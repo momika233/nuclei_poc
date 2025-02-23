@@ -2,13 +2,14 @@ id: makestories-helper
 
 info:
   name: >
-    MakeStories (for Google Web Stories) <= 3.0.2 - Cross-Site Request Forgery via 'ms_set_options'
+    MakeStories (for Google Web Stories) <= 3.0.3 - Authenticated (Subscriber+) Arbitrary File Download and Server-Side Request Forgery
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d9f7130d-883a-4db4-9edf-f5526724de11?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/547d30cd-3b30-44ce-93b5-07ce7a56d0ab?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/makestories-helper/"
     google-query: inurl:"/wp-content/plugins/makestories-helper/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,makestories-helper,medium
+  tags: cve,wordpress,wp-plugin,makestories-helper,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.2')
+          - compare_versions(version, '<= 3.0.3')

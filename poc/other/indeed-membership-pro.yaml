@@ -1,18 +1,16 @@
 id: indeed-membership-pro
 
 info:
-  name: >
-    Indeed Membership Pro 7.3 - 8.6 - Authentication Bypass
+  name: "Indeed Membership Pro <= 7.5 - Remote Image File Inclusion"
   author: topscoder
   severity: critical
-  description: >
-    The Ultimate Membership Pro plugin for WordPress is vulnerable to Authentication Bypass in versions between, and including, 7.3 to 8.6. This makes it possible for unauthenticated attackers to login as any user, including the site administrator with a default user ID of 1, via the username or user ID.
+  description: "The Indeed Membership Pro plugin for WordPress is vulnerable to Remote File Inclusion in versions up to, and including, 7.5 via the imgUrl feature. This allows unauthorized attackers to include remote files on the server, resulting in code execution."
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a5341bbd-55bd-41ad-b5d1-d6b56c141277?source=api-prod
+
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-    cvss-score: 9.8
-    cve-id: 
+    cvss-metrics:
+    cvss-score:
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/indeed-membership-pro/"
     google-query: inurl:"/wp-content/plugins/indeed-membership-pro/"
@@ -55,4 +53,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 7.3', '< 8.6.1')
+          - compare_versions(version, '<=  7.5')

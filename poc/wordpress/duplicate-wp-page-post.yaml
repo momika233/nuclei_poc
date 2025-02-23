@@ -2,13 +2,14 @@ id: duplicate-wp-page-post
 
 info:
   name: >
-    Duplicate Page and Post <= 2.7 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Duplicate Page Plugins <= (Various Versions) - SQL Injection
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8ac3187-b065-434e-9051-d13330dd3da5?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/76044985-477c-4d62-aec3-1905add0a9e2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/duplicate-wp-page-post/"
     google-query: inurl:"/wp-content/plugins/duplicate-wp-page-post/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,duplicate-wp-page-post,low
+  tags: cve,wordpress,wp-plugin,duplicate-wp-page-post,critical
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.7')
+          - compare_versions(version, '< 2.5.7')

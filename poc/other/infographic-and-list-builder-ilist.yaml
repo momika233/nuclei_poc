@@ -2,13 +2,14 @@ id: infographic-and-list-builder-ilist
 
 info:
   name: >
-    Infographic Maker – iList <= 4.3.7 - SQL Injection
+    AI Infographic Maker <= 4.9.0 - Unauthenticated Arbitrary Shortcode Execution
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ad4878fb-dd0f-473b-9887-d993a89fedd2?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0aa21fad-4dd0-4ccd-a325-de3532a6ffaf?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/infographic-and-list-builder-ilist/"
     google-query: inurl:"/wp-content/plugins/infographic-and-list-builder-ilist/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,infographic-and-list-builder-ilist,critical
+  tags: cve,wordpress,wp-plugin,infographic-and-list-builder-ilist,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.3.7')
+          - compare_versions(version, '<= 4.9.0')

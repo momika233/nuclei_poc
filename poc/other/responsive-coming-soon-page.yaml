@@ -2,13 +2,14 @@ id: responsive-coming-soon-page
 
 info:
   name: >
-    Coming Soon < 1.1.19 - Stored Cross-Site Scripting
+    Coming Soon Page – Responsive Coming Soon & Maintenance Mode <= 1.1.18 - Cross-Site Request Forgery
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6f947843-7a6f-48b0-b3cd-2f3dd1708898?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/910c3d74-63ed-476d-b014-659d7780260f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/responsive-coming-soon-page/"
     google-query: inurl:"/wp-content/plugins/responsive-coming-soon-page/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,responsive-coming-soon-page,high
+  tags: cve,wordpress,wp-plugin,responsive-coming-soon-page,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.1.19')
+          - compare_versions(version, '<= 1.1.18')

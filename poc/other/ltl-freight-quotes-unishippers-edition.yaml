@@ -1,15 +1,15 @@
-id: ltl-freight-quotes-unishippers-edition-88915db8ff235246114ac51599bee168
+id: ltl-freight-quotes-unishippers-edition
 
 info:
   name: >
-    LTL Freight Quotes – Unishippers Edition <= 2.5.8 - Unauthenticated SQL Injection
+    LTL Freight Quotes – Unishippers Edition <= 2.5.8 - Missing Authorization
   author: topscoder
-  severity: critical
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7df452c9-4e73-40d7-88a3-d38ae1309d8f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e6fbc2a8-6bb7-45d5-8d60-08d28ea85ec8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/ltl-freight-quotes-unishippers-edition/"
     google-query: inurl:"/wp-content/plugins/ltl-freight-quotes-unishippers-edition/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ltl-freight-quotes-unishippers-edition,critical
+  tags: cve,wordpress,wp-plugin,ltl-freight-quotes-unishippers-edition,high
 
 http:
   - method: GET

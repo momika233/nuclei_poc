@@ -2,13 +2,14 @@ id: full-customer
 
 info:
   name: >
-    FULL - Customer <= 2.2.3 - Authenticated(Subscriber+) Improper Authorization to Arbitrary Plugin Installation
+    FULL Customer <= 3.1.25 - Authenticated (Contributor+) Local File Inclusion
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9799df3f-e34e-42a7-8a72-fa57682f7014?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd393566-b037-40ce-b3cd-12e323e9451b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.2.3')
+          - compare_versions(version, '<= 3.1.25')

@@ -1,49 +1,59 @@
-id: wordpress-loco-translate
+id: loco-translate
 
 info:
-  name: Loco Translate Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Loco Translate <= 2.5.3 - Authenticated PHP Code Injection
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/loco-translate/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/457865ca-cbf8-42ee-928d-2c894d9d62de?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: loco-translate
-    wpscan: https://wpscan.com/plugin/loco-translate
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/loco-translate/"
+    google-query: inurl:"/wp-content/plugins/loco-translate/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,loco-translate,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/loco-translate/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/loco-translate.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "loco-translate"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a00463044022047dfbd6dfcfdc267a59d49a57ddefeec6020c0c474bb2e0d21a9423d9fbf11aa0220144677a5eef1a674c5c625e899387c0998e15d41535656aa160b5b7f5fd79dbf:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '< 2.5.4')

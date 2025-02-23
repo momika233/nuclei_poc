@@ -2,13 +2,14 @@ id: quick-contact-form
 
 info:
   name: >
-    Quick Contact Form <= 8.0.3.1 - Authenticated (Admin+) Stored Cross Site Scripting
+    Quick Contact Form <= 8.0.3.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8b5e86be-8a35-48d8-a676-9f7074b81cb7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/90654fac-b9c7-422f-8472-2a7c7fd0de0d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

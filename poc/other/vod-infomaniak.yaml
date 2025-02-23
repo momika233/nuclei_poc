@@ -2,13 +2,14 @@ id: vod-infomaniak
 
 info:
   name: >
-    VOD Infomaniak <= 1.5.6 - Reflected Cross-Site Scripting
+    VOD Infomaniak <= 1.5.9 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dd805cb5-45ce-4213-b313-d9e300527265?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1a47b096-43c8-4fc4-9fe1-0afa311a420c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/vod-infomaniak/"
     google-query: inurl:"/wp-content/plugins/vod-infomaniak/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,vod-infomaniak,medium
+  tags: cve,wordpress,wp-plugin,vod-infomaniak,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.6')
+          - compare_versions(version, '<= 1.5.9')

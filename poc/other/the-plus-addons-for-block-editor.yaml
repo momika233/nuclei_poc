@@ -2,13 +2,14 @@ id: the-plus-addons-for-block-editor
 
 info:
   name: >
-    The Plus Blocks for Block Editor | Gutenberg <= 3.2.5 - Missing Authorization
+    Nexter Blocks <= 4.0.4 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7d6c19e2-b280-4937-8f66-eac1da3cd365?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/adf10688-834c-4922-89a3-0048dde5f210?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/the-plus-addons-for-block-editor/"
     google-query: inurl:"/wp-content/plugins/the-plus-addons-for-block-editor/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,the-plus-addons-for-block-editor,high
+  tags: cve,wordpress,wp-plugin,the-plus-addons-for-block-editor,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.5')
+          - compare_versions(version, '<= 4.0.4')

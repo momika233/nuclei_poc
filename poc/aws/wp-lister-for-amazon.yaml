@@ -2,13 +2,14 @@ id: wp-lister-for-amazon
 
 info:
   name: >
-    WP-Lister Lite for Amazon <= 2.4.2 - Reflected Cross-Site Scripting
+    WP-Lister Lite for Amazon <= 2.6.8 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/08746755-9abe-4120-8ffb-90f2f9f1b7cf?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0814c64e-f786-4cc3-85ee-c8cfbebf7e2c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.2')
+          - compare_versions(version, '<= 2.6.8')

@@ -2,13 +2,14 @@ id: futurio-extra
 
 info:
   name: >
-    Futurio Extra <= 1.6.2 - Sensitive Information Disclosure
+    Futurio Extra <= 1.6.2 - Authenticated (Admin+) SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/460b5388-4862-475d-9557-f8da2d5a84f7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8f5a3ed2-1db2-47e4-9aca-8fb197174342?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,18 +1,19 @@
 id: pwa-for-wp
 
 info:
-  name: "PWA for WP & AMP <= 1.7.32 - Arbitrary File Upload"
+  name: >
+    PWA for WP & AMP Plugin <= 1.0.8 - Cross-Site Scripting
   author: topscoder
   severity: high
-  description: "The PWA for WP & AMP for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the pwaforwp_splashscreen_uploader function in versions up to, and including, 1.7.32. This makes it possible for authenticated attackers to upload arbitrary files on the affected sites server which may make remote code execution possible."
+  description: >
+    The PWA for WP & AMP plugin for WordPress is vulnerable to Cross-Site Scripting via several parameters in versions up to, and including, 1.0.8 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts in pages.
   reference:
-    - https://blog.nintechnet.com/wordpress-pwa-for-wp-and-amp-plugin-fixed-vulnerabilities/
-    - https://wpscan.com/vulnerability/db9d5a08-a16a-4767-8d85-1b3e02dbbfbd
-    - https://patchstack.com/database/vulnerability/pwa-for-wp/wordpress-pwa-for-wp-amp-plugin-1-7-32-authenticated-arbitrary-file-upload-vulnerability
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/934545ff-8886-47c7-ad50-0e5ff513a26c?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
-    cvss-score: 8.8
-    cve-id:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 7.2
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/pwa-for-wp/"
     google-query: inurl:"/wp-content/plugins/pwa-for-wp/"
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7.32')
+          - compare_versions(version, '< 1.0.9')

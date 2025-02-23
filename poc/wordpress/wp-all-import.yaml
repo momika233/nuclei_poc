@@ -2,13 +2,14 @@ id: wp-all-import
 
 info:
   name: >
-    Import any XML or CSV File to WordPress <= 3.2.4 - SQL Injection
+    Import any XML or CSV File to WordPress <= 3.6.2 - Authenticated Stored Cross-Site Scripting
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/52d390e0-95ca-4570-8d4c-f679ee86ffea?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cbd4f08c-9989-4af9-b615-1db82909a1db?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-all-import/"
     google-query: inurl:"/wp-content/plugins/wp-all-import/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-all-import,critical
+  tags: cve,wordpress,wp-plugin,wp-all-import,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.4')
+          - compare_versions(version, '< 3.6.3')

@@ -2,13 +2,14 @@ id: wp-front-end-profile
 
 info:
   name: >
-    WP Front End Profile <= 0.2.1 - Stored Cross-Site Scripting
+    WP Front End Profile <= 0.2.1 - Privilege Escalation
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/46825646-f611-4e9d-bee8-36656a1d54ff?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8aefc77-b5fb-45b0-b3ba-67d850c72e77?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-front-end-profile/"
     google-query: inurl:"/wp-content/plugins/wp-front-end-profile/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-front-end-profile,high
+  tags: cve,wordpress,wp-plugin,wp-front-end-profile,low
 
 http:
   - method: GET

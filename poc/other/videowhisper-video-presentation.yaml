@@ -2,13 +2,14 @@ id: videowhisper-video-presentation
 
 info:
   name: >
-    VideoWhisper Video Presentation <= 3.25 - Reflected Cross-Site Scripting
+    VideoWhisper Video Presentation <= 4.1.4 - Arbitrary File Upload
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0f57458b-0cd2-4958-8190-c89076771e86?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cc26d20e-3ecd-438e-a123-5015ecc17290?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/videowhisper-video-presentation/"
     google-query: inurl:"/wp-content/plugins/videowhisper-video-presentation/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,videowhisper-video-presentation,medium
+  tags: cve,wordpress,wp-plugin,videowhisper-video-presentation,critical
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.25')
+          - compare_versions(version, '<= 4.1.4')

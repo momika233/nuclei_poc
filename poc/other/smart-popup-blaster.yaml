@@ -1,4 +1,4 @@
-id: smart-popup-blaster-30df007059118a37ebbef148c110f5c7
+id: smart-popup-blaster
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e10f391a-6663-4222-8266-ab911c588b76?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/afd7fe73-1f24-4e47-a0c4-5a08662c4dbe?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

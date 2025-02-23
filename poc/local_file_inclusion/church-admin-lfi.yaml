@@ -8,7 +8,7 @@ info:
   reference:
     - https://wpscan.com/vulnerability/8997
     - https://id.wordpress.org/plugins/church-admin/
- 
+  tags: wordpress,wp-plugin,lfi
 
 requests:
   - method: GET

@@ -2,13 +2,14 @@ id: wp-blog-and-widgets
 
 info:
   name: >
-    Multiple WPOnlineSupport Plugins <= (Various Versions) - Missing Authorization to Notice Dismissal
+    WP Blog and Widget <= 2.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2931fda2-edc8-44ea-9fff-ae9d94aa01bf?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/434a724e-0bc6-4218-8ad4-c52e1880a75f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-blog-and-widgets/"
     google-query: inurl:"/wp-content/plugins/wp-blog-and-widgets/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-blog-and-widgets,high
+  tags: cve,wordpress,wp-plugin,wp-blog-and-widgets,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.5')
+          - compare_versions(version, '<= 2.3')

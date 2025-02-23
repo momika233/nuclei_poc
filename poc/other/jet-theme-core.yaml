@@ -2,13 +2,14 @@ id: jet-theme-core
 
 info:
   name: >
-    Multiple Plugins by Crocoblock <= (Various Versions) - Missing Authorization to Unauthenticated Unauthorized Action
+    JetThemeCore for Elementor <= 2.2.0 - Authenticated (Subscriber+) Arbitrary File Deletion
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7addc83b-cde5-4f91-b286-70db6f384a9f?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c2da5ba0-530d-44a6-8a98-808276e0a9c6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/jet-theme-core/"
     google-query: inurl:"/wp-content/plugins/jet-theme-core/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,jet-theme-core,high
+  tags: cve,wordpress,wp-plugin,jet-theme-core,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.2.1')
+          - compare_versions(version, '<= 2.2.0')

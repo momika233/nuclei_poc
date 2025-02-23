@@ -2,13 +2,14 @@ id: my-content-management
 
 info:
   name: >
-    My Content Management <= 1.7.1 - Cross-Site Scripting
+    My Content Management <= 1.7.6 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dcd986cd-d6c0-4d8f-8078-ac0ac83572a3?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9fc18fee-5813-4134-8c4d-44710665857a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/my-content-management/"
     google-query: inurl:"/wp-content/plugins/my-content-management/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,my-content-management,high
+  tags: cve,wordpress,wp-plugin,my-content-management,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '1.7.1')
+          - compare_versions(version, '< 1.7.7')

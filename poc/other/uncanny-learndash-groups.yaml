@@ -2,14 +2,14 @@ id: uncanny-learndash-groups
 
 info:
   name: >
-    Uncanny Groups for LearnDash <= 6.1.0.1 - Missing Authorization to Authenticated (Group Leader+) User Group Add
+    Uncanny Groups for LearnDash <= 6.1.0.1 - Authenticated (Group Leader+) Privilege Escalation
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a38a58de-5f7d-4033-9a65-41b590b7d510?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/64cf0ae2-8d66-40d1-8bb6-0cab1dafab0d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

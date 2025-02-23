@@ -2,16 +2,17 @@ id: ultimate-member
 
 info:
   name: >
-    Ultimate Member <= 2.0.53 - Cross-Site Scripting
+    Ultimate Member <= 2.0.21 - Arbitrary File Upload
   author: topscoder
   severity: high
   description: >
-    
+    The Arbitrary File Upload plugin for WordPress is vulnerable to arbitrary file uploads in versions up to, and including, 2.0.21. This makes it possible for attackers to upload arbitrary files on the affected sites server which may make remote code execution possible.
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6eedf009-116c-4a98-8b84-e01bd35e7e60?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5143a2d2-504a-46b8-b82b-19beba4da64d?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+    cvss-score: 8.8
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/ultimate-member/"
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.53')
+          - compare_versions(version, '< 2.0.22')

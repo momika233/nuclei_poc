@@ -1,15 +1,15 @@
-id: radius-blocks-987991b88ebc1d68189b91d3b0071e99
+id: radius-blocks
 
 info:
   name: >
-    Radius Blocks – WordPress Gutenberg Blocks <= 2.1.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Radius Blocks <= 2.1.2 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7b168e3e-9d22-4318-9b71-c217733a8d28?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/da680b46-620c-4d35-a327-c7ebe08e49c4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/radius-blocks/"
     google-query: inurl:"/wp-content/plugins/radius-blocks/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,radius-blocks,low
+  tags: cve,wordpress,wp-plugin,radius-blocks,medium
 
 http:
   - method: GET

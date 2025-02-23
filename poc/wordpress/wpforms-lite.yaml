@@ -1,49 +1,59 @@
-id: wordpress-wpforms-lite
+id: wpforms-lite
 
 info:
-  name: WPForms – Easy Form Builder for WordPress – Contact Forms, Payment Forms, Surveys, & More Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Contact Form by WPForms <= 1.9.2.2 - Missing Authorization
+  author: topscoder
+  severity: high
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/wpforms-lite/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/95de9099-6071-46d8-a7c9-bb2c1caa6b38?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: wpforms-lite
-    wpscan: https://wpscan.com/plugin/wpforms-lite
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/wpforms-lite/"
+    google-query: inurl:"/wp-content/plugins/wpforms-lite/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,wpforms-lite,high
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/wpforms-lite/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/wpforms-lite.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "wpforms-lite"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a00463044022065375362cefdd6ac0fea20d99b08503e1476cb521fa6844d4546faa35fec5a9602203b53ab6ff1b478b221c8cacfc1c00225f75827fade721b0af348e74f23cb029c:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 1.9.2.2')

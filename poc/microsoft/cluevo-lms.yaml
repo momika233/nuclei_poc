@@ -2,13 +2,14 @@ id: cluevo-lms
 
 info:
   name: >
-    CLUEVO LMS, E-Learning Platform <= 1.10.0 - Cross-Site Request Forgery
+    CLUEVO E-Learning Platform <= 1.8.0 - Authenticated Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/414165a3-78f8-4254-ac24-2de177cad3dd?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c1a0d446-63b6-4265-a542-345d766faf15?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/cluevo-lms/"
     google-query: inurl:"/wp-content/plugins/cluevo-lms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,cluevo-lms,medium
+  tags: cve,wordpress,wp-plugin,cluevo-lms,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.10.0')
+          - compare_versions(version, '< 1.8.1')

@@ -2,13 +2,14 @@ id: fancy-product-designer
 
 info:
   name: >
-    Fancy Product Designer <= 4.5.0 - Stored Cross-Site Scripting
+    Fancy Product Designer <= 4.7.5 - Cross-Site Request Forgery to Arbitrary File Upload
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a80c306e-323b-4ab4-955b-4e264625731c?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/232a274f-c194-4c5b-a1a8-899a822e47fc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/fancy-product-designer/"
     google-query: inurl:"/wp-content/plugins/fancy-product-designer/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,fancy-product-designer,high
+  tags: cve,wordpress,wp-plugin,fancy-product-designer,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.5.0')
+          - compare_versions(version, '<= 4.7.5')

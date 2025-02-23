@@ -2,13 +2,14 @@ id: realty-workstation
 
 info:
   name: >
-    Realty Workstation <= 1.0.9 - Authenticated SQL Injection
+    Realty Workstation <= 1.0.45 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c5b2e22c-3811-4bf8-a8da-2ca9c38333dc?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/14dcc17f-8252-44d0-ba31-f12f7f53593a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/realty-workstation/"
     google-query: inurl:"/wp-content/plugins/realty-workstation/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,realty-workstation,low
+  tags: cve,wordpress,wp-plugin,realty-workstation,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.9')
+          - compare_versions(version, '<= 1.0.45')

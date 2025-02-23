@@ -2,16 +2,17 @@ id: gamipress-button
 
 info:
   name: >
-    GamiPress – Button <= 1.0.4 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+    GamiPress – Button <= 1.0.7 - Authenticated(Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
   severity: low
   description: >
-    The GamiPress – Button plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's shortcodes in versions up to, and including, 1.0.4 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers with contributor level and above permissions to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page
+    
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/eedced7b-bda4-4292-8e87-fc3e37e4868b?source=api-prod
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/af39e563-5d88-460d-b02d-1aaa111c89dd?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N
-    cvss-score: 6.4
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/gamipress-button/"
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.4')
+          - compare_versions(version, '<= 1.0.7')

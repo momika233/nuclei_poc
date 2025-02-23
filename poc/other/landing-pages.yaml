@@ -1,22 +1,24 @@
 id: landing-pages
 
 info:
-  name: "WordPress Landing Pages <= 2.2.4 - Cross-Site Scripting"
+  name: >
+    WordPress Landing Pages <= 1.8.4 - Authenticated SQL Injection
   author: topscoder
-  severity: medium
-  description: "The WordPress Landing Pages plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘open-tab' parameter in versions up to, and including, 2.2.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link."
+  severity: low
+  description: >
+    
   reference:
-    - https://seclists.org/fulldisclosure/2016/Aug/17
-    - https://sumofpwn.nl/advisory/2016/cross_site_scripting_in_wordpress_landing_pages_plugin.html
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/68f460dc-bb7f-4477-821b-925c7c2c2de5?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 5.4
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/landing-pages/"
     google-query: inurl:"/wp-content/plugins/landing-pages/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,landing-pages,medium
+  tags: cve,wordpress,wp-plugin,landing-pages,low
 
 http:
   - method: GET
@@ -54,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 2.2.5')
+          - compare_versions(version, '< 1.8.5')

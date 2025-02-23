@@ -4,10 +4,11 @@ info:
   name: >
     Build App Online <= 1.0.18 - Unauthenticated SQL Injection
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
+    - https://github.com/topscoder/nuclei-wordfence-cve
     - https://www.wordfence.com/threat-intel/vulnerabilities/id/f15f85c6-0bba-4bbd-b097-d205b9e0a075?source=api-scan
   classification:
     cvss-metrics: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/build-app-online/"
     google-query: inurl:"/wp-content/plugins/build-app-online/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,build-app-online,low
+  tags: cve,wordpress,wp-plugin,build-app-online,critical
 
 http:
   - method: GET

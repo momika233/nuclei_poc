@@ -2,14 +2,14 @@ id: woo-product-design
 
 info:
   name: >
-    Woocommerce Product Design <= 1.0.0 - Unauthenticated Arbitrary File Upload
+    Woocommerce Product Design <= 1.0.0 - Unauthenticated Arbitrary File Deletion
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/462125cd-c91a-44b1-9004-4a62f2aed52c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e987c38-b3a0-470e-9688-c8d79c853501?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/woo-product-design/"
     google-query: inurl:"/wp-content/plugins/woo-product-design/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-product-design,critical
+  tags: cve,wordpress,wp-plugin,woo-product-design,low
 
 http:
   - method: GET

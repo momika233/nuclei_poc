@@ -2,13 +2,14 @@ id: newsletter-optin-box
 
 info:
   name: >
-    Simple Newsletter Plugin – Noptin <= 1.10.3 - Unauthenticated CSV Injection
+    Noptin <= 3.4.2 - Missing Authorization to Unauthenticated Form Submission
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6a1de2d6-d4a0-4770-be38-9bd09b2243b7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a902e759-c55a-4c24-a0db-d1a49f3dee5a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/newsletter-optin-box/"
     google-query: inurl:"/wp-content/plugins/newsletter-optin-box/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,newsletter-optin-box,low
+  tags: cve,wordpress,wp-plugin,newsletter-optin-box,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.10.3')
+          - compare_versions(version, '<= 3.4.2')

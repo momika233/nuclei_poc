@@ -2,13 +2,14 @@ id: wpbits-addons-for-elementor
 
 info:
   name: >
-    WPBITS Addons For Elementor Page Builder <= 1.3.4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    WPBITS Addons For Elementor Page Builder <= 1.5.2 - Authenticated (Author+) Stored Cross-Site Scripting via SVG File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05cd8f96-533a-4036-a01f-6ba1ad2d2b5e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f735f05d-8178-46bd-894d-49ccfb31d304?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.3.4.2')
+          - compare_versions(version, '<= 1.5.2')

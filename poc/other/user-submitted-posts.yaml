@@ -2,13 +2,14 @@ id: user-submitted-posts
 
 info:
   name: >
-    User Submitted Posts – Enable Users to Submit Posts from the Front End <= 20230811 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+    User Submitted Posts <= 20190312 - Unauthenticated Arbitrary File Upload
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d21ca709-183f-4dd1-849c-f1b2a4f7ec43?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5a97877b-fb4d-4e87-bcff-56be65fee6ce?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/user-submitted-posts/"
     google-query: inurl:"/wp-content/plugins/user-submitted-posts/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,user-submitted-posts,low
+  tags: cve,wordpress,wp-plugin,user-submitted-posts,critical
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 20230811')
+          - compare_versions(version, '< 20190426')

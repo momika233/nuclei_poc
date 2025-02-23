@@ -2,13 +2,14 @@ id: gdpr-cookie-consent
 
 info:
   name: >
-    WP Cookie Consent ( for GDPR, CCPA & ePrivacy ) <= 3.0.2 - Missing Authorization to Unauthenticated Arbitrary Post Deletion
+    Cookie Consent for WP – Cookie Consent, Consent Log, Cookie Scanner, Script Blocker (for GDPR, CCPA & ePrivacy) <= 3.6.5 - Missing Authorization to Authenticated (Subscriber+) Whitelist Script
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4b9abbf1-d9f5-4406-9d0c-bc2f9891d0e8?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e9a1de53-330f-49ab-a8f8-22753c62bd36?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/gdpr-cookie-consent/"
     google-query: inurl:"/wp-content/plugins/gdpr-cookie-consent/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gdpr-cookie-consent,high
+  tags: cve,wordpress,wp-plugin,gdpr-cookie-consent,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.2')
+          - compare_versions(version, '<= 3.6.5')

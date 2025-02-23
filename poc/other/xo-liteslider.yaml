@@ -2,13 +2,14 @@ id: xo-liteslider
 
 info:
   name: >
-    XO Slider <= 3.3.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    XO Slider <= 3.8.6 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/85150a6f-b2f3-4b95-9c9b-78f50cb8468f?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/be51c54d-b0f7-42b2-b9b3-1b5832e10a6b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.3.2')
+          - compare_versions(version, '<= 3.8.6')

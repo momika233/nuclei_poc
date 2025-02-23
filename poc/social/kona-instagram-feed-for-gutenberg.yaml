@@ -1,4 +1,4 @@
-id: kona-instagram-feed-for-gutenberg-95245a82783c7909a4af6688eb1ade34
+id: kona-instagram-feed-for-gutenberg
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e90045df-deb5-41ab-a285-c6b1573ae0f6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c38ee04a-52db-478b-8e4d-790e7beadd28?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -2,13 +2,14 @@ id: feeds-for-youtube
 
 info:
   name: >
-    Smash Balloon Plugins (Various Versions) - Reflected Cross-Site Scripting
+    Feeds for YouTube <= 2.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0efff314-b14f-4af4-b225-ba7e41d01b2e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/376e2638-a873-4142-ad7d-067ae3333709?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/feeds-for-youtube/"
     google-query: inurl:"/wp-content/plugins/feeds-for-youtube/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,feeds-for-youtube,medium
+  tags: cve,wordpress,wp-plugin,feeds-for-youtube,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.1')
+          - compare_versions(version, '<= 2.1')

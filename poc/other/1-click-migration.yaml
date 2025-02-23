@@ -2,14 +2,14 @@ id: 1-click-migration
 
 info:
   name: >
-    1 Click WordPress Migration Plugin – 100% FREE for a limited time <= 2.1 - Unauthenticated Sensitive Information Exposure via Database Backup in class-ocm-backup.php
+    1 Click WordPress Migration Plugin – 100% FREE for a limited time <= 2.1 - Cross-Site Request Forgery to Backup Process Cancellation
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d33199ea-7c96-4c60-a7b8-5c7e9835e231?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/aee963fa-26b5-4bf0-b52f-095c67fb4834?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/1-click-migration/"
     google-query: inurl:"/wp-content/plugins/1-click-migration/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,1-click-migration,low
+  tags: cve,wordpress,wp-plugin,1-click-migration,medium
 
 http:
   - method: GET

@@ -2,13 +2,14 @@ id: mj-update-history
 
 info:
   name: >
-    MJ Update History <= 1.0.4 - Reflected Cross-Site Scripting
+    MJ Update History <= 1.0.4 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e0976e3c-dcc2-41aa-a734-84afa50310ed?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fc083b52-06f0-4a18-a581-310ec623184a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/mj-update-history/"
     google-query: inurl:"/wp-content/plugins/mj-update-history/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,mj-update-history,medium
+  tags: cve,wordpress,wp-plugin,mj-update-history,high
 
 http:
   - method: GET

@@ -2,13 +2,14 @@ id: photocrati-theme
 
 info:
   name: >
-    Photocrati (Unknown Versions) - Multiple Vulnerabilities
+    Photocrati <= 4.8.0 - Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/99746867-597b-49df-aa9e-548456a58542?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c5ab685c-1e58-43f3-a984-52afcfaa5aca?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/themes/photocrati-theme/"
     google-query: inurl:"/wp-content/themes/photocrati-theme/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-theme,photocrati-theme,low
+  tags: cve,wordpress,wp-theme,photocrati-theme,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= *')
+          - compare_versions(version, '<= 4.8.0')

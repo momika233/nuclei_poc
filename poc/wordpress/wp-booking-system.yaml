@@ -2,13 +2,14 @@ id: wp-booking-system
 
 info:
   name: >
-    WP Booking System Free version < 1.5.2 - Cross-Site Request Forgery
+    WP Booking System – Booking Calendar <= 2.0.14 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/843822f0-dd4c-4ae6-823d-96dd7a59df8e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f294575d-ce83-4301-ae38-3f0761d9b610?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.5.2')
+          - compare_versions(version, '< 2.0.15')

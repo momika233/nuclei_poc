@@ -2,13 +2,14 @@ id: user-private-files
 
 info:
   name: >
-    Frontend File Manager & Sharing – User Private Files <= 1.1.2 - Subscriber+ Arbitrary File Upload
+    User Private Files < 2.0.5 - Insecure Direct Object Reference
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/67ca3305-9a04-421f-a38e-66b69d2bbd38?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e53e75be-d4d6-4c10-b192-fe9691f27dd8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/user-private-files/"
     google-query: inurl:"/wp-content/plugins/user-private-files/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,user-private-files,critical
+  tags: cve,wordpress,wp-plugin,user-private-files,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.2')
+          - compare_versions(version, '< 2.0.5')

@@ -1,49 +1,59 @@
-id: wordpress-shortpixel-image-optimiser
+id: shortpixel-image-optimiser
 
 info:
-  name: ShortPixel Image Optimizer – Optimize Images, Convert WebP & AVIF Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    ShortPixel Image Optimizer <= 5.6.3 - Authenticated (Editor+) SQL Injection
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/shortpixel-image-optimiser/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3607420e-3f02-425d-a708-f785ce66f2db?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: shortpixel-image-optimiser
-    wpscan: https://wpscan.com/plugin/shortpixel-image-optimiser
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/shortpixel-image-optimiser/"
+    google-query: inurl:"/wp-content/plugins/shortpixel-image-optimiser/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,shortpixel-image-optimiser,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/shortpixel-image-optimiser/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/shortpixel-image-optimiser.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "shortpixel-image-optimiser"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4b0a00483046022100e742202f7c554de923206cdcf67ad91bfcb60ef04bb26faf08b65f60fb79551f022100ab573cb7951a6751b8b9717e71d209bf1b6096eb0ae97a4ff9cf57d99c059244:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 5.6.3')

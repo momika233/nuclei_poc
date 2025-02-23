@@ -1,49 +1,59 @@
-id: wordpress-gdpr-cookie-compliance
+id: gdpr-cookie-compliance
 
 info:
-  name: GDPR Cookie Compliance – Cookie Banner, Cookie Consent, Cookie Notice – CCPA, DSGVO, RGPD Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    GDPR Cookie Compliance <= 4.0.2 - Missing Authorization
+  author: topscoder
+  severity: high
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/gdpr-cookie-compliance/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9116d719-f536-4b8a-9e73-9a8a922f8a35?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: gdpr-cookie-compliance
-    wpscan: https://wpscan.com/plugin/gdpr-cookie-compliance
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/gdpr-cookie-compliance/"
+    google-query: inurl:"/wp-content/plugins/gdpr-cookie-compliance/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,gdpr-cookie-compliance,high
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/gdpr-cookie-compliance/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/gdpr-cookie-compliance.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "gdpr-cookie-compliance"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a004630440220034a41e1b853a905c11bfc544cf5452d28e514e6e97f8d9dc1017a2aeb40a4690220445f9196aea19fea64506bfad69720365fddd0e5db297f688a702e353a43f3b9:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 4.0.2')

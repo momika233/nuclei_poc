@@ -2,13 +2,14 @@ id: asgaros-forum
 
 info:
   name: >
-    Asgaros Forum <= 2.7.0 - Insufficient Authorization to Authenticated (Admin+) Arbitrary File Upload
+    Asgaros Forums <= 1.15.13 - Authenticated Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/63b472fb-c853-4e56-b34c-3cf986c4cf80?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3d39ae72-7d45-4ca9-9de1-8532ec5e043d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 2.7.1')
+          - compare_versions(version, '<= 1.15.13')

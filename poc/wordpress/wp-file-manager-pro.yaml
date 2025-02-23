@@ -2,13 +2,14 @@ id: wp-file-manager-pro
 
 info:
   name: >
-    File Manager And File Manager Pro (Multiple Versions) - Directory Traversal
+    File Manager Pro <= 8.3.4 - Authenticated (Subscriber+) Arbitrary File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/93f377a1-2c33-4dd7-8fd6-190d9148e804?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1e8e0257-a745-495f-a103-c032b95209fc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -2,13 +2,14 @@ id: ti-woocommerce-wishlist
 
 info:
   name: >
-    TI WooCommerce Wishlist <= 2.7.3 - Unauthenticated Blind SQL Injection via Rest API
+    TI WooCommerce Wishlist <= 2.9.0 - Unauthenticated SQL Injection via 'lang'
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/82420667-9ba6-46ed-9a53-d16850755bb9?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4985680e-f7ba-40c7-bca9-f347f1c1cb3b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 2.7.4')
+          - compare_versions(version, '<= 2.9.0')

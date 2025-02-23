@@ -2,13 +2,14 @@ id: terraclassifieds
 
 info:
   name: >
-    TerraClassifieds <= 2.0.3 Unauthenticated Arbitrary File Upload
+    TerraClassifieds <= 2.0.3 - Cross-Site Request Forgery
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b0399b60-6e40-4f35-985f-845a32f69d64?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4a6e5f89-ebc0-413a-a76e-3cf4339430ba?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/terraclassifieds/"
     google-query: inurl:"/wp-content/plugins/terraclassifieds/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,terraclassifieds,critical
+  tags: cve,wordpress,wp-plugin,terraclassifieds,medium
 
 http:
   - method: GET

@@ -2,13 +2,14 @@ id: svs-pricing-tables
 
 info:
   name: >
-    SVS Pricing Tables <= 1.0.4 - Cross-Site Request Forgery to Pricing Table Edit/Creation
+    SVS Pricing Tables <= 1.0.4 - Cross-Site Request Forgery to Pricing Table Deletion
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/78af081a-807b-48c8-82cd-f87fbef0fbe6?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e7a24213-5191-4b6d-a2d1-7b79729e6517?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

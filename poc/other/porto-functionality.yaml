@@ -2,13 +2,14 @@ id: porto-functionality
 
 info:
   name: >
-    Porto Theme - Functionality <= 3.0.9 - Authenticated (Contributor+) Local File Inclusion via Post Meta
+    Porto Theme - Functionality <= 2.11.1 - Unauthenticated SQL Injection
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f5cdd3c1-6353-4bee-a4f9-5b7972f0970c?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fabc7ad3-1d20-493f-aacb-1832d33d8e14?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/porto-functionality/"
     google-query: inurl:"/wp-content/plugins/porto-functionality/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,porto-functionality,low
+  tags: cve,wordpress,wp-plugin,porto-functionality,critical
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.9')
+          - compare_versions(version, '<= 2.11.1')

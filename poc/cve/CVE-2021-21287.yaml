@@ -26,8 +26,8 @@ requests:
         User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2656.18 Safari/537.36
         Content-Length: 76
 
+        
         {"id":1,"jsonrpc":"2.0","params":{"token":  "Test"},"method":"web.LoginSTS"}
-
     matchers-condition: and
     matchers:
       - type: word
@@ -38,5 +38,3 @@ requests:
       - type: word
         words:
           - "We encountered an internal error"
-
-# Enhanced by mp on 2022/06/27

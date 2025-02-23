@@ -2,13 +2,14 @@ id: gd-security-headers
 
 info:
   name: >
-    GD Security Headers <= 1.6.1 - Reflected Cross-Site Scripting
+    GD Security Headers <= 1.7 - Authenticated (Admin+) SQL Injection
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7ce32ecf-6995-4794-8559-2f84533ecf50?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b556bb3b-0fea-48a9-a893-3ad015559f3d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/gd-security-headers/"
     google-query: inurl:"/wp-content/plugins/gd-security-headers/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gd-security-headers,medium
+  tags: cve,wordpress,wp-plugin,gd-security-headers,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.1')
+          - compare_versions(version, '<= 1.7')

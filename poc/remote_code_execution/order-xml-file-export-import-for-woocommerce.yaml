@@ -2,13 +2,14 @@ id: order-xml-file-export-import-for-woocommerce
 
 info:
   name: >
-    WebToffee Plugins <= (Various Versions) - Arbitrary User Creation
+    Order XML File Export Import for WooCommerce < 1.2.3 - Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/27ac48a7-52ee-46cb-a6d0-efbd2b516445?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3f594989-8db3-41c8-9089-b4e2d995270e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/order-xml-file-export-import-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/order-xml-file-export-import-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,order-xml-file-export-import-for-woocommerce,low
+  tags: cve,wordpress,wp-plugin,order-xml-file-export-import-for-woocommerce,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.3.1')
+          - compare_versions(version, '< 1.2.3')

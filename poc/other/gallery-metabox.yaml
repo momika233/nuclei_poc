@@ -2,13 +2,14 @@ id: gallery-metabox
 
 info:
   name: >
-    Gallery Metabox <= 1.5 - Missing Authorization via gallery_remove
+    Gallery Metabox <= 1.5 - Missing Authorization via refresh_metabox
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/faad339f-96d6-4937-a1f3-9d2d19bc6395?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/951e4651-56d6-474d-84b3-5a7cfc357b9f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -2,13 +2,14 @@ id: amazonsimpleadmin
 
 info:
   name: >
-    Affiliate Super Assistent <= 1.5.1 - Cross-Site Request Forgery to Settings Update and Cache Clearing
+    Affiliate Super Assistent <= 1.5.3 - Unauthenticated Arbitrary Shortcode Execution
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/54dbd2f4-717c-4e01-afe4-c8cceca52650?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7f50769c-77b8-42ff-b67d-b9b289fc51da?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/amazonsimpleadmin/"
     google-query: inurl:"/wp-content/plugins/amazonsimpleadmin/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,amazonsimpleadmin,medium
+  tags: cve,wordpress,wp-plugin,amazonsimpleadmin,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.1')
+          - compare_versions(version, '<= 1.5.3')

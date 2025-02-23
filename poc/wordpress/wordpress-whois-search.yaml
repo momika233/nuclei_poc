@@ -2,13 +2,14 @@ id: wordpress-whois-search
 
 info:
   name: >
-    WHOIS  <= 1.4.2.2 - Reflected Cross Site Scripting
+    WHOIS <= 1.4.2.4 - Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f625b10b-f104-49a8-9dbb-f880f5df8693?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2c1dbd73-6ea6-4e9d-84e2-055ab9db5f4f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wordpress-whois-search/"
     google-query: inurl:"/wp-content/plugins/wordpress-whois-search/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wordpress-whois-search,low
+  tags: cve,wordpress,wp-plugin,wordpress-whois-search,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.2.2')
+          - compare_versions(version, '<= 1.4.2.4')

@@ -1,15 +1,15 @@
-id: stars-smtp-mailer-bbad25b9df7a89391c3afe904e0b3b04
+id: stars-smtp-mailer
 
 info:
   name: >
-    Stars SMTP Mailer <= 1.7 - Authenticated (Subscriber+) Arbitrary File Upload
+    Stars SMTP Mailer <= 1.7 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/70ce8500-7140-4c97-a91c-55029e67362c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7cf28b29-6e09-4359-9fe9-739d46fa5c2d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/stars-smtp-mailer/"
     google-query: inurl:"/wp-content/plugins/stars-smtp-mailer/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,stars-smtp-mailer,low
+  tags: cve,wordpress,wp-plugin,stars-smtp-mailer,medium
 
 http:
   - method: GET

@@ -1,49 +1,59 @@
-id: wordpress-the-events-calendar
+id: the-events-calendar
 
 info:
-  name: The Events Calendar Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    The Events Calendar <= 6.4.0 - Reflected Cross-Site Scripting
+  author: topscoder
+  severity: medium
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/the-events-calendar/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8b93655b-9a26-4515-8ae2-105271aba9c4?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: the-events-calendar
-    wpscan: https://wpscan.com/plugin/the-events-calendar
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/the-events-calendar/"
+    google-query: inurl:"/wp-content/plugins/the-events-calendar/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,the-events-calendar,medium
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/the-events-calendar/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/the-events-calendar.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "the-events-calendar"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4b0a004830460221008e4b46be38dcbe67e39efb324195c8e701c70b2d2a0178744a6bb43c20afd831022100889c6c9192d5efea63170fdf050ca2788a33df2ef70252c050824efc8967ba5b:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 6.4.0')

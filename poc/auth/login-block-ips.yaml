@@ -2,13 +2,14 @@ id: login-block-ips
 
 info:
   name: >
-    Login Block IPs <= 1.0.0 - Cross-Site Request Forgery to Plugin Settings Update
+    Login Block IPs <= 1.0.0 - IP Spoofing to Protection Mechanism Bypass
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d3adabcc-3259-4d4d-8359-71af16823d18?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3e772760-f390-417f-82d0-f415a6ef837d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/login-block-ips/"
     google-query: inurl:"/wp-content/plugins/login-block-ips/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,login-block-ips,medium
+  tags: cve,wordpress,wp-plugin,login-block-ips,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.0')
+          - compare_versions(version, '<= *')

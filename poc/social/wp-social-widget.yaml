@@ -2,13 +2,14 @@ id: wp-social-widget
 
 info:
   name: >
-    WP Social Widget <= 2.2.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+    WP Social Widget <= 2.2.5 - Authenticated (Contributor+) Stored Cross-Site Scripting via shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bebedaa9-6689-4863-91c6-2ab52a9353db?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1df421ac-c8fc-4505-989e-1d822ca6de7a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.2.3')
+          - compare_versions(version, '<= 2.2.5')

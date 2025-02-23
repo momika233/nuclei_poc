@@ -2,22 +2,23 @@ id: woocommerce-product-addon
 
 info:
   name: >
-    PPOM for WooCommerce <= 1.1 - Arbitrary File Upload
+    PPOM for WooCommerce <= 23.9 - Missing Authorization to Stored Cross-Site Scripting
   author: topscoder
-  severity: critical
+  severity: high
   description: >
-    The WooCommerce PPOM plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in versions up to, and including, 1.1. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected sites server which may make remote code execution possible.
+    
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2b0198c8-4be8-44e0-9728-d5d2aa376796?source=api-prod
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8bde357d-e34a-4931-a1a4-bd3ed3b72cec?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-    cvss-score: 9.8
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/woocommerce-product-addon/"
     google-query: inurl:"/wp-content/plugins/woocommerce-product-addon/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woocommerce-product-addon,critical
+  tags: cve,wordpress,wp-plugin,woocommerce-product-addon,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1')
+          - compare_versions(version, '<= 23.9')

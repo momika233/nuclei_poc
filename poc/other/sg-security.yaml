@@ -1,49 +1,59 @@
-id: wordpress-sg-security
+id: sg-security
 
 info:
-  name: Security Optimizer – The All-In-One Protection Plugin Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    SiteGround Security <= 1.2.5 - Authorization Weakness to Authentication Bypass
+  author: topscoder
+  severity: critical
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/sg-security/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8e3a5566-eee5-4f71-9c93-e59abf913d04?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: sg-security
-    wpscan: https://wpscan.com/plugin/sg-security
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/sg-security/"
+    google-query: inurl:"/wp-content/plugins/sg-security/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,sg-security,critical
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/sg-security/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/sg-security.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "sg-security"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100dda2089ede82e99f6b6dad9a9cd544daf1403b9e47d63a632d60f9393c7e968d022061c975fd6a8fa1fa2f318e36ead394d2940b0c001d09e54b578f81da564cd1fd:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 1.2.5')

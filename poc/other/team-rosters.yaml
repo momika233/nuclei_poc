@@ -1,15 +1,15 @@
-id: team-rosters-844b5312b375a292ca70499cf000d4d1
+id: team-rosters
 
 info:
   name: >
-    Team Rosters <= 4.6 - Unauthenticated PHP Object Injection
+    Team Rosters <= 4.7 - Reflected Cross-Site Scripting via 'tab'
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/311636d5-e990-4cdd-af1c-8b9610afa73e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/86b85505-8cae-4607-a645-5b127f6f37e7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/team-rosters/"
     google-query: inurl:"/wp-content/plugins/team-rosters/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,team-rosters,critical
+  tags: cve,wordpress,wp-plugin,team-rosters,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.6')
+          - compare_versions(version, '<= 4.7')

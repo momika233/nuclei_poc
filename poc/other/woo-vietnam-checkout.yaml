@@ -2,13 +2,14 @@ id: woo-vietnam-checkout
 
 info:
   name: >
-    Woocommerce Vietnam Checkout <= 2.0.5 - Unauthenticated Stored Cross-Site Scripting
+    Woocommerce Vietnam Checkout <= 2.0.4 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4483fb33-3815-4ec9-9df4-a971844f4855?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e7d6f828-0d7b-4ee2-a316-ab55eb7a3d70?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/woo-vietnam-checkout/"
     google-query: inurl:"/wp-content/plugins/woo-vietnam-checkout/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-vietnam-checkout,high
+  tags: cve,wordpress,wp-plugin,woo-vietnam-checkout,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.5')
+          - compare_versions(version, '<= 2.0.4')

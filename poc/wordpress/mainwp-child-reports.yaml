@@ -2,13 +2,14 @@ id: mainwp-child-reports
 
 info:
   name: >
-    MainWP Child Reports <= 2.1.1 - Cross-Site Request Forgery
+    MainWP Child Reports <= 2.0.7 - Admin+ SQL Injection
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2edd9774-753b-49a4-9f7b-281829a1030e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ff3aa112-bee2-485f-b5a1-ad156662ab03?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/mainwp-child-reports/"
     google-query: inurl:"/wp-content/plugins/mainwp-child-reports/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,mainwp-child-reports,medium
+  tags: cve,wordpress,wp-plugin,mainwp-child-reports,critical
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.1')
+          - compare_versions(version, '<= 2.0.7')

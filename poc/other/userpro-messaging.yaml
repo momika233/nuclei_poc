@@ -1,15 +1,15 @@
-id: userpro-messaging-7340d603dbc33636537db0d90919d4ce
+id: userpro-messaging
 
 info:
   name: >
-    Private Messages for UserPro <= 4.10.0 - Unauthenticated Local File Inclusion
+    Private Messages for UserPro <= 4.10.0 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/99ffffae-85a8-4562-838d-4e952bb0d76e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5b909e12-8ed0-4348-adff-320d782abe75?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/userpro-messaging/"
     google-query: inurl:"/wp-content/plugins/userpro-messaging/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,userpro-messaging,critical
+  tags: cve,wordpress,wp-plugin,userpro-messaging,medium
 
 http:
   - method: GET

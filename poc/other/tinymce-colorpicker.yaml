@@ -2,13 +2,14 @@ id: tinymce-colorpicker
 
 info:
   name: >
-    TinyMCE Color Picker < 1.2 - Cross-Site Request Forgery
+    TinyMCE Color Picker <= 1.1 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8f9cd0f2-1ca6-47cb-94bd-5c286cf9c67f?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d9cefc8e-9c1c-4b5e-adf8-665b8d4dc774?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/tinymce-colorpicker/"
     google-query: inurl:"/wp-content/plugins/tinymce-colorpicker/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,tinymce-colorpicker,medium
+  tags: cve,wordpress,wp-plugin,tinymce-colorpicker,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.2')
+          - compare_versions(version, '<= 1.1')

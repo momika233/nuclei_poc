@@ -2,22 +2,23 @@ id: wp-live-chat-support
 
 info:
   name: >
-    WP Live Chat Support <= 4.3.5 - Blind SQL Injection
+    WP Live Chat Support <= 8.0.32 - Unprotected Functions
   author: topscoder
-  severity: critical
+  severity: low
   description: >
-    The WP Live Chat Support plugin for WordPress is vulnerable to blind SQL Injection via the 'cid' and 'status' parameter in versions up to, and including, 4.3.5 due to insufficient escaping on the user-supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
+    
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/07067eb5-d15e-4342-914f-5e2a08ea8bb4?source=api-prod
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/90689ba2-4f82-4116-85d7-1266189aa34e?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-    cvss-score: 9.8
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/wp-live-chat-support/"
     google-query: inurl:"/wp-content/plugins/wp-live-chat-support/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-live-chat-support,critical
+  tags: cve,wordpress,wp-plugin,wp-live-chat-support,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.3.5')
+          - compare_versions(version, '< 8.0.33')

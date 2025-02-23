@@ -2,22 +2,23 @@ id: yith-woocommerce-product-vendors
 
 info:
   name: >
-    YITH WooCommerce Multi Vendor <= 3.8.0 - Reflected Cross-Site Scripting
+    YIT Plugin Framework <= 3.3.8 - Authenticated Settings Change
   author: topscoder
-  severity: medium
+  severity: low
   description: >
-    The YITH WooCommerce Multi Vendor plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘page’ parameter in versions up to, and including, 3.8.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.
+    
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b924261f-1e1a-4565-a22e-ba592912d270?source=api-prod
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3b34a0c6-3573-48c7-8edb-c9cf9503da06?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 6.1
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/yith-woocommerce-product-vendors/"
     google-query: inurl:"/wp-content/plugins/yith-woocommerce-product-vendors/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,yith-woocommerce-product-vendors,medium
+  tags: cve,wordpress,wp-plugin,yith-woocommerce-product-vendors,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.8.1')
+          - compare_versions(version, '<= 3.4.0')

@@ -2,13 +2,14 @@ id: xpro-elementor-addons
 
 info:
   name: >
-    130+ Widgets | Best Addons For Elementor – FREE <= 1.4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    140+ Widgets | Best Addons For Elementor – FREE <= 1.4.3 - Authenticated (Admin+) Cross Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/07e7f03e-0d5d-4405-a0e7-9547fc762f0e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b67a677a-0425-40cd-b7c7-3c1d2a6a4b8e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.2')
+          - compare_versions(version, '<= 1.4.3')

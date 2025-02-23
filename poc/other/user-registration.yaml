@@ -1,22 +1,24 @@
 id: user-registration
 
 info:
-  name: "User Registration <= 1.5.5 - Cross-Site Scripting"
+  name: >
+    User Registration – Custom Registration Form, Login Form, and User Profile WordPress Plugin <= 3.2.0.1 - Missing Authorization to Privilege Escalation
   author: topscoder
-  severity: medium
-  description: "The User Registration plugin for WordPress is vulnerable to Cross-Site Scripting in versions up to, and including, 1.5.5 due to insufficient input sanitization and output escaping via the 'edit-registration' parameter. This makes it possible for authenticated attackers to inject arbitrary web scripts that execute in a victim's browser."
+  severity: high
+  description: >
+    
   reference:
-    - https://packetstormsecurity.com/files/151067/
-    - https://raw.githubusercontent.com/wpeverest/user-registration/master/CHANGELOG.txt
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/710574a8-a6e2-4ee6-9ea7-03a34994fec7?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N
-    cvss-score: 6.4
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/user-registration/"
     google-query: inurl:"/wp-content/plugins/user-registration/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,user-registration,medium
+  tags: cve,wordpress,wp-plugin,user-registration,high
 
 http:
   - method: GET
@@ -54,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.5')
+          - compare_versions(version, '<= 3.2.0.1')

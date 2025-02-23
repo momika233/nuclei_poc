@@ -2,13 +2,14 @@ id: piotnetforms
 
 info:
   name: >
-    Piotnet Forms <= 1.0.28 - Unauthenticated Arbitrary File Upload
+    Piotnet Forms <= 1.0.25 - Missing Authorization via multiple AJAX actions
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/af2b7eac-a3f5-408f-b139-643e70b3f27a?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f119c6c2-cd4e-415a-b717-2bfc90ed729e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/piotnetforms/"
     google-query: inurl:"/wp-content/plugins/piotnetforms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,piotnetforms,low
+  tags: cve,wordpress,wp-plugin,piotnetforms,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.28')
+          - compare_versions(version, '<= 1.0.29')

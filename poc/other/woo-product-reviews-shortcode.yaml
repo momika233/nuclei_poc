@@ -2,13 +2,14 @@ id: woo-product-reviews-shortcode
 
 info:
   name: >
-    Builder for WooCommerce reviews shortcodes – ReviewShort <= 1.01.3 - Cross-Site Request Forgery
+    Builder for WooCommerce reviews shortcodes – ReviewShort <= 1.01.5 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/62805bc2-16e6-4252-bea1-5c2b69cf9bc8?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ba670636-4b83-4915-969e-f02b9786b7d5?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/woo-product-reviews-shortcode/"
     google-query: inurl:"/wp-content/plugins/woo-product-reviews-shortcode/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-product-reviews-shortcode,medium
+  tags: cve,wordpress,wp-plugin,woo-product-reviews-shortcode,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.01.3')
+          - compare_versions(version, '<= 1.01.5')

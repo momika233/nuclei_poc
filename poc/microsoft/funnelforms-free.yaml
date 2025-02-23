@@ -2,13 +2,14 @@ id: funnelforms-free
 
 info:
   name: >
-    Funnelforms Free <= 3.3.9 - Unauthenticated Stored Cross-Site Scripting
+    Funnelforms Free <= 3.7.3.2 - Authenticated (Administrator+) Arbitrary File Upload
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ebcbf872-1420-4a57-a4b4-8a52ba74e0a1?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cbd42fc4-ab4a-4053-b765-18272eacd2bc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/funnelforms-free/"
     google-query: inurl:"/wp-content/plugins/funnelforms-free/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,funnelforms-free,high
+  tags: cve,wordpress,wp-plugin,funnelforms-free,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.4')
+          - compare_versions(version, '<= 3.7.3.2')

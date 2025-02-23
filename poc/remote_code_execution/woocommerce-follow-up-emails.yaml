@@ -2,13 +2,14 @@ id: woocommerce-follow-up-emails
 
 info:
   name: >
-    WooCommerce Follow-Up Emails <= 4.9.40 - Reflected Cross-Site Scripting
+    WooCommerce Follow-Up Emails <= 4.9.40 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4487391e-baa4-4320-a23d-b52a42e2de90?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4fee61cd-7359-4193-8cf2-86e0527a8ef1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

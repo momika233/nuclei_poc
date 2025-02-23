@@ -2,13 +2,14 @@ id: custom-registration-form-builder-with-submission-manager
 
 info:
   name: >
-    RegistrationMagic <= 5.2.4.1 - Reflected Cross-Site Scripting via section_id
+    RegistrationMagic – Custom Registration Forms and User Login <= 4.6.0.3 - Cross-Site Request Forgery to Settings Modification
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2d010e55-d57a-49f7-a991-76b676b88f1e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1c23d163-1053-403f-80bc-ea8f76fff4e2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 5.2.4.2')
+          - compare_versions(version, '< 4.6.0.4')

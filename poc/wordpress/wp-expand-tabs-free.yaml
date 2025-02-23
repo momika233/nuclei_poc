@@ -2,13 +2,14 @@ id: wp-expand-tabs-free
 
 info:
   name: >
-    WP Tabs <= 2.1.16 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+    WP Tabs <= 2.1.14 - Cross Site Request Forgery
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bf4dcdab-6c74-4c0e-bdda-67e60025a873?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/28a8b3fe-6f15-4085-a370-a2e867f7018b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.16')
+          - compare_versions(version, '<= 2.1.14')

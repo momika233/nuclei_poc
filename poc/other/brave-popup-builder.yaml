@@ -2,13 +2,14 @@ id: brave-popup-builder
 
 info:
   name: >
-    Brave Popup Builder <= 0.6.2 - Authenticated (Administrator+) Stored Cross-Site Scripting
+    Brave Popup Builder <= 0.7.0 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/88cf21c3-52d7-472f-8f55-8e1a5819f133?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9992c6ac-8e29-4c99-8439-663cc7c190b9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/brave-popup-builder/"
     google-query: inurl:"/wp-content/plugins/brave-popup-builder/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,brave-popup-builder,low
+  tags: cve,wordpress,wp-plugin,brave-popup-builder,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 0.6.2')
+          - compare_versions(version, '<= 0.7.0')

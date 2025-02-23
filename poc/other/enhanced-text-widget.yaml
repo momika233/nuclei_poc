@@ -2,13 +2,14 @@ id: enhanced-text-widget
 
 info:
   name: >
-    Inisev Plugins (Various Versions) - Missing Authorization on handle_installation function
+    Enhanced Text Widget <= 1.6.3 - Missing Authorization via etw_hide_admin_notification_callback
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cf7bdd0e-f3b3-4be5-8a30-2c6d9cb783a3?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/25122475-fc2c-4a8c-90d3-f4a85fb3a8cc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.7')
+          - compare_versions(version, '<= 1.6.3')

@@ -1,49 +1,59 @@
-id: wordpress-happy-elementor-addons
+id: happy-elementor-addons
 
 info:
-  name: Happy Addons for Elementor Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Appsero <= 1.2.1 - Missing Authorization
+  author: topscoder
+  severity: low
+  description: >
+    The Appsero analytics tool used in several plugins is vulnerable to authorization bypass due to a missing capability check on the uninstall_reason_submission function used for feedback submission in versions up to, and including, 1.2.1. This makes it possible for authenticated attackers, with subscriber-level permissions and above, to invoke this function intended for administrator use.
   reference:
-    - https://wordpress.org/plugins/happy-elementor-addons/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/84003388-c47c-41db-8d2d-4643aa375a89?source=api-prod
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N
+    cvss-score: 4.3
+    cve-id: 
   metadata:
-    plugin_namespace: happy-elementor-addons
-    wpscan: https://wpscan.com/plugin/happy-elementor-addons
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/happy-elementor-addons/"
+    google-query: inurl:"/wp-content/plugins/happy-elementor-addons/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,happy-elementor-addons,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/happy-elementor-addons/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/happy-elementor-addons.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "happy-elementor-addons"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100e52c2a6a84ee85f641e9b7131720fc4eaa863cb36ebbfcc6d9b10ed3a9d01068022066af27d8b3ad36f808dccceb69dfef9e772b8edf61b4fed444a8c02a27a46e27:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 3.8.2')

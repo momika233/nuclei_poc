@@ -1,15 +1,15 @@
-id: slotti-ajanvaraus-c5e37b7ad902f878f6756deddefc9e2f
+id: slotti-ajanvaraus
 
 info:
   name: >
-    Slotti Ajanvaraus <= 1.3.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Slotti Ajanvaraus <= 1.3.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/83f7d9b9-793e-4380-b971-bc13c77a06a8?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1d95ec4b-0cbc-49c6-821e-7050d8045159?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.3.0')
+          - compare_versions(version, '<= 1.3.1')

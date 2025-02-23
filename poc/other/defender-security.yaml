@@ -2,13 +2,14 @@ id: defender-security
 
 info:
   name: >
-    Defender Security <= 4.2.0 - Masked Login Area Security Feature Bypass
+    Defender Security <= 4.7.2 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/66122be6-7c28-44cc-a8dd-7b2ec64346f7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/26963b32-db2c-430b-99e5-65a2cc7d478d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/defender-security/"
     google-query: inurl:"/wp-content/plugins/defender-security/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,defender-security,low
+  tags: cve,wordpress,wp-plugin,defender-security,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.2.0')
+          - compare_versions(version, '<= 4.7.2')

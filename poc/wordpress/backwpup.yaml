@@ -1,49 +1,59 @@
-id: wordpress-backwpup
+id: backwpup
 
 info:
-  name: BackWPup – WordPress Backup & Restore Plugin Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    BackWPup <= 3.4.1 - Unauthenticated Backup Download
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/backwpup/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e4c58479-2924-4b56-9c27-3bdf4be388a3?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: backwpup
-    wpscan: https://wpscan.com/plugin/backwpup
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/backwpup/"
+    google-query: inurl:"/wp-content/plugins/backwpup/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,backwpup,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/backwpup/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/backwpup.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "backwpup"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 490a004630440220077c899b108770234d40fbaef42781ca2a5ea3bbc3d060eef584bc8bc5adb2ac022026b8df2319a1b25e0cdf53d70ff6087d7222ec761ccab54003b6cbf8f241408a:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '< 3.4.2')

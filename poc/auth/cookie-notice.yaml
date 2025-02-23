@@ -1,49 +1,59 @@
-id: wordpress-cookie-notice
+id: cookie-notice
 
 info:
-  name: Cookie Notice & Compliance for GDPR / CCPA Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Cookie Notice & Compliance for GDPR / CCPA <= 2.4.17.1 - Authenticated (Admin+) Stored Cross-Site Scripting
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/cookie-notice/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/73fd35b4-16b3-4f57-a3e4-46e4de0ee822?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: cookie-notice
-    wpscan: https://wpscan.com/plugin/cookie-notice
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/cookie-notice/"
+    google-query: inurl:"/wp-content/plugins/cookie-notice/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,cookie-notice,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/cookie-notice/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/cookie-notice.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "cookie-notice"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a004730450220182fd8a8e0fd1ea0fcd76a01a219696ad61fcdf13ca5f000f13947e8fead439d022100ac2e28c12c98317f109ab92edaefcc9af9a60882beee8c71375b83a9a093e7c4:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 2.4.17.1')

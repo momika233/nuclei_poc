@@ -2,13 +2,14 @@ id: google-calendar-events
 
 info:
   name: >
-    Google Calendar Events <= 3.2.5 - Cross-Site Request Forgery via bulk_actions
+    Simple Calendar – Google Calendar Plugin <= 3.4.2 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1218ed3b-badc-464e-adbc-76fb4f6af008?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/17ae3f22-6426-48f7-93e6-c0ad515b329a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.5')
+          - compare_versions(version, '<= 3.4.2')

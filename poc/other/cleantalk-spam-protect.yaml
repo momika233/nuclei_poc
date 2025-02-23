@@ -2,13 +2,14 @@ id: cleantalk-spam-protect
 
 info:
   name: >
-    Spam protection, AntiSpam, FireWall by CleanTalk <= 5.153.3 - Unauthenticated Blind SQL Injection
+    Spam protection, Anti-Spam, FireWall by CleanTalk <= 6.44 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Arbitrary Plugin Installation
   author: topscoder
-  severity: critical
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7fe50510-6736-4bcf-b62f-0b8d2cb8ff3a?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/79ae062c-b084-4045-9407-2d94919993af?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/cleantalk-spam-protect/"
     google-query: inurl:"/wp-content/plugins/cleantalk-spam-protect/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,cleantalk-spam-protect,critical
+  tags: cve,wordpress,wp-plugin,cleantalk-spam-protect,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.153.3')
+          - compare_versions(version, '<= 6.44')

@@ -2,13 +2,14 @@ id: woofunnels-aero-checkout
 
 info:
   name: >
-    FunnelKit Checkout <= 3.10.3 - Authenticated(Subscriber+) Missing Authorization to Arbitrary Plugin Activation
+    FunnelKit Checkout <= 3.10.3 - Unauthenticated Arbitrary Content Deletion
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6f789ff9-5d86-4911-8b2f-2a425393c61d?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c9d07faf-cc88-4233-a552-55e3376a2fc4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

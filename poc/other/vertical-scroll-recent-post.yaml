@@ -2,13 +2,14 @@ id: vertical-scroll-recent-post
 
 info:
   name: >
-    Vertical scroll recent post <= 13.8 - Reflected Cross-Site Scripting
+    Vertical scroll recent post <= 14.0 - Cross-Site Request Forgery via vsrp_admin_options
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9002fe5c-d7c7-4d4a-9e92-db6ff390d78b?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/307bbfe6-8a57-461d-aa7d-bce962da4239?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 14.0')
+          - compare_versions(version, '<= 14.0')

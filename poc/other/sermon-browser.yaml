@@ -1,19 +1,19 @@
 id: sermon-browser
 
 info:
-  name: "Sermon Browser < 0.43.6 - Cross-Site Scripting"
+  name: >
+    Sermon Browser <= 0.45.22 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
-  description: "The Sermon Browser plugin for WordPress is vulnerable to Cross-Site Scripting via the 'file_name' parameter in versions before 0.43.6 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts that execute in a victim's browser."
+  description: >
+    
   reference:
-    - https://plugins.trac.wordpress.org/changeset/377568/
-    - https://wordpress.org/plugins/sermon-browser/#developers
-    - https://www.exploit-db.com/exploits/35657
-    - https://web.archive.org/web/20200229152304/https%3A//www.securityfocus.com/bid/47574
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2e1a68fb-51c6-4567-9a50-78ed44ccac21?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 6.1
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/sermon-browser/"
     google-query: inurl:"/wp-content/plugins/sermon-browser/"
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 0.43.6')
+          - compare_versions(version, '<= 0.45.22')

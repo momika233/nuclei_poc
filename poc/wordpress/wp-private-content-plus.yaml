@@ -2,13 +2,14 @@ id: wp-private-content-plus
 
 info:
   name: >
-    WP Private Content Plus <= 1.31 - Unauthenticated Settings Change
+    WP Private Content Plus <= 3.6 - Protection Mechanism Bypass
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fb26ea7b-fc54-4cef-aaa8-3a41e8d0c371?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/43d8904f-3bc9-4c67-b44b-8d78762b6b30?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.31')
+          - compare_versions(version, '<= 3.6')

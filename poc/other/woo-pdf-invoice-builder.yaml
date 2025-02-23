@@ -2,13 +2,14 @@ id: woo-pdf-invoice-builder
 
 info:
   name: >
-    WooCommerce PDF Invoice Builder <= 1.2.101 - Cross-Site Request Forgery
+    WooCommerce PDF Invoice Builder <= 1.2.89 - Authenticated (Subscriber+) SQL Injection via Export
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/652367a0-fca2-4313-8217-d8811ada0ab5?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4336d597-7e87-46eb-8abd-9fafd6cd25d9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/woo-pdf-invoice-builder/"
     google-query: inurl:"/wp-content/plugins/woo-pdf-invoice-builder/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-pdf-invoice-builder,medium
+  tags: cve,wordpress,wp-plugin,woo-pdf-invoice-builder,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.101')
+          - compare_versions(version, '<= 1.2.89')

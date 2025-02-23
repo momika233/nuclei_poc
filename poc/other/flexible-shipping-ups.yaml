@@ -2,13 +2,14 @@ id: flexible-shipping-ups
 
 info:
   name: >
-    WooCommerce UPS Shipping – Live Rates and Access Points <= 2.2.4 - Cross-Site Request Forgery
+    UPS Live Rates and Access Points <= 2.3.11 - Missing Authorization to Plugin API key reset
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d2183a22-fba5-48d2-a68a-6914f04fb902?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/699fdea9-15ae-4882-9723-9a98d7d53c74?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/flexible-shipping-ups/"
     google-query: inurl:"/wp-content/plugins/flexible-shipping-ups/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,flexible-shipping-ups,medium
+  tags: cve,wordpress,wp-plugin,flexible-shipping-ups,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.2.4')
+          - compare_versions(version, '<= 2.3.11')

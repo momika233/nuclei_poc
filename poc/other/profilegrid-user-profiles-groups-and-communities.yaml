@@ -2,13 +2,14 @@ id: profilegrid-user-profiles-groups-and-communities
 
 info:
   name: >
-    ProfileGrid  <= 5.6.6 - Missing Authorization
+    ProfileGrid – User Profiles, Memberships, Groups and Communities <= 5.8.3 - Missing Authorization
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/71fb1cef-6e01-4bd7-b0bc-5d21295f119a?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c039d2fe-7518-4724-a025-6380a53fb58c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.6.6')
+          - compare_versions(version, '<= 5.8.3')

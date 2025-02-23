@@ -2,13 +2,14 @@ id: cm-pop-up-banners
 
 info:
   name: >
-    CM Pop-Up banners <= 1.5.10 - Authenticated (Subscriber+) SQL Injection via getStatistics
+    CM Pop-Up Banners <= 1.7.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ff29e160-993b-422c-b49b-a216db5a0765?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/221be0f2-61ee-4130-be4a-0df72d3e0197?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.10')
+          - compare_versions(version, '<= 1.7.2')

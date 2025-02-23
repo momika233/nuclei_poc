@@ -2,13 +2,14 @@ id: image-regenerate-select-crop
 
 info:
   name: >
-    Image Regenerate & Select Crop <= 7.1.0 - Missing Authorization
+    Image Regenerate & Select Crop <= 7.1.0 - Cross-Site Request Forgery on multiple AJAX actions
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cb7335c0-b6ed-43bb-91b7-870093d14cb8?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8596412-53d5-45ed-998a-49799bd269d0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/image-regenerate-select-crop/"
     google-query: inurl:"/wp-content/plugins/image-regenerate-select-crop/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,image-regenerate-select-crop,high
+  tags: cve,wordpress,wp-plugin,image-regenerate-select-crop,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 7.1.0')
+          - compare_versions(version, '< 7.2.0')

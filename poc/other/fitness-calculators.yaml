@@ -2,13 +2,14 @@ id: fitness-calculators
 
 info:
   name: >
-    Fitness calculators plugin <= 2.0.8 - Authenticated (Administrator+) Stored Cross-Site Scripting via admin settings
+    Fitness Calculators <= 1.9.5 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/aafbdd50-c78b-4aad-a3e2-f1339d698e77?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/659f5a99-84f4-44b0-8546-445831c7e0d1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/fitness-calculators/"
     google-query: inurl:"/wp-content/plugins/fitness-calculators/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,fitness-calculators,low
+  tags: cve,wordpress,wp-plugin,fitness-calculators,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.8')
+          - compare_versions(version, '<= 1.9.5')

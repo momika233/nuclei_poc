@@ -2,13 +2,14 @@ id: auto-upload-images
 
 info:
   name: >
-    Auto Upload Images <= 3.3 - Cross-Site Request Forgery
+    Auto Upload Images <= 3.3 - Authenticated (Admin+) Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4f8a7933-cc26-47f2-9142-df748add0745?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/69cf2f28-33ae-441e-95d2-01d187c7745a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/auto-upload-images/"
     google-query: inurl:"/wp-content/plugins/auto-upload-images/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,auto-upload-images,medium
+  tags: cve,wordpress,wp-plugin,auto-upload-images,low
 
 http:
   - method: GET

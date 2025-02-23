@@ -2,22 +2,23 @@ id: file-manager
 
 info:
   name: >
-    Bit File Manager <= 4.1.4 - Cross-Site Request Forgery to Arbitrary File Upload
+    Bit File Manager – 100% Free & Open Source File Manager and Code Editor for WordPress <= 6.5.5 - Authenticated (Subscriber+) Arbitrary File Upload
   author: topscoder
-  severity: medium
+  severity: low
   description: >
-    The Bit File Manager plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 4.1.4. This is due to missing or incorrect nonce validation on the plugin's upload form. This makes it possible for unauthenticated attackers to upload arbitrary files to the server via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.
+    
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/37052cb9-8479-4004-9161-65f37028ae10?source=api-prod
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9cae7702-e531-45b9-9131-42edbc073a07?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
-    cvss-score: 8.8
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/file-manager/"
     google-query: inurl:"/wp-content/plugins/file-manager/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,file-manager,medium
+  tags: cve,wordpress,wp-plugin,file-manager,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.1.5')
+          - compare_versions(version, '<= 6.5.5')

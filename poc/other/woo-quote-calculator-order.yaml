@@ -2,14 +2,14 @@ id: woo-quote-calculator-order
 
 info:
   name: >
-    Woocommerce Quote Calculator <= 1.1 - Unauthenticated SQL Injection
+    Woocommerce Quote Calculator <= 1.1 - Authenticated (Contributor+) SQL Injection
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/44fad31c-6bf7-49c1-a03b-5cda0b26b38f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1ef31d64-ff37-432d-ae4b-7ab451a44e06?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/woo-quote-calculator-order/"
     google-query: inurl:"/wp-content/plugins/woo-quote-calculator-order/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-quote-calculator-order,critical
+  tags: cve,wordpress,wp-plugin,woo-quote-calculator-order,low
 
 http:
   - method: GET

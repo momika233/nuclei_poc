@@ -2,13 +2,14 @@ id: pdf-builder-for-wpforms
 
 info:
   name: >
-    PDF Builder for WPForms <= 1.2.88 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    PDF Builder for WPForms <= 1.2.116 - Unauthenticated Full Path Disclosure
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8d9bba8c-0e75-4170-a006-16fa4bd0d0ed?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/31a82837-f8da-44bf-81f6-af0d9c9a6e4c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.88')
+          - compare_versions(version, '<= 1.2.116')

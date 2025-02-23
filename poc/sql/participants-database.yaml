@@ -2,13 +2,14 @@ id: participants-database
 
 info:
   name: >
-    Participants Database <= 1.9.5.5 - SQL Injection
+    Participants Database <= 2.5.5 - Missing Authorization
   author: topscoder
-  severity: critical
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4ede9023-732d-43e4-9c19-7cf704c95c29?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3cd2b2ba-c4ec-4799-91b4-b38c462baee4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/participants-database/"
     google-query: inurl:"/wp-content/plugins/participants-database/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,participants-database,critical
+  tags: cve,wordpress,wp-plugin,participants-database,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.9.5.6')
+          - compare_versions(version, '<= 2.5.5')

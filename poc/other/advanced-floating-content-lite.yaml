@@ -2,13 +2,14 @@ id: advanced-floating-content-lite
 
 info:
   name: >
-    Advanced Floating Content Lite <= 1.2.5 - Authenticated (Editor+) Stored Cross-Site Scripting
+    Advanced Floating Content <= 1.2.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a798ffe0-b81d-4c5f-a864-ed72a5312a16?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e9346103-9773-4cda-9b32-d3ce2076e8fb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.5')
+          - compare_versions(version, '<= 1.2.1')

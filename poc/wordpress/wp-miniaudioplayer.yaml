@@ -2,13 +2,14 @@ id: wp-miniaudioplayer
 
 info:
   name: >
-    mb.mb.miniAudioPlayer < 1.4.3 - Cross-Site Scripting
+    mb.miniAudioPlayer <= 1.7.6 - Multiple Vulnerabilities
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/979bb48d-6dbf-4bb2-90f3-573797ff23f7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/381708ae-3180-4058-a6f4-e925bfc658ec?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-miniaudioplayer/"
     google-query: inurl:"/wp-content/plugins/wp-miniaudioplayer/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-miniaudioplayer,high
+  tags: cve,wordpress,wp-plugin,wp-miniaudioplayer,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.4.3')
+          - compare_versions(version, '<= 1.7.6')

@@ -2,13 +2,14 @@ id: wp-photo-text-slider-50
 
 info:
   name: >
-    Wp photo text slider 50 <= 8.0 -  Authenticated (Subscriber+) SQL Injection via Shortcode
+    Wp photo text slider 50 <= 8.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/515502b5-c344-4855-aff1-57833233c5d2?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f98f11da-b0ae-4c00-9708-88d6044abda2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 8.0')
+          - compare_versions(version, '<= 8.1')

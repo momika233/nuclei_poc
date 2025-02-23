@@ -2,13 +2,14 @@ id: responsive-filterable-portfolio
 
 info:
   name: >
-    Responsive Filterable Portfolio <= 1.0.19 - Reflected Cross-Site Scripting
+    Responsive Filterable Portfolio <= 1.0.22 - Server-Side Request Forgery
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e67dfe0f-ac1c-4a78-bfc9-0cfd6c3040d4?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ae13e0eb-b77c-4e9f-a5aa-caf2c67db7bc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/responsive-filterable-portfolio/"
     google-query: inurl:"/wp-content/plugins/responsive-filterable-portfolio/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,responsive-filterable-portfolio,medium
+  tags: cve,wordpress,wp-plugin,responsive-filterable-portfolio,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.19')
+          - compare_versions(version, '<= 1.0.22')

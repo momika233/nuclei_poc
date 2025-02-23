@@ -2,13 +2,14 @@ id: wp-whatsapp
 
 info:
   name: >
-    WP Chat App <= 3.6.2 - Authenticated(Contributor+) Stored Cross-Site Scripting via Block Image Attribute
+    WP Chat App <= 3.6.4 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3bba2901-55a7-4ef1-ab3c-1415aa99c729?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/04d7a97c-c2f8-4c9e-b913-343c8e3dec26?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.6.2')
+          - compare_versions(version, '<= 3.6.4')

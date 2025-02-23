@@ -2,13 +2,14 @@ id: custom-field-suite
 
 info:
   name: >
-    Custom Field Suite <= 2.6.4 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Custom Field Suite <= 2.6.7 - Authenticated (Contributor+) PHP Code Injection via Loop Custom Field
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d8e967ce-fd36-44de-acca-c1985642ee5b?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dfd7b788-03a0-41a4-96f2-cfca74ef281b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.6.4')
+          - compare_versions(version, '<= 2.6.7')

@@ -1,49 +1,59 @@
-id: wordpress-google-analytics-dashboard-for-wp
+id: google-analytics-dashboard-for-wp
 
 info:
-  name: ExactMetrics – Google Analytics Dashboard for WordPress (Website Stats Plugin) Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    ExactMetrics <= 8.1.0 - Missing Authorization
+  author: topscoder
+  severity: high
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/google-analytics-dashboard-for-wp/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f7b239b1-c234-40d0-a4bc-f2db54937494?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: google-analytics-dashboard-for-wp
-    wpscan: https://wpscan.com/plugin/google-analytics-dashboard-for-wp
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/google-analytics-dashboard-for-wp/"
+    google-query: inurl:"/wp-content/plugins/google-analytics-dashboard-for-wp/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,google-analytics-dashboard-for-wp,high
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/google-analytics-dashboard-for-wp/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/google-analytics-dashboard-for-wp.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "google-analytics-dashboard-for-wp"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100d45b163bab2b7159da2c7399020d4e950e6235ee642c71a9f07d95dc1a18f03c022030ee5ead425164a1866981fb8f58a547d33a927dcec3fef560ca0c71684f3057:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 8.1.0')

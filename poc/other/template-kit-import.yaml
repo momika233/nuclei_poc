@@ -2,13 +2,14 @@ id: template-kit-import
 
 info:
   name: >
-    Template Kit – Import <= 1.0.14 - Authenticated(Author+) Stored Cross-Site Scripting via template upload
+    Envato Elements <= 2.0.10 & Template Kit <= 1.0.13  - Authenticated (Contributor+) Arbitrary File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6203a15d-f90f-4147-8e43-afc424bbb750?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/68fe17e2-d5ab-4ebd-a5c6-d65cea327abd?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.14')
+          - compare_versions(version, '<= 1.0.13')

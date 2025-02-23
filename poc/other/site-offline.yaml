@@ -2,13 +2,14 @@ id: site-offline
 
 info:
   name: >
-    Site Offline <= 1.4.9 - Maintenance Mode Bypass
+    Site Offline <= 1.5.6 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ac06b9d9-51de-4f7a-87b8-c7b46a8475ee?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/96f30a22-f218-48e7-9796-b9f1d5becc2c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.9')
+          - compare_versions(version, '<= 1.5.6')

@@ -2,13 +2,14 @@ id: limb-gallery
 
 info:
   name: >
-    Limb Gallery – Create Beautiful Image & Video Galleries <= 1.3.2 - Cross-Site Scripting
+    WordPress Gallery Plugin – Limb Image Gallery <= 1.5.7 - Authenticated (Subscriber+) Arbitrary File Upload
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d55033fb-17a6-4b8d-87f4-1c102ef7dbcd?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/121d5d4d-cf15-4c20-afb5-aa3375f2ef62?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/limb-gallery/"
     google-query: inurl:"/wp-content/plugins/limb-gallery/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,limb-gallery,high
+  tags: cve,wordpress,wp-plugin,limb-gallery,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.4.0')
+          - compare_versions(version, '<= 1.5.7')

@@ -2,13 +2,14 @@ id: wordpress-sentinel
 
 info:
   name: >
-    WordPress Sentinel <= 1.0.0 - Cross-Site Scripting
+    WordPress Sentinel < 1.0.1 - SQL Injection
   author: topscoder
-  severity: high
+  severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a691a44d-0a33-4f13-9afe-255c557ee10f?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c16b6a15-9f15-44a6-8663-201f64af81cc?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wordpress-sentinel/"
     google-query: inurl:"/wp-content/plugins/wordpress-sentinel/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wordpress-sentinel,high
+  tags: cve,wordpress,wp-plugin,wordpress-sentinel,critical
 
 http:
   - method: GET

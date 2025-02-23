@@ -2,14 +2,14 @@ id: selection-lite
 
 info:
   name: >
-    Selection Lite <= 1.11 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Selection Lite <= 1.13 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/74bbe655-ce86-4a87-a79f-f25bd0680e49?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/19743a65-00be-47ec-a2c2-a6bac759b745?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.11')
+          - compare_versions(version, '<= 1.13')

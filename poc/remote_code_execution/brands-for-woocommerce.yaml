@@ -2,13 +2,14 @@ id: brands-for-woocommerce
 
 info:
   name: >
-    Brands for WooCommerce <= 3.8.2.2 - Missing Authorization to Unauthenticated Order Manipulation and Information Retrieval
+    Brands for WooCommerce <= 3.8.2.2 - Cross-Site Request Forgery
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f7afbe2b-72a8-40da-bc94-ff2a1b9569b4?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/996dc1d7-12f8-467d-bf48-a7a82f1c0a41?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/brands-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/brands-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,brands-for-woocommerce,high
+  tags: cve,wordpress,wp-plugin,brands-for-woocommerce,medium
 
 http:
   - method: GET

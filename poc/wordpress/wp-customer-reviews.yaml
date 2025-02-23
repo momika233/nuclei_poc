@@ -2,13 +2,14 @@ id: wp-customer-reviews
 
 info:
   name: >
-    WP Customer Reviews <= 3.7.0 - Authenticated (Contributor+) Malicious Redirect via HTTP-EQUIV Injection
+    WP Customer Reviews <= 3.0.8 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1beb2a35-0346-4aa1-8cc3-a18a47e82eb3?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f70ec123-fff3-4f03-a424-37e0e579b765?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-customer-reviews/"
     google-query: inurl:"/wp-content/plugins/wp-customer-reviews/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-customer-reviews,low
+  tags: cve,wordpress,wp-plugin,wp-customer-reviews,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.7.0')
+          - compare_versions(version, '< 3.0.9')

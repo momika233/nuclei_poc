@@ -2,16 +2,17 @@ id: custom-order-numbers-for-woocommerce
 
 info:
   name: >
-    Custom Order Numbers for WooCommerce <= 1.6.0 - Cross-Site Request Forgery to Notice Dismissal
+    Custom Order Numbers for WooCommerce <= 1.4.0 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
-    The Custom Order Numbers for WooCommerce plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.6.0. This is due to missing or incorrect nonce validation on the dismiss_notice function. This makes it possible for unauthenticated attackers to dismiss an administrative notice via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.
+    
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/981908d3-e1e7-4093-a2ee-69aa50127731?source=api-prod
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7d19800a-bff3-414f-a809-0159f49d263a?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
-    cvss-score: 4.3
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/custom-order-numbers-for-woocommerce/"
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.0')
+          - compare_versions(version, '<= 1.4.0')

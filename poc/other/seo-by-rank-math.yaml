@@ -1,49 +1,59 @@
-id: wordpress-seo-by-rank-math
+id: seo-by-rank-math
 
 info:
-  name: Rank Math SEO – AI SEO Tools to Dominate SEO Rankings Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Rank Math SEO <= 1.0.231 - .htaccess File Manipulation to Remote Code Execution
+  author: topscoder
+  severity: critical
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/seo-by-rank-math/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/95fde924-bba5-4b7d-8cee-50bb3d2b4134?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: seo-by-rank-math
-    wpscan: https://wpscan.com/plugin/seo-by-rank-math
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+    fofa-query: "wp-content/plugins/seo-by-rank-math/"
+    google-query: inurl:"/wp-content/plugins/seo-by-rank-math/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,seo-by-rank-math,critical
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/seo-by-rank-math/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/seo-by-rank-math.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "seo-by-rank-math"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4b0a00483046022100d3a61c9a6d2a8c1ffcbd2908ab995336e1ea391d01467466ae0a93d6342c2f4d022100e5245a947db2e15a0b9cb32029b900bc46e972f22d747de6f3894d3e15c3d7bc:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 1.0.231')

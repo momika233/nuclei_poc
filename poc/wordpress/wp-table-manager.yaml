@@ -2,13 +2,14 @@ id: wp-table-manager
 
 info:
   name: >
-    WP Table Manager <= 3.5.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    WP Table Manager <= 3.5.2 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2f835944-fd27-4f7e-a10d-330fd0fe4ff4?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/df41b8d9-cd0e-4758-b569-2615438b8eba?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-table-manager/"
     google-query: inurl:"/wp-content/plugins/wp-table-manager/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-table-manager,low
+  tags: cve,wordpress,wp-plugin,wp-table-manager,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.5.3')
+          - compare_versions(version, '<= 3.5.2')

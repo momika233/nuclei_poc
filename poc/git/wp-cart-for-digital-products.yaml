@@ -2,14 +2,14 @@ id: wp-cart-for-digital-products
 
 info:
   name: >
-    WP eStore <= 8.5.4 - Reflected Cross-Site Scripting via Customer Editing
+    WP eStore <= 8.5.4 - Reflected Cross-Site Scripting via Discount Editing
   author: topscoder
   severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7eccbf15-db22-439b-a733-1ce9b991728f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c2e6a555-6f7e-48bd-8e8d-dfdcbd5f1e77?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

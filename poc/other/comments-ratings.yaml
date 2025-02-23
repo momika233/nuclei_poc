@@ -1,21 +1,24 @@
 id: comments-ratings
 
 info:
-  name: "Comments Ratings <= 1.1.6 - Cross-Site Request Forgery"
+  name: >
+    Comments Ratings <= 1.1.7 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
-  description: "The Comments Ratings plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.1.6. This is due to missing or incorrect nonce validation on the run() function. This makes it possible for unauthenticated attackers to modify the plugin's settings, via a forged request granted they can trick a site administrator into performing an action such as clicking on a link."
+  severity: low
+  description: >
+    
   reference:
-    - https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=2895239%40comments-ratings&new=2895239%40comments-ratings&sfp_email=&sfph_mail=
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5786b859-3ee9-45ab-8926-f4a09e323e3b?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
-    cvss-score: 4.3
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/comments-ratings/"
     google-query: inurl:"/wp-content/plugins/comments-ratings/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,comments-ratings,medium
+  tags: cve,wordpress,wp-plugin,comments-ratings,low
 
 http:
   - method: GET
@@ -53,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.6')
+          - compare_versions(version, '<= 1.1.7')

@@ -2,13 +2,14 @@ id: ean-for-woocommerce
 
 info:
   name: >
-    EAN for WooCommerce <= 4.9.2 - Insecure Direct Object Reference to Sensitve Information Exposure via Shortcode
+    EAN for WooCommerce <= 5.3.5 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/17b20df5-4adf-47ce-bddf-2ec0b9499de8?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/48df36b8-be32-4fe0-8a5d-d750ee499d62?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/ean-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/ean-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ean-for-woocommerce,low
+  tags: cve,wordpress,wp-plugin,ean-for-woocommerce,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.9.2')
+          - compare_versions(version, '<= 5.3.5')

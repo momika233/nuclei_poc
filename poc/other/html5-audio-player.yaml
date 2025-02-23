@@ -2,13 +2,14 @@ id: html5-audio-player
 
 info:
   name: >
-    Html5 Audio Player <= 2.1.11 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+    Html5 Audio Player <= 2.1.2 - Contributor+ Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d0059382-3e13-434a-a3d1-7892d14a371b?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8b09933-9634-4a8a-a899-ba500979e5aa?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/html5-audio-player/"
     google-query: inurl:"/wp-content/plugins/html5-audio-player/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,html5-audio-player,low
+  tags: cve,wordpress,wp-plugin,html5-audio-player,high
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.11')
+          - compare_versions(version, '<= 2.1.2')

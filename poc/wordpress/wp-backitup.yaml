@@ -2,13 +2,14 @@ id: wp-backitup
 
 info:
   name: >
-    Backup and Restore WordPress – Backup Plugin <= 1.9 - Sensitive Information Disclosure
+    Backup and Restore Wordpress <= 1.50 - Cross-Site Request Forgery to Backup Trigger
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/facb10e9-23f3-4152-bc9a-cecaafebea94?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e461a04b-6456-4930-b3e7-0f808825aa6b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-backitup/"
     google-query: inurl:"/wp-content/plugins/wp-backitup/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-backitup,low
+  tags: cve,wordpress,wp-plugin,wp-backitup,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.9')
+          - compare_versions(version, '<= 1.50')

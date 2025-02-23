@@ -2,13 +2,14 @@ id: newsletter-popup
 
 info:
   name: >
-    Newsletter Popup <= 1.2 - Unauthenticted Stored Cross-Site Scripting via 'nl_data'
+    Newsletter Popup <= 1.2 - Cross-Site Request Forgery to Record Deletion
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2b5d64b8-c339-4bbc-b91e-4805428f7296?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/274429f7-1cd1-49e4-a145-dce36bebb9c2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/newsletter-popup/"
     google-query: inurl:"/wp-content/plugins/newsletter-popup/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,newsletter-popup,high
+  tags: cve,wordpress,wp-plugin,newsletter-popup,medium
 
 http:
   - method: GET

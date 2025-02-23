@@ -2,13 +2,14 @@ id: smart-manager-for-wp-e-commerce
 
 info:
   name: >
-    Smart Manager - WooCommerce Advanced Bulk Edit, Inventory Management & more... <= 8.27.0 - Authenticated (Admin+) SQL Injection
+    Smart Manager <= 8.52.0 - Authenticated (Administrator+) SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5bc531a3-e246-4f2e-8657-bbdfb91dbf39?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9689a638-f7e5-4340-8a69-990fc2f6b9e5?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 8.27.0')
+          - compare_versions(version, '<= 8.52.0')

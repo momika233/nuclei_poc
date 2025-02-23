@@ -1,49 +1,59 @@
-id: wordpress-header-footer
+id: header-footer
 
 info:
-  name: Head, Footer and Post Injections Detection
-  author: ricardomaia
-  severity: info
+  name: >
+    Head, Footer and Post Injections <= 3.3.0 - Authenticated (Administrator+) PHP Code Injection in Multisite Environments
+  author: topscoder
+  severity: low
+  description: >
+    
   reference:
-    - https://wordpress.org/plugins/header-footer/
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5177bde6-4922-48ee-9155-577c392809a0?source=api-scan
+  classification:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
-    plugin_namespace: header-footer
-    wpscan: https://wpscan.com/plugin/header-footer
-  tags: tech,wordpress,wp-plugin,top-200
+    fofa-query: "wp-content/plugins/header-footer/"
+    google-query: inurl:"/wp-content/plugins/header-footer/"
+    shodan-query: 'vuln:'
+  tags: cve,wordpress,wp-plugin,header-footer,low
 
 http:
   - method: GET
+    redirects: true
+    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/header-footer/readme.txt"
 
-    payloads:
-      last_version: helpers/wordpress/plugins/header-footer.txt
-
     extractors:
       - type: regex
+        name: version
         part: body
+        group: 1
         internal: true
-        name: internal_detected_version
-        group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
       - type: regex
+        name: version
         part: body
-        name: detected_version
         group: 1
         regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
+          - "(?mi)Stable tag: ([0-9.]+)"
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
-      - type: dsl
-        name: "outdated_version"
-        dsl:
-          - compare_versions(internal_detected_version, concat("< ", last_version))
+      - type: status
+        status:
+          - 200
 
-      - type: regex
+      - type: word
+        words:
+          - "header-footer"
         part: body
-        regex:
-          - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100800dc084c23a20ce84556004e4e765d120edaa638f9e5c9cffd23345ae28ad37022075774486f54fa4a30db073e651dee962522b420dd8aa15e03386c8f88dc674d6:922c64590222798bb761d5b6d8e72950
+
+      - type: dsl
+        dsl:
+          - compare_versions(version, '<= 3.3.0')
