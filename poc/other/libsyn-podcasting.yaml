@@ -2,14 +2,13 @@ id: libsyn-podcasting
 
 info:
   name: >
-    Libsyn Publisher Hub <= 1.4.4 - Cross-Site Request Forgery
+    Libsyn Publisher Hub <= 1.4.4 - Unauthenticated Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/24be03a7-4632-4bb1-beb9-d83abdd363b9?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/56b3d629-014c-47b3-9726-4086e544011b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/libsyn-podcasting/"
     google-query: inurl:"/wp-content/plugins/libsyn-podcasting/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,libsyn-podcasting,medium
+  tags: cve,wordpress,wp-plugin,libsyn-podcasting,low
 
 http:
   - method: GET

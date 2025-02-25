@@ -1,59 +1,49 @@
-id: otter-blocks
+id: wordpress-otter-blocks
 
 info:
-  name: >
-    Otter Blocks <= 2.6.5 - Authenticated (Contributor+) Stored Cross-Site Scripting
-  author: topscoder
-  severity: low
-  description: >
-    
+  name: Otter Blocks – Gutenberg Blocks, Page Builder for Gutenberg Editor & FSE Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f838dbc9-b31e-46c6-b615-4e8ece9a9cfc?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/otter-blocks/
   metadata:
-    fofa-query: "wp-content/plugins/otter-blocks/"
-    google-query: inurl:"/wp-content/plugins/otter-blocks/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,otter-blocks,low
+    plugin_namespace: otter-blocks
+    wpscan: https://wpscan.com/plugin/otter-blocks
+  tags: tech,wordpress,wp-plugin,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
+
     path:
       - "{{BaseURL}}/wp-content/plugins/otter-blocks/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/otter-blocks.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "otter-blocks"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 2.6.5')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'

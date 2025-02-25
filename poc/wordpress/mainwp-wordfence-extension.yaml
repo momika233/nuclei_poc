@@ -1,21 +1,23 @@
 id: mainwp-wordfence-extension
 
 info:
-  name: "MainWP (Various extensions) - Cross-Site Request Forgery"
+  name: >
+    MainWP Wordfence Extension <= 4.0.7 - Missing Authorization to Plugin Settings Change
   author: topscoder
-  severity: medium
-  description: "Several MainWP extensions for WordPress are vulnerable to Cross-Site Request Forgery due to missing or incorrect nonce validation. This makes it possible for unauthenticated attackers to invoke functions normally intended for higher-privileged users such as administrators via forged request granted they can trick a site administrator into performing an action such as clicking on a link."
+  severity: high
+  description: >
+    
   reference:
-
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05da4808-385c-4e9f-96f8-5d5c04e7371b?source=api-scan
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/mainwp-wordfence-extension/"
     google-query: inurl:"/wp-content/plugins/mainwp-wordfence-extension/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,mainwp-wordfence-extension,medium
+  tags: cve,wordpress,wp-plugin,mainwp-wordfence-extension,high
 
 http:
   - method: GET
@@ -53,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<=  4.0.7')
+          - compare_versions(version, '<= 4.0.7')

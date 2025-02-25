@@ -2,14 +2,13 @@ id: crelly-slider
 
 info:
   name: >
-    Crelly Slider <= 1.4.5 - Authenticated (Subscriber+) Insecure Direct Object Reference
+    Crelly Slider <= 1.3.4 - Arbitrary File Upload
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4acc1fd2-0024-4c35-b8c6-94203b91e985?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d9fbd7ee-cfd0-4621-9eb9-df0202657ce9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/crelly-slider/"
     google-query: inurl:"/wp-content/plugins/crelly-slider/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,crelly-slider,low
+  tags: cve,wordpress,wp-plugin,crelly-slider,critical
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.5')
+          - compare_versions(version, '<= 1.3.4')

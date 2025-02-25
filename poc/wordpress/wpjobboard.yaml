@@ -2,14 +2,13 @@ id: wpjobboard
 
 info:
   name: >
-    WPJobBoard <= 5.6.4 - SQL Injection
+    WP Job Board <= 4.4.4 - SQL Injection
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bec7d613-b1cd-4a4e-bbd9-62bca3a864a2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5bfedb93-76e6-4d3f-bf44-1e6d8947c7d1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.6.4')
+          - compare_versions(version, '< 4.5')

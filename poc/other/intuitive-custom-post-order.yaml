@@ -1,59 +1,49 @@
-id: intuitive-custom-post-order
+id: wordpress-intuitive-custom-post-order
 
 info:
-  name: >
-    Intuitive Custom Post Order <= 3.1.4.1 - Authenticated (Admin+) SQL Injection
-  author: topscoder
-  severity: low
-  description: >
-    
+  name: Intuitive Custom Post Order Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dc878508-200d-4bc7-aa99-c34e63cba4b3?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/intuitive-custom-post-order/
   metadata:
-    fofa-query: "wp-content/plugins/intuitive-custom-post-order/"
-    google-query: inurl:"/wp-content/plugins/intuitive-custom-post-order/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,intuitive-custom-post-order,low
+    plugin_namespace: intuitive-custom-post-order
+    wpscan: https://wpscan.com/plugin/intuitive-custom-post-order
+  tags: tech,wordpress,wp-plugin,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
+
     path:
       - "{{BaseURL}}/wp-content/plugins/intuitive-custom-post-order/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/intuitive-custom-post-order.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "intuitive-custom-post-order"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 3.1.4')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'

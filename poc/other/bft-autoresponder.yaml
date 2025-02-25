@@ -2,14 +2,13 @@ id: bft-autoresponder
 
 info:
   name: >
-    Arigato Autoresponder and Newsletter <= 2.5.1.8 - Reflected Cross-Site Scripting
+    Arigato Autoresponder and Newsletter <= 2.5.1.8 - SQL Injection
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e77bb0b8-e101-4230-b707-10a3a126192d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b4939efc-889a-4d1d-b916-dcf3b064dc81?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/bft-autoresponder/"
     google-query: inurl:"/wp-content/plugins/bft-autoresponder/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,bft-autoresponder,medium
+  tags: cve,wordpress,wp-plugin,bft-autoresponder,critical
 
 http:
   - method: GET

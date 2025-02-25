@@ -2,14 +2,13 @@ id: gd-rating-system
 
 info:
   name: >
-    GD Rating System <= 2.3 - Directory Traversal
+    GD Rating System <= 2.3 - Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/44210443-26f8-4626-aee2-4a19d87fdd43?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c14f473f-ca49-4610-b5df-9eb0e064ece5?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/gd-rating-system/"
     google-query: inurl:"/wp-content/plugins/gd-rating-system/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gd-rating-system,low
+  tags: cve,wordpress,wp-plugin,gd-rating-system,high
 
 http:
   - method: GET

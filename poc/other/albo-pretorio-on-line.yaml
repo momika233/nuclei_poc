@@ -2,14 +2,13 @@ id: albo-pretorio-on-line
 
 info:
   name: >
-    Albo Pretorio Online <= 4.6.1 - Reflected Cross-Site Scripting
+    Albo Pretorio Online <= 4.6 - Reflected Cross-Site Scripting via 'Errore'
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8fbcd728-d2a2-4787-841d-0ce77356f737?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ad8f8c41-a3b9-4287-b6b2-489fb77b7553?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.6.1')
+          - compare_versions(version, '<= 4.6')

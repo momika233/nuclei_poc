@@ -2,17 +2,16 @@ id: gallery-portfolio
 
 info:
   name: >
-    Portfolio Gallery – Responsive Image Gallery <= 1.4.5 - Missing Authorization to Arbitrary Gallery Deletion
+    Gallery Portfolio <= 1.4.6 - Missing Authorization via Multiple AJAX actions
   author: topscoder
   severity: high
   description: >
-    
+    The Gallery Portfolio plugin for WordPress is vulnerable to unauthorized modification of data and loss of data due to missing capability checks on multiple nopriv_ AJAX functions in versions up to, and including, 1.4.6. This makes it possible for unauthenticated attackers to edit and delete images, albums, and portfolios.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2a4e66e0-85a6-4e9f-8ed7-b7ee8e75aae6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/96112707-04ca-4647-9008-31954764486f?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L
+    cvss-score: 6.5
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/gallery-portfolio/"
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.5')
+          - compare_versions(version, '< 1.4.7')

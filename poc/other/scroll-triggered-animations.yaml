@@ -2,14 +2,13 @@ id: scroll-triggered-animations
 
 info:
   name: >
-    Animator <= 3.0.11 - Reflected Cross-Site Scripting
+    Animator <= 3.0.10 - Missing Authorization to Plugin Settings Update
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dc8f46a4-b086-440c-809f-1a3db44125f1?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8457aeb-867b-4185-8271-a5452b7c5365?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/scroll-triggered-animations/"
     google-query: inurl:"/wp-content/plugins/scroll-triggered-animations/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,scroll-triggered-animations,medium
+  tags: cve,wordpress,wp-plugin,scroll-triggered-animations,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.11')
+          - compare_versions(version, '<= 3.0.10')

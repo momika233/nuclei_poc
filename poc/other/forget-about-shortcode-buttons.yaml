@@ -2,14 +2,13 @@ id: forget-about-shortcode-buttons
 
 info:
   name: >
-    Forget About Shortcode Buttons <= 1.1.1 - Reflected Cross-Site Scripting
+    Forget About Shortcode Buttons <= 2.1.2 - Missing Authorization via fasc_buttons
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9faa9bd1-c7a8-4d8b-9f92-3a0aa9adbc03?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/212dd123-42d4-4dd2-a2e2-bf0c43e805bf?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/forget-about-shortcode-buttons/"
     google-query: inurl:"/wp-content/plugins/forget-about-shortcode-buttons/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,forget-about-shortcode-buttons,medium
+  tags: cve,wordpress,wp-plugin,forget-about-shortcode-buttons,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.1')
+          - compare_versions(version, '<= 2.1.2')

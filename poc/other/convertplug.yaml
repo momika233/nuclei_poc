@@ -2,14 +2,13 @@ id: convertplug
 
 info:
   name: >
-    ConvertPlus <= 3.5.26 - Authenticated (Contributor+) PHP Object Injection
+    ConvertPlus <= 3.4.4 - Unauthorized Account Creation
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/16f5a104-dce0-4249-91b9-67f99cce16d3?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c1836b1e-6c37-4a07-ac29-687d2eebd3ec?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.5.26')
+          - compare_versions(version, '<= 3.4.4')

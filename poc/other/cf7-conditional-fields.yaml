@@ -2,23 +2,22 @@ id: cf7-conditional-fields
 
 info:
   name: >
-    Conditional Fields for Contact Form 7 <= 2.4.15 - Authenticated (Editor+) Stored Cross-Site Scripting
+    Conditional Fields for Contact Form 7 <= 2.4.0 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: medium
   description: >
-    
+    The Conditional Fields for Contact Form 7 plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check when showing admin notices in all versions up to 2.4.0 (inclusive). This makes it possible for attackers to read admin notices.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e0f356ce-1937-4c89-bedc-f25ea4e78264?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a175d2b2-0a35-4c5a-b05b-4d334e444e85?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N
+    cvss-score: 4.3
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/cf7-conditional-fields/"
     google-query: inurl:"/wp-content/plugins/cf7-conditional-fields/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,cf7-conditional-fields,low
+  tags: cve,wordpress,wp-plugin,cf7-conditional-fields,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.15')
+          - compare_versions(version, '<= 2.4.0')

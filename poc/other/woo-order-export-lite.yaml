@@ -2,14 +2,13 @@ id: woo-order-export-lite
 
 info:
   name: >
-    Advanced Order Export For WooCommerce <= 3.3.1 - Reflected Cross-Site Scripting
+    Advanced Order Export For WooCommerce <= 3.1.7 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2e9291e8-b4f5-4fd1-aded-4690f82f6905?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3d6488ce-e34a-4b23-806d-fa2fb948ea8f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.3.1')
+          - compare_versions(version, '<= 3.1.7')

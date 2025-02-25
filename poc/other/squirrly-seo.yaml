@@ -1,24 +1,24 @@
 id: squirrly-seo
 
 info:
-  name: >
-    SEO Plugin by Squirrly SEO <= 12.3.16 - Reflected Cross-Site Scripting
+  name: "SEO Plugin by Squirrly SEO < 6.1.5 - Missing Authorization Checks"
   author: topscoder
-  severity: medium
-  description: >
-    
+  severity: high
+  description: "The SEO Plugin by Squirrly SEO plugin for WordPress is vulnerable to authorization bypass in versions before 6.1.5. This makes it possible for authenticated attackers to modify plugin settings on a site with registration enabled. This includes adding or changing the site favicon, uploading featured images for posts or retrieving SEO settings for a post."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c874c643-ceb6-4646-adfa-6cd7393bb4f5?source=api-scan
+    - https://www.wordfence.com/blog/2016/07/2-vulnerabilities-squirrly-seo/
+    - https://wordpress.org/plugins/squirrly-seo/#developers
+    - https://plugin.squirrly.co/squirrly-seo-changelog/
+    - https://plugins.trac.wordpress.org/changeset/1452494
   classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L
+    cvss-score: 7.3
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/squirrly-seo/"
     google-query: inurl:"/wp-content/plugins/squirrly-seo/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,squirrly-seo,medium
+  tags: cve,wordpress,wp-plugin,squirrly-seo,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 12.3.16')
+          - compare_versions(version, '< 6.1.5')

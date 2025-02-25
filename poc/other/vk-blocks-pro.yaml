@@ -2,14 +2,13 @@ id: vk-blocks-pro
 
 info:
   name: >
-    VK Blocks <= 1.53.0.1 - Stored (Contributor+) Cross-Site Scripting in Post
+    VK Blocks <= 1.53.0.1 - Stored (Contributor+) Cross-Site Scripting in Tag Edit
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/03d05c74-da50-4175-86f5-f39a89dbffd4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e01f5bd8-de0f-48aa-8007-61a0ebd0ebf3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

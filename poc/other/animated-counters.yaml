@@ -2,14 +2,13 @@ id: animated-counters
 
 info:
   name: >
-    Animated Counters <= 2.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Animated Counters <= 1.7 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/afd2f09c-4bd5-47a5-8d4f-7345aa8925f8?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/33c2756d-c300-479f-b3aa-8f22c3a70278?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0')
+          - compare_versions(version, '<= 1.7')

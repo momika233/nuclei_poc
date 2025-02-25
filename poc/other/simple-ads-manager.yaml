@@ -2,14 +2,13 @@ id: simple-ads-manager
 
 info:
   name: >
-    SAM Pro (Free Edition) < 1.9.7.69 & Simple Ads Manager <= 2.10.0.130 & SAM Pro Lite < 1.9.0.53 - Local/Remote File Inclusion
+    Simple Ads Manager <= 2.5.94 - Arbitrary File Upload
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/730a3cde-bcbd-4d60-80bb-3944cc5386e5?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8621bc52-3a71-4e01-9823-129ce0831ec4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.10.0.130')
+          - compare_versions(version, '<= 2.5.94')

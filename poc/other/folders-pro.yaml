@@ -2,14 +2,14 @@ id: folders-pro
 
 info:
   name: >
-    Folders <= 3.0 and Folders Pro <= 3.0.2 - Directory Traversal via handle_folders_file_upload
+    Folders Pro <= 3.0.2 - Authenticated(Author+) Arbitrary File Upload via handle_folders_file_upload
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b4cc839c-de7a-43eb-a7fa-b1049419bfa3?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fa1d953f-6a5c-46af-a1a5-2c4f90da679a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

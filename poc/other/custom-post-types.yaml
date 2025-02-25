@@ -2,14 +2,13 @@ id: custom-post-types
 
 info:
   name: >
-    Custom post types <= 4.0.12 - Authenticated (Administrator+) Stored Cross-Site Scripting
+    Custom post types <= 5.0.2 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/eb94520e-a99d-4e34-b174-e01898de0978?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/58ee5f31-7d10-4772-929c-98249a351342?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 5.0.0')
+          - compare_versions(version, '<= 5.0.2')

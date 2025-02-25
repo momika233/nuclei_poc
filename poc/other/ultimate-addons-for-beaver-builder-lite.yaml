@@ -2,14 +2,13 @@ id: ultimate-addons-for-beaver-builder-lite
 
 info:
   name: >
-    Ultimate Addons for Beaver Builder - Lite <= 1.5.5 - Authenticated (Subscriber+) Settings Change
+    Ultimate Addons for Beaver Builder – Lite <= 1.5.4 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/64452bb0-32bc-4acf-8e89-f6ae7c75cef4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7fa5ac48-57b6-4367-81a0-8310360d0c7d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/ultimate-addons-for-beaver-builder-lite/"
     google-query: inurl:"/wp-content/plugins/ultimate-addons-for-beaver-builder-lite/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ultimate-addons-for-beaver-builder-lite,low
+  tags: cve,wordpress,wp-plugin,ultimate-addons-for-beaver-builder-lite,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.5.5')
+          - compare_versions(version, '<= 1.5.4')

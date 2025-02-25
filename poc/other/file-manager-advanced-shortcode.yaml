@@ -2,14 +2,13 @@ id: file-manager-advanced-shortcode
 
 info:
   name: >
-    Advanced File Manager Shortcode <= 2.5.3 - Authenticated (Contributor+) Arbitrary File Upload
+    File Manager Advanced Shortcode WordPress <= 2.3.2 - Unauthenticated Arbitrary File Upload to Remote Code Execution via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/26050f70-7a10-4df5-acd5-1c9e7613bf2c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ea40d06e-672c-42db-9378-d382de5838d4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.5.3')
+          - compare_versions(version, '<= 2.3.2')

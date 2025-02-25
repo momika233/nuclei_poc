@@ -2,14 +2,13 @@ id: essential-addons-elementor
 
 info:
   name: >
-    Essential Addons for Elementor Pro <= 5.4.8 - Unauthenticated Server-Side Request Forgery
+    Essential Addons for Elementor Pro <= 5.4.8 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b1a193b7-21e5-4f57-aaa6-e55c79f8e957?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8f86293-a32f-49a6-8c8c-d37354ab040a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/essential-addons-elementor/"
     google-query: inurl:"/wp-content/plugins/essential-addons-elementor/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,essential-addons-elementor,low
+  tags: cve,wordpress,wp-plugin,essential-addons-elementor,medium
 
 http:
   - method: GET

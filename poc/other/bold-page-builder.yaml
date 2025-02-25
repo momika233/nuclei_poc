@@ -2,14 +2,13 @@ id: bold-page-builder
 
 info:
   name: >
-    Bold Page Builder <= 5.1.5 - Authenticated (Editor+) Path Traversal
+    Bold Page Builder <= 4.8.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via Button URL
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7303c2d0-f3b0-41b2-9786-acbe181ccb2e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e166a7db-45f7-4a0d-9966-dbec9ade204a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.1.5')
+          - compare_versions(version, '<= 4.8.0')

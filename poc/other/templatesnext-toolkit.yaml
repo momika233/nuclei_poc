@@ -2,14 +2,13 @@ id: templatesnext-toolkit
 
 info:
   name: >
-    TemplatesNext ToolKit <= 3.2.9 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    TemplatesNext ToolKit <= 3.2.7 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/540b1b4e-474d-48a8-ac8c-b7cd589ddc4c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e7f90a88-6c19-4adf-8282-2d77234fcc11?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.9')
+          - compare_versions(version, '<= 3.2.7')

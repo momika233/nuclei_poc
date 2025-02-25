@@ -2,14 +2,13 @@ id: easy2map-photos
 
 info:
   name: >
-    Easy2map-photos <= 1.0.9 - Path Traversal
+    Easy2Map Photos <= 1.0.9 - SQL Injection
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9ef8906b-be0a-45d2-b1ec-6f480306d9f0?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/af7163da-79b3-45df-a33c-01367205bb6f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/easy2map-photos/"
     google-query: inurl:"/wp-content/plugins/easy2map-photos/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,easy2map-photos,low
+  tags: cve,wordpress,wp-plugin,easy2map-photos,critical
 
 http:
   - method: GET

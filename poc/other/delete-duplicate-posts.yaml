@@ -2,14 +2,13 @@ id: delete-duplicate-posts
 
 info:
   name: >
-    Freemius SDK <= 2.2.3 - Missing Authorization to Arbitrary Options Update
+    Delete Duplicate Posts <= 4.8.9 - Missing Authorization via AJAX Actions
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3fda31fa-efc9-44b9-99ba-9e3e23aa2ee0?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f603a25f-7d56-4cf4-89aa-de87ee49522a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.1.9.5')
+          - compare_versions(version, '< 4.9')

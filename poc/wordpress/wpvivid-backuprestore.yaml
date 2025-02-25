@@ -1,59 +1,49 @@
-id: wpvivid-backuprestore
+id: wordpress-wpvivid-backuprestore
 
 info:
-  name: >
-    Migration, Backup, Staging – WPvivid <= 0.9.69 - Reflected Cross-Site Scripting via sub_page Parameter
-  author: topscoder
-  severity: medium
-  description: >
-    
+  name: Migration, Backup, Staging – WPvivid Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ec4d807b-7119-40f0-99a8-5df8471c515b?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/wpvivid-backuprestore/
   metadata:
-    fofa-query: "wp-content/plugins/wpvivid-backuprestore/"
-    google-query: inurl:"/wp-content/plugins/wpvivid-backuprestore/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wpvivid-backuprestore,medium
+    plugin_namespace: wpvivid-backuprestore
+    wpscan: https://wpscan.com/plugin/wpvivid-backuprestore
+  tags: tech,wordpress,wp-plugin,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
+
     path:
       - "{{BaseURL}}/wp-content/plugins/wpvivid-backuprestore/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/wpvivid-backuprestore.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "wpvivid-backuprestore"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '< 0.9.70')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'

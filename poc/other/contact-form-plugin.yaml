@@ -2,14 +2,13 @@ id: contact-form-plugin
 
 info:
   name: >
-    Advanced Contact Us Form Builder for WordPress <= 4.0.5 - Reflected Cross-Site Scripting
+    Contact Form Plugin <= 3.81 - Unauthenticated Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c7c36911-4afe-4ac7-9a76-7365bb86f81c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8b47cc6-437b-45c9-b263-ee43c7ec7d14?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/contact-form-plugin/"
     google-query: inurl:"/wp-content/plugins/contact-form-plugin/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-form-plugin,medium
+  tags: cve,wordpress,wp-plugin,contact-form-plugin,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.0.6')
+          - compare_versions(version, '<= 3.81')

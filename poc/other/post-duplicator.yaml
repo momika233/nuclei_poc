@@ -2,14 +2,13 @@ id: post-duplicator
 
 info:
   name: >
-    Post Duplicator <= 2.35 - Missing Authorization
+    Post Duplicator <= 2.23 - Cross-Site Scripting
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/985dfe25-4860-477a-bd85-5bf3375b86db?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c763a8d8-c31a-4c9f-8f0e-814cda91b860?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.35')
+          - compare_versions(version, '< 2.24')

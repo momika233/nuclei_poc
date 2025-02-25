@@ -2,23 +2,22 @@ id: gd-star-rating
 
 info:
   name: >
-    GD Star Rating < 1.9.17 - Cross-Site Scripting
+    GD Star Rating <= 1.9.22 - Blind SQL Injection
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
-    The GD Star Rating plugin for WordPress is vulnerable to Cross-Site Scripting via the 'tpl_section' parameter in versions before 1.9.17 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts that execute in a victim's browser.
+    
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bf852d93-6d56-46a2-aebc-b222b1b73fb1?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/211634f6-afc4-4841-8851-6c56a248af95?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 6.1
+    cvss-metrics: 
+    cvss-score: 
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/gd-star-rating/"
     google-query: inurl:"/wp-content/plugins/gd-star-rating/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gd-star-rating,medium
+  tags: cve,wordpress,wp-plugin,gd-star-rating,critical
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.9.17')
+          - compare_versions(version, '<= 1.9.22')

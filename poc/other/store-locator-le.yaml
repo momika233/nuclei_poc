@@ -2,14 +2,13 @@ id: store-locator-le
 
 info:
   name: >
-    Store Locator Plus < 4.2.27 - Email Injection
+    Store Locator Plus <= 5.12.3 - Unauthenticated Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ea607a56-ed6e-44dd-be42-a0b0d970742e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fc7b19c7-a850-4783-9f8b-e338e03998eb?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/store-locator-le/"
     google-query: inurl:"/wp-content/plugins/store-locator-le/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,store-locator-le,low
+  tags: cve,wordpress,wp-plugin,store-locator-le,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.2.27')
+          - compare_versions(version, '<= 5.12.3')

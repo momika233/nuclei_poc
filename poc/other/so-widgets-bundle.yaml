@@ -1,59 +1,49 @@
-id: so-widgets-bundle
+id: wordpress-so-widgets-bundle
 
 info:
-  name: >
-    SiteOrigin Widgets Bundle < 1.51.0 - Authenticated (Admin+) Local File Inclusion
-  author: topscoder
-  severity: low
-  description: >
-    
+  name: SiteOrigin Widgets Bundle Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1dbdc673-b0ee-4d1d-8cd9-603056f41cda?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/so-widgets-bundle/
   metadata:
-    fofa-query: "wp-content/plugins/so-widgets-bundle/"
-    google-query: inurl:"/wp-content/plugins/so-widgets-bundle/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,so-widgets-bundle,low
+    plugin_namespace: so-widgets-bundle
+    wpscan: https://wpscan.com/plugin/so-widgets-bundle
+  tags: tech,wordpress,wp-plugin,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
+
     path:
       - "{{BaseURL}}/wp-content/plugins/so-widgets-bundle/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/so-widgets-bundle.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "so-widgets-bundle"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 1.50.1')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'

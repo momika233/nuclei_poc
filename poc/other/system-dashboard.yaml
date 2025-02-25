@@ -2,14 +2,13 @@ id: system-dashboard
 
 info:
   name: >
-    System Dashboard <= 2.8.7 - Missing Authorization to Information Disclosure (sd_constants)
+    System Dashboard <= 2.8.7 - Missing Authorization to Information Disclosure (sd_option_value)
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f170379e-e833-42e0-96fd-1e1722a8331c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e9d1a33b-2518-48f7-90b6-a94a34473d1e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

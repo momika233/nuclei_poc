@@ -2,14 +2,13 @@ id: lock-user-account
 
 info:
   name: >
-    Lock User Account <= 1.0.5 - User Lock Bypass
+    Lock User Account <= 1.0.3 - Cross-Site Request Forgery to Account Lock/Unlock
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/63374c5c-0b0a-4091-9aee-2e6c1d17a1b2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d06f265c-c1c1-4316-9526-3392f6ee31da?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/lock-user-account/"
     google-query: inurl:"/wp-content/plugins/lock-user-account/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,lock-user-account,low
+  tags: cve,wordpress,wp-plugin,lock-user-account,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.5')
+          - compare_versions(version, '<= 1.0.3')

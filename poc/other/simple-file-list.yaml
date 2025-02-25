@@ -2,14 +2,13 @@ id: simple-file-list
 
 info:
   name: >
-    Simple File List <= 3.2.7 - Arbitrary File Download
+    Simple File List <= 4.4.11 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ff21241d-e488-4460-b8c2-d5a070c8c107?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/da9e3db0-9cbf-4b1a-bdaa-d5d86be744af?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/simple-file-list/"
     google-query: inurl:"/wp-content/plugins/simple-file-list/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,simple-file-list,low
+  tags: cve,wordpress,wp-plugin,simple-file-list,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.7')
+          - compare_versions(version, '<= 4.4.11')

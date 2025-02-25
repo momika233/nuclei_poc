@@ -2,14 +2,13 @@ id: wp-nested-pages
 
 info:
   name: >
-    Nested Pages <= 3.2.7 - Cross-Site Request Forgery to Local File Inclusion
+    Nested Pages <= 3.1.15 - Cross-Site Request Forgery to Arbitrary Post Deletion and Modification
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c2663150-61f9-49e3-9219-fbe89cc6b03c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ecbbe9f0-bf6c-4153-9843-8ae7713adef9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.7')
+          - compare_versions(version, '<= 3.1.15')

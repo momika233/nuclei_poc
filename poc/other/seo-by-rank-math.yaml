@@ -1,59 +1,49 @@
-id: seo-by-rank-math
+id: wordpress-seo-by-rank-math
 
 info:
-  name: >
-    Rank Math SEO <= 1.0.231 - .htaccess File Manipulation to Remote Code Execution
-  author: topscoder
-  severity: critical
-  description: >
-    
+  name: Rank Math SEO with AI Best SEO Tools Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/95fde924-bba5-4b7d-8cee-50bb3d2b4134?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/seo-by-rank-math/
   metadata:
-    fofa-query: "wp-content/plugins/seo-by-rank-math/"
-    google-query: inurl:"/wp-content/plugins/seo-by-rank-math/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,seo-by-rank-math,critical
+    plugin_namespace: seo-by-rank-math
+    wpscan: https://wpscan.com/plugin/seo-by-rank-math
+  tags: tech,wordpress,wp-plugin,top-100,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
+
     path:
       - "{{BaseURL}}/wp-content/plugins/seo-by-rank-math/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/seo-by-rank-math.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "seo-by-rank-math"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 1.0.231')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'

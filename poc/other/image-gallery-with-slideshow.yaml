@@ -2,14 +2,13 @@ id: image-gallery-with-slideshow
 
 info:
   name: >
-    Image Gallery with Slideshow Plugin <= 1.5.2 - SQL Injection via gid
+    Image Gallery with Slideshow Plugin <= 1.5.2 - Blind SQL Injection via imgid
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cef83a3e-9e8b-4c4c-9adc-cdcebefadd39?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e820c00d-0456-49e8-aca4-bb981a9cfea1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

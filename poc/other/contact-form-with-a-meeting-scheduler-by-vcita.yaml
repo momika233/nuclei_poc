@@ -2,14 +2,13 @@ id: contact-form-with-a-meeting-scheduler-by-vcita
 
 info:
   name: >
-    Contact Form Builder by vcita <= 4.9.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Contact Form Builder by vcita <= 4.9.1 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/12ce97ba-8053-481f-bcd7-05d5e8292adb?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/61c39f5f-3b17-4e4d-824e-241159a73400?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/contact-form-with-a-meeting-scheduler-by-vcita/"
     google-query: inurl:"/wp-content/plugins/contact-form-with-a-meeting-scheduler-by-vcita/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-form-with-a-meeting-scheduler-by-vcita,low
+  tags: cve,wordpress,wp-plugin,contact-form-with-a-meeting-scheduler-by-vcita,medium
 
 http:
   - method: GET

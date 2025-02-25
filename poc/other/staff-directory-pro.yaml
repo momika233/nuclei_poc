@@ -1,16 +1,18 @@
 id: staff-directory-pro
 
 info:
-  name: "Various Affected Software  (Various Versions) - Cross-Site Request Forgery Bypass"
+  name: >
+    Staff Directory Plugin <= 3.6 - Cross-Site Request Forgery Bypass
   author: topscoder
   severity: medium
-  description: "Over 70 plugins and themes were vulnerable to Cross-Site Request Forgery due to improperly implemented nonce protection that could be bypassed."
+  description: >
+    
   reference:
-
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5971447d-0634-49a5-91d0-c4f0c0825a86?source=api-scan
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/staff-directory-pro/"
     google-query: inurl:"/wp-content/plugins/staff-directory-pro/"
@@ -53,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<=  3.6')
+          - compare_versions(version, '<= 3.6')

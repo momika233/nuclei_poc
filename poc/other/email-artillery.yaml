@@ -2,14 +2,13 @@ id: email-artillery
 
 info:
   name: >
-    Email Artillery (MASS EMAIL) <= 4.1 - Reflected Cross-Site Scripting
+    Email Artillery (MASS EMAIL) <= 4.1 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/13cb5c62-34fb-4bbc-b42a-cc8a16d51258?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/472b523f-b987-4da0-8533-54ae076d7a6b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

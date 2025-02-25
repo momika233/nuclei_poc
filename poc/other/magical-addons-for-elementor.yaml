@@ -2,14 +2,13 @@ id: magical-addons-for-elementor
 
 info:
   name: >
-    Magical Addons For Elementor <= 1.1.40 - Authenticated (Subscriber+) Server-Side Request Forgery
+    Magical Addons For Elementor ( Header Footer Builder, Free Elementor Widgets, Elementor Templates Library ) <= 1.1.37 - Authenticated (Contributor+) Stored Cross-Site Scripting via Text Effect Widget
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/532b58eb-6d8b-4bb7-b5c5-604ad24dba98?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/733f5ded-e8cb-4895-b938-889cea32f027?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.40')
+          - compare_versions(version, '<= 1.1.37')

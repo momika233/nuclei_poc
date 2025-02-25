@@ -2,14 +2,13 @@ id: bdthemes-prime-slider-lite
 
 info:
   name: >
-    Prime Slider – Addons For Elementor <= 3.13.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via Mercury Widget
+    Prime Slider – Addons For Elementor <= 3.13.2 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7da00af0-edd1-4c39-ae33-a0dc21bd25a2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b97e41a7-dd0a-41cf-ba74-84b117192088?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/bdthemes-prime-slider-lite/"
     google-query: inurl:"/wp-content/plugins/bdthemes-prime-slider-lite/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,bdthemes-prime-slider-lite,low
+  tags: cve,wordpress,wp-plugin,bdthemes-prime-slider-lite,high
 
 http:
   - method: GET

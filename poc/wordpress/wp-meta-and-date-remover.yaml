@@ -2,14 +2,13 @@ id: wp-meta-and-date-remover
 
 info:
   name: >
-    WP Meta and Date Remover < 2.2.0 - Authenticated (Subscriber+) Stored Cross-Site Scripting via settings
+    WP Meta and Date Remover <= 2.3.0 - Cross-Site Request Forgery via updateSettings
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3da0a44f-d4b4-4330-a2e3-d25a2a7df926?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/faa9ad87-44b2-47b3-a05c-52e59af7255a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wp-meta-and-date-remover/"
     google-query: inurl:"/wp-content/plugins/wp-meta-and-date-remover/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-meta-and-date-remover,low
+  tags: cve,wordpress,wp-plugin,wp-meta-and-date-remover,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 2.2.0')
+          - compare_versions(version, '<= 2.3.0')
