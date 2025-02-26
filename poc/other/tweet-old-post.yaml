@@ -2,14 +2,13 @@ id: tweet-old-post
 
 info:
   name: >
-    Revive Old Posts <= 9.0.10 - Authenticated (Admin+) PHP Object Injection
+    Revive Old Posts – Social Media Auto Post and Scheduling Plugin < 8.0.0 - Authorization Bypass
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6322e9be-ad71-4a91-ab9f-760107d920be?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bb1742fd-7f0c-4a14-aa9c-f2863fcccd17?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/tweet-old-post/"
     google-query: inurl:"/wp-content/plugins/tweet-old-post/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,tweet-old-post,low
+  tags: cve,wordpress,wp-plugin,tweet-old-post,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 9.0.10')
+          - compare_versions(version, '< 8.0.0')

@@ -2,14 +2,13 @@ id: sms-alert
 
 info:
   name: >
-    SMS Alert Order Notifications – WooCommerce <= 3.6.9 - Cross-Site Request Forgery
+    SMS Alert Order Notifications – WooCommerce <= 3.4.6 - Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e7a28382-facb-43a7-892a-8ca9e7f0f62b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/215ea2de-538b-4f24-98f8-67b8314453cd?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/sms-alert/"
     google-query: inurl:"/wp-content/plugins/sms-alert/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,sms-alert,medium
+  tags: cve,wordpress,wp-plugin,sms-alert,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.6.9')
+          - compare_versions(version, '< 3.4.7')

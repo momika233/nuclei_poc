@@ -2,14 +2,13 @@ id: wp-live-chat-support-pro
 
 info:
   name: >
-    WP Live Chat Support Pro <= 8.0.26 - Arbitrary File Upload
+    WP Live Chat Support Pro <= 8.0.06 - Remote Code Execution via unrestricted file upload
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/227fb6d1-3515-4172-9d7c-57a66d17858f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bfd3926e-cdb6-44a6-bada-cb83458ca172?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 8.0.26')
+          - compare_versions(version, '<= 8.0.06')

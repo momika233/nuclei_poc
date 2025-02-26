@@ -1,59 +1,50 @@
-id: wp-smushit
+id: wordpress-wp-smushit
 
 info:
-  name: >
-    Smush – Lazy Load Images, Optimize & Compress Images <= 3.9.8 - Cross-Site Scripting
-  author: topscoder
-  severity: high
-  description: >
-    
+  name: Smush – Optimize, Compress and Lazy Load Images Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/64b22728-cb07-48be-94b7-1089156490cd?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/wp-smushit/
   metadata:
-    fofa-query: "wp-content/plugins/wp-smushit/"
-    google-query: inurl:"/wp-content/plugins/wp-smushit/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-smushit,high
+    max-request: 1
+    plugin_namespace: wp-smushit
+    wpscan: https://wpscan.com/plugin/wp-smushit
+  tags: tech,wordpress,wp-plugin,top-100,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/wp-smushit/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/wp-smushit.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "wp-smushit"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 3.9.8')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a0047304502206524cb6ac3a640a64f22a8081643e8872d1ba0d49434c09e16f0a162484565ec022100a65d2969d77712cc2c56adc9e34423922ecc541e8b5e2196ec2856bfc0b7caa8:922c64590222798bb761d5b6d8e72950

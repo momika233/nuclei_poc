@@ -2,14 +2,13 @@ id: import-users-from-csv-with-meta
 
 info:
   name: >
-    Import and export users and customers <= 1.14.1.2 - Cross-Site Scripting
+    Import and export users and customers <= 1.26.5 - Missing Authorization
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/78fef897-fcef-4238-9925-0ce610ee7686?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d2fbd599-0a6c-4182-87d9-ad7cf3fb5865?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.14.1.2')
+          - compare_versions(version, '<= 1.26.5')

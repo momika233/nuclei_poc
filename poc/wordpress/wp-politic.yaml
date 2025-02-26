@@ -2,14 +2,13 @@ id: wp-politic
 
 info:
   name: >
-    HT Politic <= 2.4.4 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    HT Politic <= 2.3.7 - Cross-Site Request Forgery leading to Arbitrary Plugin Activation
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/062844b8-5d19-447f-86df-7b084fa275cb?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5b127a47-d22f-47b5-92a8-440a5892a181?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wp-politic/"
     google-query: inurl:"/wp-content/plugins/wp-politic/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-politic,low
+  tags: cve,wordpress,wp-plugin,wp-politic,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.4')
+          - compare_versions(version, '<= 2.3.7')

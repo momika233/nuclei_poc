@@ -2,14 +2,13 @@ id: happy-elementor-addons-pro
 
 info:
   name: >
-    Happy Addons for Elementor <= 3.9.1.1 - Reflected Cross-Site Scripting
+    Happy Addons for Elementor <= 2.23.0 & Pro Version < 1.17.0 - Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/06ef69f0-34d3-4389-8a81-a4d9922f1468?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f8ec4c5e-fb24-4b74-9ed8-0a9060625aba?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/happy-elementor-addons-pro/"
     google-query: inurl:"/wp-content/plugins/happy-elementor-addons-pro/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,happy-elementor-addons-pro,medium
+  tags: cve,wordpress,wp-plugin,happy-elementor-addons-pro,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.9.1.1')
+          - compare_versions(version, '< 1.17.0')

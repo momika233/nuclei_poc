@@ -2,14 +2,13 @@ id: wp-team-manager
 
 info:
   name: >
-    WordPress Team Manager <= 2.1.12 - Authenticated (Contributor+) Local File Inclusion
+    WordPress Team Manager <= 2.0.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1bebb24c-c141-4fcf-8288-9b8faaaf69c9?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/62d1b4a2-5c1e-4381-a455-082bee734ff2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.12')
+          - compare_versions(version, '<= 2.0.0')

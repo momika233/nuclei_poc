@@ -2,14 +2,13 @@ id: ipanorama-360-virtual-tour-builder-lite
 
 info:
   name: >
-    iPanorama 360 – WordPress Virtual Tour Builder <= 1.8.0 -  Authenticated (Contributor+) SQL Injection via Shortcode
+    iPanorama 360 WordPress Virtual Tour Builder <= 1.6.29 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3566b602-c991-488f-9de2-57236c4735b5?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6d9431b3-d37e-4d19-b07d-d5357affe346?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.8.0')
+          - compare_versions(version, '<= 1.6.29')

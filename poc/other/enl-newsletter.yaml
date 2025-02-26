@@ -2,14 +2,13 @@ id: enl-newsletter
 
 info:
   name: >
-    ENL Newsletter <= 1.0.1 - Authenticated (Admin+) SQL Injection
+    ENL Newsletter <= 1.0.1 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/419270e7-c781-41fe-9893-473074825b36?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cfec4c31-ba09-4832-a095-4ca5f5192674?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/enl-newsletter/"
     google-query: inurl:"/wp-content/plugins/enl-newsletter/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,enl-newsletter,low
+  tags: cve,wordpress,wp-plugin,enl-newsletter,medium
 
 http:
   - method: GET

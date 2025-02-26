@@ -2,14 +2,13 @@ id: ays-facebook-popup-likebox
 
 info:
   name: >
-    Popup Like box <= 3.6.0 - Reflected Cross-Site Scripting
+    Popup Like box – Page Plugin < 3.5.3 - SQL Injection
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6e00b187-9a28-45fb-8d4d-e9401d739486?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1df74d3d-b7c9-4cf8-b1a7-d2b0b4f706d2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/ays-facebook-popup-likebox/"
     google-query: inurl:"/wp-content/plugins/ays-facebook-popup-likebox/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ays-facebook-popup-likebox,medium
+  tags: cve,wordpress,wp-plugin,ays-facebook-popup-likebox,critical
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.6.1')
+          - compare_versions(version, '<= 3.5.2')

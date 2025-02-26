@@ -1,59 +1,50 @@
-id: wpforms-lite
+id: wordpress-wpforms-lite
 
 info:
-  name: >
-    Contact Form by WPForms <= 1.9.2.2 - Missing Authorization
-  author: topscoder
-  severity: high
-  description: >
-    
+  name: Contact Form by WPForms – Drag & Drop Form Builder for WordPress Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/95de9099-6071-46d8-a7c9-bb2c1caa6b38?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/wpforms-lite/
   metadata:
-    fofa-query: "wp-content/plugins/wpforms-lite/"
-    google-query: inurl:"/wp-content/plugins/wpforms-lite/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wpforms-lite,high
+    max-request: 1
+    plugin_namespace: wpforms-lite
+    wpscan: https://wpscan.com/plugin/wpforms-lite
+  tags: tech,wordpress,wp-plugin,top-100,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/wpforms-lite/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/wpforms-lite.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "wpforms-lite"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 1.9.2.2')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a00473045022100d07a96fa05799e4ea1905baf2623b729ff34042249611b1fc91eb46e52e5ae1702200c1107c50421986ea101839b5f150f8b5c8bdc963eb9cb0fc64a996226d30526:922c64590222798bb761d5b6d8e72950

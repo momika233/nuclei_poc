@@ -2,14 +2,13 @@ id: visual-form-builder
 
 info:
   name: >
-    Visual Form Builder <= 3.0.5 - CSV Injection
+    Visual Form Builder <= 3.0.6 - Admin+ Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bdbd3a1a-a206-4e50-893d-1b2d6c8d153a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/897824d0-17cc-4322-bcd9-5e41d141bf62?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/visual-form-builder/"
     google-query: inurl:"/wp-content/plugins/visual-form-builder/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,visual-form-builder,low
+  tags: cve,wordpress,wp-plugin,visual-form-builder,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.0.6')
+          - compare_versions(version, '< 3.0.7')

@@ -2,14 +2,14 @@ id: woocommerce-pdf-vouchers
 
 info:
   name: >
-    WooCommerce PDF Vouchers < 4.9.9 - Authentication Bypass
+    WooCommerce - PDF Vouchers <= 4.9.3 - Authentication Bypass to Voucher Vendor
   author: topscoder
   severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0111a73e-3d5a-4dd5-8974-dc43aafb5050?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b6cf27d9-c0be-4cff-8867-19297f6d79d7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.9.9')
+          - compare_versions(version, '<= 4.9.3')

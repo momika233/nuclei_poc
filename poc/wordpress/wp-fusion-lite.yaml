@@ -2,14 +2,13 @@ id: wp-fusion-lite
 
 info:
   name: >
-    WP Fusion Lite <= 3.37.18 – Cross-Site Request Forgery to Data Deletion
+    WP Fusion Lite <= 3.37.18 – Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8a539a4e-f4df-46c7-83c2-9f189f081405?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/651df16c-2472-4124-90a3-69b98e478ed3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

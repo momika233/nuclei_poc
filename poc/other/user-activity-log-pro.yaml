@@ -2,14 +2,13 @@ id: user-activity-log-pro
 
 info:
   name: >
-    User Activity Log Pro <= 2.3.3 - Tracking Bypass via IP Spoofing
+    User Activity Log Pro <= 2.3.3 - Unauthenticated Stored Cross-Site Scripting via User-Agent header
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9666913e-55a3-441c-85ef-8a12756e37ba?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bcf205a3-be7b-49e7-ba02-3f69632ed65f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/user-activity-log-pro/"
     google-query: inurl:"/wp-content/plugins/user-activity-log-pro/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,user-activity-log-pro,low
+  tags: cve,wordpress,wp-plugin,user-activity-log-pro,high
 
 http:
   - method: GET

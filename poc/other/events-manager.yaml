@@ -2,14 +2,13 @@ id: events-manager
 
 info:
   name: >
-    Events Manager <= 6.4.8 - Reflected Cross-Site Scripting
+    Events Manager <= 6.4.5 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/73cbb65e-b4e3-4374-9916-9a3d1be5a014?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9053cf91-0af1-44f8-9fdf-7ecbd457545b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 6.4.8')
+          - compare_versions(version, '<= 6.4.5')

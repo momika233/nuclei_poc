@@ -2,14 +2,13 @@ id: colibri-page-builder
 
 info:
   name: >
-    Colibri Page Builder <= 1.0.239 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
+    Colibri Page Builder <= 1.0.272 - Authenticated (Contributor+) Stored Cross-Site Scripting via 'colibri_breadcrumb_element' Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/300b24af-10a1-45b9-87ec-7c98dc94e76b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b2ae4226-0089-47fb-87b9-94e9faf764e4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.239')
+          - compare_versions(version, '<= 1.0.272')

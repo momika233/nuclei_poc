@@ -1,59 +1,50 @@
-id: yith-woocommerce-wishlist
+id: wordpress-yith-woocommerce-wishlist
 
 info:
-  name: >
-    YIT Plugin Framework <= 3.3.8 - Authenticated Settings Change
-  author: topscoder
-  severity: low
-  description: >
-    
+  name: YITH WooCommerce Wishlist Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3b34a0c6-3573-48c7-8edb-c9cf9503da06?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/yith-woocommerce-wishlist/
   metadata:
-    fofa-query: "wp-content/plugins/yith-woocommerce-wishlist/"
-    google-query: inurl:"/wp-content/plugins/yith-woocommerce-wishlist/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,yith-woocommerce-wishlist,low
+    max-request: 1
+    plugin_namespace: yith-woocommerce-wishlist
+    wpscan: https://wpscan.com/plugin/yith-woocommerce-wishlist
+  tags: tech,wordpress,wp-plugin,top-100,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/yith-woocommerce-wishlist/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/yith-woocommerce-wishlist.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "yith-woocommerce-wishlist"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 2.2.13')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a00473045022100e12425f45ed5b647cb4b07b3633f6eade35419ae16767a7838ae4c409ea909530220096196e4ae01165510c765436eecb418917bd1653d0f8a7ebb40fe2df1defa1f:922c64590222798bb761d5b6d8e72950

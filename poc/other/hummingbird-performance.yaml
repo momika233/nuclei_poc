@@ -2,14 +2,13 @@ id: hummingbird-performance
 
 info:
   name: >
-    Hummingbird <= 3.4.1 - Unauthenticated Path Traversal
+    Hummingbird <= 3.3.1 - Admin+ Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d9b8e6dc-a9ac-4afb-ad47-4f51032bb1f4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b6119481-f399-4bba-a824-1d7346e7e155?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/hummingbird-performance/"
     google-query: inurl:"/wp-content/plugins/hummingbird-performance/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,hummingbird-performance,low
+  tags: cve,wordpress,wp-plugin,hummingbird-performance,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.4.1')
+          - compare_versions(version, '< 3.3.2')

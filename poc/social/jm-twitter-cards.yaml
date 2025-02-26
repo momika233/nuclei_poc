@@ -1,24 +1,22 @@
 id: jm-twitter-cards
 
 info:
-  name: >
-    JM Twitter Cards <= 14 - Information Exposure via Meta Description
+  name: "JM Twitter Cards < 6.2 - Full Path Disclosure"
   author: topscoder
-  severity: low
-  description: >
-    
+  severity: high
+  description: "The JM Twitter Cards plugin for WordPress is vulnerable to Sensitive Data Exposure in versions up to, and including, 6.1 via the esc_html_e function. This can allow unauthenticated attackers to extract sensitive data including the full path of the WordPress installation on the server."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b48e5973-6923-47cc-a660-ecc989f540f8?source=api-scan
+    - https://advisories.dxw.com/advisories/full-path-disclosure-vulnerability-in-jm-twitter-cards-reveals-the-location-of-the-wordpress-installation-on-the-server/
+    - https://github.com/TweetPressFr/jm-twitter-cards/issues/53
   classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
+    cvss-score: 7.5
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/jm-twitter-cards/"
     google-query: inurl:"/wp-content/plugins/jm-twitter-cards/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,jm-twitter-cards,low
+  tags: cve,wordpress,wp-plugin,jm-twitter-cards,high
 
 http:
   - method: GET
@@ -56,4 +54,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 14')
+          - compare_versions(version, '< 6.2')

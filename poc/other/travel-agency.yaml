@@ -2,14 +2,13 @@ id: travel-agency
 
 info:
   name: >
-    Travel Agency <= 1.4.9 - Cross-Site Request Forgery
+    Multiple Themes (Various Versions) - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4c7fe6e7-f776-4fd5-8341-b95237a63d4e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e09e48db-f74a-4663-a724-24938a6c277c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.9')
+          - compare_versions(version, '< 1.4.2')

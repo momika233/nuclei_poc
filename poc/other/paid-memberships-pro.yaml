@@ -2,14 +2,13 @@ id: paid-memberships-pro
 
 info:
   name: >
-    Paid Memberships Pro <= 2.12.8 - Authenticated (Contributor+) User Meta Disclosure
+    Paid Memberships Pro <= 2.5.5 - Authenticated SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f6c5e3f8-ebbd-4cc3-b9b1-3f1704e3c07a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/13d31af8-c606-4c83-be15-4446c4f330aa?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.12.8')
+          - compare_versions(version, '< 2.5.6')

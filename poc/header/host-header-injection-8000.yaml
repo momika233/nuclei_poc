@@ -10,8 +10,10 @@ info:
     - https://portswigger.net/web-security/host-header/exploiting
     - https://www.acunetix.com/blog/articles/automated-detection-of-host-header-attacks/
   tags: hostheader-injection,generic
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

@@ -2,14 +2,14 @@ id: yumpu-epaper-publishing
 
 info:
   name: >
-    Yumpu E-Paper publishing <= 3.0.8 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Yumpu ePaper publishing <= 2.0.24 - Missing Authorization to PDF Upload, Publishing, and API Key Modification
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/60c0db19-deda-4b95-a341-cf33883dc9b4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ed507ac7-6732-4315-99dd-0a8636cc9cc3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/yumpu-epaper-publishing/"
     google-query: inurl:"/wp-content/plugins/yumpu-epaper-publishing/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,yumpu-epaper-publishing,low
+  tags: cve,wordpress,wp-plugin,yumpu-epaper-publishing,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.8')
+          - compare_versions(version, '<= 2.0.24')

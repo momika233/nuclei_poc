@@ -2,14 +2,13 @@ id: social-warfare
 
 info:
   name: >
-    Social Warfare <= 4.3.0 - Missing Authorization
+    Social Sharing Plugin – Social Warfare <= 4.4.6.1 - Authenticated(Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4bc4ba2c-32eb-46c5-bb40-7c0150fc1ca4?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1016f16c-0ab2-4cac-a7a5-8d93a37e7894?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/social-warfare/"
     google-query: inurl:"/wp-content/plugins/social-warfare/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,social-warfare,high
+  tags: cve,wordpress,wp-plugin,social-warfare,low
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.3.0')
+          - compare_versions(version, '<= 4.4.6.1')

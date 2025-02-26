@@ -2,23 +2,22 @@ id: advance-menu-manager
 
 info:
   name: >
-    Advance Menu Manager <= 3.1.1 - Missing Authorization to Authenticated (Subscriber+) Settings Change
+    Advance Menu Manager <= 3.0.6 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
-    
+    The Advance Menu Manager plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 3.0.6. This is due to missing or incorrect nonce validation on the dsamm_action_ajax_for_delete_menu(), dsamm_amm_duplicate_menu(), and dsamm_action_ajax_for_create_menu() functions. This makes it possible for unauthenticated attackers to duplicate, modify, and create menus via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/65ad6138-d33b-4271-b059-c5f018af03c0?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cf34af9d-4de7-498d-8065-c3cc6818b7c4?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
+    cvss-score: 4.3
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/advance-menu-manager/"
     google-query: inurl:"/wp-content/plugins/advance-menu-manager/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,advance-menu-manager,low
+  tags: cve,wordpress,wp-plugin,advance-menu-manager,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.1')
+          - compare_versions(version, '<= 3.0.6')

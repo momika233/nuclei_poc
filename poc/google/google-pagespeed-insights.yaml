@@ -2,14 +2,13 @@ id: google-pagespeed-insights
 
 info:
   name: >
-    Google Pagespeed Insights <= 4.0.3 - Reflected Cross-Site Scripting
+    Insights from Google PageSpeed <= 4.0.6 - Multiple Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ae8e245f-2458-4ffe-8e73-bed61331f39d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c8440240-f652-4372-9ed8-f3eb3b8336e0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.0.4')
+          - compare_versions(version, '<= 4.0.6')

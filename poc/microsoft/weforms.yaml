@@ -2,14 +2,13 @@ id: weforms
 
 info:
   name: >
-    weForms <= 1.6.13 - Authenticated (Admin+) Stored Cross-Site Scripting
+    WeForms <= 1.4.7 - CSV injection via form entry
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a9e67057-7086-4108-a629-87610a12ec19?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/53bffb82-b9df-40a0-947b-ecae512f363a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.13')
+          - compare_versions(version, '<= 1.4.7')

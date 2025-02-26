@@ -2,14 +2,13 @@ id: dmsguestbook
 
 info:
   name: >
-    DMSGuestbook <= 1.8.0 - Directory Traversal
+    DMSGuestbook < 1.9.0 - Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a70a91f3-ec87-472a-9cb0-98c874b7825f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/607a5846-4112-4f0d-b353-68903b2a4cb8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/dmsguestbook/"
     google-query: inurl:"/wp-content/plugins/dmsguestbook/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,dmsguestbook,low
+  tags: cve,wordpress,wp-plugin,dmsguestbook,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.8.0')
+          - compare_versions(version, '< 1.9.0')

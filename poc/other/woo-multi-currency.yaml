@@ -2,14 +2,13 @@ id: woo-multi-currency
 
 info:
   name: >
-    CURCY <= 2.1.17 - Reflected Cross-Site Scripting
+    CURCY <= 2.1.25 - Missing Authorization to Currency Exchange Retrieval
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7870badf-a1c8-4a47-adac-d6535ab81d79?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ca24aa2f-5d31-4128-af75-68bd24637ee7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/woo-multi-currency/"
     google-query: inurl:"/wp-content/plugins/woo-multi-currency/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-multi-currency,medium
+  tags: cve,wordpress,wp-plugin,woo-multi-currency,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.17')
+          - compare_versions(version, '<= 2.1.25')

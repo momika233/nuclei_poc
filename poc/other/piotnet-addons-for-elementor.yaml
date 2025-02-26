@@ -2,14 +2,13 @@ id: piotnet-addons-for-elementor
 
 info:
   name: >
-    Piotnet Addons For Elementor <= 2.4.32 - Authenticated (Contributor+) Post Disclosure
+    Piotnet Addons For Elementor <= 2.4.26 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5fdbc9bc-70cf-4440-b12d-dd98844d33bc?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e1885be-dc9f-4858-a155-ad6fcc117d0d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4.32')
+          - compare_versions(version, '<= 2.4.26')

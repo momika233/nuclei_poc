@@ -2,14 +2,13 @@ id: spiffy-calendar
 
 info:
   name: >
-    Spiffy Calendar <= 4.9.3 - Reflected Cross-Site Scripting via page parameter
+    Spiffy Calendar <= 4.9.10 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5adf03ff-5b87-4ed3-b7ec-b89bc814aba6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/114e8ba9-b6b0-4b54-982c-8e9efaa616c7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/spiffy-calendar/"
     google-query: inurl:"/wp-content/plugins/spiffy-calendar/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,spiffy-calendar,medium
+  tags: cve,wordpress,wp-plugin,spiffy-calendar,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 4.9.4')
+          - compare_versions(version, '<= 4.9.10')

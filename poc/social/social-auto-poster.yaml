@@ -2,14 +2,14 @@ id: social-auto-poster
 
 info:
   name: >
-    Social Auto Poster <= 5.3.14 - Cross-Site Request Forgery via Multiple Functions
+    Social Auto Poster <= 5.3.14 - Missing Authorization to Unauthenticated Arbitrary Post Deletion
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d7aceccc-7004-42f2-b085-eade9c45141c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d9b1044d-6858-498f-9b89-352650061858?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/social-auto-poster/"
     google-query: inurl:"/wp-content/plugins/social-auto-poster/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,social-auto-poster,medium
+  tags: cve,wordpress,wp-plugin,social-auto-poster,high
 
 http:
   - method: GET

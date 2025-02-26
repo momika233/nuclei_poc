@@ -2,14 +2,13 @@ id: 0mk-shortener
 
 info:
   name: >
-    0mk Shortener <= 0.2 - Authenticated (Administrator+) Stored Cross-Site Scripting
+    0mk Shortener <= 0.2 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/de9f3b83-4575-4566-9731-0af9107c7c30?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3b798c64-3434-427d-b578-5abbdac8cd0e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/0mk-shortener/"
     google-query: inurl:"/wp-content/plugins/0mk-shortener/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,0mk-shortener,low
+  tags: cve,wordpress,wp-plugin,0mk-shortener,medium
 
 http:
   - method: GET

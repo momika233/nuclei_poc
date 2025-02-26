@@ -2,14 +2,13 @@ id: activitypub
 
 info:
   name: >
-    ActivityPub <= 0.17.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via Post Content
+    ActivityPub <= 1.0.5 - Missing Authorization
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/406951d8-4c61-45b3-a8a2-788921662b6c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3666a841-711d-4ecf-bb77-f2db4d5817ea?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/activitypub/"
     google-query: inurl:"/wp-content/plugins/activitypub/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,activitypub,low
+  tags: cve,wordpress,wp-plugin,activitypub,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 0.17.0')
+          - compare_versions(version, '<= 1.0.5')

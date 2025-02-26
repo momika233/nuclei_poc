@@ -2,14 +2,13 @@ id: simple-e-commerce-shopping-cart
 
 info:
   name: >
-    Simple Ecommerce Shopping Cart Plugin- Sell products through Paypal <= 3.1.2 - Reflected Cross-Site Scripting via monthly_sales_current_year Parameter
+    Simple Ecommerce Shopping Cart Plugin- Sell products through Paypal <= 3.1.2 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c7d688af-649c-4858-9c63-b12933d78bc2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bdc946ed-8891-4f97-af7e-2034760eef5b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

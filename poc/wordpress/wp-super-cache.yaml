@@ -1,59 +1,50 @@
-id: wp-super-cache
+id: wordpress-wp-super-cache
 
 info:
-  name: >
-    WP Super Cache <= 1.7.1 - Authenticated (Admin+) Remote Code Execution
-  author: topscoder
-  severity: low
-  description: >
-    
+  name: WP Super Cache Detection
+  author: ricardomaia
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0f6bc166-8489-44bc-862e-dd4dcc1dcff8?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/wp-super-cache/
   metadata:
-    fofa-query: "wp-content/plugins/wp-super-cache/"
-    google-query: inurl:"/wp-content/plugins/wp-super-cache/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-super-cache,low
+    max-request: 1
+    plugin_namespace: wp-super-cache
+    wpscan: https://wpscan.com/plugin/wp-super-cache
+  tags: tech,wordpress,wp-plugin,top-100,top-200
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/wp-super-cache/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/wp-super-cache.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "wp-super-cache"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '< 1.7.2')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a0047304502210097721f985b6e8fe850d2891e218773f2dd3def3fcb31ae72011a2fbb9888639b02204abf56bde7dde91b71d7760231a3fa6f9ad712cb0ac9fc958a2d11a8dfdfa356:922c64590222798bb761d5b6d8e72950

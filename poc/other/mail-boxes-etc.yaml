@@ -2,14 +2,14 @@ id: mail-boxes-etc
 
 info:
   name: >
-    MBE eShip <= 2.1.2 - Information Exposure
+    MBE eShip <= 2.1.2 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/71c7ed80-dd39-4581-8792-31dbc75471e6?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e1a492f6-8248-4a84-b163-7262b02563c2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/mail-boxes-etc/"
     google-query: inurl:"/wp-content/plugins/mail-boxes-etc/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,mail-boxes-etc,low
+  tags: cve,wordpress,wp-plugin,mail-boxes-etc,medium
 
 http:
   - method: GET

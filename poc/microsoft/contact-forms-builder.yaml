@@ -2,14 +2,13 @@ id: contact-forms-builder
 
 info:
   name: >
-    Contact Form Builder, Contact Widget <= 2.1.7 - Authentication Request Bypass
+    Contact Form Builder, Contact Widget <= 2.1.7 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/00ba5eae-668a-4452-9562-9f49b730daaa?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/43ea0665-2c6e-4c78-8bc5-056f47f190ab?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/contact-forms-builder/"
     google-query: inurl:"/wp-content/plugins/contact-forms-builder/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-forms-builder,low
+  tags: cve,wordpress,wp-plugin,contact-forms-builder,medium
 
 http:
   - method: GET

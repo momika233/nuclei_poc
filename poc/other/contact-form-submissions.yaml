@@ -2,14 +2,13 @@ id: contact-form-submissions
 
 info:
   name: >
-    Contact Form Submissions <= 1.7 - Authenticated SQL Injection
+    Contact Form Submissions <= 1.7.2 - Unauthenticated Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9ab883bf-d6b4-4b0e-b8f4-69e6c0f90c70?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4cb02d7c-5014-46e9-9d4c-c207e58a1b0b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/contact-form-submissions/"
     google-query: inurl:"/wp-content/plugins/contact-form-submissions/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-form-submissions,low
+  tags: cve,wordpress,wp-plugin,contact-form-submissions,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7')
+          - compare_versions(version, '< 1.7.3')

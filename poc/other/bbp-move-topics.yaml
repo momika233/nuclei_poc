@@ -2,14 +2,13 @@ id: bbp-move-topics
 
 info:
   name: >
-    bbPress Move Topics <= 1.1.4 - PHP Object Injection
+    bbPress Move Topics <= 1.1.4 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2b23b71d-1231-44ce-b992-5e74ddafb4bd?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/61bbd7fe-cacf-4390-b976-3b931fc84af3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/bbp-move-topics/"
     google-query: inurl:"/wp-content/plugins/bbp-move-topics/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,bbp-move-topics,low
+  tags: cve,wordpress,wp-plugin,bbp-move-topics,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.1.4')
+          - compare_versions(version, '< 1.1.5')

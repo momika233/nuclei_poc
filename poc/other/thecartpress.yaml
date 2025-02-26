@@ -2,14 +2,13 @@ id: thecartpress
 
 info:
   name: >
-    TheCartPress eCommerce Shopping Cart <= 1.5.3.6 Cross-Site Request Forgery
+    TheCartPress eCommerce Shopping Cart <= 1.5.3.6 - Directory Traversal
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8593b14e-672d-43b8-b516-d068cbd735b7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e8150619-9710-4dc0-ab62-ffd3e9fa8cd6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/thecartpress/"
     google-query: inurl:"/wp-content/plugins/thecartpress/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,thecartpress,medium
+  tags: cve,wordpress,wp-plugin,thecartpress,low
 
 http:
   - method: GET

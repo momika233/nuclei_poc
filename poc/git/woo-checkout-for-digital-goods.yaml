@@ -2,14 +2,13 @@ id: woo-checkout-for-digital-goods
 
 info:
   name: >
-    Digital Goods < 2.2 - Cross-Site Request Forgery
+    Freemius SDK <= 2.4.2 - Missing Authorization Checks
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/601ad4f3-2160-4af6-b3d5-c2af52746aab?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/39fb0499-9ab4-4a2f-b0db-ece86bcf4d42?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/woo-checkout-for-digital-goods/"
     google-query: inurl:"/wp-content/plugins/woo-checkout-for-digital-goods/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-checkout-for-digital-goods,medium
+  tags: cve,wordpress,wp-plugin,woo-checkout-for-digital-goods,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 2.2')
+          - compare_versions(version, '< 3.6.4')

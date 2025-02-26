@@ -2,14 +2,13 @@ id: all-in-one-video-gallery
 
 info:
   name: >
-    All-in-One Video Gallery <= 3.5.2 - Missing Authorization
+    All-in-One Video Gallery <= 3.6.4 - Authenticated (Contributor+) Arbitrary File Upload via featured image
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b350a20e-6f86-4760-9092-27a4b365b590?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e0f295f9-1090-4b10-abc5-3f73c5b4e28d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/all-in-one-video-gallery/"
     google-query: inurl:"/wp-content/plugins/all-in-one-video-gallery/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,all-in-one-video-gallery,high
+  tags: cve,wordpress,wp-plugin,all-in-one-video-gallery,low
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.5.2')
+          - compare_versions(version, '<= 3.6.4')

@@ -2,14 +2,13 @@ id: constant-contact-forms-by-mailmunch
 
 info:
   name: >
-    Constant Contact Forms by MailMunch <= 2.1.2 - Reflected Cross-Site Scripting
+    Constant Contact Forms by MailMunch <= 2.0.10 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/92abab9e-904a-4a62-a911-a57baa9aa4af?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2f8dcbd2-af51-4cc9-9962-53fe644985e1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.2')
+          - compare_versions(version, '<= 2.0.10')

@@ -2,14 +2,13 @@ id: zoho-forms
 
 info:
   name: >
-    Zoho Forms <= 3.0.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Zoho Forms <= 3.0.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/65db0063-63c4-400b-9192-ddcc16c0a541?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/57e9b09c-adfb-4fc2-8d2b-41cfc1f73e22?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '3.0.0')
+          - compare_versions(version, '<= 3.0.1')

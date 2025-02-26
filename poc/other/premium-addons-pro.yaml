@@ -2,14 +2,13 @@ id: premium-addons-pro
 
 info:
   name: >
-    Premium Addons PRO <= 2.9.12 - Authenticated (Contributor+) Stored Cross-Site Scripting via Global Badge Module
+    Premium Addons PRO <= 2.9.12 - Authenticated (Contributor+) Stored Cross-Site Scripting via Multi Scroll Widget
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/35151561-6a80-4c2c-b87a-2dfe02aa6158?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/eee517de-a47e-47c9-8322-92ce772191b0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

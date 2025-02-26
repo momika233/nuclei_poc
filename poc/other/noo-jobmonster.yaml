@@ -2,14 +2,13 @@ id: noo-jobmonster
 
 info:
   name: >
-    Jobmonster <= 4.7.0 - Unauthenticated Arbitrary File Deletion
+    Noo JobMonster <= 4.6.6 - Sensitive Information Disclosure via Directory Listing
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/38398f29-1bd7-4f15-9d7e-7ad52264f5c7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/07eec594-6c46-4df0-92f1-f090e510d79d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.7.0')
+          - compare_versions(version, '<= 4.6.6')

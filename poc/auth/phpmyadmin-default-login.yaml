@@ -1,5 +1,4 @@
 id: phpmyadmin-default-login
-
 info:
   name: phpMyAdmin Default Login
   author: Natto97
@@ -11,14 +10,11 @@ info:
     verified: true
     shodan-query: http.title:phpMyAdmin
   tags: default-login,phpmyadmin
-
-
 requests:
   - raw:
       - |
         GET /index.php HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /index.php HTTP/1.1
         Host: {{Hostname}}
@@ -26,7 +22,6 @@ requests:
         Cookie: phpMyAdmin={{token2}}; pma_lang=en
 
         set_session={{session}}&pma_username={{user}}&pma_password={{password}}&server=1&route=%2F&token={{token}}
-
     attack: clusterbomb
     payloads:
       user:
@@ -37,7 +32,6 @@ requests:
         - root
         - mysql
         - toor
-
     extractors:
       - type: regex
         name: token
@@ -45,14 +39,12 @@ requests:
         group: 1
         regex:
           - 'name="token" value="([0-9a-z]+)"'
-
       - type: regex
         name: token2
         internal: true
         group: 1
         regex:
           - 'name="set_session" value="([0-9a-z]+)"'
-
       - type: regex
         name: session
         part: header
@@ -60,7 +52,6 @@ requests:
         group: 1
         regex:
           - "phpMyAdmin=([0-9a-z]+)"
-
     req-condition: true
     stop-at-first-match: true
     matchers-condition: and

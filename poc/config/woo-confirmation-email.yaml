@@ -2,14 +2,13 @@ id: woo-confirmation-email
 
 info:
   name: >
-    User Email Verification for WooCommerce <= 3.5.0 - Reflected Cross-Site Scripting
+    User Email Verification for WooCommerce <= 3.5.0 - Authentication Bypass
   author: topscoder
-  severity: medium
+  severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/282ef0bb-4db5-4b07-9aad-b128e8fdb915?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f1e31357-7fbc-414b-a4f4-53fa5f2fc715?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/woo-confirmation-email/"
     google-query: inurl:"/wp-content/plugins/woo-confirmation-email/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woo-confirmation-email,medium
+  tags: cve,wordpress,wp-plugin,woo-confirmation-email,critical
 
 http:
   - method: GET

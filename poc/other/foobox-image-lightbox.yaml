@@ -2,14 +2,13 @@ id: foobox-image-lightbox
 
 info:
   name: >
-    Lightbox & Modal Popup WordPress Plugin – FooBox <= 2.7.28 - Authenticated (Contributor+) Stored DOM-Based Cross-Site Scripting via HTML Data Attributes
+    Freemius SDK <= 2.4.2 - Missing Authorization Checks
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/923f9e66-2e26-4ec2-a4b3-439881a6ca10?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/39fb0499-9ab4-4a2f-b0db-ece86bcf4d42?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/foobox-image-lightbox/"
     google-query: inurl:"/wp-content/plugins/foobox-image-lightbox/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,foobox-image-lightbox,low
+  tags: cve,wordpress,wp-plugin,foobox-image-lightbox,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.7.28')
+          - compare_versions(version, '< 2.7.17')

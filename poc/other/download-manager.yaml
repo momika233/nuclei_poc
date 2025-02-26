@@ -2,14 +2,13 @@ id: download-manager
 
 info:
   name: >
-    Download Manager <= 3.2.34 - Sensitive Information Disclosure
+    WordPress Download Manager <= 3.1.24 - Authenticated File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b8f24fae-6a8b-4c67-a204-c085ae43552f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2cde1f4d-0212-48b1-a0ef-ba923c37ab50?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 3.2.35')
+          - compare_versions(version, '<= 3.1.24')

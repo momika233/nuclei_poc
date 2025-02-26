@@ -2,14 +2,13 @@ id: custom-content-shortcode
 
 info:
   name: >
-    Custom Content Shortcode <= 4.0.1 - Authenticated Stored Cross-Site Scripting
+    Custom Content Shortcode <= 4.0.2 - Authenticated (Contributor+) Local File Inclusion via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/53459a4d-6ffd-46bf-926a-761db4cfb50c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d245dc6c-c579-4e28-a953-9227261911d4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.0.1')
+          - compare_versions(version, '<= 4.0.2')

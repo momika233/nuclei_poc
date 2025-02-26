@@ -2,14 +2,14 @@ id: stacks-mobile-app-builder
 
 info:
   name: >
-    Stacks Mobile App Builder <= 5.2.3 - Unauthenticated Sensitive Information Disclosure
+    Stacks Mobile App Builder <= 5.2.3 - Authentication Bypass via Account Takeover
   author: topscoder
-  severity: low
+  severity: critical
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a5ad6de2-b14e-4aaf-855f-f71c324edd68?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/fc747d1a-9d95-4127-8bb9-13dc2beb1874?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/stacks-mobile-app-builder/"
     google-query: inurl:"/wp-content/plugins/stacks-mobile-app-builder/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,stacks-mobile-app-builder,low
+  tags: cve,wordpress,wp-plugin,stacks-mobile-app-builder,critical
 
 http:
   - method: GET

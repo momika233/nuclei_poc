@@ -4,11 +4,10 @@ info:
   name: >
     CopySafe Web Protection <= 3.13 - Unauthenticated Stored Cross-Site Scripting
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
     - https://www.wordfence.com/threat-intel/vulnerabilities/id/07e110b3-ef10-482d-a564-c9f23631e5f3?source=api-scan
   classification:
     cvss-metrics: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wp-copysafe-web/"
     google-query: inurl:"/wp-content/plugins/wp-copysafe-web/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-copysafe-web,high
+  tags: cve,wordpress,wp-plugin,wp-copysafe-web,low
 
 http:
   - method: GET

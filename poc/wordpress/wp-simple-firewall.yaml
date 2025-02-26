@@ -2,14 +2,13 @@ id: wp-simple-firewall
 
 info:
   name: >
-    Shield Security – Smart Bot Blocking & Intrusion Prevention Security <= 19.1.13 - Cross-Site Request Forgery
+    Shield Security <= 17.0.17 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2d3b9cde-e4d8-4217-96b4-f6ad00cd3a2d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/674461ad-9b61-48c4-af2a-5dfcaeb38215?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wp-simple-firewall/"
     google-query: inurl:"/wp-content/plugins/wp-simple-firewall/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-simple-firewall,medium
+  tags: cve,wordpress,wp-plugin,wp-simple-firewall,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 19.1.10')
+          - compare_versions(version, '< 17.0.18')

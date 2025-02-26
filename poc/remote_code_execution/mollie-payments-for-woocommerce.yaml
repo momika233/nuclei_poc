@@ -2,14 +2,13 @@ id: mollie-payments-for-woocommerce
 
 info:
   name: >
-    Mollie Payments for WooCommerce <= 7.7.0 -  Unauthenticated Full Path Disclosure
+    Mollie Payments for WooCommerce <= 7.3.11 - Authenticated (Shop Manager+) Arbitrary File Upload
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0c98026c-28a9-4c69-9f34-4c3bd4f75d85?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5d350095-125a-4445-89c1-bce437e4098c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 7.7.0')
+          - compare_versions(version, '<= 7.3.11')

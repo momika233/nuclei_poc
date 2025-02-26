@@ -2,14 +2,13 @@ id: database-cleaner
 
 info:
   name: >
-    Database Cleaner <= 1.0.5 - Authenticated (Admin+) Arbitrary File Read
+    Database Cleaner <= 0.9.8 - Sensitive Information Exposure via Log File
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9676c768-496a-4131-93ff-481db158cceb?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4031f857-9712-4f4a-93e8-0b01f9a9c32d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.5')
+          - compare_versions(version, '<= 0.9.8')

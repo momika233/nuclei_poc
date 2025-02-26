@@ -2,23 +2,22 @@ id: yith-woocommerce-request-a-quote
 
 info:
   name: >
-    YITH Request a Quote for WooCommerce <= 1.6.3 - Cross-Site Request Forgery
+    YITH plugins by YITHEMES <= (Various Versions) - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
-    The YITH Request a Quote for WooCommerce plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.6.3. This is due to missing or incorrect nonce validation on the several functions. This makes it possible for unauthenticated attackers to add and edit items to a session quote via a forged request granted they can trick a site user into performing an action such as clicking on a link.
+    Several YITHEMES plugins for WordPress are vulnerable to authorization bypass due to a missing capability check on the create_log_file function. This makes it possible for authenticated attackers, with subscriber-level permissions and above, to download the logs of the plugin which can contain sensitive information. Please note that the unpatched plugins from this developer are the FREE versions of the plugin that were available on the WordPress.org repository. The developer is still maintaining the premium versions of the plugins which have been patched.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/190edd82-840d-4468-8f5a-127cce049336?source=api-prod
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b948574a-0aab-4596-83e6-04be21f78bc1?source=api-prod
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H
-    cvss-score: 8.8
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N
+    cvss-score: 7.1
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/yith-woocommerce-request-a-quote/"
     google-query: inurl:"/wp-content/plugins/yith-woocommerce-request-a-quote/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,yith-woocommerce-request-a-quote,medium
+  tags: cve,wordpress,wp-plugin,yith-woocommerce-request-a-quote,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.3')
+          - compare_versions(version, '<= 2.15.0')

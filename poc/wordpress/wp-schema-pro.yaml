@@ -2,14 +2,13 @@ id: wp-schema-pro
 
 info:
   name: >
-    Schema Pro <= 2.7.8 - Authenticated(Contributor+) Missing Authorization
+    Schema Pro <= 2.7.15 - Authenticated (Contributor+) Custom Field Access
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/645ab4b9-e421-4610-b99b-960a7fbb7779?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/dafc355c-18e7-4312-bd16-8ef65ad54dad?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.7.8')
+          - compare_versions(version, '<= 2.7.15')

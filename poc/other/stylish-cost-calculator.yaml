@@ -2,14 +2,13 @@ id: stylish-cost-calculator
 
 info:
   name: >
-    Appsero <= 1.2.0 - Cross-Site Request Forgery
+    Stylish Cost Calculator <= 7.0.3 - Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e869800a-6fbc-4a1a-97fd-92ecbf3305ff?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/30e89955-9f2b-42e4-a7cf-558edd2e736c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/stylish-cost-calculator/"
     google-query: inurl:"/wp-content/plugins/stylish-cost-calculator/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,stylish-cost-calculator,medium
+  tags: cve,wordpress,wp-plugin,stylish-cost-calculator,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 7.3.6')
+          - compare_versions(version, '<= 7.0.3')

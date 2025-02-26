@@ -1,20 +1,23 @@
-id: vmware-esxi
-info:
-  name: vmware-esxi
-  author: cn-kali-team
-  tags: detect,tech,vmware-esxi
-  severity: info
-  metadata:
-    product: esxi
-    vendor: vmware
-    verified: true
-http:
-- method: GET
-  path:
-  - '{{BaseURL}}/'
-  matchers:
-  - type: word
-    words:
-    - <title ng-bind="$root.title">
-    - ng-app="esxuiapp"
-    case-insensitive: true
+name: vmware-esxi
+priority: 3
+nuclei_tags:
+  - []
+fingerprint:
+  - path: /
+    request_method: get
+    request_headers: {}
+    request_data: ''
+    status_code: 0
+    headers: {}
+    keyword:
+      - ng-app="esxuiapp"
+    favicon_hash: []
+  - path: /
+    request_method: get
+    request_headers: {}
+    request_data: ''
+    status_code: 0
+    headers: {}
+    keyword:
+      - <title ng-bind="$root.title">
+    favicon_hash: []

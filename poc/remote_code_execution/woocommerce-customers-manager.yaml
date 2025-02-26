@@ -2,14 +2,13 @@ id: woocommerce-customers-manager
 
 info:
   name: >
-    Woocommerce Customers Manager <= 26.4 - Authenticated Account Creation and Privilege Escalation
+    WooCommerce Customers Manager <= 29.6 - Authenticated (Subscriber+) SQL Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/486fa1a6-aa47-4bf9-b1da-582e316f6bcb?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a14cf955-e354-49c3-a685-d5bd51c79ba9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 26.5')
+          - compare_versions(version, '<= 29.6')

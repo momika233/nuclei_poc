@@ -2,14 +2,13 @@ id: yith-woocommerce-product-add-ons
 
 info:
   name: >
-    YITH plugins by YITHEMES <= (Various Versions) - Cross-Site Request Forgery
+    YITH WooCommerce Product Add-Ons <= 4.2.0 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f002d061-4e9d-49be-9d4c-c470ec97f653?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7e95773c-b968-47b3-8ae7-9a8d3389666c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/yith-woocommerce-product-add-ons/"
     google-query: inurl:"/wp-content/plugins/yith-woocommerce-product-add-ons/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,yith-woocommerce-product-add-ons,medium
+  tags: cve,wordpress,wp-plugin,yith-woocommerce-product-add-ons,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.15.0')
+          - compare_versions(version, '<= 4.2.0')

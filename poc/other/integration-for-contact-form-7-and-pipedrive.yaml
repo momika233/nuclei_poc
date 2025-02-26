@@ -2,17 +2,16 @@ id: integration-for-contact-form-7-and-pipedrive
 
 info:
   name: >
-    Integration for Pipedrive and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.2.0 - Cross-Site Request Forgery
+    CRM Perks - Various Plugins (Various Versions) - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
-    
+    Multiple CRM Perks plugins for WordPress are vulnerable to Reflected Cross-Site Scripting via the 'vx_debug' parameter in various versions due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c761f19e-3263-4fa5-90c0-d661f160ed3a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cc1e9778-2860-4e3c-a2e4-28f10d585fed?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 6.1
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/integration-for-contact-form-7-and-pipedrive/"
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.2.0')
+          - compare_versions(version, '<= 1.1.0')

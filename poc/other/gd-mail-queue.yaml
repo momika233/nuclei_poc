@@ -2,14 +2,13 @@ id: gd-mail-queue
 
 info:
   name: >
-    CVE-2025-24608
+    GD Mail Queue <= 3.9.3 - Unauthenticated Stored Cross-Site Scripting via Email
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3de459ce-a4e7-443a-abd6-b8e1c9c1d184?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0b668f45-c7fb-481b-bc8e-115e5b7248c9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/gd-mail-queue/"
     google-query: inurl:"/wp-content/plugins/gd-mail-queue/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gd-mail-queue,low
+  tags: cve,wordpress,wp-plugin,gd-mail-queue,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.3')
+          - compare_versions(version, '<= 3.9.3')

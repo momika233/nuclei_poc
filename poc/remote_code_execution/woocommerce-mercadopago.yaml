@@ -2,14 +2,13 @@ id: woocommerce-mercadopago
 
 info:
   name: >
-    Mercado Pago payments for WooCommerce 7.3.0 - 7.6.1 - Authenticated (Subscriber+) Arbitrary File Download
+    Mercado Pago payments for WooCommerce <= 6.6.0 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1674e81e-6a75-436c-b219-8ec0a484a134?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b20b4eba-54df-4e08-ba4c-96f8bb463125?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/woocommerce-mercadopago/"
     google-query: inurl:"/wp-content/plugins/woocommerce-mercadopago/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woocommerce-mercadopago,low
+  tags: cve,wordpress,wp-plugin,woocommerce-mercadopago,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '>= 7.3.0', '<= 7.6.1')
+          - compare_versions(version, '<= 6.6.0')

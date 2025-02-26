@@ -10,7 +10,7 @@ info:
     max-request: 2
     verified: true
     shodan-query: 'product:"Apache ActiveMQ"'
-  tags: network,activemq,oss
+  tags: network,activemq,oss,detect
 
 tcp:
   - inputs:
@@ -18,7 +18,7 @@ tcp:
 
     host:
       - "{{Hostname}}"
-      - "{{Host}}:61613"
+    port: 61613
 
     matchers-condition: and
     matchers:

@@ -2,14 +2,13 @@ id: envo-elementor-for-woocommerce
 
 info:
   name: >
-    Envo's Elementor Templates & Widgets for WooCommerce <= 1.4.19 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Envo's Elementor Templates & Widgets for WooCommerce <= 1.4.4 - Cross-Site Request Forgery via ajax_plugin_activation
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/536b3d61-d0a3-4613-9a9e-e994806d90f5?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cca71257-05dc-43d5-8de6-faf0a2feab2e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/envo-elementor-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/envo-elementor-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,envo-elementor-for-woocommerce,low
+  tags: cve,wordpress,wp-plugin,envo-elementor-for-woocommerce,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.19')
+          - compare_versions(version, '<= 1.4.4')
