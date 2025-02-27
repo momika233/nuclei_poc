@@ -2,13 +2,14 @@ id: wp-forum
 
 info:
   name: >
-    WP Forum <= 2.4 - SQL Injection
+    WP-Forum <= 1.7.4 - Remote SQL Injection
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3d7b4428-99ac-4f84-8595-941124121eb2?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c1d354fc-8137-44fa-980a-215dbeb7d15c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.4')
+          - compare_versions(version, '<= 1.7.4')

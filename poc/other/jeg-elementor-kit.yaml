@@ -2,13 +2,14 @@ id: jeg-elementor-kit
 
 info:
   name: >
-    Jeg Elementor Kit <= 2.6.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via HTML Tags
+    Jeg Elementor Kit <= 2.6.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Testimonial
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d108cb36-c072-483e-9746-15b8e7a880c3?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d54c7623-25af-4bf1-a6e0-9022ec26f391?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.6.2')
+          - compare_versions(version, '<= 2.6.3')

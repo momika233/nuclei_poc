@@ -2,13 +2,14 @@ id: gt3-photo-video-gallery
 
 info:
   name: >
-    Photo Gallery - GT3 Image Gallery & Gutenberg Block Gallery <= 2.7.7.21 - Authenticated (Author+) Cross-Site Scripting
+    Photo Gallery - GT3 Image Gallery & Gutenberg Block Gallery <= 2.7.7.24 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/06ef1f0c-fdcc-4aaf-9e48-19b5be52351d?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/91534af0-74e6-438f-9f28-27ac559b2655?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/gt3-photo-video-gallery/"
     google-query: inurl:"/wp-content/plugins/gt3-photo-video-gallery/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,gt3-photo-video-gallery,low
+  tags: cve,wordpress,wp-plugin,gt3-photo-video-gallery,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.7.7.21')
+          - compare_versions(version, '<= 2.7.7.24')

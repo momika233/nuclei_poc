@@ -2,13 +2,14 @@ id: button-generation
 
 info:
   name: >
-    Multiple Wow-Company Plugins (Various Versions) -- Reflected Cross-Site Scripting via 'page' parameter
+    Button Generator – easily Button Builder <= 2.3.5 - Cross-Site Request Forgery in tools-data-base.php
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8a95af34-559c-4644-9941-7bd1551aba33?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/af803612-96ae-41ee-8ad3-8f9319b147e8?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.3.4')
+          - compare_versions(version, '<= 2.3.5')

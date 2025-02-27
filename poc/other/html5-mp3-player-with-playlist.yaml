@@ -2,13 +2,14 @@ id: html5-mp3-player-with-playlist
 
 info:
   name: >
-    HTML5 MP3 Player with Playlist Free <= 3.0.0 - Authenticated (Author+) PHP Object Injecton
+    HTML5 MP3 Player with Playlist <= 2.7.0 - Full Path Disclosure
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2eac991e-fc34-456c-a9a6-d30fde39fd42?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/41d55e84-773d-4ec9-8dca-b93b8dac4f48?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.0.0')
+          - compare_versions(version, '<= 2.7.0')

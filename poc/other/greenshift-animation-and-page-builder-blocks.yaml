@@ -2,13 +2,14 @@ id: greenshift-animation-and-page-builder-blocks
 
 info:
   name: >
-    Greenshift – animation and page builder blocks <= 4.9.9 - Authenticated (Author+) Stored Cross-Site Scripting
+    Greenshift – animation and page builder blocks <= 9.9.9.3 - Authenticated (Contributor+) Post Disclosure
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/826b5dac-4a54-44c7-979b-8901bb468777?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/06047667-2a24-4e1c-9389-11daceff4d23?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.9.9')
+          - compare_versions(version, '<= 9.9.9.3')

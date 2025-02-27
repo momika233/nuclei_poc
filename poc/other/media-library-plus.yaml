@@ -2,13 +2,14 @@ id: media-library-plus
 
 info:
   name: >
-    Media Library Folders <= 8.1.7 - Authenticated (Author+) SQL Injection
+    Media Library Folders <= 8.2.0 - Reflected Cross-Site Scripting via 's'
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/198ad1bf-7ce1-4367-bef7-1f58113c0719?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5f550bac-b047-4276-bde5-c15bfd4ceb49?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/media-library-plus/"
     google-query: inurl:"/wp-content/plugins/media-library-plus/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,media-library-plus,low
+  tags: cve,wordpress,wp-plugin,media-library-plus,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 8.1.7')
+          - compare_versions(version, '<= 8.2.0')

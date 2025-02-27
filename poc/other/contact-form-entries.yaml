@@ -2,13 +2,14 @@ id: contact-form-entries
 
 info:
   name: >
-    Database for Contact Form 7, WPforms, Elementor forms <= 1.3.8 - Unauthenticated Stored Cross-Site Scripting
+    Contact Form Entries <= 1.2.3 - Reflected Cross-Site Scripting
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/adbc23b3-fa9d-4303-8283-1cabb2a6bb71?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4ffeec7b-cd4d-4555-acc0-22b44f237da6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/contact-form-entries/"
     google-query: inurl:"/wp-content/plugins/contact-form-entries/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-form-entries,high
+  tags: cve,wordpress,wp-plugin,contact-form-entries,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.3.8')
+          - compare_versions(version, '<= 1.2.3')

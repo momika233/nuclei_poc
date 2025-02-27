@@ -2,13 +2,14 @@ id: jeeng-push-notifications
 
 info:
   name: >
-    Jeeng Push Notifications <= 2.0.3 - Cross-Site Request Forgery
+    Jeeng Push Notifications <= 2.0.3 - Authenticated (Admin+) Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8551ae2f-4be4-4dc6-952d-1d25ae127150?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/89b528f7-42a7-4b6a-b3f7-3176b91e0dfe?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/jeeng-push-notifications/"
     google-query: inurl:"/wp-content/plugins/jeeng-push-notifications/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,jeeng-push-notifications,medium
+  tags: cve,wordpress,wp-plugin,jeeng-push-notifications,low
 
 http:
   - method: GET

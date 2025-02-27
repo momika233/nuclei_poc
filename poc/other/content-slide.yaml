@@ -2,13 +2,14 @@ id: content-slide
 
 info:
   name: >
-    WordPress Content Slide <= 1.4.2 - Cross-Site Scripting
+    Content Slide <= 1.4.2 - Cross-Site Request Forgery
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/87ca4c05-b9fc-4932-be4b-beb57ca3bb7e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d767b710-0bef-4f36-8edd-eccd845a2b07?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/content-slide/"
     google-query: inurl:"/wp-content/plugins/content-slide/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,content-slide,high
+  tags: cve,wordpress,wp-plugin,content-slide,medium
 
 http:
   - method: GET

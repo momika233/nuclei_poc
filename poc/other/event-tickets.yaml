@@ -2,13 +2,14 @@ id: event-tickets
 
 info:
   name: >
-    Event Tickets and Registration  <= 5.8.0  Events Tickets Plus <= 5.9.0 - Authenticated (Contributor+) Information Exposure
+    Event Tickets and Registration <= 5.8.2 - Improper Authorization to Information Disclosure
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5c9d08f5-7c94-40e7-979f-023456aeb54e?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2e42dd1c-adf7-471a-a14a-9038c56413a2?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.8.0')
+          - compare_versions(version, '<= 5.8.2')

@@ -2,13 +2,14 @@ id: wp-data-access
 
 info:
   name: >
-    WP Data Access <= 4.3.1 - Admin+ SQL Injection
+    WP Data Access <= 5.5.7 - Cross-Site Request Forgery
   author: topscoder
-  severity: critical
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7cb9cc24-920f-402d-8a87-8b6c6a1b1a51?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/85a33508-71f2-4aa1-8d51-667eb0690fbd?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/wp-data-access/"
     google-query: inurl:"/wp-content/plugins/wp-data-access/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-data-access,critical
+  tags: cve,wordpress,wp-plugin,wp-data-access,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.3.1')
+          - compare_versions(version, '<= 5.5.7')

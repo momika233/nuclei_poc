@@ -2,13 +2,14 @@ id: wp-recipe-maker
 
 info:
   name: >
-    WP Recipe Maker <= 9.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via header_tag
+    WP Recipe Maker <= 9.1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via icon_color
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1f463ed1-06ad-430f-b450-1a73dc54f8a7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/53a51408-e5d8-4727-9dec-8321c062c31e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

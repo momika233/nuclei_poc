@@ -2,13 +2,14 @@ id: analytics-cat
 
 info:
   name: >
-    Analytics Cat – Google Analytics Made Easy <= 1.0.9 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Fatcat Apps Analytics Cat <= 1.0.9 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/98c2d04d-c401-411f-8bf0-4aebb1779e8d?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/29da4c49-3608-4bff-8184-01dc08752403?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/analytics-cat/"
     google-query: inurl:"/wp-content/plugins/analytics-cat/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,analytics-cat,low
+  tags: cve,wordpress,wp-plugin,analytics-cat,medium
 
 http:
   - method: GET

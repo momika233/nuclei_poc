@@ -2,13 +2,14 @@ id: contact-forms
 
 info:
   name: >
-    Cimatti Contact Forms <= 1.4.11 - Cross-Site Scripting
+    WordPress Contact Forms by Cimatti <= 1.5.7 - Cross-Site Request Forgery via _accua_forms_form_edit_action
   author: topscoder
-  severity: high
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/09952b56-a064-46f9-b037-be86cf6df781?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f80a1f13-c1b9-4259-8d96-71a3cbcaf4ca?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/contact-forms/"
     google-query: inurl:"/wp-content/plugins/contact-forms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,contact-forms,high
+  tags: cve,wordpress,wp-plugin,contact-forms,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.4.12')
+          - compare_versions(version, '<= 1.5.7')

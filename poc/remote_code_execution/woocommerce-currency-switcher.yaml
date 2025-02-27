@@ -2,13 +2,14 @@ id: woocommerce-currency-switcher
 
 info:
   name: >
-    FOX – Currency Switcher Professional for WooCommerce <= 1.4.1.8 - Unauthenticated Arbitrary Shortcode Execution
+    WOOCS <= 1.3.9.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/4c1d49d0-c9aa-401c-80b9-d4df7fe97691?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5cbcb659-6732-4893-b6a0-52a558cea351?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.1.8')
+          - compare_versions(version, '<= 1.3.9.3')

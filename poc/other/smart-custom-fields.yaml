@@ -2,13 +2,14 @@ id: smart-custom-fields
 
 info:
   name: >
-    Smart Custom Fields <= 4.2.2 - Missing Authorization to Authenticated (Subscriber+) Post Content Disclosure
+    Smart Custom Fields <= 5.0.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e966a266-4265-4a72-8a50-e872805219a7?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/165406fe-c6a5-4d2b-aad9-a860957a446e?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.2.2')
+          - compare_versions(version, '<= 5.0.0')

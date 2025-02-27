@@ -2,13 +2,14 @@ id: wpmarketplace
 
 info:
   name: >
-    Marketplace <= 2.4.0 - Path Traversal
+    WP Marketplace – Complete Shopping Cart / eCommerce Solution <= 2.4.0 - Arbitrary File Download
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6e834db1-0859-4e58-a11c-96e8f201b097?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/091b2d1d-983a-45ab-935e-635991e8bc8b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

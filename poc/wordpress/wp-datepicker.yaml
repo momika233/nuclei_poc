@@ -2,13 +2,14 @@ id: wp-datepicker
 
 info:
   name: >
-    WP Datepicker <= 2.1.0 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update
+    WP Datepicker <= 2.1.1 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/45a42f20-a4d7-4c8e-a144-505a6723a2a0?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5b12f597-c34c-4b3b-80a6-8fd25f60b862?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.1.0')
+          - compare_versions(version, '<= 2.1.1')

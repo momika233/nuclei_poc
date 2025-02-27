@@ -1,23 +1,24 @@
 id: simple-photo-gallery
 
 info:
-  name: "Simple Photo Gallery <= 1.8.0 - Stored Cross-Site Scripting"
+  name: >
+    Simple Photo Gallery <= 1.8.1 - Authenticated (Admin+) SQL Injection
   author: topscoder
-  severity: high
-  description: "The Simple Photo Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 1.8.0 due to insufficient input sanitization and output escaping. This makes it possible for attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page."
+  severity: low
+  description: >
+    
   reference:
-    - https://web.archive.org/web/20191101060004/http%3A//www.rootlabs.com.br/xss-simple-photo-gallery/
-    - https://wordpress.org/plugins/simple-photo-gallery/changelog/
-    - https://www.openwall.com/lists/oss-security/2016/05/11/13
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/13c03af2-0bd8-4e81-8ae9-2d702da71fc8?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
-    cvss-score: 7.2
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/simple-photo-gallery/"
     google-query: inurl:"/wp-content/plugins/simple-photo-gallery/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,simple-photo-gallery,high
+  tags: cve,wordpress,wp-plugin,simple-photo-gallery,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.8.1')
+          - compare_versions(version, '<= 1.8.1')

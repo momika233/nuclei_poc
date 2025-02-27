@@ -2,13 +2,14 @@ id: post-pay-counter
 
 info:
   name: >
-    Post Pay Counter < 2.731 - Arbitrary Settings Change
+    Post Pay Counter < 2.731 - PHP Object Injection
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/951b2a15-04c1-4c5b-9cef-146628079c36?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c814924a-bdcd-4b73-905b-a469f4d37ddf?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

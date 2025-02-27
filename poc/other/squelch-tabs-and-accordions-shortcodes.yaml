@@ -2,13 +2,14 @@ id: squelch-tabs-and-accordions-shortcodes
 
 info:
   name: >
-    Squelch Tabs and Accordions Shortcodes <= 0.4.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via accordions Shortcode
+    Squelch Tabs and Accordions Shortcodes <= 0.4.7 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/adf10ad4-38b2-44be-bdc6-ba6b62e9fbe6?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd9490f2-ad52-477e-ae3b-be49984e8189?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/squelch-tabs-and-accordions-shortcodes/"
     google-query: inurl:"/wp-content/plugins/squelch-tabs-and-accordions-shortcodes/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,squelch-tabs-and-accordions-shortcodes,low
+  tags: cve,wordpress,wp-plugin,squelch-tabs-and-accordions-shortcodes,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 0.4.3')
+          - compare_versions(version, '<= 0.4.7')

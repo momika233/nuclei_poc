@@ -2,13 +2,14 @@ id: nmedia-user-file-uploader
 
 info:
   name: >
-    Frontend File Manager <= 22.7 - Sensitive Information Exposure via user uploads
+    Frontend File Manager Plugin <= 21.2 - Cross-Site Request Forgery to File Upload
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bbade634-cd81-41c0-8976-f5cb251da3f2?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/361e2d5c-4355-4e71-91aa-2c1bc6b6fb78?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/nmedia-user-file-uploader/"
     google-query: inurl:"/wp-content/plugins/nmedia-user-file-uploader/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,nmedia-user-file-uploader,low
+  tags: cve,wordpress,wp-plugin,nmedia-user-file-uploader,medium
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 22.7')
+          - compare_versions(version, '<= 21.2')

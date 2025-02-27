@@ -2,13 +2,14 @@ id: pixabay-images
 
 info:
   name: >
-    Pixabay Images <= 2.0 - Authentication Bypass to Arbitrary File Upload
+    Pixabay Images <= 2.3 - Directory Traversal
   author: topscoder
-  severity: critical
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/40a6a810-1151-49e6-bed4-2b7a572ac015?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/35c12f80-d069-44ed-b6a5-caa060fbd281?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/pixabay-images/"
     google-query: inurl:"/wp-content/plugins/pixabay-images/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,pixabay-images,critical
+  tags: cve,wordpress,wp-plugin,pixabay-images,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0')
+          - compare_versions(version, '<= 2.3')

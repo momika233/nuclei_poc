@@ -2,13 +2,14 @@ id: xforwoocommerce
 
 info:
   name: >
-    Multiple XforWooCommerce Add-On Plugins (Various Versions) - Missing Authorization
+    XforWooCommerce <= 2.0.2 - Authenticated (Subscriber+) Local File Inclusion
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/05481984-7c18-4ec7-8d7c-831809c3e86b?source=api-scan
+    - https://github.com/topscoder/nuclei-wordfence-cve
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5de8b93a-d7b1-4679-8c3c-2ac099a1f58f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -17,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/xforwoocommerce/"
     google-query: inurl:"/wp-content/plugins/xforwoocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,xforwoocommerce,high
+  tags: cve,wordpress,wp-plugin,xforwoocommerce,low
 
 http:
   - method: GET
@@ -55,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 1.7.0')
+          - compare_versions(version, '<= 2.0.2')
