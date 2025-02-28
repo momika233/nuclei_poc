@@ -7,14 +7,12 @@ info:
   reference:
     - https://wordpress.org/plugins/svg-support/
   metadata:
-    max-request: 1
     plugin_namespace: svg-support
     wpscan: https://wpscan.com/plugin/svg-support
   tags: tech,wordpress,wp-plugin,top-100,top-200
 
 http:
   - method: GET
-
     path:
       - "{{BaseURL}}/wp-content/plugins/svg-support/readme.txt"
 
@@ -48,3 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a00473045022010e863289d6f0885a5bbcfcaf45102889d29af3012800b692fccdd2f98bef4dc022100a274819fcc9634b7e1a2a898770e3bca2e518f2654d29aa89bb37723f07b6076:922c64590222798bb761d5b6d8e72950

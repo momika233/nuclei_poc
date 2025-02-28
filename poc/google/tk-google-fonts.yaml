@@ -1,16 +1,18 @@
 id: tk-google-fonts
 
 info:
-  name: "TK Google Fonts GDPR Compliant <= 2.2.7 - Authorization Bypass"
+  name: >
+    TK Google Fonts GDPR Compliant <= 2.2.11 - Missing Authorization to Font Deletion
   author: topscoder
   severity: high
-  description: "The TK Google Fonts GDPR Compliant plugin for wordPress is vulnerable to unauthenticated plugin settings update in versions up to, and including, 2.2.7 due to missing capability checks and missing nonce checks on the `tk_google_fonts_add_font` function that can be called by unauthenticated users via the `wp_ajax_nopriv_tk_google_fonts_add_font` AJAX action."
+  description: >
+    
   reference:
-
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0bc772a6-95a1-4420-bd97-1778002e2168?source=api-scan
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/tk-google-fonts/"
     google-query: inurl:"/wp-content/plugins/tk-google-fonts/"
@@ -53,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<=  2.2.7')
+          - compare_versions(version, '<= 2.2.11')

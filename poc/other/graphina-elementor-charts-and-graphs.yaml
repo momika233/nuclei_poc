@@ -2,14 +2,13 @@ id: graphina-elementor-charts-and-graphs
 
 info:
   name: >
-    Graphina <= 1.8.10 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Graphina – Elementor Charts and Graphs <= 1.8.9 - Authenticated (Contributor+) Stored Cross-Site Scripting via Multiple Widgets
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c6aa5b1d-e718-4c93-ab00-7fc343bbffba?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1febe2d8-d354-4c78-a611-c1bb0937e53d?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.8.10')
+          - compare_versions(version, '<= 1.8.9')

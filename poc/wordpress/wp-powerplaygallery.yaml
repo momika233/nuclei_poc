@@ -8,8 +8,7 @@ info:
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2655ec9f-471f-48e7-8e1c-a428ef3b46ee?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/474ad5a5-6384-41cb-a60b-e25477d48ad7?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

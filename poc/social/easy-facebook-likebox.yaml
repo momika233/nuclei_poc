@@ -2,14 +2,13 @@ id: easy-facebook-likebox
 
 info:
   name: >
-    Easy Social Feed <= 6.5.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via fb_appid
+    Easy Social Feed <= 6.3.9 - Authenticated (Contributor+) Stored Cross-Site Scripting via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6ce726da-4860-4809-b579-9ec0d31a2fb1?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7df85c11-6308-4b23-8c41-eea6bff5ca50?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 6.5.3')
+          - compare_versions(version, '<= 6.3.9')

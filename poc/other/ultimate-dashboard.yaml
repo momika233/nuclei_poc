@@ -1,24 +1,24 @@
 id: ultimate-dashboard
 
 info:
-  name: >
-    Ultimate Dashboard <= 3.7.10 - Login Page Disclosure on Multi-site
+  name: "Ultimate Dashboard <= 3.7.5 - Authenticated(Administrator+) Stored Cross-Site Scripting via plugin settings"
   author: topscoder
-  severity: low
-  description: >
-    
+  severity: medium
+  description: "The Ultimate Dashboard plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in versions up to, and including, 3.7.5  due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/56f3cb34-0452-4e3d-9442-0decc77f5e63?source=api-scan
+    - https://plugins.svn.wordpress.org/ultimate-dashboard/tags/3.7.6/readme.txt
+    - https://plugins.svn.wordpress.org/ultimate-dashboard/tags/3.7.6/readme.md
+    - https://ultimatedashboard.io/
+    - https://plugins.trac.wordpress.org/changeset/2915408/
   classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:L/I:L/A:N
+    cvss-score: 4.4
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/ultimate-dashboard/"
     google-query: inurl:"/wp-content/plugins/ultimate-dashboard/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ultimate-dashboard,low
+  tags: cve,wordpress,wp-plugin,ultimate-dashboard,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.7.10')
+          - compare_versions(version, '< 3.7.6')

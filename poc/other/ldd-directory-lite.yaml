@@ -2,14 +2,13 @@ id: ldd-directory-lite
 
 info:
   name: >
-    LDD Directory Lite <= 3.3 - Reflected Cross-Site Scripting via remove_query_arg Parameter
+    LDD Directory Lite - <= 3.5 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f7675e1c-7194-4cfe-81fb-a78d75e0bb1e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/8f374eea-e6c0-4007-8855-4b1b63335775?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.3')
+          - compare_versions(version, '<= 3.5')

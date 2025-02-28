@@ -1,16 +1,18 @@
 id: wp-basic-elements
 
 info:
-  name: "WP Basic Elements <= 5.2.15 - Missing Authorization to Plugin Settings Update via wpbe_save_settings"
+  name: >
+    WP Basic Elements <= 5.2.15 - Cross-Site Request Forgery via wpbe_save_settings
   author: topscoder
   severity: medium
-  description: "The WP Basic Elements plugin for WordPress is vulnerable to modification of data due to a missing capability check on the wpbe_save_settings function in versions up to, and including, 5.2.15. This makes it possible for subscriber-level attackers to update plugin settings."
+  description: >
+    
   reference:
-    - https://plugins.trac.wordpress.org/browser/wp-basic-elements/trunk/wp-basic-elements.php?rev=2691259#L626
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/78e79423-7b69-4d85-a939-96eb5385624c?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N
-    cvss-score: 4.3
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/wp-basic-elements/"
     google-query: inurl:"/wp-content/plugins/wp-basic-elements/"

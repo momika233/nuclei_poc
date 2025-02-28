@@ -2,14 +2,13 @@ id: addon-elements-for-elementor-page-builder
 
 info:
   name: >
-    Elementor Addon Elements <= 1.12.12 - Authenticated (Contributor+) Stored Cross-Site Scripting via Content Switcher Widget
+    Elementor Addon Elements <= 1.12.12 - Authenticated (Contributor+) Stored Cross-Site Scripting via Thumbnail Slider Widget
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/bb0888d6-30e6-4957-b270-1968eace462e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/977bab12-969d-4b15-9942-2b17c8541f61?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

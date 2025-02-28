@@ -2,14 +2,13 @@ id: wp-staging-pro
 
 info:
   name: >
-    WP Staging (Free <= 3.3.3, Pro <= 5.3.3) - Authenticated (Administrator+) Stored Cross-Site-Scripting
+    WP STAGING WordPress Backup Plugin Free <= 3.1.2 and Pro <= 5.1.2 - Sensitive Information Exposure
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6bcbdf6f-770c-4496-a643-94dbf63e893a?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b3e03668-c9ee-4c4b-8240-998ef45a5326?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.3.3')
+          - compare_versions(version, '< 5.1.3')

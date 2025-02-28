@@ -2,14 +2,13 @@ id: wordpress-countdown-widget
 
 info:
   name: >
-    WordPress Countdown Widget <= 3.1.9.1 - Cross-Site Request Forgery to Plugin Settings Update
+    WordPress Countdown Widget <= 3.1.9.2 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2bd2ce54-9ccb-4943-a01a-c9e8c1ff2d0d?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/5c79cbc1-4d8f-4330-b063-e5987238fca1?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wordpress-countdown-widget/"
     google-query: inurl:"/wp-content/plugins/wordpress-countdown-widget/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wordpress-countdown-widget,medium
+  tags: cve,wordpress,wp-plugin,wordpress-countdown-widget,low
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.1.9.1')
+          - compare_versions(version, '<= 3.1.9.2')

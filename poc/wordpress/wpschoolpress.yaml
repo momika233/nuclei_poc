@@ -2,14 +2,13 @@ id: wpschoolpress
 
 info:
   name: >
-    WPSchoolPress <= 2.2.4 - Authenticated(Teacher+) SQL Injection via ClassID
+    School Management System – WPSchoolPress <= 2.1.16 - Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d070e12e-ec53-4574-ac37-dc8805d9a553?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/850f554f-abb5-4b9f-9b7b-67439abb1a31?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wpschoolpress/"
     google-query: inurl:"/wp-content/plugins/wpschoolpress/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wpschoolpress,low
+  tags: cve,wordpress,wp-plugin,wpschoolpress,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.2.4')
+          - compare_versions(version, '< 2.1.17')

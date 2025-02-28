@@ -2,14 +2,13 @@ id: post-list-designer
 
 info:
   name: >
-    Posts List Designer by Category – List Category Posts Or Recent Posts <= 3.3.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Posts List Designer by Category <= 3.1 - Authenticated (Contributor+) Stored Cross-Site Scriptiong via Shortcode
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3b5decc1-cc81-4a5e-b6d8-5120cb37c93b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e0b81941-ae2b-451a-ae72-07fd72f70a95?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.3.2')
+          - compare_versions(version, '<= 3.1')

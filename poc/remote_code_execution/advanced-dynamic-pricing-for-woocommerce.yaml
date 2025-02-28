@@ -2,14 +2,13 @@ id: advanced-dynamic-pricing-for-woocommerce
 
 info:
   name: >
-    Advanced Dynamic Pricing for WooCommerce <= 4.1.3 - Cross-Site Request Forgery to Plugin Settings Update
+    Advanced Dynamic Pricing for WooCommerce <= 4.1.5 - Missing Authorization in migrateProductOnlyToCommon function
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7d379721-d629-433d-ba89-a74c9dec537e?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/59ff3445-0dfd-4a1a-9ac8-d088b8f4dbf3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/advanced-dynamic-pricing-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/advanced-dynamic-pricing-for-woocommerce/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,advanced-dynamic-pricing-for-woocommerce,medium
+  tags: cve,wordpress,wp-plugin,advanced-dynamic-pricing-for-woocommerce,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.1.3')
+          - compare_versions(version, '<= 4.1.5')

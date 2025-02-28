@@ -2,14 +2,13 @@ id: forum-server
 
 info:
   name: >
-    WP Forum Server <= 1.6.5 - SQL Injection
+    WP Forum Server < 1.7.4 - SQL Injection
   author: topscoder
   severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/85dc6513-90cb-433d-8f8f-5b56b4a76897?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d4a6c1e4-635f-4d4d-87a4-8eeded25f07f?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.5')
+          - compare_versions(version, '< 1.7.4')

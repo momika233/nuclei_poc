@@ -2,14 +2,13 @@ id: wp-fb-autoconnect
 
 info:
   name: >
-    WP-FB-AutoConnect <= 4.0.5 - Cross-Site Request Forgery to Stored Cross-Site Scripting
+    WP-FB-AutoConnect <= 4.6.1 - Cross-Site Request Forgery via jfb_admin_page
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d118beb2-bcb1-4d35-b25e-172fa4b6d916?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/eab1fe39-dda2-49c9-9c76-c1127626a85c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.0.5')
+          - compare_versions(version, '<= 4.6.1')

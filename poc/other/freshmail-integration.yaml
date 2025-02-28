@@ -2,14 +2,13 @@ id: freshmail-integration
 
 info:
   name: >
-    FreshMail For WordPress <= 2.3.2 - Cross-Site Request Forgery
+    FreshMail For WordPress <= 2.3.2 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/10ffe689-143a-4232-8094-45844dc5262b?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e87fe70d-5ac3-40ee-a8d0-601d7b417562?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

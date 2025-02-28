@@ -2,14 +2,13 @@ id: buddyforms
 
 info:
   name: >
-    BuddyForms <= 2.8.5 - Reflected Cross-Site Scripting via page
+    BuddyForms <= 2.7.7  - PHAR Deserialization
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/701d6bee-6eb2-4497-bf54-fbc384d9d2e5?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2f6669aa-e53c-45bb-88c4-2e1350993423?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/buddyforms/"
     google-query: inurl:"/wp-content/plugins/buddyforms/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,buddyforms,medium
+  tags: cve,wordpress,wp-plugin,buddyforms,low
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.8.5')
+          - compare_versions(version, '<= 2.7.7')

@@ -2,14 +2,13 @@ id: vertical-marquee-plugin
 
 info:
   name: >
-    Vertical marquee plugin <= 7.1 -  Authenticated (Subscriber+) SQL Injection via Shortcode
+    Vertical Marquee Plugin <= 7.1 - Authenticated (Administrator+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cd90d9c0-0cab-4fd3-b016-106032f300f7?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/06c86c87-840c-4ca6-9582-98254194eb1b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

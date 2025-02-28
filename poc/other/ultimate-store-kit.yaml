@@ -2,14 +2,13 @@ id: ultimate-store-kit
 
 info:
   name: >
-    Ultimate Store Kit Elementor Addons <= 1.6.4 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Ultimate Store Kit Elementor Addons <= 1.5.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/51a4886b-2e15-4d91-b853-4a675120a9e9?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ea630be6-16f8-4d93-ae27-8a29f82c5db9?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.6.4')
+          - compare_versions(version, '<= 1.5.2')

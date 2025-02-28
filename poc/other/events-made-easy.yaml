@@ -2,14 +2,13 @@ id: events-made-easy
 
 info:
   name: >
-    Events Made Easy <= 2.2.23 - Admin+ Stored Cross-Site Scripting
+    Events Made Easy <= 2.3.14 - Authenticated (Subscriber+) SQL Injection via 'search_name'
   author: topscoder
-  severity: high
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9a4488c8-7138-4046-88ea-84f9462eec93?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d2550461-2546-4dc4-85ff-decf2fca3f10?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/events-made-easy/"
     google-query: inurl:"/wp-content/plugins/events-made-easy/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,events-made-easy,high
+  tags: cve,wordpress,wp-plugin,events-made-easy,low
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '< 2.2.24')
+          - compare_versions(version, '<= 2.3.14')

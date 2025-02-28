@@ -2,14 +2,13 @@ id: ultimate-bootstrap-elements-for-elementor
 
 info:
   name: >
-    Ultimate Bootstrap Elements for Elementor <= 1.4.6 - Authenticated (Contributor+) Sensitive Information Exposure
+    Ultimate Bootstrap Elements for Elementor <= 1.4.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via Image Widget
   author: topscoder
   severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3af83ec2-9ebb-4cca-8523-8fe9b1517825?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0cb43deb-63f6-42d8-8dd6-55a59fca31ae?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.6')
+          - compare_versions(version, '<= 1.4.0')

@@ -1,23 +1,23 @@
 id: super-socializer
 
 info:
-  name: "Social Share, Social Login and Social Comments <= 7.10.6 - Authentication Bypass"
+  name: >
+    Social Share, Social Login and Social Comments Plugin – Super Socializer <= 7.13.63 - Authenticated (Admin+) Stored Cross-Site Scripting
   author: topscoder
-  severity: critical
-  description: "The Social Share, Social Login and Social Comments plugin for WordPress is vulnerable to authorization bypass due to a missing capability check on the 'the_champ_user_auth' AJAX action in versions up to, and including, 7.10.6. This makes it possible for unauthenticated attackers to log in as any user, assuming they know their email address."
+  severity: low
+  description: >
+    
   reference:
-    - https://jsfiddle.net/5jh37uet/
-    - https://plugins.trac.wordpress.org/changeset/1832860/super-socializer
-    - https://wpscan.com/vulnerability/9043
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/47e6840e-9f6c-44eb-a6bd-e25e4c5c0bf7?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-    cvss-score: 9.8
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/super-socializer/"
     google-query: inurl:"/wp-content/plugins/super-socializer/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,super-socializer,critical
+  tags: cve,wordpress,wp-plugin,super-socializer,low
 
 http:
   - method: GET
@@ -55,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 7.10.6')
+          - compare_versions(version, '<= 7.13.63')

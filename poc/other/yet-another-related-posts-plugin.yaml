@@ -1,24 +1,23 @@
 id: yet-another-related-posts-plugin
 
 info:
-  name: >
-    YARPP <= 5.30.10 - Missing Authorization
+  name: "YARPP – Yet Another Related Posts Plugin < 4.2.5 - Cross-Site Request Forgery"
   author: topscoder
-  severity: high
-  description: >
-    
+  severity: critical
+  description: "The YARPP – Yet Another Related Posts Plugin for WordPress is vulnerable a Cross-Site Request Forgery which can lead to Remote Code Execution in versions up to, and including, 4.2.4 via the yarpp_options.php file. This allows unauthenticated attackers to execute code on the server if they can successfully trick an administrator into performing an action such as clicking on a link."
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/89f57714-7643-4839-9932-7a2918dc7127?source=api-scan
+    - https://web.archive.org/web/20150912144611/https%3A//research.evex.pw/?vuln=15
+    - https://packetstormsecurity.com/files/131830/
+    - https://plugins.trac.wordpress.org/changeset/1160452
   classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+    cvss-score: 9.8
+    cve-id:
   metadata:
     fofa-query: "wp-content/plugins/yet-another-related-posts-plugin/"
     google-query: inurl:"/wp-content/plugins/yet-another-related-posts-plugin/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,yet-another-related-posts-plugin,high
+  tags: cve,wordpress,wp-plugin,yet-another-related-posts-plugin,critical
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 5.30.10')
+          - compare_versions(version, '< 4.2.5')

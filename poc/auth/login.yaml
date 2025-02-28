@@ -1,13 +1,13 @@
 id: login
 info:
-  name: A/UX logind
+  name: Solaris logind
   author: nmap,cn-kali-team
   tags: detect,tech,login,service
   severity: info
   metadata:
     fallback:
     - dnsversion-bind-req
-    operating_system: A/UX
+    operating_system: Solaris
     rarity: 3
 tcp:
 - name: dnsversion-bind-req-tcp
@@ -20,4 +20,4 @@ tcp:
   - name: login
     type: regex
     regex:
-    - '^\x01rlogind: Host name for your address \([\d.]+\) unknown\.\r\n'
+    - ^\x01permission denied\.\n

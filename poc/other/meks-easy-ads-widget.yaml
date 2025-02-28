@@ -2,14 +2,13 @@ id: meks-easy-ads-widget
 
 info:
   name: >
-    Meks Easy Ads Widget <= 2.0.8 - Authenticated (Administrator+) Stored Cross-Site Scripting
+    Meks Smart Social Widget <= 1.6 - Cross-Site Request Forgery via meks_remove_notification
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/14ae1f7a-be81-4f4f-8cea-7afb824186aa?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/3d0efe1d-69ad-483c-b200-38873f88433b?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/meks-easy-ads-widget/"
     google-query: inurl:"/wp-content/plugins/meks-easy-ads-widget/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,meks-easy-ads-widget,low
+  tags: cve,wordpress,wp-plugin,meks-easy-ads-widget,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.0.8')
+          - compare_versions(version, '<= 2.0.7')

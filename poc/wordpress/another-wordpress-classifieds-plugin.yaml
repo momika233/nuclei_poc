@@ -2,14 +2,13 @@ id: another-wordpress-classifieds-plugin
 
 info:
   name: >
-    AWP Classifieds <= 4.3 - Cross-Site Request Forgery
+    AWP Classifieds <= 4.3.1 - Missing Authorization
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b06a1b66-9057-4f16-878c-4fa66489f0ff?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/782e954f-1fdf-49fa-97bc-60f8fb8c4ecd?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/another-wordpress-classifieds-plugin/"
     google-query: inurl:"/wp-content/plugins/another-wordpress-classifieds-plugin/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,another-wordpress-classifieds-plugin,medium
+  tags: cve,wordpress,wp-plugin,another-wordpress-classifieds-plugin,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.3')
+          - compare_versions(version, '<= 4.3.1')

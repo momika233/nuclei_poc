@@ -2,14 +2,13 @@ id: navz-photo-gallery
 
 info:
   name: >
-    ACF Photo Gallery Field <= 1.7.4 - Reflected Cross-Site Scripting
+    ACF Photo Gallery Field <= 2.6 - Missing Authorization in apgf_update_donation
   author: topscoder
-  severity: medium
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/e6c4e102-7a09-4a01-8fa2-40f5f41d45ab?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f557ddf1-cee3-498c-87bc-fa81bf574591?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/navz-photo-gallery/"
     google-query: inurl:"/wp-content/plugins/navz-photo-gallery/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,navz-photo-gallery,medium
+  tags: cve,wordpress,wp-plugin,navz-photo-gallery,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.7.4')
+          - compare_versions(version, '<= 2.6')

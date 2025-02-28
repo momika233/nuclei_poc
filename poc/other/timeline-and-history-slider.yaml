@@ -2,14 +2,13 @@ id: timeline-and-history-slider
 
 info:
   name: >
-    Timeline and History slider <= 2.3 - Authenticated (Contributor+) Local File Inclusion
+    Multiple WPOnlineSupport Plugins <= (Various Versions) - Missing Authorization to Notice Dismissal
   author: topscoder
-  severity: low
+  severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/de28d287-af14-45c9-b69c-125968fc4879?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/2931fda2-edc8-44ea-9fff-ae9d94aa01bf?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/timeline-and-history-slider/"
     google-query: inurl:"/wp-content/plugins/timeline-and-history-slider/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,timeline-and-history-slider,low
+  tags: cve,wordpress,wp-plugin,timeline-and-history-slider,high
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.3')
+          - compare_versions(version, '<= 2.1')

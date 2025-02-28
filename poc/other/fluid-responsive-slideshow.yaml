@@ -2,14 +2,13 @@ id: fluid-responsive-slideshow
 
 info:
   name: >
-    Fluid Responsive Slideshow < 2.2.7 - Reflected Cross-Site Scripting
+    Fluid Responsive Slideshow < 2.2.7 - Cross-Site Request Forgery
   author: topscoder
   severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d8009f10-85d0-4798-8b6b-c1e4452139af?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c9d58fde-54f6-4892-b5ed-2029593c3fa4?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

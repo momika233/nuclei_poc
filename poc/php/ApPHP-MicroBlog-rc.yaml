@@ -2,7 +2,7 @@ id: ApPHP-MicroBlog-rc
 
 info:
   name:  ApPHP-MicroBlog-rce.yaml
-  author: medbsq
+  author: nithissh
   severity: hight
 
 requests:

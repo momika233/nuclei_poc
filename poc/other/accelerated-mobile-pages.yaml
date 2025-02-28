@@ -2,17 +2,16 @@ id: accelerated-mobile-pages
 
 info:
   name: >
-    AMP for WP <= 1.0.77.32 - Authenticated Stored Cross-Site Scripting
+    AMP for WP <= 0.9.97.19 - Missing Authorization
   author: topscoder
   severity: low
   description: >
-    
+    TheAMP for WP plugin for WordPress is vulnerable to authorization bypass due to a missing capability check on the ampforwp_save_steps_data AJAX hook in versions up to, and including, 0.9.97.19. This makes it possible for authenticated attackers to make otherwise privilege locked administrative changes to the vulnerable website and create admin accounts.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/cc6f017d-b0ba-494d-9ad1-8b6cdca48fb1?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/9ea2964f-9e3a-450b-9724-5a520c73d306?source=api-prod
   classification:
-    cvss-metrics: 
-    cvss-score: 
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L
+    cvss-score: 6.3
     cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/accelerated-mobile-pages/"
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.0.77.32')
+          - compare_versions(version, '<= 0.9.97.19')

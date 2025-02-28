@@ -2,14 +2,13 @@ id: simple-ajax-chat
 
 info:
   name: >
-    Simple Ajax Chat <= 20220115 - Unauthenticated Stored Cross-Site Scripting
+    Simple Ajax Chat <= 20240216 -  Unauthenticated Stored Cross-Site Scripting
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f6e2ab69-2714-4bf9-a9ad-035fc15450f2?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/f67b5cd8-bae8-48ca-87d5-7445724791f6?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 20220115')
+          - compare_versions(version, '<= 20240216')

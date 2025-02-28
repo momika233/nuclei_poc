@@ -1,21 +1,23 @@
 id: woocommerce-stock-manager
 
 info:
-  name: "WooCommerce Stock Manager < 1.0.9 - Authorization Bypass"
+  name: >
+    WooCommerce Stock Manager <= 2.5.7 - Cross-Site Request Forgery to Arbitrary File Upload
   author: topscoder
-  severity: high
-  description: "The WooCommerce Stock Manager plugin for WordPress is vulnerable to authorization bypass due to a missing capability check on the stock_manager_table_variation_td function in versions up to, and including, 1.0.8. This makes it possible for authenticated attackers to edit or delete products."
+  severity: medium
+  description: >
+    
   reference:
-
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/376f2fbf-98a4-49d9-bd22-40da5d37b62d?source=api-scan
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/woocommerce-stock-manager/"
     google-query: inurl:"/wp-content/plugins/woocommerce-stock-manager/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,woocommerce-stock-manager,high
+  tags: cve,wordpress,wp-plugin,woocommerce-stock-manager,medium
 
 http:
   - method: GET
@@ -53,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<=  1.0.7')
+          - compare_versions(version, '<= 2.5.7')

@@ -1,16 +1,18 @@
 id: stock-exporter-for-woocommerce
 
 info:
-  name: "Stock Exporter for WooCommerce <= 1.1.0  - Cross-Site Request Forgery"
+  name: >
+    Stock Exporter for WooCommerce <= 1.1.0 - Reflected Cross-Site Scripting
   author: topscoder
   severity: medium
-  description: "The Stock Exporter for WooCommerce plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.1.0. This is due to missing nonce validation on the woocommerce_stock_exporter_page_process() function. This makes it possible for unauthenticated attackers to update the woocoomerce_stock_export option which controls export settings, via a forged request granted they can trick a site administrator into performing an action such as clicking on a link."
+  description: >
+    
   reference:
-    - https://plugins.trac.wordpress.org/changeset/2898315/stock-exporter-for-woocommerce/trunk/woocommerce-stock-exporter.php
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/b65184e6-8072-4dd7-8291-c92817e55beb?source=api-scan
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
-    cvss-score: 4.3
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/stock-exporter-for-woocommerce/"
     google-query: inurl:"/wp-content/plugins/stock-exporter-for-woocommerce/"

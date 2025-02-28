@@ -2,14 +2,13 @@ id: ip2location-country-blocker
 
 info:
   name: >
-    IP2Location Country Blocker <= 2.26.5 - Arbitrary Country Ban via Cross-Site Request Forgery
+    Download IP2Location Country Blocker <= 2.29.1 - Bypass via IP Spoofing
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c1532e12-b786-4b87-ae19-951297c47a6c?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/814fd060-8781-46ad-86e6-e2b75a7fffc0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/ip2location-country-blocker/"
     google-query: inurl:"/wp-content/plugins/ip2location-country-blocker/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,ip2location-country-blocker,medium
+  tags: cve,wordpress,wp-plugin,ip2location-country-blocker,low
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.26.5')
+          - compare_versions(version, '<= 2.29.1')

@@ -2,14 +2,13 @@ id: wp-experiments-free
 
 info:
   name: >
-    Title Experiments Free <= 9.0.4 - Missing Authorization
+    Title Experiments Free <= 9.0.0 - SQL Injection
   author: topscoder
-  severity: high
+  severity: critical
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/d4a15720-2535-4258-8d58-20818cdbd413?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/0f35cc8b-11be-4664-be48-12a8db872d66?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/wp-experiments-free/"
     google-query: inurl:"/wp-content/plugins/wp-experiments-free/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,wp-experiments-free,high
+  tags: cve,wordpress,wp-plugin,wp-experiments-free,critical
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 9.0.4')
+          - compare_versions(version, '< 9.0.1')

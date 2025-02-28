@@ -1,21 +1,23 @@
 id: custom-field-template
 
 info:
-  name: "Various Affected Software  (Various Versions) - Cross-Site Request Forgery Bypass"
+  name: >
+    Custom Field Template <= 2.5.7 - Authenticated (Administrator+) PHP Object Injection
   author: topscoder
-  severity: medium
-  description: "Over 70 plugins and themes were vulnerable to Cross-Site Request Forgery due to improperly implemented nonce protection that could be bypassed."
+  severity: low
+  description: >
+    
   reference:
-
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/22a5020a-ab81-43be-b160-082347a2a2d9?source=api-scan
   classification:
-    cvss-metrics:
-    cvss-score:
-    cve-id:
+    cvss-metrics: 
+    cvss-score: 
+    cve-id: 
   metadata:
     fofa-query: "wp-content/plugins/custom-field-template/"
     google-query: inurl:"/wp-content/plugins/custom-field-template/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,custom-field-template,medium
+  tags: cve,wordpress,wp-plugin,custom-field-template,low
 
 http:
   - method: GET
@@ -53,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.5.2')
+          - compare_versions(version, '<= 2.5.7')

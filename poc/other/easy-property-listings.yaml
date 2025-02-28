@@ -2,14 +2,13 @@ id: easy-property-listings
 
 info:
   name: >
-    Easy Property Listings <= 3.3.3 - Cross-Site Scripting
+    Easy Property Listings <= 3.5.3 - Missing Authorization via epl_update_listing_coordinates()
   author: topscoder
   severity: high
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a8af7c85-977f-41aa-acbe-293dfa913577?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/6647856b-19f2-475a-8d45-d33c7b3a8f92?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.3.3')
+          - compare_versions(version, '<= 3.5.3')

@@ -2,14 +2,13 @@ id: webba-booking-lite
 
 info:
   name: >
-    Webba Booking <= 4.2.21 - Authenticated (Admin+) Stored Cross-Site Scripting
+    Webba Booking <= 4.5.33 - Cross-Site Request Forgery
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7f6c33f4-58e7-4a0b-8293-5cb951f63ffc?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/12a195a0-f992-462d-9b4e-69e8a2975635?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +17,7 @@ info:
     fofa-query: "wp-content/plugins/webba-booking-lite/"
     google-query: inurl:"/wp-content/plugins/webba-booking-lite/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,webba-booking-lite,low
+  tags: cve,wordpress,wp-plugin,webba-booking-lite,medium
 
 http:
   - method: GET
@@ -56,4 +55,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.2.21')
+          - compare_versions(version, '<= 4.5.33')
