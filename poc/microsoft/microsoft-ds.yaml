@@ -1,11 +1,13 @@
 id: microsoft-ds
 info:
-  name: Microsoft Windows XP microsoft-ds
+  name: Microsoft Windows Vista Embedded microsoft-ds
   author: nmap,cn-kali-team
   tags: detect,tech,microsoft-ds,service
   severity: info
   metadata:
-    operating_system: Windows XP
+    hostname: $P(2)
+    info: 'workgroup: $P(1)'
+    operating_system: Windows
     rarity: 4
 tcp:
 - name: smbprog-neg
@@ -18,4 +20,4 @@ tcp:
   - name: microsoft-ds
     type: regex
     regex:
-    - (?i)^\0\0\0.\xffSMBr\0\0\0\0\x88\x01@\0\0\0\0\0\0\0\0\0\0\0\0\0\0@\x06\0\0\x01\0\x11\x07\0.\n\0\x01\0\x04\x11\0\0\0\0\x01\0\0\0\0\0\xfd\xe3\0\0
+    - (?i)^\0\0\0.\xffSMBr\0\0\0\0\x88\x01@\0\0\0\0\0\0\0\0\0\0\0\0\0\0@\x06\0\0\x01\0\x11\x07\0.\x0a\0\x01\0\x04\x11\0\0\0\0\x01\0\0\0\0\0\xfd\xe3\x01\0.{21}((?:..)*)\0\0((?:..)*)\0\0
