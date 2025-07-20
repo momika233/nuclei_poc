@@ -1,0 +1,35 @@
+id: nordpass-phish
+
+info:
+  name: nordpass phishing Detection
+  author: rxerium
+  severity: info
+  description: |
+    A nordpass phishing website was detected
+  reference:
+    - https://nordpass.com
+  metadata:
+    max-request: 1
+  tags: phishing,nordpass,osint
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    host-redirects: true
+    max-redirects: 2
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'Securely Store, Manage &amp; Autofill Passwords | NordPass'
+
+      - type: status
+        status:
+          - 200
+
+      - type: dsl
+        dsl:
+          - '!contains(host,"nordpass.com")'
+# digest: 4a0a00473045022100f5285c8697d4d281d0d08afd280f0c0358f419c6c6c8e7463cce03879412e1fb022029c6ad58e1b300448c1767648e923f2741865d2aa978e9cf6b00c9ae94b6d5a0:922c64590222798bb761d5b6d8e72950
