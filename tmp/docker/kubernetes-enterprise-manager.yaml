@@ -1,17 +1,34 @@
 id: kubernetes-enterprise-manager
 
 info:
-  name: Kubernetes Enterprise Manager Detect
+  name: Detect Kubernetes Enterprise Manager
   author: pussycat0x
   severity: info
-  verified: false
-  description: |
-    fofa-query: app="Kubernetes-Enterprise-Manager"
+  tags: tech,kubernetes
+#  additional-fields:
+#    fofa-dork: 'app="Kubernetes-Enterprise-Manager"'
 
-rules:
-    r0:
-        request:
-            method: GET
-            path: /metrics
-        expression: response.status == 200 && response.body.bcontains(b"Kubernetes Enterprise Manager")
-expression: r0() 
+requests:
+  - payloads:
+      Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+    attack: sniper
+    threads: 100
+
+    raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Subdomains}}
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+        Accept-Encoding: gzip, deflate
+        Accept: */*
+        
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Kubernetes Enterprise Manager"
+
+      - type: status
+        status:
+          - 200
