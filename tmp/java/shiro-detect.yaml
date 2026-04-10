@@ -1,21 +1,27 @@
 id: shiro-detect
-
 info:
-    name: Shiro detect
-    author: zan8in
-    severity: info
-    verified: true
-    description: fofa app="APACHE-Shiro"
+  name: Detect Shiro Framework
+  author: AresX
+  severity: info
 
-set:
-    randstr: randomLowercase(6)
-rules:
-    r0:
-        request:
-            method: GET
-            path: /
-            follow_redirects: true
-            headers:
-              cookie: JSESSIONID={{randstr}};rememberMe=123;
-        expression: response.status == 200 && response.raw_header.bcontains(b'rememberMe=deleteMe')
-expression: r0()
+requests:
+  - payloads:
+      Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+    attack: sniper
+    threads: 100
+
+    raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Subdomains}}
+        Cookie: rememberMe=123;
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+        Accept-Encoding: gzip, deflate
+        Accept: */*
+        
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - rememberMe=deleteMe
+        part: header
