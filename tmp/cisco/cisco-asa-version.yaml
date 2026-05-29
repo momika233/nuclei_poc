@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - kval:
+    - last_modified
+    part: header
+    type: kval
+  matchers:
+  - condition: or
+    part: header
+    type: word
+    words:
+    - 'Content-Type: application/java-archive'
+    - 'Content-Type: application/x-java-archive'
+  - part: body
+    type: word
+    words:
+    - /cisco/webvpn/
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/+CSCOL+/csvrloader.jar'
+id: cisco-asa-version
+info:
+  author: darses
+  classification:
+    cve-id: todo
+  description: 'Cisco Product was detected.
+
+    '
+  metadata:
+    fofa-query:
+    - title=="E-Business Suite Home Page Redirect"
+    max-requests: 1
+    product: product
+    shodan-query:
+    - title:"E-Business Suite Home Page Redirect"
+    vendor: cisco
+    verified: false
+  name: Cisco ASA FTD WebVPN - Version
+  reference:
+  - https://x.com/DefusedCyber/status/1971492272966598683
+  severity: info
+  tags: cisco

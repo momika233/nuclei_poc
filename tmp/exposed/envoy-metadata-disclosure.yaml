@@ -1,29 +1,21 @@
 id: envoy-metadata-disclosure
 
 info:
-  name: Envoy Proxy - Metadata Disclosure
-  author: theamanrawat
-  severity: info
-  description: |
-    Detected misconfigured Envoy proxy instances that disclose sensitive information about the target infrastructure via the "x-envoy-peer-metadata" response header.
+  name: Envoy Server Metadata Disclosure
+  author: Shelled
+  severity: low
+  description: Due to incorrect configuration, Enovy proxy discloses sensitive information about the target in the "x-envoy-peer-metadata" response header.
   reference:
     - https://www.acunetix.com/vulnerabilities/web/envoy-metadata-disclosure/
-    - https://www.envoyproxy.io/docs/envoy/latest/configuration/configuration
-  metadata:
-    runzero-match: service["http.head.xEnvoyPeerMetadata"] != ""
-    max-request: 1
-    shodan-query: "x-envoy-peer-metadata"
-  tags: envoy,exposure,misconfig,disclosure
-
-http:
+    - https://stackoverflow.com/questions/68829411/turn-off-or-remove-x-envoy-peer-metadata
+    - https://medium.com/pentesternepal/interesting-stored-xss-via-meta-data-eb8fe1de8b33
+  tags: envoy
+ 
+ requests:
   - method: GET
     path:
       - "{{BaseURL}}"
-
     matchers:
-      - type: word
-        part: header
-        words:
-          - "x-envoy-peer-metadata"
-        case-insensitive: true
-
+      - type: status
+        status:
+          - 200
