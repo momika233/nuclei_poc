@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - window["env"]["backendApiUrl"]
+    - window["env"]["meshcentralUrl"]
+    - window["env"]["rootUrl"]
+    - window["env"]["backendWsUrl"]
+    - window["env"]["debug"]
+    - window["env"]["authUrl"]
+    - window["env"]["clientId"]
+    - window["env"]["clientSecret"]
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/assets/env.js'
+  stop-at-first-match: true
+id: env-disclose
+info:
+  author: rix4uni
+  description: This Template checks disclosing secret information via /assets/env.js
+  name: env.js Disclosure
+  reference:
+  - https://twitter.com/ReebootToInit5/status/1666361432785711109
+  severity: high
+  tags: env,env.js,js

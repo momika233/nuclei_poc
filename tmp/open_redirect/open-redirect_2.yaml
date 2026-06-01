@@ -1,138 +1,39 @@
-id: open-redirect
-
+id: open-redirect 2
 info:
-  name: Open Redirect Detection
-  author: princechaddha
-  severity: medium
-  tags: redirect,dast
-
+  author: afaq,melbadry9,Elmahdi,pxmme1337,Regala_,andirrahmani1,geeknik
+  description: A user-controlled input redirect users to an external website.
+  name: Open URL redirect detection
+  severity: low
+  tags: redirect
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
+- attack: sniper
+  matchers:
+  - part: header
+    regex:
+    - (?m)^(?:Location\s*?:\s*?)(?:https?://|//)?(?:[a-zA-Z0-9\-_\.@]*)example\.com.*$
+    type: regex
+  - status:
+    - 302
+    - 301
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /example.com// HTTP/1.1
 
-    payloads:
-      redirect:
-        - "evil.com"
+    Host: {{Subdomains}}
 
-    fuzzing:
-      - part: query
-        mode: single
-        keys:
-          - AuthState
-          - URL
-          - _url
-          - callback
-          - checkout
-          - checkout_url
-          - content
-          - continue
-          - continueTo
-          - counturl
-          - data
-          - dest
-          - dest_url
-          - destination
-          - dir
-          - document
-          - domain
-          - done
-          - download
-          - feed
-          - file
-          - file_name
-          - file_url
-          - folder
-          - folder_url
-          - forward
-          - from_url
-          - go
-          - goto
-          - host
-          - html
-          - http
-          - https
-          - image
-          - image_src
-          - image_url
-          - imageurl
-          - img
-          - img_url
-          - include
-          - langTo
-          - load_file
-          - load_url
-          - login_to
-          - login_url
-          - logout
-          - media
-          - navigation
-          - next
-          - next_page
-          - open
-          - out
-          - page
-          - page_url
-          - pageurl
-          - path
-          - picture
-          - port
-          - proxy
-          - r
-          - r2
-          - redir
-          - redirect
-          - redirectUri
-          - redirectUrl
-          - redirect_to
-          - redirect_uri
-          - redirect_url
-          - reference
-          - referrer
-          - req
-          - request
-          - ret
-          - retUrl
-          - return
-          - returnTo
-          - return_path
-          - return_to
-          - return_url
-          - rt
-          - rurl
-          - show
-          - site
-          - source
-          - src
-          - target
-          - to
-          - u
-          - uri
-          - url
-          - val
-          - validate
-          - view
-          - window
-        fuzz:
-          - "https://{{redirect}}"
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101
+    Firefox/65.0
 
-      - part: query
-        mode: single
-        values:
-          - "https?://" # Replace HTTP URLs with alternatives
-        fuzz:
-          - "https://{{redirect}}"
+    Connection: close
 
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: regex
-        part: header
-        regex:
-          - '(?m)^(?:Location\s*?:\s*?)(?:https?:\/\/|\/\/|\/\\\\|\/\\)?(?:[a-zA-Z0-9\-_\.@]*)evil\.com\/?(\/|[^.].*)?$' # https://regex101.com/r/ZDYhFh/1
+    Accept: */*
 
-      - type: status
-        status:
-          - 301
-          - 302
-          - 307
+    Accept-Language: en
+
+    Accept-Encoding: gzip
+
+    '
+  threads: 100

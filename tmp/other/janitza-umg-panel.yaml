@@ -1,0 +1,36 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - Janitza electronics
+    - UMG
+    - janitza.de
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: janitza-umg-panel
+info:
+  author: rxerium
+  description: 'Janitza UMG series power meters and energy analyzers expose a web
+    interface for energy monitoring and power quality analysis.
+
+    '
+  metadata:
+    max-request: 1
+    product: umg
+    shodan-query: http.title:"Janitza"
+    vendor: Janitza
+    verified: true
+  name: Janitza UMG Power Meter - Login Panel
+  reference:
+  - https://www.janitza.de/energy-analyzers.html
+  severity: info
+  tags: panel,ics,janitza,power-meter,energy,discovery

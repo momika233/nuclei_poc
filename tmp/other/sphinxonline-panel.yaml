@@ -1,0 +1,37 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - Sphinxonline ([a-f0-9.]+)</a>
+    type: regex
+  matchers:
+  - case-insensitive: true
+    condition: or
+    part: body
+    type: word
+    words:
+    - <title>Connection - SphinxOnline</title>
+    - SphinxOnline</span>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/SphinxAuth/Account/Login'
+id: sphinxonline-panel
+info:
+  author: righettod
+  description: 'SphinxOnline Login Panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Connection - SphinxOnline"
+    verified: true
+  name: SphinxOnline Panel - Detect
+  reference:
+  - https://www.lesphinx-developpement.fr/
+  severity: info
+  tags: panel,sphinxonline,login,detect

@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - PowerCom Network Manager
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: powercom-network-manager
+info:
+  author: pussycat0x
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"PowerCom Network Manager"
+    verified: true
+  name: PowerCom Network Manager
+  severity: info
+  tags: powercommanager,login,panel

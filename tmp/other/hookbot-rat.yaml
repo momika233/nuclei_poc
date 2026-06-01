@@ -1,0 +1,21 @@
+http:
+- matchers:
+  - dsl:
+    - status_code == 200 && contains(body, 'HOOKBOT PANEL')
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: hookbot-rat
+info:
+  author: pussycat0x
+  description: 'Hookbot panel were detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"hookbot"
+    verified: true
+  name: Hookbot Rat Panel - Detect
+  severity: info
+  tags: tech,rat,hookbot,c2,panel,detect

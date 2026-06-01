@@ -1,0 +1,27 @@
+id: pubspec-config
+info:
+  author: DhiyaneshDk
+  metadata:
+    shodan-query: html:"pubspec.yaml"
+    verified: true
+  name: Pubspec YAML Configuration File Exposure
+  severity: low
+  tags: exposure,devops,pubsec,config,cicd
+requests:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - 'version:'
+    - 'environment:'
+    - 'dependencies:'
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/pubspec.yaml'
+  - '{{BaseURL}}/assets/pubspec.yaml'
+  stop-at-first-match: true
