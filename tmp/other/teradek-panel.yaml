@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Teradek Cube Administrative Console
+    - 'Password:'
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login.cs'
+id: teradek-panel
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: title:"Teradek Cube Administrative Console"
+    verified: true
+  name: Teradek Cube Administrative Console - Panel
+  reference:
+  - https://www.facebook.com/photo/?fbid=612496907587499&set=a.467014098802448
+  severity: info
+  tags: panel,login,teradek

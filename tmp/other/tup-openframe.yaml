@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - T-Up OpenFrame
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: tup-openframe
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:824580113
+    verified: true
+  name: T-Up OpenFrame
+  reference:
+  - https://www.facebook.com/photo/?fbid=642772827893240&set=a.467014098802448
+  severity: info
+  tags: exposure,login,tup,openframe,panel

@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Watcher</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/vsaas/v2/login'
+id: watcher-panel
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: html:"/vsaas/v2/static/"
+    verified: true
+  name: Watcher Panel - Detect
+  severity: info
+  tags: panel,watcher,login
