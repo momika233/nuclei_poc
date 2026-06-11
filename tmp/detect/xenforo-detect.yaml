@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <html id="XenForo"
+    - <html id="XF"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/index.php'
+id: xenforo-detect
+info:
+  author: dhiyaneshDk,daffainfo
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"XenForo"
+  name: XenForo Forum Detection
+  severity: info
+  tags: tech,xenforo

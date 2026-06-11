@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - user-verification
+  - dsl:
+    - compare_versions(version, '<= 2.0.44')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/user-verification/readme.txt'
+  redirects: true
+id: user_verification-8ccb1304-326e-43af-b75d-23874f92ba8b
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/user-verification/
+    google-query: inurl:"/wp-content/plugins/user-verification/"
+    shodan-query: http.html:"wp-content/plugins/user-verification/"
+  name: "Email Verification, Email OTP, Block Spam Email, Passwordless login, Hide\
+    \ Login, Magic Login \u2013 User Verification <= 2.0.44 - Authentication Bypass\
+    \ to Account Takeover\n"
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/8ccb1304-326e-43af-b75d-23874f92ba8b?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,user-verification,critical,candidate

@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - simple-post-listing
+  - dsl:
+    - compare_versions(version, '<= 0.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/simple-post-listing/readme.txt'
+  redirects: true
+id: simple_post_listing-dfdebeab-89f6-49b8-a38f-de2a8df7a7e8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/simple-post-listing/
+    google-query: inurl:"/wp-content/plugins/simple-post-listing/"
+    shodan-query: http.html:"wp-content/plugins/simple-post-listing/"
+  name: 'Simple post listing <= 0.2 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/dfdebeab-89f6-49b8-a38f-de2a8df7a7e8?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,simple-post-listing,low,candidate

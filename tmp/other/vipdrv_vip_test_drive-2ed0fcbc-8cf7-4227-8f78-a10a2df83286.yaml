@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - vipdrv-vip-test-drive
+  - dsl:
+    - compare_versions(version, '<= 1.0.3')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/vipdrv-vip-test-drive/readme.txt'
+  redirects: true
+id: vipdrv_vip_test_drive-2ed0fcbc-8cf7-4227-8f78-a10a2df83286
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/vipdrv-vip-test-drive/
+    google-query: inurl:"/wp-content/plugins/vipdrv-vip-test-drive/"
+    shodan-query: http.html:"wp-content/plugins/vipdrv-vip-test-drive/"
+  name: 'vipdrv <= 1.0.3 - Authenticated (Administrator+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ed0fcbc-8cf7-4227-8f78-a10a2df83286?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,vipdrv-vip-test-drive,low,candidate

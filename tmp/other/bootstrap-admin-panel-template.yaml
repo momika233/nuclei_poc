@@ -1,0 +1,31 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Dashboard - Bootstrap Admin Template
+    - Bootstrap Responsive Admin Template
+  - part: body
+    type: word
+    words:
+    - Bootstrap Admin Template
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: bootstrap-admin-panel-template
+info:
+  author: tess
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  description: Bootstrap Admin Panel Template panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Dashboard - Bootstrap Admin Template"
+    verified: true
+  name: Bootstrap Admin Panel Template Panel - Detect
+  severity: info
+  tags: bootstrap,panel,misconfig,exposure

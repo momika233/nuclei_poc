@@ -1,0 +1,38 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?i)meta.name=.generator.*content=.vbulletin.([\d.|\d]+)
+    - (?i)\*.vBulletin.([\d.|\d]+).CSS
+    type: regex
+  host-redirects: true
+  matchers:
+  - case-insensitive: true
+    condition: or
+    part: body
+    type: word
+    words:
+    - Powered By vBulletin
+    - content="vBulletin
+    - id="vbulletin_css
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: vbulletin-detect
+info:
+  author: ricardomaia
+  description: vBulletin is a proprietary forum and community publishing software
+    written in PHP.
+  metadata:
+    google-query: intext:"Powered By vBulletin"
+    max-request: 1
+    shodan-query: title:"Powered By vBulletin"
+    verified: true
+  name: vBulletin Detect
+  reference:
+  - https://www.vbulletin.com/
+  severity: info
+  tags: tech,vbulletin

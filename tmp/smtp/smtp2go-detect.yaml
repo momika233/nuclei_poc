@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>SMTP2GO</title>
+    - 2022 &copy; SMTP2GO.
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  redirects: true
+id: smtp2go-detect
+info:
+  author: pikpikcu
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"smtp2go"
+  name: SMTP2GO Detect
+  severity: info
+  tags: tech,smtp2go

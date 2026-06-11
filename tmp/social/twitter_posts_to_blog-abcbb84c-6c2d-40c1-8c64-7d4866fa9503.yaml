@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - twitter-posts-to-blog
+  - dsl:
+    - compare_versions(version, '<= 1.11.25')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/twitter-posts-to-blog/readme.txt'
+  redirects: true
+id: twitter_posts_to_blog-abcbb84c-6c2d-40c1-8c64-7d4866fa9503
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/twitter-posts-to-blog/
+    google-query: inurl:"/wp-content/plugins/twitter-posts-to-blog/"
+    shodan-query: http.html:"wp-content/plugins/twitter-posts-to-blog/"
+  name: 'Twitter posts to Blog <= 1.11.25 - Missing Authorization to Unauthenticated
+    Plugin Settings Update
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/abcbb84c-6c2d-40c1-8c64-7d4866fa9503?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,twitter-posts-to-blog,high,candidate

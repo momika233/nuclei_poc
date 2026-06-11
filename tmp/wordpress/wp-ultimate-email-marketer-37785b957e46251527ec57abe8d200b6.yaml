@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-ultimate-email-marketer
+  - dsl:
+    - compare_versions(version, '<= 1.2.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-ultimate-email-marketer/readme.txt'
+  redirects: true
+id: wp-ultimate-email-marketer-37785b957e46251527ec57abe8d200b6
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-ultimate-email-marketer/
+    google-query: inurl:"/wp-content/plugins/wp-ultimate-email-marketer/"
+    shodan-query: 'vuln:'
+  name: 'WP Ultimate Email Marketer <= 1.2.0 - Authentication Bypass
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/35806af6-bb63-41c8-a20b-f5e36d2aa515?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,wp-ultimate-email-marketer,critical

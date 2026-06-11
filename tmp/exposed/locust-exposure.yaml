@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Locust</title>
+  - condition: or
+    part: body
+    type: word
+    words:
+    - locust.js
+    - Charts</a>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: locust-exposure
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: title:"Locust"
+    verified: true
+  name: Locust Exposure
+  severity: medium
+  tags: exposure,locust,misconfig

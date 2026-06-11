@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: or
+    part: body
+    type: word
+    words:
+    - stylesheet_MOVEit
+    - moveit.transfer
+    - MOVEitPopUp
+    - MOVEit Automation
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/human.aspx'
+  stop-at-first-match: true
+id: moveit-transfer-detect
+info:
+  author: tess
+  metadata:
+    max-request: 2
+    shodan-query: html:"human.aspx"
+    verified: true
+  name: Moveit File Transfer - Detect
+  severity: info
+  tags: tech,moveit

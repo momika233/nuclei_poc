@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    regex:
+    - (?i)"more_info":"http://nms.versa.com/errors/4001"
+    type: regex
+  - status:
+    - 401
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}:9182'
+id: versa-director-api
+info:
+  author: c-sh0
+  description: Versa Director API Endpoint (Unauthorized) Detection
+  metadata:
+    max-request: 1
+    shodan-query: html:"Versa Networks"
+    verified: true
+  name: Versa Director API Endpoint Detection
+  reference:
+  - https://versa-networks.com/products/components/
+  severity: info
+  tags: api,versa,tech

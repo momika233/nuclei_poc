@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - spendeonline
+  - dsl:
+    - compare_versions(version, '<= 3.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/spendeonline/readme.txt'
+  redirects: true
+id: spendeonline-ed15cb66-c386-45af-9a79-e187c4be38a8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/spendeonline/
+    google-query: inurl:"/wp-content/plugins/spendeonline/"
+    shodan-query: http.html:"wp-content/plugins/spendeonline/"
+  name: 'SpendeOnline.org <= 3.0.1 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/ed15cb66-c386-45af-9a79-e187c4be38a8?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,spendeonline,low,candidate

@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Welcome to pypiserver
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: pypiserver-detect
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    shodan-query: html:"pypiserver"
+    verified: true
+  name: PyPI Server Detect
+  severity: info
+  tags: tech,pypiserver

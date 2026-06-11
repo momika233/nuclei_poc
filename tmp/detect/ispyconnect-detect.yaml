@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - iSpy is running
+  - part: header
+    type: word
+    words:
+    - 'Server: iSpy'
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: ispyconnect-detect
+info:
+  author: arafatansari
+  metadata:
+    max-request: 1
+    shodan-query: http.html:"iSpy"
+    verified: true
+  name: iSpyConnect - Detect
+  severity: info
+  tags: tech,ispy

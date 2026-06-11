@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title> Permissions | Installer
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: permissions-installer
+info:
+  author: pussycat0x
+  metadata:
+    max-request: 1
+    shodan-query: title:" Permissions | Installer"
+    verified: true
+  name: Permissions  Installer Exposure
+  severity: high
+  tags: misconfig,permissions,install,exposure

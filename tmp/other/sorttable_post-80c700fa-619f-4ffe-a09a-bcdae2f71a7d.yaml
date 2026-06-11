@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - sorttable-post
+  - dsl:
+    - compare_versions(version, '<= 4.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/sorttable-post/readme.txt'
+  redirects: true
+id: sorttable_post-80c700fa-619f-4ffe-a09a-bcdae2f71a7d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/sorttable-post/
+    google-query: inurl:"/wp-content/plugins/sorttable-post/"
+    shodan-query: http.html:"wp-content/plugins/sorttable-post/"
+  name: 'SortTable Post <= 4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/80c700fa-619f-4ffe-a09a-bcdae2f71a7d?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,sorttable-post,low,candidate

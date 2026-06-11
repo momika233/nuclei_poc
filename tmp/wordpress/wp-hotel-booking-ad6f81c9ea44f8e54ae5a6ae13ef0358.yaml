@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-hotel-booking
+  - dsl:
+    - compare_versions(version, '<= 2.0.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-hotel-booking/readme.txt'
+  redirects: true
+id: wp-hotel-booking-ad6f81c9ea44f8e54ae5a6ae13ef0358
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-hotel-booking/
+    google-query: inurl:"/wp-content/plugins/wp-hotel-booking/"
+    shodan-query: 'vuln:'
+  name: 'WP Hotel Booking <= 2.0.7 - Unauthenticated SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c6a02da1-b005-4fa9-9657-1c5f019f3858?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,wp-hotel-booking,critical

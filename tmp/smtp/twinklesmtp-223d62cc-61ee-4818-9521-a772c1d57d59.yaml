@@ -1,0 +1,44 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - twinklesmtp
+  - dsl:
+    - compare_versions(version, '<= 1.03')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/twinklesmtp/readme.txt'
+  redirects: true
+id: twinklesmtp-223d62cc-61ee-4818-9521-a772c1d57d59
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/twinklesmtp/
+    google-query: inurl:"/wp-content/plugins/twinklesmtp/"
+    shodan-query: http.html:"wp-content/plugins/twinklesmtp/"
+  name: "twinklesmtp \u2013 Email Service Provider For WordPress <= 1.03 - Authenticated\
+    \ (Administrator+) Stored Cross-Site Scripting via Sender Settings\n"
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/223d62cc-61ee-4818-9521-a772c1d57d59?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,twinklesmtp,low,candidate

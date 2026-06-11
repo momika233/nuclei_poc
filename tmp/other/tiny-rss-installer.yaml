@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Tiny Tiny RSS - Installer
+    - Test configuration
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/install/'
+id: tiny-rss-installer
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: title:"Tiny Tiny RSS - Installer"
+    verified: true
+  name: Tiny Tiny RSS Installer Exposure
+  severity: high
+  tags: misconfig,tiny,install

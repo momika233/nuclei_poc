@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - 'SuiteCRM Setup Wizard:'
+    - Checking Environment
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/install.php'
+id: suitecrm-installer
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: title:"SuiteCRM"
+    verified: true
+  name: SuiteCRM Installer Exposure
+  severity: high
+  tags: misconfig,suitecrm,install

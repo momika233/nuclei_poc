@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - "Notion \u2013 One workspace. Every team."
+    - Notion Labs, Inc.
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: notion-detect
+info:
+  author: tess
+  metadata:
+    max-request: 1
+    shodan-query: "title:\"Notion \u2013 One workspace. Every team.\""
+    verified: true
+  name: Notion Detect
+  severity: info
+  tags: notion,tech

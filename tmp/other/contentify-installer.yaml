@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Contentify - Step 1
+    - start the installation
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/install'
+id: contentify-installer
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    verified: true
+  name: Contentify Installer Exposure
+  severity: high
+  tags: misconfig,contentify,install,exposure

@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - condition: or
+    type: word
+    words:
+    - <title>SpaceLogic C-Bus Home</title>
+    - content="SpaceLogic C-Bus Home
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: spacelogic-cbus-panel
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    shodan-query: html:"SpaceLogic C-Bus"
+    verified: true
+  name: SpaceLogic C-Bus Home Panel - Detect
+  severity: info
+  tags: panel,spacelogic,login

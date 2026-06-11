@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - shortcodely
+  - dsl:
+    - compare_versions(version, '<= 1.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/shortcodely/readme.txt'
+  redirects: true
+id: shortcodely-08ef43cc-42ea-43bd-a590-4f9b2c719491
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/shortcodely/
+    google-query: inurl:"/wp-content/plugins/shortcodely/"
+    shodan-query: http.html:"wp-content/plugins/shortcodely/"
+  name: 'Shortcodely <= 1.0.1 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via ''widget_area'' Shortcode Attribute
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/08ef43cc-42ea-43bd-a590-4f9b2c719491?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,shortcodely,low,candidate

@@ -1,0 +1,29 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - "CLIENT_VERSION\\\",\t\t\t\t\t{type:ZmSetting.T_CONFIG, defaultValue:\\\"(.*?)\""
+    type: regex
+  matchers:
+  - part: body
+    type: word
+    words:
+    - Zimbra Collaboration Suite Web Client
+  - part: header
+    type: word
+    words:
+    - application/x-javascript
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/js/zimbraMail/share/model/ZmSettings.js'
+id: zimbra-detect
+info:
+  author: UdinChan
+  description: Send a GET request to js file on Zimbra server to obtain version information
+  metadata:
+    max-request: 1
+  name: Zimbra Detect
+  severity: info
+  tags: tech,zimbra

@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - web2application
+  - dsl:
+    - compare_versions(version, '<= 6.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/web2application/readme.txt'
+  redirects: true
+id: web2application-e0882303-ca16-45ae-8aee-bbce7a8c17f1
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/web2application/
+    google-query: inurl:"/wp-content/plugins/web2application/"
+    shodan-query: http.html:"wp-content/plugins/web2application/"
+  name: 'Web2application <= 6.0 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/e0882303-ca16-45ae-8aee-bbce7a8c17f1?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,web2application,medium,candidate

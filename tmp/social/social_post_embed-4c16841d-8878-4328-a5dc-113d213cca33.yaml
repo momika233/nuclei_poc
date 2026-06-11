@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - social-post-embed
+  - dsl:
+    - compare_versions(version, '<= 2.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/social-post-embed/readme.txt'
+  redirects: true
+id: social_post_embed-4c16841d-8878-4328-a5dc-113d213cca33
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/social-post-embed/
+    google-query: inurl:"/wp-content/plugins/social-post-embed/"
+    shodan-query: http.html:"wp-content/plugins/social-post-embed/"
+  name: 'Social Post Embed <= 2.0.1 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via Threads Embed
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/4c16841d-8878-4328-a5dc-113d213cca33?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,social-post-embed,low,candidate

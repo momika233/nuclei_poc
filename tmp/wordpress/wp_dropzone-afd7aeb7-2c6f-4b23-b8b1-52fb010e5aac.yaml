@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-dropzone
+  - dsl:
+    - compare_versions(version, '<= 1.1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-dropzone/readme.txt'
+  redirects: true
+id: wp_dropzone-afd7aeb7-2c6f-4b23-b8b1-52fb010e5aac
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-dropzone/
+    google-query: inurl:"/wp-content/plugins/wp-dropzone/"
+    shodan-query: http.html:"wp-content/plugins/wp-dropzone/"
+  name: 'WP Dropzone <= 1.1.0 - Authenticated (Subscriber+) Arbitrary File Upload
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/afd7aeb7-2c6f-4b23-b8b1-52fb010e5aac?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,wp-dropzone,low,candidate

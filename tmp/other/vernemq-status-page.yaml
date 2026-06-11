@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - VerneMQ
+    - Issues
+    - Cluster Overview
+    - Node Status
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/status'
+id: vernemq-status-page
+info:
+  author: geeknik
+  metadata:
+    max-request: 1
+  name: VerneMQ Status Page
+  reference:
+  - https://github.com/vernemq/vernemq
+  severity: low
+  tags: misconfig,vernemq,status

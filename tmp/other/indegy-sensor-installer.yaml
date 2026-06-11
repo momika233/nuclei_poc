@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Setup Wizard</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/settings'
+id: indegy-sensor-installer
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    shodan-query: title:"Setup Wizard" http.favicon.hash:-1851491385
+    verified: true
+  name: Indegy Sensor Setup - Installer
+  severity: high
+  tags: misconfig,indegy,sensor,installer

@@ -1,0 +1,25 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - SevOne NMS - Network Manager
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/#login'
+id: sevone-nms-network-manager
+info:
+  author: pussycat0x
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"SevOne NMS - Network Manager"
+    verified: true
+  name: SevOne NMS Network Manager
+  severity: info
+  tags: sevone,manager,login,panel

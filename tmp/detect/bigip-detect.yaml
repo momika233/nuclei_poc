@@ -1,0 +1,27 @@
+http:
+- extractors:
+  - group: 1
+    part: header
+    regex:
+    - (BIGipServer[a-z\_\.\-\~0-9A-Z]*)=([!a-z0-9A-Z/.=]+)
+    type: regex
+  host-redirects: true
+  matchers:
+  - part: header
+    type: word
+    words:
+    - BIGipServer~
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: bigip-detect
+info:
+  author: PR3R00T
+  metadata:
+    max-request: 1
+  name: BIGIP Cookie Detection
+  reference:
+  - https://www.intelisecure.com/how-to-decode-big-ip-f5-persistence-cookie-values
+  - https://support.f5.com/csp/article/K23254150
+  severity: info
+  tags: bigip,tech

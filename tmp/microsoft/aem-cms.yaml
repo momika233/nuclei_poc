@@ -1,0 +1,19 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Welcome to Adobe Experience Manager
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  redirects: true
+id: aem-cms
+info:
+  author: Swissky
+  metadata:
+    max-request: 1
+  name: AEM Finder
+  severity: info
+  tags: aem,tech

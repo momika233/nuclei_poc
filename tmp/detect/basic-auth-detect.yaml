@@ -1,0 +1,21 @@
+http:
+- matchers:
+  - status:
+    - 401
+    type: status
+  - part: header
+    type: word
+    words:
+    - 'Www-Authenticate:'
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: basic-auth-detect
+info:
+  author: w4cky_
+  metadata:
+    max-request: 1
+  name: Basic Auth Detection
+  severity: info
+  tags: tech,basic-auth

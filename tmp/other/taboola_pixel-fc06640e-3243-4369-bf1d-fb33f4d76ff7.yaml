@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - taboola-pixel
+  - dsl:
+    - compare_versions(version, '<= 1.1.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/taboola-pixel/readme.txt'
+  redirects: true
+id: taboola_pixel-fc06640e-3243-4369-bf1d-fb33f4d76ff7
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/taboola-pixel/
+    google-query: inurl:"/wp-content/plugins/taboola-pixel/"
+    shodan-query: http.html:"wp-content/plugins/taboola-pixel/"
+  name: 'Taboola Pixel <= 1.1.4 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/fc06640e-3243-4369-bf1d-fb33f4d76ff7?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,taboola-pixel,medium,candidate

@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - the-tooltip
+  - dsl:
+    - compare_versions(version, '<= 1.0.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/the-tooltip/readme.txt'
+  redirects: true
+id: the_tooltip-d2bac05e-ecd0-427b-90a0-6cf78175cd19
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/the-tooltip/
+    google-query: inurl:"/wp-content/plugins/the-tooltip/"
+    shodan-query: http.html:"wp-content/plugins/the-tooltip/"
+  name: 'The Tooltip <= 1.0.2 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode Attributes
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/d2bac05e-ecd0-427b-90a0-6cf78175cd19?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,the-tooltip,low,candidate

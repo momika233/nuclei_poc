@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - MetaView Explorer
+    - (InstallAnywhere Web Installer)
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: metaview-explorer-installer
+info:
+  author: theamanrawat
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"MetaView Explorer"
+    verified: true
+  name: MetaView Explorer Installer
+  severity: info
+  tags: misconfig,metaview,installer

@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Utility Services Administration</title>
+    - '>Utility-Services'
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: utility-service-detect
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: title:"Utility Services Administration"
+    verified: true
+  name: Utility Services Administration - Detect
+  severity: info
+  tags: tech,avaya,aura

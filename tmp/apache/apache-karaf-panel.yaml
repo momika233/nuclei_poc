@@ -1,0 +1,19 @@
+http:
+- matchers:
+  - part: header
+    type: word
+    words:
+    - realm="karaf
+  method: GET
+  path:
+  - '{{BaseURL}}/system/console'
+id: apache-karaf-panel
+info:
+  author: s0obi
+  metadata:
+    max-request: 1
+    shodan-query: realm="karaf"
+    verified: true
+  name: Apache Karaf Detect
+  severity: info
+  tags: tech,apache,karaf

@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - 'Installation -  Gitea: Git with a cup of tea'
+    - Database Name
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: gitea-installer
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: 'title:"Installation -  Gitea: Git with a cup of tea"'
+    verified: true
+  name: Gitea Installer Exposure
+  severity: medium
+  tags: misconfig,gitea,install

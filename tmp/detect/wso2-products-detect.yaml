@@ -1,0 +1,22 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - version.services.core.carbon.wso2.org
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/services/Version'
+id: wso2-products-detect
+info:
+  author: righettod
+  description: Try to detect the presence of a WSO2 products instance via the version
+    endpoint
+  metadata:
+    max-request: 1
+  name: WSO2 Products - Detect
+  severity: info
+  tags: tech,wso2

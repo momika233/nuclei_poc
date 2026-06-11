@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - status:
+    - 200
+    type: status
+  - condition: or
+    type: word
+    words:
+    - wpengine_apikey
+    - WPENGINE_ACCOUNT
+    - KEY_SALT
+    - db_host
+    - db_password
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/_wpeprivate/config.json'
+id: wpeprivate-config-disclosure
+info:
+  author: h0tak88r
+  description: 'This template checks for the presence of the `/_wpeprivate/config.json`
+    file, which may contain sensitive information.
+
+    '
+  name: WPE Private Config Disclosure
+  severity: high

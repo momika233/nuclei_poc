@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wc-sales-count-manager
+  - dsl:
+    - compare_versions(version, '<= 2.5')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wc-sales-count-manager/readme.txt'
+  redirects: true
+id: wc_sales_count_manager-5f977890-4bd7-4a12-822d-33e364677c6d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wc-sales-count-manager/
+    google-query: inurl:"/wp-content/plugins/wc-sales-count-manager/"
+    shodan-query: http.html:"wp-content/plugins/wc-sales-count-manager/"
+  name: 'Sales Count Manager for WooCommerce <= 2.5 - Authenticated (Administrator+)
+    Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5f977890-4bd7-4a12-822d-33e364677c6d?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,wc-sales-count-manager,low,candidate

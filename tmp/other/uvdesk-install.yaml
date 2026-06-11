@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - UVDesk Helpdesk Community Edition
+    - Installation Wizard
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: uvdesk-install
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: title:"UVDesk Helpdesk Community Edition - Installation Wizard"
+    verified: true
+  name: UVDesk Installation Wizard
+  severity: high
+  tags: misconfig,uvdesk,install,exposure

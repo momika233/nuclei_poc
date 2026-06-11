@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    regex:
+    - <code.*>/{{randstr}}.php.* this server.
+    - 404 Not Found
+    - <h1>Not Found</h1>
+    type: regex
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 404
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/{{randstr}}.php'
+id: phpcli-stack-trace
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: The requested resource <code class="url">
+    verified: true
+  name: PHP CLI Server Stack Trace
+  severity: info
+  tags: misconfig,phpcli

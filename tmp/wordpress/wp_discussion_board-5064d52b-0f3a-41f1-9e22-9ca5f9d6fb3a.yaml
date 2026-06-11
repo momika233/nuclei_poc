@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-discussion-board
+  - dsl:
+    - compare_versions(version, '<= 2.5.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-discussion-board/readme.txt'
+  redirects: true
+id: wp_discussion_board-5064d52b-0f3a-41f1-9e22-9ca5f9d6fb3a
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-discussion-board/
+    google-query: inurl:"/wp-content/plugins/wp-discussion-board/"
+    shodan-query: http.html:"wp-content/plugins/wp-discussion-board/"
+  name: 'Discussion Board <= 2.5.7 - Missing Authorization
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5064d52b-0f3a-41f1-9e22-9ca5f9d6fb3a?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,wp-discussion-board,high,candidate

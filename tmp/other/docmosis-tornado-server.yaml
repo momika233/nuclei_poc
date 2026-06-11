@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Docmosis Tornado
+    - href="WebServerDownload.css
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: docmosis-tornado-server
+info:
+  author: tess
+  metadata:
+    max-request: 1
+    shodan-query: title:"Docmosis Tornado"
+    verified: true
+  name: Docmosis Tornado Server Exposure
+  severity: low
+  tags: misconfig,tornado,exposure

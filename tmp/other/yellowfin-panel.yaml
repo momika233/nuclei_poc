@@ -1,0 +1,27 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Yellowfin Information Collaboration</title>
+    - alt="Yellowfin"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: yellowfin-panel
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: title:"Yellowfin Information Collaboration"
+    verified: true
+  name: Yellowfin Information Collaboration - Detect
+  severity: info
+  tags: yellowfin,panel,login

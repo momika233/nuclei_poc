@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Zebra Technologies
+    - PrintServer
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: zebra-printer-detect
+info:
+  author: gy741
+  metadata:
+    max-request: 1
+    shodan-query: html:"Zebra Technologies"
+    verified: true
+  name: Zebra Printer Detect
+  reference:
+  - https://www.zebra.com/kr/ko/products/printers.html
+  severity: info
+  tags: iot,zebra,printer

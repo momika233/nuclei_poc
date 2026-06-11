@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - woo-bigpost-shipping
+  - dsl:
+    - compare_versions(version, '<= 2.1.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/woo-bigpost-shipping/readme.txt'
+  redirects: true
+id: woo_bigpost_shipping-9cad27cd-b4cc-4f34-8588-130e1ba997f9
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/woo-bigpost-shipping/
+    google-query: inurl:"/wp-content/plugins/woo-bigpost-shipping/"
+    shodan-query: http.html:"wp-content/plugins/woo-bigpost-shipping/"
+  name: 'Big Post Shipping for WooCommerce <= 2.1.2 - Authenticated (Contributor+)
+    Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/9cad27cd-b4cc-4f34-8588-130e1ba997f9?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,woo-bigpost-shipping,low,candidate

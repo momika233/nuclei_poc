@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Setup Wizard
+    - multilaser.png
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/wizard.htm'
+id: multilaser-pro-setup
+info:
+  author: ritikchaddha
+  description: This allows the user to access quick setup settings and configuration
+    page through /wizard.htm.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Setup Wizard" http.favicon.hash:2055322029
+    verified: true
+  name: Multilaser Pro Setup Page - Detect
+  severity: high
+  tags: misconfig,multilaser,setup,config

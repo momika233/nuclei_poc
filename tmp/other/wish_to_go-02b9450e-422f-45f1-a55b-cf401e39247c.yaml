@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wish-to-go
+  - dsl:
+    - compare_versions(version, '<= 0.5.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wish-to-go/readme.txt'
+  redirects: true
+id: wish_to_go-02b9450e-422f-45f1-a55b-cf401e39247c
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wish-to-go/
+    google-query: inurl:"/wp-content/plugins/wish-to-go/"
+    shodan-query: http.html:"wp-content/plugins/wish-to-go/"
+  name: 'Travel Bucket List <= 0.5.2 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via Shortcode Attributes
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/02b9450e-422f-45f1-a55b-cf401e39247c?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,wish-to-go,low,candidate

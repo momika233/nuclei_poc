@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - content="Snapdrop"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: snapdrop-detect
+info:
+  author: tess
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Snapdrop"
+    verified: true
+  name: Snapdrop Detect
+  severity: info
+  tags: iot,snapdrop

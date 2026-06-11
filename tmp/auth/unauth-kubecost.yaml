@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Cluster Overview | Kubecost</title>
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/overview.html'
+id: unauth-kubecost
+info:
+  author: pussycat0x
+  metadata:
+    max-request: 1
+    shodan-query: title:kubecost
+    verified: true
+  name: KubeCost - Unauthenticated Dashboard Exposure
+  reference: https://www.facebook.com/photo?fbid=470414125129112&set=pcb.470413798462478
+  severity: medium
+  tags: misconfig,exposure,unauth,kubecost

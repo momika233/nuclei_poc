@@ -1,0 +1,31 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - window.unifiConfig.version = '(.*)'
+    type: regex
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - UniFi Wizard
+    - app-unifi-wizard
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/manage/wizard/'
+id: unifi-wizard-install
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: title:"UniFi Wizard"
+    verified: true
+  name: UniFi Wizard Installer
+  severity: high
+  tags: misconfig,install,unifi,exposure

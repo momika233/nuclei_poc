@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Werkzeug powered traceback interpreter
+  - status:
+    - 500
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/anything'
+  stop-at-first-match: true
+id: flask-werkzeug-debug
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: html:"Werkzeug powered traceback interpreter"
+    verified: true
+  name: Flask Werkzeug Debugger Exposure
+  severity: medium
+  tags: debug

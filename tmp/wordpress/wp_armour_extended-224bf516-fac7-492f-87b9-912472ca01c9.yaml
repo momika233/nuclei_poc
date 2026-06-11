@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-armour-extended
+  - dsl:
+    - compare_versions(version, '<= 1.26')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-armour-extended/readme.txt'
+  redirects: true
+id: wp_armour_extended-224bf516-fac7-492f-87b9-912472ca01c9
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-armour-extended/
+    google-query: inurl:"/wp-content/plugins/wp-armour-extended/"
+    shodan-query: http.html:"wp-content/plugins/wp-armour-extended/"
+  name: 'WP Armour Extended <= 1.26 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/224bf516-fac7-492f-87b9-912472ca01c9?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,wp-armour-extended,medium,candidate

@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-guestmap
+  - dsl:
+    - compare_versions(version, '<= 1.8')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-guestmap/readme.txt'
+  redirects: true
+id: wp-guestmap-138b91374da611e5609255da3727b885
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-guestmap/
+    google-query: inurl:"/wp-content/plugins/wp-guestmap/"
+    shodan-query: 'vuln:'
+  name: 'WP Guestmap <= 1.8 - Multiple Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/54560426-a9c9-4a60-9690-8e797e0e7e8d?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,wp-guestmap,high

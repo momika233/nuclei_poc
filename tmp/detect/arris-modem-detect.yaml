@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Touchstone Status</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/phy.htm'
+id: arris-modem-detect
+info:
+  author: gy741
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  description: ARRIS Touchstone Telephony Modem status panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: html:"phy.htm"
+    verified: true
+  name: ARRIS Touchstone Telephony Modem - Panel Detect
+  severity: info
+  tags: panel,arris

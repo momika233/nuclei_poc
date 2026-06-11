@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - temporary-login
+  - dsl:
+    - compare_versions(version, '<= 1.0.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/temporary-login/readme.txt'
+  redirects: true
+id: temporary_login-f97c669b-86c1-4873-a050-76972f494099
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/temporary-login/
+    google-query: inurl:"/wp-content/plugins/temporary-login/"
+    shodan-query: http.html:"wp-content/plugins/temporary-login/"
+  name: 'Temporary Login <= 1.0.0 - Authentication Bypass to Account Takeover
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f97c669b-86c1-4873-a050-76972f494099?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,temporary-login,critical,candidate
