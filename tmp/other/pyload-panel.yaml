@@ -1,0 +1,35 @@
+http:
+- host-redirects: true
+  matchers:
+  - case-insensitive: true
+    condition: or
+    type: word
+    words:
+    - Login - pyLoad
+    - alt="Pyload
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/login'
+  stop-at-first-match: true
+id: pyload-panel
+info:
+  author: DhiyaneshDk
+  description: 'A Pyload Login was detected.
+
+    '
+  metadata:
+    max-request: 2
+    product: pyload
+    shodan-query: title:"Login - pyLoad"
+    vendor: pyload
+    verified: true
+  name: PyLoad Login - Panel
+  reference:
+  - https://github.com/pyload/pyload
+  severity: info
+  tags: panel,pyload,login

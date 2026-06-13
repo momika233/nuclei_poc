@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Greenbone Security Assistant
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: openvas-panel
+info:
+  author: rxerium
+  description: 'An OpenVas Admin login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:1606029165
+    verified: true
+  name: OpenVas Login Panel - Detect
+  reference:
+  - https://openvas.org/
+  severity: info
+  tags: panel,openvas,admin,login

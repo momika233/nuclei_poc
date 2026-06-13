@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - rockhoist-badges
+  - dsl:
+    - compare_versions(version, '<= 1.2.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/rockhoist-badges/readme.txt'
+  redirects: true
+id: rockhoist_badges-0a46420e-8ca5-43ac-8475-786e24185f55
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/rockhoist-badges/
+    google-query: inurl:"/wp-content/plugins/rockhoist-badges/"
+    shodan-query: http.html:"wp-content/plugins/rockhoist-badges/"
+  name: 'Rockhoist Badges <= 1.2.2 - Authenticated Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/0a46420e-8ca5-43ac-8475-786e24185f55?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,rockhoist-badges,low,candidate

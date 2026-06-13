@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - list-categories
+  - dsl:
+    - compare_versions(version, '<= 0.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/list-categories/readme.txt'
+  redirects: true
+id: list_categories-8e24306a-b741-4840-b238-e37138425bf8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/list-categories/
+    google-query: inurl:"/wp-content/plugins/list-categories/"
+    shodan-query: http.html:"wp-content/plugins/list-categories/"
+  name: 'List categories <= 0.4 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/8e24306a-b741-4840-b238-e37138425bf8?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,list-categories,low,candidate

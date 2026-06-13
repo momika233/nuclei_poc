@@ -1,0 +1,38 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Provide a link that opens Word
+    - PowerPoint files in a web browser
+  - condition: and
+    part: body
+    type: word
+    words:
+    - _OFUError
+    - Wrong file type
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}/op/generate.aspx'
+  - '{{BaseURL}}/op/wrongfiletype.htm'
+  stop-at-first-match: true
+id: office-webapps-panel
+info:
+  author: DhiyaneshDK
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-668
+  description: Microsoft Office Web App Login Panel was discovered.
+  metadata:
+    max-request: 2
+    product: office_web_apps_server
+    shodan-query: html:"Provide a link that opens Word"
+    vendor: microsoft
+    verified: true
+  name: Office Web Apps Server Panel - Detect
+  reference:
+  - https://www.microsoft.com/en-in/microsoft-365/free-office-online-for-the-web
+  severity: info
+  tags: panel,office-webapps,login,microsoft

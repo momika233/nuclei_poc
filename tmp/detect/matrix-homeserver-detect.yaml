@@ -1,0 +1,32 @@
+http:
+- extractors:
+  - json:
+    - .server | select((.name != null) and (.version != null)) | .name, .version
+    part: body
+    type: json
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - '"server":'
+    - '"name":'
+    - '"version":'
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/_matrix/federation/v1/version'
+  redirects: true
+id: matrix-homeserver-detect
+info:
+  author: davidegirardi
+  description: 'Extract the Matrix homeserver name and version
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Synapse is running"
+    verified: true
+  name: Matrix Homeserver - Version Detection
+  severity: info
+  tags: tech,matrix,synapse

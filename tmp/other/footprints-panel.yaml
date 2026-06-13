@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - FootPrints Service Core Login
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/MRcgi/MRlogin.pl'
+  - '{{BaseURL}}/MRcgi/MRentrancePage.pl'
+  stop-at-first-match: true
+id: footprints-panel
+info:
+  author: tess
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: FootPrints Service Core login panel was detected.
+  metadata:
+    max-request: 2
+    shodan-query: title:"FootPrints Service Core Login"
+    verified: true
+  name: FootPrints Service Core Login Panel - Detect
+  severity: info
+  tags: tech,panel,footprints

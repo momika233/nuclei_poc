@@ -1,0 +1,32 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>BIG-IP Next | Central Manager
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/gui/login'
+id: f5-next-central-manager
+info:
+  author: EgemenKochisarli
+  classification:
+    cpe: cpe:2.3:h:f5:big-ip:*:*:*:*:*:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'F5 Next Central Manager login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: big-ip
+    vendor: f5
+    verified: true
+  name: F5 Next Central Manager Panel - Detect
+  reference:
+  - https://clouddocs.f5.com/bigip-next/latest/use_cm/
+  severity: info
+  tags: panel,fortinet,login,f5,discovery

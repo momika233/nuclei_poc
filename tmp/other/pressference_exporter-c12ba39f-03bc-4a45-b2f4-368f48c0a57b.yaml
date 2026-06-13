@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - pressference-exporter
+  - dsl:
+    - compare_versions(version, '<= 1.0.3')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/pressference-exporter/readme.txt'
+  redirects: true
+id: pressference_exporter-c12ba39f-03bc-4a45-b2f4-368f48c0a57b
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/pressference-exporter/
+    google-query: inurl:"/wp-content/plugins/pressference-exporter/"
+    shodan-query: http.html:"wp-content/plugins/pressference-exporter/"
+  name: 'Pressference Exporter <= 1.0.3 - Authenticated (Administrator+) SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c12ba39f-03bc-4a45-b2f4-368f48c0a57b?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,pressference-exporter,low,candidate

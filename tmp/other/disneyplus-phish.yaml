@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Disney+ | Stream new Originals, blockbusters and series
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"disneyplus.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: disneyplus-phish
+info:
+  author: rxerium
+  description: 'A disneyplus phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: disneyplus phishing Detection
+  reference:
+  - https://disneyplus.com
+  severity: info
+  tags: phishing,disneyplus,osint

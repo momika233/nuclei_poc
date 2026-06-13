@@ -1,0 +1,32 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - Cisco Unity Connection Administration
+    - '>Cisco Unity Connection</a>'
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/cuadmin/home.do'
+  - '{{BaseURL}}'
+  stop-at-first-match: true
+id: cisco-unity-panel
+info:
+  author: HeeresS
+  description: 'A Cisco Unity Connection instance was detected.
+
+    '
+  metadata:
+    max-request: 2
+    shodan-query: html:"Cisco Unity Connection"
+    verified: true
+  name: Cisco Unity Connection Panel - Detect
+  severity: info
+  tags: panel,cisco,unity,login,detect

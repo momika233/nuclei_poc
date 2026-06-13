@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - options-for-twenty-seventeen
+  - dsl:
+    - compare_versions(version, '<= 2.5.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/options-for-twenty-seventeen/readme.txt'
+  redirects: true
+id: options_for_twenty_seventeen-df35d8c6-55ec-4cf5-8055-93ec5193c0a4
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/options-for-twenty-seventeen/
+    google-query: inurl:"/wp-content/plugins/options-for-twenty-seventeen/"
+    shodan-query: http.html:"wp-content/plugins/options-for-twenty-seventeen/"
+  name: 'Options for Twenty Seventeen <= 2.5.0 - Authenticated (Contributor+) Stored
+    Cross-Site Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/df35d8c6-55ec-4cf5-8055-93ec5193c0a4?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,options-for-twenty-seventeen,low,candidate

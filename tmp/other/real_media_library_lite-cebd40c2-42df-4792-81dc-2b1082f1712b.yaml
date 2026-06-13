@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - real-media-library-lite
+  - dsl:
+    - compare_versions(version, '<= 4.14.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/real-media-library-lite/readme.txt'
+  redirects: true
+id: real_media_library_lite-cebd40c2-42df-4792-81dc-2b1082f1712b
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/real-media-library-lite/
+    google-query: inurl:"/wp-content/plugins/real-media-library-lite/"
+    shodan-query: http.html:"wp-content/plugins/real-media-library-lite/"
+  name: 'WordPress Real Media Library <= 4.14.1 - Authenticated (Author) Stored Cross-Site
+    Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/cebd40c2-42df-4792-81dc-2b1082f1712b?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,real-media-library-lite,low,candidate

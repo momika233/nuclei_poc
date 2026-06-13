@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - plugin-logic
+  - dsl:
+    - compare_versions(version, '<= 1.0.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/plugin-logic/readme.txt'
+  redirects: true
+id: plugin_logic-e75a96ab-499b-4f1d-a60b-a5aa9d804363
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/plugin-logic/
+    google-query: inurl:"/wp-content/plugins/plugin-logic/"
+    shodan-query: http.html:"wp-content/plugins/plugin-logic/"
+  name: 'Plugin Logic <= 1.0.7 - Authenticated (Administrator+) SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/e75a96ab-499b-4f1d-a60b-a5aa9d804363?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,plugin-logic,low,candidate

@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "content=\"moodle", "\"name\":\"moodle\"") && contains(body,
+      "workplace")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login/index.php'
+id: moodle-workplace-panel
+info:
+  author: righettod
+  description: 'Moodle workplace login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.html:"moodle"
+    verified: true
+  name: Moodle Workplace Login Panel - Detect
+  reference:
+  - https://moodle.com/solutions/workplace/
+  severity: info
+  tags: panel,moodle,login,detect

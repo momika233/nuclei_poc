@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - Backpack Admin
+    - backpack_alerts
+  method: GET
+  path:
+  - '{{BaseURL}}/admin/login'
+id: backpack-admin-panel
+info:
+  author: shine
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: 'Laravel Backpack admin login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Backpack Admin"
+    verified: true
+  name: Laravel Backpack Admin Login Panel - Detect
+  severity: info
+  tags: panel,backpack,admin

@@ -1,0 +1,28 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>perfSONAR Toolkit</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/toolkit/'
+id: perfsonar-toolkit
+info:
+  author: DhiyaneshDk
+  description: perfSONAR Toolkit is exposed.
+  metadata:
+    max-request: 1
+    shodan-query: title:"perfSONAR"
+    verified: true
+  name: perfSONAR Toolkit - Exposure
+  reference:
+  - https://www.facebook.com/photo?fbid=619180260252497&set=pcb.619180283585828
+  severity: medium
+  tags: misconfig,perfsonar,toolkit

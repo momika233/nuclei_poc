@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - post-list-with-featured-image
+  - dsl:
+    - compare_versions(version, '<= 1.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/post-list-with-featured-image/readme.txt'
+  redirects: true
+id: post_list_with_featured_image-5b720612-f3ec-4cc0-9cc8-b9e01421ca87
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/post-list-with-featured-image/
+    google-query: inurl:"/wp-content/plugins/post-list-with-featured-image/"
+    shodan-query: http.html:"wp-content/plugins/post-list-with-featured-image/"
+  name: 'Post List With Featured Image <= 1.2 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5b720612-f3ec-4cc0-9cc8-b9e01421ca87?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,post-list-with-featured-image,medium,candidate

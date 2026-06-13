@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Sign in - Google Accounts
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"google.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: google-phish
+info:
+  author: rxerium
+  description: 'A google phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: Google phishing Detection
+  reference:
+  - https://google.com
+  severity: info
+  tags: phishing,google,osint

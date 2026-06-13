@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Oracle Business Intelligence Sign In</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/saw.dll?bieehome&startPage=1'
+id: oracle-business-intelligence
+info:
+  author: DhiyaneshDk
+  classification:
+    cpe: cpe:2.3:a:oracle:business_intelligence:*:*:*:*:*:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Oracle Business Intelligence login panel was detected.
+  metadata:
+    max-request: 1
+    product: business_intelligence
+    shodan-query: http.title:"Oracle Business Intelligence Sign In"
+    vendor: oracle
+    verified: true
+  name: Oracle Business Intelligence Login Panel - Detect
+  severity: info
+  tags: panel,oracle

@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Automatisch
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/login'
+  stop-at-first-match: true
+id: automatisch-panel
+info:
+  author: rxerium
+  description: 'The open source Zapier alternative.
+
+    '
+  metadata:
+    max-request: 2
+    shodan-query: title:"Automatisch"
+    verified: true
+  name: Automatisch Panel - Detect
+  reference:
+  - https://automatisch.io/
+  - https://github.com/automatisch/automatisch
+  severity: info
+  tags: panel,automatisch,detect

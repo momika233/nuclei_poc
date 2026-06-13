@@ -1,0 +1,33 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - '"versionNumber":\s*"([0-9.]+)"'
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "<title>domibus", "domibus-msh")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/domibus/rest/application/info'
+  - '{{BaseURL}}/domibus/'
+  stop-at-first-match: true
+id: domibus-detect
+info:
+  author: righettod
+  description: 'Domibus was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Domibus"
+    verified: true
+  name: Domibus - Detect
+  reference:
+  - https://ec.europa.eu/digital-building-blocks/sites/display/DIGITAL/Domibus
+  severity: info
+  tags: tech,domibus,detect,discovery

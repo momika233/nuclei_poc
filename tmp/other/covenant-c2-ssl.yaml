@@ -1,0 +1,29 @@
+id: covenant-c2-ssl
+info:
+  author: pussycat0x
+  description: 'Covenant is a .NET command and control framework that aims to highlight
+    the attack surface of .NET, make the use of offensive .NET tradecraft easier,and
+    serve as a collaborative command and control platform for red teamers.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: "ssl:\u201DCovenant\u201D http.component:\u201DBlazor\u201D"
+    verified: 'true'
+  name: Covenant C2 SSL - Detect
+  reference: 'https://twitter.com/MichalKoczwara/status/1548685058403360770
+
+    '
+  severity: info
+  tags: ssl,tls,c2,ir,osint,malware,covenant
+ssl:
+- address: '{{Host}}:{{Port}}'
+  extractors:
+  - json:
+    - .subject_dn
+    type: json
+  matchers:
+  - part: subject_dn
+    type: word
+    words:
+    - CN=Covenant

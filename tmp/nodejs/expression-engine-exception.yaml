@@ -1,0 +1,22 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Exception - ExpressionEngine
+    - Exception Caught
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: expression-engine-exception
+info:
+  author: DhiyaneshDk
+  metadata:
+    fofa-query: body="Exception - ExpressionEngine"
+    max-request: 1
+  name: ExpressionEngine Exception - Page
+  severity: info
+  tags: error,expressionengine,log,vuln

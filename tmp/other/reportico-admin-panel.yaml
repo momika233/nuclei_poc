@@ -1,0 +1,36 @@
+http:
+- matchers:
+  - condition: and
+    type: word
+    words:
+    - Reportico Administration
+    - reportico_
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/run.php?project=admin&execute_mode=ADMIN&clear_session=1'
+  - '{{BaseURL}}/reportico/run.php?project=admin&execute_mode=ADMIN&clear_session=1'
+  stop-at-first-match: true
+id: reportico-admin-panel
+info:
+  author: geeknik
+  description: 'Create a simple report using the designer front end in seconds from
+    a single SQL statement. Add expressions, user criteria, charts, groups, aggregations,
+    page headers, page footers, hyperlinks and even custom plugin code.
+
+    '
+  metadata:
+    max-request: 2
+    product: reportico
+    shodan-query: title:"Reportico Administration Page"
+    vendor: reportico
+    verified: true
+  name: Reportico Administration Page - Detect
+  reference:
+  - https://www.reportico.org/site2/index.php
+  - https://github.com/reportico-web/reportico
+  severity: info
+  tags: panel,reportico,login,detect

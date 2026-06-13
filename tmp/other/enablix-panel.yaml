@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - case-insensitive: true
+    part: body
+    type: word
+    words:
+    - <title>Enablix</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login.html#/login'
+id: enablix-panel
+info:
+  author: DhiyaneshDk
+  description: 'Enablix panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Enablix"})
+    shodan-query: title:"Enablix"
+  name: Enablix Panel - Detect
+  severity: info
+  tags: enablix,login,panel,discovery

@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - mwp-countdown
+  - dsl:
+    - compare_versions(version, '<= 3.1.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/mwp-countdown/readme.txt'
+  redirects: true
+id: mwp_countdown-bd20e40c-cfec-4de6-a8a6-02850185003b
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/mwp-countdown/
+    google-query: inurl:"/wp-content/plugins/mwp-countdown/"
+    shodan-query: http.html:"wp-content/plugins/mwp-countdown/"
+  name: 'Wow Countdowns <= 3.1.2 - Authenticated (Admin+) SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/bd20e40c-cfec-4de6-a8a6-02850185003b?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,mwp-countdown,low,candidate

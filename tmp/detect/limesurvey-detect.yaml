@@ -1,0 +1,36 @@
+http:
+- host-redirects: true
+  matchers:
+  - case-insensitive: true
+    condition: or
+    type: word
+    words:
+    - content="LimeSurvey
+    - alt="LimeSurvey Survey Software
+    - data-limesurvey-lang=
+    - alt="Powered by LimeSurvey
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: limesurvey-detect
+info:
+  author: Matt Galligan
+  description: 'Limesurvey is the number one open-source survey software. Advanced
+    features like branching and multiple question types make it a valuable partner
+    for survey-creation.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:1781653957
+    verified: true
+  name: LimeSurvey Survey Software - Detect
+  reference:
+  - https://github.com/LimeSurvey/LimeSurvey
+  severity: info
+  tags: tech,limesurvey

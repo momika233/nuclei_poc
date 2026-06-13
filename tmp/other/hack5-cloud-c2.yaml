@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - "<title>Hak5 Cloud C\xB2</title>"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: hack5-cloud-c2
+info:
+  author: pussycat0x
+  description: "Cloud C\xB2 is a self-hosted web-based command and control suite for\
+    \ networked Hak5 gear that lets you pentest from anywhere. Linux, Mac and Windows\
+    \ computers can host the Cloud C\xB2 server while Hak5 gear such as the WiFi Pineapple,\
+    \ LAN Turtle and Packet Squirrel can be provisioned as clients.\n"
+  metadata:
+    fofa-query: app="Hak5-C2"
+    max-request: 1
+    verified: true
+  name: Hack5 Cloud C2 - Detect
+  reference:
+  - https://twitter.com/fofabot/status/1742737671037091854
+  severity: info
+  tags: c2,ir,osint,hack5c2,panel

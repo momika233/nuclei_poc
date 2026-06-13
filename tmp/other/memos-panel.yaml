@@ -1,0 +1,32 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Memos
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/explore'
+  stop-at-first-match: true
+id: memos-panel
+info:
+  author: rxerium
+  description: 'Memos is a privacy-first, lightweight note-taking service
+
+    '
+  metadata:
+    max-request: 2
+    product: memos
+    shodan-query: title:"Memos"
+    vendor: usememos
+    verified: true
+  name: Memos Panel - Detect
+  reference:
+  - https://github.com/usememos/memos
+  - https://www.usememos.com/
+  severity: info
+  tags: panel,memos,detect

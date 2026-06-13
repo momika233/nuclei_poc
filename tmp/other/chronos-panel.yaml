@@ -1,0 +1,39 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)chronos\s+([0-9.-]+)
+    type: regex
+  matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - chronoslogin.html
+    - urlcli
+    - url_portail
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/chronos.wsc/asparamlogin.html'
+id: chronos-panel
+info:
+  author: righettod
+  description: 'Chronos Login Panel was detected.
+
+    '
+  metadata:
+    fofa-query: body="chronoslogin.js"
+    max-request: 1
+    shodan-query: http.html:"chronoslogin.js"
+    verified: true
+  name: Chronos Panel - Detect
+  reference:
+  - https://www.asys.fr/chronos
+  severity: info
+  tags: panel,chronos,login,detect

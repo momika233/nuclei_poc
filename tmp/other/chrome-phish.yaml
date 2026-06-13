@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - "Google Chrome \u2013 Download the fast, secure browser from Google"
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"google.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: chrome-phish
+info:
+  author: rxerium
+  description: 'A chrome phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: chrome phishing Detection
+  reference:
+  - https://www.google.com/intl/en_uk/chrome/
+  severity: info
+  tags: phishing,chrome,osint

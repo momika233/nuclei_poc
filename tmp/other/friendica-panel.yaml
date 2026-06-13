@@ -1,0 +1,39 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)v=([a-z0-9.-]+)
+    type: regex
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - title="Search in Friendica
+    - Welcome to Friendica Social Network
+    - content="Friendica
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: friendica-panel
+info:
+  author: righettod
+  description: 'Friendica Login Panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: friendica
+    shodan-query: http.title:"Friendica"
+    vendor: friendica
+    verified: true
+  name: Friendica Panel - Detect
+  reference:
+  - https://friendi.ca
+  severity: info
+  tags: friendica,panel,login,detect

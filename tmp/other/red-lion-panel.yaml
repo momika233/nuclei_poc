@@ -1,0 +1,21 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: or
+    part: body
+    type: word
+    words:
+    - Red Lion</a>
+    - Red Lion Controls</a>
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: red-lion-panel
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    verified: true
+  name: Red Lion Control Panel - Detect
+  severity: info
+  tags: panel,redlion,detect,iot

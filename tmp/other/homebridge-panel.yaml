@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Homebridge</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: homebridge-panel
+info:
+  author: rxerium
+  description: 'Homebridge allows you to integrate with smart home devices that do
+    not natively support HomeKit.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Homebridge"
+    verified: true
+  name: Homebridge Panel - Detect
+  reference:
+  - https://homebridge.io/
+  - https://github.com/homebridge
+  severity: info
+  tags: panel,homebridge,detect

@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Amazon EC2 Status</title>
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: aws-ec2-status
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: html:"Amazon EC2 Status"
+    verified: true
+  name: Amazon EC2 Status
+  reference:
+  - https://www.facebook.com/photo/?fbid=644887334348456&set=a.467014098802448
+  severity: info
+  tags: misconfig,ec2,aws,amazon

@@ -1,0 +1,38 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)appv=([0-9.-]+)
+    type: regex
+  matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - regify
+    - regibill
+    - regify_default.css
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/phpLogin.php'
+id: regify-panel
+info:
+  author: righettod
+  description: 'Regify Login Panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:1817615343
+    verified: true
+  name: Regify Login Panel - Detect
+  reference:
+  - https://www.regify.com/
+  severity: info
+  tags: panel,regify,login,detect

@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - onionbuzz-viral-quiz
+  - dsl:
+    - compare_versions(version, '< 1.2.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/onionbuzz-viral-quiz/readme.txt'
+  redirects: true
+id: onionbuzz_viral_quiz-979c1107-788a-4130-b1d1-5cad3717962b
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/onionbuzz-viral-quiz/
+    google-query: inurl:"/wp-content/plugins/onionbuzz-viral-quiz/"
+    shodan-query: http.html:"wp-content/plugins/onionbuzz-viral-quiz/"
+  name: 'OnionBuzz Plugin < 1.2.7 - SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/979c1107-788a-4130-b1d1-5cad3717962b?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,onionbuzz-viral-quiz,critical,candidate

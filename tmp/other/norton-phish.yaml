@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - "Official Site | Norton\u2122 - Antivirus &amp; Anti-Malware Software"
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"norton.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: norton-phish
+info:
+  author: rxerium
+  description: 'A norton phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: norton phishing Detection
+  reference:
+  - https://norton.com
+  severity: info
+  tags: phishing,norton,osint

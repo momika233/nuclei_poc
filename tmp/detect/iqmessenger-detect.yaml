@@ -1,0 +1,53 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: stylesheet_filename
+    part: body
+    regex:
+    - href="(styles\.\w+\.css)"
+    type: regex
+  matchers:
+  - internal: true
+    status:
+    - 200
+    type: status
+  - internal: true
+    part: body
+    type: word
+    words:
+    - <iqm-root>
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/ui'
+- extractors:
+  - kval:
+    - last_modified
+    part: header
+    type: kval
+  method: GET
+  path:
+  - '{{BaseURL}}/ui/{{stylesheet_filename}}'
+id: iqmessenger-detect
+info:
+  author: darses
+  description: 'IQ Messenger was detected.
+
+    '
+  metadata:
+    fofa-query:
+    - icon_hash="-1987558539"
+    - icon_hash="-1021409057"
+    - title="IQ Messenger"
+    max-request: 2
+    shodan-query:
+    - http.favicon.hash:1033082340
+    - title:"IQ Messenger"
+    vendor: iq_messenger
+    verified: true
+  name: IQ Messenger - Panel
+  reference:
+  - https://iqmessenger.com/
+  severity: info
+  tags: detect,panel,iqmessenger

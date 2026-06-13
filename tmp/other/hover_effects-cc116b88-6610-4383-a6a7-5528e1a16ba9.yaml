@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - hover-effects
+  - dsl:
+    - compare_versions(version, '<= 2.1.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/hover-effects/readme.txt'
+  redirects: true
+id: hover_effects-cc116b88-6610-4383-a6a7-5528e1a16ba9
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/hover-effects/
+    google-query: inurl:"/wp-content/plugins/hover-effects/"
+    shodan-query: http.html:"wp-content/plugins/hover-effects/"
+  name: 'Hover Effects <= 2.1.2 - Authenticated (Administrator+) SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/cc116b88-6610-4383-a6a7-5528e1a16ba9?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,hover-effects,low,candidate

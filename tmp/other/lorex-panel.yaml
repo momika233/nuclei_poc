@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    dsl:
+    - contains_all(tolower(body), "<title>web service</title>", "lorex")
+    - contains_any(body, "/LOREX_webplugin", "lorex_msg")
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: lorex-panel
+info:
+  author: rxerium
+  classification:
+    cwe-id: CWE-200
+  description: 'A lorex panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: Lorex
+    verified: true
+  name: Lorex Panel - Detect
+  reference:
+  - https://www.lorex.com/
+  severity: info
+  tags: panel,login,detect,lorex,discovery

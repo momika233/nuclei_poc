@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - kiwi-logo-carousel
+  - dsl:
+    - compare_versions(version, '< 1.7.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/kiwi-logo-carousel/readme.txt'
+  redirects: true
+id: kiwi_logo_carousel-81b49050-84e4-4fb4-b8ed-baf21c8bb5a3
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/kiwi-logo-carousel/
+    google-query: inurl:"/wp-content/plugins/kiwi-logo-carousel/"
+    shodan-query: http.html:"wp-content/plugins/kiwi-logo-carousel/"
+  name: 'Logo Carousel < 1.7.2 - Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/81b49050-84e4-4fb4-b8ed-baf21c8bb5a3?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,kiwi-logo-carousel,high,candidate

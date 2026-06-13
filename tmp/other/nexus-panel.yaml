@@ -1,0 +1,32 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - _v=([0-9\.\-]+)
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "<title>sonatype nexus repository", "content=\"sonatype
+      nexus repository", "nexus-coreui-bundle")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: nexus-panel
+info:
+  author: righettod
+  description: 'Nexus login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Sonatype Nexus Repository"
+    verified: true
+  name: Nexus Login Panel - Detect
+  reference:
+  - https://www.sonatype.com/products/sonatype-nexus-repository
+  severity: info
+  tags: panel,nexus,login,detect

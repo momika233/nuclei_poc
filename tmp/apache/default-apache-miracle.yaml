@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <TITLE>Apache Miracle Linux Web Server</TITLE>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: default-apache-miracle
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: title:"Apache Miracle Linux Web Server"
+    verified: true
+  name: Default Apache Miracle Linux Web Server Page
+  severity: info
+  tags: tech,default-page,apache,miracle

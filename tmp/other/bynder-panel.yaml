@@ -1,0 +1,31 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - http-equiv="version"\s+content="([0-9\.]+)"
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "bynder.", "bynder brand portal", "bynder login")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login/'
+id: bynder-panel
+info:
+  author: righettod
+  description: 'Bynder login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:1017650009
+    verified: true
+  name: Bynder Login Panel - Detect
+  reference:
+  - https://www.bynder.com/en/
+  severity: info
+  tags: panel,bynder,login,detect

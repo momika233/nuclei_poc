@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(server, "imgproxy")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: imgproxy-detect
+info:
+  author: userdehghani
+  classification:
+    cpe: cpe:2.3:a:evilmartians:imgproxy:*:*:*:*:*:*:*:*
+  description: 'imgproxy is a fast and secure standalone server for resizing, processing,
+    and converting images.
+
+    '
+  metadata:
+    max-request: 1
+    product: imgproxy
+    shodan-query: html:"imgproxy"
+    vendor: evilmartians
+    verified: true
+  name: Imgproxy Detect
+  reference:
+  - https://imgproxy.net/
+  severity: info
+  tags: imgproxy,tech,detect,discovery

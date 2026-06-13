@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - AddOnFinancePortal</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: addonfinance-portal
+info:
+  author: ritikchaddha
+  description: AddOnFinance Portal Panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: title:"AddOnFinancePortal"
+    verified: 'true'
+  name: AddOnFinance Portal - Detect
+  severity: info
+  tags: panel,addon,finance,detect

@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Antivirus, VPN, Identity &amp; Privacy Protection | McAfee
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"mcafee.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: mcafee-phish
+info:
+  author: rxerium
+  description: 'A mcafee phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: mcafee phishing Detection
+  reference:
+  - https://mcafee.com
+  severity: info
+  tags: phishing,mcafee,osint

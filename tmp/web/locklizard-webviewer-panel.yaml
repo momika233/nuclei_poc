@@ -1,0 +1,33 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Locklizard Web Viewer
+    - Did you remember your password?
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: locklizard-webviewer-panel
+info:
+  author: righettod
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Locklizard Web Viewer login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: html:"Locklizard Web Viewer"
+    verified: true
+  name: Locklizard Web Viewer Login Panel - Detect
+  reference:
+  - https://www.locklizard.com/pdf_security_webviewer/
+  severity: info
+  tags: panel,locklizard,webviewer

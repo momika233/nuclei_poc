@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - lana-text-to-image
+  - dsl:
+    - compare_versions(version, '<= 1.0.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/lana-text-to-image/readme.txt'
+  redirects: true
+id: lana_text_to_image-8acb7893-85b2-404a-b3fe-b4c1a835b3eb
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/lana-text-to-image/
+    google-query: inurl:"/wp-content/plugins/lana-text-to-image/"
+    shodan-query: http.html:"wp-content/plugins/lana-text-to-image/"
+  name: 'Lana Text to Image <= 1.0.0 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/8acb7893-85b2-404a-b3fe-b4c1a835b3eb?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,lana-text-to-image,low,candidate

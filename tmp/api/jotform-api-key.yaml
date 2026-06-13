@@ -1,0 +1,32 @@
+http:
+- extractors:
+  - part: body
+    regex:
+    - '[0-9a-fA-F]{32}'
+    type: regex
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - jotform
+    - api
+  - part: body
+    regex:
+    - '[0-9a-fA-F]{32}'
+    type: regex
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: jotform-api-key
+info:
+  author: Shankar Acharya
+  metadata:
+    max-request: 1
+    verified: 'true'
+  name: Jotform API Key
+  reference:
+  - https://www.jotform.com/help/253-how-to-create-a-jotform-api-key/
+  severity: info
+  tags: token,exposure,jotform

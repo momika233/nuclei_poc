@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - <title>Lomnido Login</title>
+    - /lomnido/saml
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/'
+id: lomnido-panel
+info:
+  author: righettod
+  description: 'Lomnido was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Lomnido Login"
+    verified: true
+  name: Lomnido Panel - Detect
+  reference:
+  - https://lomnido.com/
+  severity: info
+  tags: lomnido,panel,login,detect

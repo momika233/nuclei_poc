@@ -1,0 +1,26 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "<title>pghero", "/assets/pghero/", ">pghero</a>")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: pghero-detect
+info:
+  author: righettod
+  description: 'PgHero products was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"PgHero"
+    verified: true
+  name: PgHero - Detect
+  reference:
+  - https://github.com/ankane/pghero
+  severity: info
+  tags: tech,pghero,detect,discovery

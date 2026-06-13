@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - qr-code-tag
+  - dsl:
+    - compare_versions(version, '<= 1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/qr-code-tag/readme.txt'
+  redirects: true
+id: qr_code_tag-be004002-a3ac-46e9-b0c1-258f05f97b2a
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/qr-code-tag/
+    google-query: inurl:"/wp-content/plugins/qr-code-tag/"
+    shodan-query: http.html:"wp-content/plugins/qr-code-tag/"
+  name: 'QR Code Tag <= 1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/be004002-a3ac-46e9-b0c1-258f05f97b2a?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,qr-code-tag,low,candidate

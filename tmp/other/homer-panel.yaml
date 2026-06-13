@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Homer</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/index.html'
+id: homer-panel
+info:
+  author: rxerium
+  description: 'A simple static homepage was discovered
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:-417785140
+    verified: true
+  name: Homer Panel - Detect
+  reference:
+  - https://github.com/bastienwirtz/homer
+  - https://homer-demo.netlify.app/
+  severity: info
+  tags: panel,homer,detect,login

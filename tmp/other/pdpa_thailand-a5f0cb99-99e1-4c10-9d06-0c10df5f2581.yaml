@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - pdpa-thailand
+  - dsl:
+    - compare_versions(version, '<= 2.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/pdpa-thailand/readme.txt'
+  redirects: true
+id: pdpa_thailand-a5f0cb99-99e1-4c10-9d06-0c10df5f2581
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/pdpa-thailand/
+    google-query: inurl:"/wp-content/plugins/pdpa-thailand/"
+    shodan-query: http.html:"wp-content/plugins/pdpa-thailand/"
+  name: 'Designil PDPA Thailand <= 2.0.1 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/a5f0cb99-99e1-4c10-9d06-0c10df5f2581?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,pdpa-thailand,low,candidate

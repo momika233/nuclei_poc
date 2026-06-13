@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Gira HomeServer 4
+    - Home page
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: gira-homeserver-homepage
+info:
+  author: tess
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Gira HomeServer 4 login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Gira HomeServer 4"
+    verified: true
+  name: Gira HomeServer 4 Login Panel - Detect
+  severity: info
+  tags: panel,gira

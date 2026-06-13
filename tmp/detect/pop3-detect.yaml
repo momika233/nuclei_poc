@@ -1,0 +1,32 @@
+id: pop3-detect
+info:
+  author: pussycat0x
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'POP3 protocol was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: pop3 port:110
+    verified: true
+  name: POP3 Protocol - Detect
+  reference:
+  - https://nmap.org/nsedoc/scripts/pop3-ntlm-info.html
+  severity: info
+  tags: network,detect,pop3,mail
+tcp:
+- host:
+  - '{{Hostname}}'
+  inputs:
+  - data: '
+
+      '
+  matchers:
+  - condition: or
+    type: word
+    words:
+    - +OK Dovecot ready
+    - POP3
+  port: 110

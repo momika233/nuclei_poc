@@ -1,0 +1,28 @@
+id: clamav-detect
+info:
+  author: pussycat0x
+  description: 'Clam AntiVirus is a free software, cross-platform antimalware toolkit
+    able to detect many types of malware, including viruses.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: port:3310 product:"ClamAV"
+    verified: true
+  name: ClamAV Server Detect
+  severity: info
+  tags: network,clamav,detect
+tcp:
+- extractors:
+  - regex:
+    - ClamAV ([0-9.]+)
+    type: regex
+  host:
+  - '{{Hostname}}'
+  inputs:
+  - data: VERSION
+  matchers:
+  - regex:
+    - ClamAV ([0-9.]+)
+    type: regex
+  port: 3310

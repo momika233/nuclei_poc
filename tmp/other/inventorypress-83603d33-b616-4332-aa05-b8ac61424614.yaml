@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - inventorypress
+  - dsl:
+    - compare_versions(version, '<= 1.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/inventorypress/readme.txt'
+  redirects: true
+id: inventorypress-83603d33-b616-4332-aa05-b8ac61424614
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/inventorypress/
+    google-query: inurl:"/wp-content/plugins/inventorypress/"
+    shodan-query: http.html:"wp-content/plugins/inventorypress/"
+  name: 'InventoryPress <= 1.7 - Authenticated(Author+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/83603d33-b616-4332-aa05-b8ac61424614?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,inventorypress,low,candidate

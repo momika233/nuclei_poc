@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Search Flights, Hotels &amp; Car Hire | KAYAK
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"kayak.co.uk")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: kayak-phish
+info:
+  author: rxerium
+  description: 'A kayak phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: kayak phishing Detection
+  reference:
+  - https://kayak.co.uk
+  severity: info
+  tags: phishing,kayak,osint

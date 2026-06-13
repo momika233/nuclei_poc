@@ -1,0 +1,39 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)Version\s+([0-9.-]+)
+    type: regex
+  matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - OpenTouch
+    - Multimedia Services
+    - Alcatel-Lucent
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/authenticationform/login'
+  - '{{BaseURL}}/authenticationform/jsp/logonWeb.jsp'
+  stop-at-first-match: true
+id: opentouch-multimediaservices-panel
+info:
+  author: righettod
+  description: 'OpenTouch Multimedia Services Login Panel was detected.
+
+    '
+  metadata:
+    max-request: 2
+    verified: true
+  name: OpenTouch Multimedia Services - Detect
+  reference:
+  - https://www.al-enterprise.com/-/media/assets/internet/documents/opentouch-multimedia-services-datasheet-en.pdf
+  severity: info
+  tags: panel,opentouch,login,detect

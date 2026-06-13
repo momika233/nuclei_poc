@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - contains(body, "<title>Amazon ECS Sample App")
+    - status_code == 200
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: amazon-ecs-defualt-page
+info:
+  author: Splint3r7
+  classification:
+    cwe-id: CWE-200
+  description: 'Amazon ECS Sample App Default Page was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Amazon ECS Sample App"
+  name: Amazon ECS Sample App Default Page - Detect
+  severity: info
+  tags: amazon,tech,default,detect,discovery

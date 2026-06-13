@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "<title>LockSelf","content=\"LockSelf", "name=\"LockSelf")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/application/index.html'
+id: lockself-panel
+info:
+  author: righettod
+  description: 'LockSelf login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"LockSelf"
+    verified: true
+  name: LockSelf Login Panel - Detect
+  reference:
+  - https://www.lockself.com/en/
+  severity: info
+  tags: panel,lockself,login,detect

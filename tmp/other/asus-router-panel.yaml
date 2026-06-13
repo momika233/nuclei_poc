@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: or
+    type: word
+    words:
+    - <title>ASUS Login</title>
+    - Sign in with your ASUS router account
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/Main_Login.asp'
+id: asus-router-panel
+info:
+  author: arafatansari
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: Asus router login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: 'Server: httpd/2.0 port:8080'
+    verified: true
+  name: Asus Router Login Panel - Detect
+  severity: info
+  tags: panel,asus,router,iot

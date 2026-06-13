@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - "DuckDuckGo \u2014 Privacy, simplified."
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"duckduckgo.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: duckduckgo-phish
+info:
+  author: rxerium
+  description: 'A duckduckgo phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: duckduckgo phishing Detection
+  reference:
+  - https://duckduckgo.com
+  severity: info
+  tags: phishing,duckduckgo,osint

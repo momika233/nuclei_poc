@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - jshERP-boot
+    - "ERP\u7CFB\u7EDF"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/user/login'
+id: jsherp-boot-panel
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:-1298131932
+    verified: true
+  name: JshERP Boot Panel - Detect
+  severity: info
+  tags: panel,jsherp,login,detect

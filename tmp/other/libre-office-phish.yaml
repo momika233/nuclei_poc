@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Home | LibreOffice - Free Office Suite - Based on OpenOffice - Compatible with
+      Microsoft
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"libreoffice.org")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: libre-office-phish
+info:
+  author: rxerium
+  description: 'A libre office phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: libre office phishing Detection
+  reference:
+  - https://libreoffice.org
+  severity: info
+  tags: phishing,libre-office,osint

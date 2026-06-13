@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Decision Center | Business Console</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/decisioncenter/login'
+id: ibm-odm-panel
+info:
+  author: DhiyaneshDK
+  description: 'IBM Operational Decision Manager panel was detected.
+
+    '
+  metadata:
+    fofa-query: title="Decision Center | Business Console"
+    max-request: 1
+    verified: true
+  name: IBM Operational Decision Manager Panel - Detect
+  reference:
+  - https://www.ibm.com/docs/en/odm/8.12.0
+  severity: info
+  tags: panel,ibm,login,detect,decision-center

@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - LibreSpeed
+    - Ping
+    - Jitter
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: librespeed-panel
+info:
+  author: ritikchaddha
+  description: 'LibreSpeed is a very lightweight speed test implemented in Javascript,
+    using XMLHttpRequest and Web Workers.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"LibreSpeed"
+    verified: true
+  name: LibreSpeed Panel - Detect
+  reference:
+  - https://github.com/librespeed/speedtest
+  severity: info
+  tags: panel,librespeed,detect

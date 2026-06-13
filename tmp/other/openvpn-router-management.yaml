@@ -1,0 +1,27 @@
+id: openvpn-router-management
+info:
+  author: ritikchaddha
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  description: OpenVPN Server Router Management Panel was detected.
+  metadata:
+    shodan-query: http.html:"Router Management - Server OpenVPN"
+    verified: true
+  name: OpenVPN Server Router Management Panel - Detect
+  severity: low
+  tags: panel,openvpn,router
+requests:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Router Management - Server OpenVPN
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'

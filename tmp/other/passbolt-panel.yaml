@@ -1,0 +1,32 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)v=([0-9a-z.-]+)
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, "Passbolt") && contains(body, "Open source password manager for
+      teams")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/auth/login'
+id: passbolt-panel
+info:
+  author: righettod
+  description: 'Passbolt login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Passbolt | Open source password manager for teams"
+    verified: true
+  name: Passbolt Login Panel
+  reference:
+  - https://www.passbolt.com/
+  severity: info
+  tags: panel,passbolt,login

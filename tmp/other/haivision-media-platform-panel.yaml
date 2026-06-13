@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "<title>Haivision Media Platform", "content=\"Haivision Network
+      Video")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: haivision-media-platform-panel
+info:
+  author: righettod
+  description: Haivision Media Platform login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Haivision Media Platform"
+    verified: true
+  name: Haivision Media Platform Login Panel - Detect
+  reference:
+  - https://www.haivision.com/
+  severity: info
+  tags: panel,haivision,login,detect

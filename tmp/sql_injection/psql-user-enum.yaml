@@ -1,0 +1,39 @@
+id: psql-user-enum
+info:
+  author: pussycat0x
+  description: 'PSQL user enumeration.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: port:5432 product:"PostgreSQL"
+    verified: 'true'
+  name: PostgreSQL - User Enumeration
+  reference:
+  - https://medium.com/@netscylla/pentesters-guide-to-postgresql-hacking-59895f4f007
+  severity: low
+  tags: network,postgresql,db,unauth,enum,psql
+tcp:
+- attack: clusterbomb
+  host:
+  - '{{Hostname}}'
+  inputs:
+  - data: "{{hex_encode('\0\0\0{{str}}\0\x03\0\0user\0{{users}}\0database\0{{users}}\0\
+      application_name\0psql\0client_encoding\0UTF8\0\0')}}"
+    type: hex
+  matchers:
+  - condition: and
+    part: raw
+    type: word
+    words:
+    - client_encoding
+    - integer_datetimes
+  payloads:
+    str:
+    - J
+    - T
+    - R
+    users:
+    - postgres
+    - tst
+  port: 5432

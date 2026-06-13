@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, "content=\"Redmine")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: redmine-panel
+info:
+  author: righettod
+  description: Redmine login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: http.html:'content="Redmine'
+    verified: true
+  name: Redmine Login Panel - Detect
+  reference:
+  - https://www.redmine.org/
+  severity: info
+  tags: panel,redmine,login,detect

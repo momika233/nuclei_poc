@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>NI Web-based Configuration & Monitoring</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: ni-web-based-panel
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: title:"NI Web-based Configuration & Monitoring"
+    verified: true
+  name: NI Web-based Configuration & Monitoring - Panel
+  severity: info
+  tags: detect,ni,web-based,panel

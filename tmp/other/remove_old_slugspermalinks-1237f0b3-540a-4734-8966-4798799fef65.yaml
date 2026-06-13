@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - remove-old-slugspermalinks
+  - dsl:
+    - compare_versions(version, '<= 2.6.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/remove-old-slugspermalinks/readme.txt'
+  redirects: true
+id: remove_old_slugspermalinks-1237f0b3-540a-4734-8966-4798799fef65
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/remove-old-slugspermalinks/
+    google-query: inurl:"/wp-content/plugins/remove-old-slugspermalinks/"
+    shodan-query: http.html:"wp-content/plugins/remove-old-slugspermalinks/"
+  name: 'Slugs Manager <= 2.6.7 - Cross-Site Request Forgery
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/1237f0b3-540a-4734-8966-4798799fef65?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,remove-old-slugspermalinks,medium,candidate

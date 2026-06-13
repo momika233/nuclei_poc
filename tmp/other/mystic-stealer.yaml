@@ -1,0 +1,23 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200 && contains(body, 'Mystic Stealer')
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: mystic-stealer
+info:
+  author: pussycat0x
+  description: 'Mystic Stealer panel were detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Mystic Stealer"
+    verified: 'true'
+  name: Mystic Stealer Panel - Detect
+  severity: info
+  tags: tech,rat,mystic-stealer,c2,panel

@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - miraculous-el
+  - dsl:
+    - compare_versions(version, '<= 2.0.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/miraculous-el/readme.txt'
+  redirects: true
+id: miraculous_el-1b948297-7ca1-4c5a-9ade-6b26e7bbcd62
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/miraculous-el/
+    google-query: inurl:"/wp-content/plugins/miraculous-el/"
+    shodan-query: http.html:"wp-content/plugins/miraculous-el/"
+  name: 'Miraculous Elementor <= 2.0.7 - Authenticated (Subscriber+) Privilege Escalation
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/1b948297-7ca1-4c5a-9ade-6b26e7bbcd62?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,miraculous-el,low,candidate

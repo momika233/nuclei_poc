@@ -1,0 +1,36 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Portainer
+    - ng-app="portainer
+    - content="Portainer
+    - alt="Portainer
+    - portainer.auth
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/#!/auth'
+  stop-at-first-match: true
+id: portainer-panel
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 2
+    product: portainer
+    shodan-query: title:"Portainer"
+    vendor: portainer
+    verified: true
+  name: Portainer Login Panel - Detect
+  reference:
+  - https://github.com/portainer/portainer
+  severity: info
+  tags: panel,portainer,detect

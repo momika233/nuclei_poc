@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - condition: or
+    type: word
+    words:
+    - changedetection.io</a>
+    - title="Changedetection.io
+    - <title>Change Detection
+    - Change</strong>Detection.io
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: changedetection-panel
+info:
+  author: rxerium
+  description: 'Change Detection is an open-source service which allows you to detect
+    changes on websites
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Change Detection"
+    verified: true
+  name: Changedetection.io Panel - Detect
+  reference:
+  - https://github.com/dgtlmoon/changedetection.io
+  - https://changedetection.io/
+  severity: info
+  tags: panel,changedetection,detect

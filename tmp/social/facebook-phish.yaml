@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - "Facebook \u2013 log in or sign up"
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"facebook.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: facebook-phish
+info:
+  author: rxerium
+  description: 'A Facebook phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: Facebook phishing Detection
+  reference:
+  - https://facebook.com
+  severity: info
+  tags: phishing,facebook,osint

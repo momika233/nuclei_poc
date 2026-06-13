@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - mailchimp-forms-by-mailmunch
+  - dsl:
+    - compare_versions(version, '<= 3.1.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/mailchimp-forms-by-mailmunch/readme.txt'
+  redirects: true
+id: mailchimp_forms_by_mailmunch-18dd1b86-3206-4cd7-a20b-33240c139aa5
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/mailchimp-forms-by-mailmunch/
+    google-query: inurl:"/wp-content/plugins/mailchimp-forms-by-mailmunch/"
+    shodan-query: http.html:"wp-content/plugins/mailchimp-forms-by-mailmunch/"
+  name: 'MailChimp Forms by MailMunch <= 3.1.4 - Missing Authorization via multiple
+    AJAX actions
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/18dd1b86-3206-4cd7-a20b-33240c139aa5?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,mailchimp-forms-by-mailmunch,high,candidate

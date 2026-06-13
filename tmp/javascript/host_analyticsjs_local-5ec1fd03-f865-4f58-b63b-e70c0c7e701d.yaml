@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - host-analyticsjs-local
+  - dsl:
+    - compare_versions(version, '<= 4.7.14')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/host-analyticsjs-local/readme.txt'
+  redirects: true
+id: host_analyticsjs_local-5ec1fd03-f865-4f58-b63b-e70c0c7e701d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/host-analyticsjs-local/
+    google-query: inurl:"/wp-content/plugins/host-analyticsjs-local/"
+    shodan-query: http.html:"wp-content/plugins/host-analyticsjs-local/"
+  name: 'CAOS | Host Google Analytics Locally <= 4.7.14 - Missing Authorization to
+    Unauthenticated Plugin Settings Update
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5ec1fd03-f865-4f58-b63b-e70c0c7e701d?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,host-analyticsjs-local,high,candidate

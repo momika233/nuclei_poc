@@ -1,0 +1,27 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: xpath
+    xpath:
+    - /html/head/title[contains(text(), 'Meduza Stealer')]
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: meduza-stealer
+info:
+  author: dwisiswant0
+  description: 'Meduza Stealer panel were detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Meduza Stealer"
+    verified: 'true'
+  name: Meduza Stealer Panel - Detect
+  severity: info
+  tags: rat,meduza-stealer,c2,panel

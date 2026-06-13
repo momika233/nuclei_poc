@@ -1,0 +1,28 @@
+id: gaspot-honeypot-detect
+info:
+  author: UnaPibaGeek
+  description: 'A GasPot honeypot has been identified.
+
+    The response to the ''^AI21400'' command differs from real installations, signaling
+    a possible deceptive setup.
+
+    '
+  metadata:
+    max-request: 1
+    product: veeder-root
+    shodan-query: port:10001
+    vendor: gaspot
+  name: GasPot Honeypot - Detect
+  severity: info
+  tags: gaspot,veeder-root,ics,honeypot,ir,cti,network
+tcp:
+- host:
+  - '{{Hostname}}'
+  inputs:
+  - data: ^AI21400
+  matchers:
+  - type: word
+    words:
+    - 9999FF1B
+  port: 10001
+  read-size: 1024

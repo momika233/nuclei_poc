@@ -1,35 +1,16 @@
-http:
-- matchers:
-  - condition: or
-    part: body
-    type: word
-    words:
-    - /Library/Think/
-    - '{ Fast & Simple OOP PHP Framework } -- [ WE CAN DO IT JUST THINK ]'
-    - /thinkphp/library/think/
-  - part: header
-    type: word
-    words:
-    - 'X-Powered-By: ThinkPHP'
-  matchers-condition: or
-  method: GET
-  path:
-  - '{{BaseURL}}'
-  - '{{BaseURL}}/?s={{randstr}}&c={{randstr}}&a={{randstr}}&m={{randstr}}'
-  stop-at-first-match: true
 id: thinkphp-detect
+
 info:
-  author: pwnhxl
-  classification:
-    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
-    cwe-id: CWE-200
-  description: ThinkPHP was detected.
-  metadata:
-    fofa-query: app="ThinkPHP"
-    max-request: 2
-    shodan-query: title:"ThinkPHP"
+    name: ThinkPHP detect
+    author: zan8in
+    severity: info
     verified: true
-  name: ThinkPHP - Detect
-  severity: info
-  tags: thinkphp,tech,detect
+    description: fofa app="ThinkPHP"
+
+rules:
+    r0:
+        request:
+            method: GET
+            path: /index.php?m=1
+        expression: '"ThinkPHP</a><sup>([0-9]+.[0-9]+.[0-9]+)</sup>".bmatches(response.body)'
+expression: r0()

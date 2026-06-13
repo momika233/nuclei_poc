@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - infusionsoft-landing-pages
+  - dsl:
+    - compare_versions(version, '<= 1.4.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/infusionsoft-landing-pages/readme.txt'
+  redirects: true
+id: infusionsoft_landing_pages-113f0cb7-a5eb-42d5-ad42-871c0381b617
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/infusionsoft-landing-pages/
+    google-query: inurl:"/wp-content/plugins/infusionsoft-landing-pages/"
+    shodan-query: http.html:"wp-content/plugins/infusionsoft-landing-pages/"
+  name: 'Keap Landing Pages <= 1.4.2 - Cross-Site Request Forgery
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/113f0cb7-a5eb-42d5-ad42-871c0381b617?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,infusionsoft-landing-pages,medium,candidate

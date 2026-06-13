@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - experiment_id
+    - name
+    - artifact_location
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/ajax-api/2.0/preview/mlflow/experiments/get?experiment_id=0'
+id: mlflow-unauth
+info:
+  author: pussycat0x
+  description: 'Unauthenticated Access to MLflow dashboard.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"mlflow"
+    verified: true
+  name: Mlflow - Unauthenticated Access
+  remediation: Add User Authentication
+  severity: high
+  tags: unauth,mlflow,oss,misconfig

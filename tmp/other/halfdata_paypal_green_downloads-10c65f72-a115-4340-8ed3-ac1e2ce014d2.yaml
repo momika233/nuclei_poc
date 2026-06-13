@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - halfdata-paypal-green-downloads
+  - dsl:
+    - compare_versions(version, '<= 2.08')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/halfdata-paypal-green-downloads/readme.txt'
+  redirects: true
+id: halfdata_paypal_green_downloads-10c65f72-a115-4340-8ed3-ac1e2ce014d2
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/halfdata-paypal-green-downloads/
+    google-query: inurl:"/wp-content/plugins/halfdata-paypal-green-downloads/"
+    shodan-query: http.html:"wp-content/plugins/halfdata-paypal-green-downloads/"
+  name: 'Green Downloads <= 2.08 - Authenticated (Subscriber+) Arbitrary File Upload
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/10c65f72-a115-4340-8ed3-ac1e2ce014d2?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,halfdata-paypal-green-downloads,low,candidate

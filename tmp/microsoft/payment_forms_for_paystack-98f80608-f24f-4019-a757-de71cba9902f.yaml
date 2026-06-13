@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - payment-forms-for-paystack
+  - dsl:
+    - compare_versions(version, '<= 3.4.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/payment-forms-for-paystack/readme.txt'
+  redirects: true
+id: payment_forms_for_paystack-98f80608-f24f-4019-a757-de71cba9902f
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/payment-forms-for-paystack/
+    google-query: inurl:"/wp-content/plugins/payment-forms-for-paystack/"
+    shodan-query: http.html:"wp-content/plugins/payment-forms-for-paystack/"
+  name: 'Payment Forms for Paystack <= 3.4.1 - Authenticated (Contributor+) Stored
+    Cross-Site Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/98f80608-f24f-4019-a757-de71cba9902f?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,payment-forms-for-paystack,low,candidate

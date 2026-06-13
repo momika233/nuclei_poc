@@ -1,0 +1,27 @@
+id: onimai-rat-c2
+info:
+  author: worldwidefuckfest
+  description: 'Onimai is a relatively new closed-source Remote Administration Trojan
+    (RAT) based on Quasar.
+
+    '
+  metadata:
+    censys-query: 'services.tls.certificates.leaf_data.subject.common_name: {"Onimai
+      Academies CA"}'
+    max-request: 1
+    shodan-query: ssl.cert.subject.cn:"Onimai Academies CA"
+    verified: true
+  name: Onimai RAT C2 SSL Certificate - Detect
+  severity: info
+  tags: c2,ir,osint,malware,onimai,rat,discovery
+ssl:
+- address: '{{Host}}:{{Port}}'
+  extractors:
+  - json:
+    - ' .issuer_cn'
+    type: json
+  matchers:
+  - part: issuer_cn
+    type: word
+    words:
+    - Onimai Academies CA

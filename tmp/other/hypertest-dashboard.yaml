@@ -1,0 +1,33 @@
+id: hypertest-dashboard
+info:
+  author: DhiyaneshDk
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+    cvss-score: 5.3
+    cwe-id: CWE-200
+  description: HyperTest Common Dashboard was detected.
+  metadata:
+    shodan-query: title:"HyperTest"
+    verified: true
+  name: HyperTest Common Dashboard - Detect
+  reference:
+  - https://www.facebook.com/photo?fbid=487809593389565&set=a.467014098802448
+  - https://www.hypertest.co
+  severity: high
+  tags: panel,exposure,hypertest
+requests:
+- matchers:
+  - condition: or
+    type: word
+    words:
+    - <title>HyperTest | Common Dashboard</title>
+    - HyperTest | Dashboard
+    - HyperTest doesn't work
+  - part: header
+    type: word
+    words:
+    - text/html
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/dashboard/'

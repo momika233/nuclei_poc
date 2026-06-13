@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - interactive-world-maps
+  - dsl:
+    - compare_versions(version, '<= 2.4.14')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/interactive-world-maps/readme.txt'
+  redirects: true
+id: interactive_world_maps-c9295b82-27c1-4f35-b40c-1ac40ebe5d5e
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/interactive-world-maps/
+    google-query: inurl:"/wp-content/plugins/interactive-world-maps/"
+    shodan-query: http.html:"wp-content/plugins/interactive-world-maps/"
+  name: 'Interactive World Maps <= 2.4.14 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c9295b82-27c1-4f35-b40c-1ac40ebe5d5e?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,interactive-world-maps,medium,candidate

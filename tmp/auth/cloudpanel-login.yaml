@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - CloudPanel | Log In
+    - Forgot password
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: cloudpanel-login
+info:
+  author: DhiyaneshDk
+  classification:
+    cpe: cpe:2.3:a:mgt-commerce:cloudpanel:*:*:*:*:*:*:*:*
+  metadata:
+    fofa-query: icon_hash="151132309"
+    max-request: 1
+    product: cloudpanel
+    shodan-query: http.favicon.hash:151132309
+    vendor: mgt-commerce
+    verified: true
+  name: CloudPanel Login - Detect
+  severity: info
+  tags: panel,login,cloudpanel,detect,mgt-commerce

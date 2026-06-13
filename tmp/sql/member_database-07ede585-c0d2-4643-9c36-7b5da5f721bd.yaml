@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - member-database
+  - dsl:
+    - compare_versions(version, '<= 1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/member-database/readme.txt'
+  redirects: true
+id: member_database-07ede585-c0d2-4643-9c36-7b5da5f721bd
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/member-database/
+    google-query: inurl:"/wp-content/plugins/member-database/"
+    shodan-query: http.html:"wp-content/plugins/member-database/"
+  name: 'Membership Database <= 1.0 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/07ede585-c0d2-4643-9c36-7b5da5f721bd?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,member-database,medium,candidate

@@ -1,0 +1,27 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, "<title>Pexip Connect for Web")
+    type: dsl
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: pexip-detect
+info:
+  author: righettod
+  description: 'Pexip technology was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Pexip Connect for Web"
+    verified: true
+  name: Pexip - Detect
+  reference:
+  - https://www.pexip.com/
+  severity: info
+  tags: tech,pexip,detect

@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - enable-accessibility
+  - dsl:
+    - compare_versions(version, '<= 1.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/enable-accessibility/readme.txt'
+  redirects: true
+id: enable-accessibility-d1b70bbc56e31b5e146631f879f8076a
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/enable-accessibility/
+    google-query: inurl:"/wp-content/plugins/enable-accessibility/"
+    shodan-query: 'vuln:'
+  name: 'Enable Accessibility <= 1.4 - Cross-Site Request Forgery
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/b0b8c4c3-eba2-4c20-b790-48eceeba898e?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,enable-accessibility,medium

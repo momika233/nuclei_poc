@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - post-content-xmlrpc
+  - dsl:
+    - compare_versions(version, '<= 1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/post-content-xmlrpc/readme.txt'
+  redirects: true
+id: post_content_xmlrpc-dfe07cd7-e448-4468-8280-3514690d8648
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/post-content-xmlrpc/
+    google-query: inurl:"/wp-content/plugins/post-content-xmlrpc/"
+    shodan-query: http.html:"wp-content/plugins/post-content-xmlrpc/"
+  name: 'Post Content XMLRPC <= 1.0 - Authenticated (Admin+) SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/dfe07cd7-e448-4468-8280-3514690d8648?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,post-content-xmlrpc,low,candidate

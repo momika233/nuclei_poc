@@ -1,0 +1,19 @@
+http:
+- extractors:
+  - part: body
+    regex:
+    - <input[^>]+name="__VIEWSTATE
+    type: regex
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: iis-enum-viewstate
+info:
+  author: kxddah
+  description: Some webapps running on IIS may have __VIEWSTATE in their HTML, regex
+    from @infosec_au video on IIS Hack
+  metadata:
+    max-request: 1
+  name: Microsoft IIS detect
+  severity: info
+  tags: tech,microsoft,iis

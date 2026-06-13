@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - 'Figma: The Collaborative Interface Design Tool'
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"figma.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: figma-phish
+info:
+  author: rxerium
+  description: 'A figma phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: figma phishing Detection
+  reference:
+  - https://figma.com
+  severity: info
+  tags: phishing,figma,osint

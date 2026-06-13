@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Ivanti(R) Cloud Services Appliance</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: ivanti-csa-panel
+info:
+  author: rxerium
+  description: 'An Ivanti Cloud Services Appliance panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Cloud Services
+      Appliance"})
+    shodan-query: title:"Cloud Services Appliance"
+    verified: true
+  name: Ivanti(R) Cloud Services Appliance - Panel
+  reference:
+  - https://help.ivanti.com/ld/help/en_US/LDMS/10.0/Windows/csa-h-help.htm
+  severity: info
+  tags: ivanti,csa,panel,login,discovery

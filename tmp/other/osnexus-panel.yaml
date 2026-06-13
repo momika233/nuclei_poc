@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>OSNEXUS QuantaStor Manager</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: osnexus-panel
+info:
+  author: Charles D.
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'OSNEXUS QuantaStor Manager login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"OSNEXUS QuantaStor Manager"
+  name: OSNEXUS QuantaStor Manager Panel - Detect
+  severity: info
+  tags: panel,osnexus,login

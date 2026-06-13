@@ -1,0 +1,44 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - include-lottie-animation-for-elementor
+  - dsl:
+    - compare_versions(version, '<= 1.10.9')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/include-lottie-animation-for-elementor/readme.txt'
+  redirects: true
+id: include_lottie_animation_for_elementor-74f59ee0-19dd-4cc9-ab24-22f26d71d248
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/include-lottie-animation-for-elementor/
+    google-query: inurl:"/wp-content/plugins/include-lottie-animation-for-elementor/"
+    shodan-query: http.html:"wp-content/plugins/include-lottie-animation-for-elementor/"
+  name: "LottieFiles \u2013 JSON Based Animation Lottie & Bodymovin for Elementor\
+    \ <= 1.10.9 - Authenticated (Contributor+) Stored Cross-Site Scripting\n"
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/74f59ee0-19dd-4cc9-ab24-22f26d71d248?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,include-lottie-animation-for-elementor,low,candidate

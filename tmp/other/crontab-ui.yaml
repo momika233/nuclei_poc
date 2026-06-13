@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Crontab UI</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: crontab-ui
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 1
+    shodan-query: html:"Crontab UI"
+    verified: true
+  name: Crontab UI - Dashboard Exposure
+  reference:
+  - https://www.facebook.com/photo/?fbid=629288492575007&set=a.467014098802448
+  severity: high
+  tags: exposure,crontab,ui,panel

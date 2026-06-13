@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - post-grid-elementor-addon
+  - dsl:
+    - compare_versions(version, '<= 2.0.18')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/post-grid-elementor-addon/readme.txt'
+  redirects: true
+id: post_grid_elementor_addon-55ae710e-469e-4b36-b443-39228ad2a584
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/post-grid-elementor-addon/
+    google-query: inurl:"/wp-content/plugins/post-grid-elementor-addon/"
+    shodan-query: http.html:"wp-content/plugins/post-grid-elementor-addon/"
+  name: 'Post Grid Elementor Addon <= 2.0.18 - Authenticated (Contributor+) Stored
+    Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/55ae710e-469e-4b36-b443-39228ad2a584?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,post-grid-elementor-addon,low,candidate

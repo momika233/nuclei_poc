@@ -1,0 +1,35 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - <version who="sg">(.*?)</version>
+    type: regex
+  matchers:
+  - part: body
+    type: word
+    words:
+    - config-auth client="vpn"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  raw:
+  - 'GET / HTTP/1.1
+
+    Host: {{Hostname}}
+
+    X-Aggregate-Auth: 1
+
+
+    TESTME
+
+    '
+id: cisco-asa-detect
+info:
+  author: sdcampbell
+  metadata:
+    max-request: 1
+  name: Cisco ASA - Detect
+  severity: info
+  tags: tech,cisco,detect

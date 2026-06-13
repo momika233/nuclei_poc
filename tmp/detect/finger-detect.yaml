@@ -1,0 +1,30 @@
+id: finger-detect
+info:
+  author: DhiyaneshDK
+  description: 'The finger daemon runs on TCP port 79. The client will (in the case
+    of remote hosts) open a connection to port 79.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: port:"79" action
+    verified: true
+  name: Finger Daemon Detection
+  severity: info
+  tags: network,finger,detect
+tcp:
+- host:
+  - '{{Hostname}}'
+  inputs:
+  - data: '
+
+      '
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - User
+    - Action
+    - Node
+  port: 79

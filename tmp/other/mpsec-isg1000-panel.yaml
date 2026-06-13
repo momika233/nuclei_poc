@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - /webui/images/maipu/login/
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login.html'
+id: mpsec-isg1000-panel
+info:
+  author: DhiyaneshDk
+  metadata:
+    fofa-query: "\u8FC8\u666E\u901A\u4FE1\u6280\u672F\u80A1\u4EFD\u6709\u9650\u516C\
+      \u53F8"
+    max-request: 1
+    verified: true
+  name: MPSec ISG1000 Security Gateway Panel - Detect
+  severity: info
+  tags: panel,login,mpsec,isg1000

@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Home Assistant</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: home-assistant-panel
+info:
+  author: fabaff,daffainfo,lum8rjack
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Home Assistant"
+    verified: true
+  name: Home Assistant Panel
+  reference: https://www.home-assistant.io/
+  severity: info
+  tags: panel,iot,homeassistant

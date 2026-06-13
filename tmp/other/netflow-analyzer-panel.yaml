@@ -1,0 +1,31 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Login - Netflow Analyzer
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  raw:
+  - 'GET /netflow/jspui/NetworkSnapShot.jsp HTTP/1.1
+
+    Host: {{Hostname}}
+
+    '
+id: netflow-analyzer-panel
+info:
+  author: DhiyaneshDk
+  classification:
+    cpe: cpe:2.3:a:zohocorp:manageengine_netflow_analyzer:*:*:*:*:*:*:*:*
+  metadata:
+    max-request: 1
+    product: manageengine_netflow_analyzer
+    runzero-match: service["http.body"] matches "(?i)Login - Netflow Analyzer"
+    shodan-query: html:"Login - Netflow Analyzer"
+    vendor: zohocorp
+    verified: true
+  name: Netflow Analyzer Login - Panel
+  severity: info
+  tags: netflow,analyzer,panel,login,discovery

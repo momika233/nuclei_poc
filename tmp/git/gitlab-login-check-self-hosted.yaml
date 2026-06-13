@@ -1,0 +1,62 @@
+http:
+- attack: pitchfork
+  extractors:
+  - group: 1
+    internal: true
+    name: authenticity_token
+    part: body
+    regex:
+    - '"/users/sign_in".*?authenticity_token"\s+value="([^"]+)"'
+    type: regex
+  - dsl:
+    - username
+    - password
+    type: dsl
+  matchers:
+  - condition: and
+    dsl:
+    - status_code_2 == 302
+    - '!contains(to_lower(body_2), "invalid login")'
+    type: dsl
+  raw:
+  - 'GET /users/sign_in HTTP/1.1
+
+    Host: {{Hostname}}
+
+    '
+  - 'POST /users/sign_in HTTP/1.1
+
+    Host: {{Hostname}}
+
+    Cache-Control: max-age=0
+
+    Origin: {{BaseURL}}
+
+    DNT: 1
+
+    Content-Type: application/x-www-form-urlencoded
+
+    Referer: {{BaseURL}}/users/sign_in
+
+    Accept-Language: en-US,en;q=0.9,de;q=0.8
+
+
+    authenticity_token={{url_encode(authenticity_token)}}&user%5Blogin%5D={{username}}&user%5Bpassword%5D={{password}}&user%5Bremember_me%5D=0
+
+    '
+id: gitlab-login-check-self-hosted
+info:
+  author: parthmalhotra,pdresearch
+  description: Checks for a valid login on self hosted GitLab instance.
+  metadata:
+    fofa-query: product="GitLab"
+    max-request: 2
+    shodan-query: product:"GitLab Self-Managed"
+  name: Gitlab Login Check Self Hosted
+  reference:
+  - https://owasp.org/www-community/attacks/Credential_stuffing
+  severity: critical
+  tags: creds-stuffing,login-check,self-hosted,gitlab
+variables:
+  password: '{{password}}'
+  username: '{{username}}'

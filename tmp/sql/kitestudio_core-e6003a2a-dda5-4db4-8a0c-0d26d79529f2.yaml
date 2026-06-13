@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - kitestudio-core
+  - dsl:
+    - compare_versions(version, '< 2.3.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/kitestudio-core/readme.txt'
+  redirects: true
+id: kitestudio_core-e6003a2a-dda5-4db4-8a0c-0d26d79529f2
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/kitestudio-core/
+    google-query: inurl:"/wp-content/plugins/kitestudio-core/"
+    shodan-query: http.html:"wp-content/plugins/kitestudio-core/"
+  name: 'core plugin for kitestudio themes <= 2.2.1 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/e6003a2a-dda5-4db4-8a0c-0d26d79529f2?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,kitestudio-core,medium,candidate

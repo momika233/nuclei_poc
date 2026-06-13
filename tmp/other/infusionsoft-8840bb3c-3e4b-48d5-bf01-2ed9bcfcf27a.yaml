@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - infusionsoft
+  - dsl:
+    - compare_versions(version, '>= 1.5.3', '<= 1.5.10')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/infusionsoft/readme.txt'
+  redirects: true
+id: infusionsoft-8840bb3c-3e4b-48d5-bf01-2ed9bcfcf27a
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/infusionsoft/
+    google-query: inurl:"/wp-content/plugins/infusionsoft/"
+    shodan-query: http.html:"wp-content/plugins/infusionsoft/"
+  name: 'Infusionsoft Gravity Forms Add-on 1.5.3 - 1.5.10 - Arbitrary File Upload
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/8840bb3c-3e4b-48d5-bf01-2ed9bcfcf27a?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,infusionsoft,critical,candidate

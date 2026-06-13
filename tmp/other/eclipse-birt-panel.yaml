@@ -1,0 +1,42 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - 'Viewer Version : ([0-9.-]+)'
+    type: regex
+  host-redirects: true
+  matchers:
+  - case-insensitive: true
+    condition: or
+    type: word
+    words:
+    - alt="Eclipse Logo
+    - Eclipse BIRT Home
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/reportviewer/'
+  stop-at-first-match: true
+id: eclipse-birt-panel
+info:
+  author: Shiva (Strobes Security)
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Eclipse BIRT (Business Intelligence Reporting Tool) detected
+  metadata:
+    google-query: intitle:"Eclipse BIRT Home"
+    max-request: 2
+    shodan-query: title:"Eclipse BIRT Home"
+    verified: true
+  name: Eclipse BIRT Panel - Detect
+  reference:
+  - https://eclipse.github.io/birt-website/
+  severity: info
+  tags: panel,eclipsebirt,detect

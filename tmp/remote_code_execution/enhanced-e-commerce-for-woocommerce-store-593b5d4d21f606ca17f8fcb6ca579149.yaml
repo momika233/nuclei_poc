@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - enhanced-e-commerce-for-woocommerce-store
+  - dsl:
+    - compare_versions(version, '<= 6.5.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/enhanced-e-commerce-for-woocommerce-store/readme.txt'
+  redirects: true
+id: enhanced-e-commerce-for-woocommerce-store-593b5d4d21f606ca17f8fcb6ca579149
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/enhanced-e-commerce-for-woocommerce-store/
+    google-query: inurl:"/wp-content/plugins/enhanced-e-commerce-for-woocommerce-store/"
+    shodan-query: 'vuln:'
+  name: 'Conversios.io <= 6.5.0 - Missing Authorization
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/ae007dc0-9ac7-459d-bfe6-bcde87028b14?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,enhanced-e-commerce-for-woocommerce-store,high

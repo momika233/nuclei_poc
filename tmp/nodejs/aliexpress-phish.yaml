@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - AliExpress - Affordable Prices on Top Brands with Free Shipping
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"aliexpress.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: aliexpress-phish
+info:
+  author: rxerium
+  description: 'An aliexpress phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: aliexpress phishing Detection
+  reference:
+  - https://aliexpress.com
+  severity: info
+  tags: phishing,aliexpress,osint

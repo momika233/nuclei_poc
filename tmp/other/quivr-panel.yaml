@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - contains_any(body, "<title>Quivr - Get a Second Brain", "data-sentry-component=\"QuivrLogo\"")
+    - status_code == 200
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: quivr-panel
+info:
+  author: s4e-io
+  description: 'Quivr panel was discovered.
+
+    '
+  metadata:
+    fofa-query: icon_hash="848114197"
+    max-request: 1
+    verified: true
+  name: Quivr Panel - Detect
+  reference:
+  - https://github.com/QuivrHQ/quivr
+  severity: info
+  tags: panel,login,quivr,detect,discovery

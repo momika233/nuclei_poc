@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - Warning, your Odoo database manager is not protected.
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/web/database/manager'
+id: odoo-unprotected-database
+info:
+  author: pdteam
+  description: 'The system has an Odoo application whose database manager is unprotected,
+    indicating potential unauthorized access.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Odoo"
+    verified: true
+  name: Odoo - Unprotected Database
+  remediation: 'Implement and enforce proper authentication and access control measures
+    to protect the Odoo database manager.
+
+    '
+  severity: critical
+  tags: odoo,database,unauth,misconfig

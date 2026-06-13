@@ -1,0 +1,21 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - 'Error 500 : LUA Runtime Error'
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: lua-runtime-error
+info:
+  author: DhiyaneshDk
+  metadata:
+    fofa-query: 'title="Error 500: LUA Runtime Error"'
+    max-request: 1
+  name: LUA Runtime Error - Page
+  severity: info
+  tags: error,lua,log,vuln

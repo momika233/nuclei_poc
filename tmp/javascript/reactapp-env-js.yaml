@@ -1,0 +1,34 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - REACT_APP_
+  - condition: or
+    part: header
+    type: word
+    words:
+    - application/octet-stream
+    - application/javascript
+    - text/plain
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/env.js'
+  - '{{BaseURL}}/config.js'
+  - '{{BaseURL}}/config/env.js'
+  - '{{BaseURL}}/config/runtime-env.js'
+  stop-at-first-match: true
+id: reactapp-env-js
+info:
+  author: random-robbie,rinolock
+  metadata:
+    github-query: REACT_APP_
+    max-request: 4
+    verified: true
+  name: React App Environment Js
+  severity: unknown
+  tags: react,exposure,config,js,javascript

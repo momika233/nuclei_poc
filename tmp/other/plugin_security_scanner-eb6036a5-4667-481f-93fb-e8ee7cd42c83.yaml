@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - plugin-security-scanner
+  - dsl:
+    - compare_versions(version, '<= 2.0.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/plugin-security-scanner/readme.txt'
+  redirects: true
+id: plugin_security_scanner-eb6036a5-4667-481f-93fb-e8ee7cd42c83
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/plugin-security-scanner/
+    google-query: inurl:"/wp-content/plugins/plugin-security-scanner/"
+    shodan-query: http.html:"wp-content/plugins/plugin-security-scanner/"
+  name: 'Plugin Security Scanner <= 2.0.2 - Authenticated (Administrator+) Stored
+    Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/eb6036a5-4667-481f-93fb-e8ee7cd42c83?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,plugin-security-scanner,low,candidate

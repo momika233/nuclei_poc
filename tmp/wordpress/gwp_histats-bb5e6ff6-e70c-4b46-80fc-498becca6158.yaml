@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - gwp-histats
+  - dsl:
+    - compare_versions(version, '<= 1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/gwp-histats/readme.txt'
+  redirects: true
+id: gwp_histats-bb5e6ff6-e70c-4b46-80fc-498becca6158
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/gwp-histats/
+    google-query: inurl:"/wp-content/plugins/gwp-histats/"
+    shodan-query: http.html:"wp-content/plugins/gwp-histats/"
+  name: 'GWP-Histats <= 1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/bb5e6ff6-e70c-4b46-80fc-498becca6158?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,gwp-histats,low,candidate

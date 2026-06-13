@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - info-cards
+  - dsl:
+    - compare_versions(version, '<= 1.0.11')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/info-cards/readme.txt'
+  redirects: true
+id: info_cards-8b7dd3c0-a91f-4fb4-a47e-38f6d389bf65
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/info-cards/
+    google-query: inurl:"/wp-content/plugins/info-cards/"
+    shodan-query: http.html:"wp-content/plugins/info-cards/"
+  name: 'Info Cards <= 1.0.11 - Missing Authorization
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/8b7dd3c0-a91f-4fb4-a47e-38f6d389bf65?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,info-cards,high,candidate

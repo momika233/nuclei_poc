@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - larsens-calender
+  - dsl:
+    - compare_versions(version, '<= 1.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/larsens-calender/readme.txt'
+  redirects: true
+id: larsens_calender-6d5c17cb-98a9-45f0-b94f-02b48193949f
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/larsens-calender/
+    google-query: inurl:"/wp-content/plugins/larsens-calender/"
+    shodan-query: http.html:"wp-content/plugins/larsens-calender/"
+  name: 'Larsens Calender <= 1.2 - Authenticated Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/6d5c17cb-98a9-45f0-b94f-02b48193949f?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,larsens-calender,low,candidate

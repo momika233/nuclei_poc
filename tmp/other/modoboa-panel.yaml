@@ -1,0 +1,38 @@
+http:
+- host-redirects: true
+  matchers:
+  - case-insensitive: true
+    part: body
+    type: word
+    words:
+    - Welcome to Modoboa
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/accounts/login/?next=/'
+  stop-at-first-match: true
+id: modoboa-panel
+info:
+  author: kh4sh3i
+  classification:
+    cpe: cpe:2.3:a:modoboa:modoboa:*:*:*:*:modoboa:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Modoboa login panel was detected.
+  metadata:
+    max-request: 2
+    product: modoboa
+    shodan-query: http.favicon.hash:1949005079
+    vendor: modoboa
+    verified: true
+  name: Modoboa Login Panel - Detect
+  reference:
+  - https://modoboa.org
+  - https://github.com/modoboa/modoboa
+  severity: info
+  tags: panel,modoboa,mail

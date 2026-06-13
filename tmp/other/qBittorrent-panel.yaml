@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - qBittorrent Web UI
+    - alt="qBittorrent
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: qBittorrent-panel
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    product: qbittorrent
+    shodan-query: title:"qbittorrent"
+    vendor: qbittorrent
+    verified: true
+  name: qBittorrent Web UI Panel - Detect
+  reference:
+  - https://www.qbittorrent.org/
+  severity: info
+  tags: panel,qbittorrent,detect

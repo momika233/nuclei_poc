@@ -1,0 +1,33 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - \s+([0-9\.]+)</title>
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "content=\"admiralcloud", "<title>admiralcloud")
+    type: dsl
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  redirects: true
+id: admiralcloud-detect
+info:
+  author: righettod
+  description: 'AdmiralCloud was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"AdmiralCloud"
+    verified: true
+  name: AdmiralCloud - Detect
+  reference:
+  - https://www.admiralcloud.com/en/
+  severity: info
+  tags: tech,admiralcloud,detect

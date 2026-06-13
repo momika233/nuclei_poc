@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - exportfeed-for-woocommerce-product-to-etsy
+  - dsl:
+    - compare_versions(version, '<= 3.3.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/exportfeed-for-woocommerce-product-to-etsy/readme.txt'
+  redirects: true
+id: exportfeed-for-woocommerce-product-to-etsy-e197eaaf7d4c9f7565b09b11341030ac
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/exportfeed-for-woocommerce-product-to-etsy/
+    google-query: inurl:"/wp-content/plugins/exportfeed-for-woocommerce-product-to-etsy/"
+    shodan-query: 'vuln:'
+  name: 'WooCommerce Etsy Integration <= 3.3.1 - Cross-Site Request Forgery Bypass
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/99489cc0-2e73-4d55-b95f-46d574897fac?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,exportfeed-for-woocommerce-product-to-etsy,medium

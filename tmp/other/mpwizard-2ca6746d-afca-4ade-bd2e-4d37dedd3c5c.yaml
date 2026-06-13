@@ -1,0 +1,44 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - mpwizard
+  - dsl:
+    - compare_versions(version, '<= 1.2.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/mpwizard/readme.txt'
+  redirects: true
+id: mpwizard-2ca6746d-afca-4ade-bd2e-4d37dedd3c5c
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/mpwizard/
+    google-query: inurl:"/wp-content/plugins/mpwizard/"
+    shodan-query: http.html:"wp-content/plugins/mpwizard/"
+  name: "MPWizard \u2013 Create Mercado Pago Payment Links <= 1.2.1 - Cross-Site Request\
+    \ Forgery to Arbitrary Post Deletion\n"
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/2ca6746d-afca-4ade-bd2e-4d37dedd3c5c?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,mpwizard,medium,candidate

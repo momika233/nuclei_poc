@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - project-honey-pot-spam-trap
+  - dsl:
+    - compare_versions(version, '<= 1.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/project-honey-pot-spam-trap/readme.txt'
+  redirects: true
+id: project_honey_pot_spam_trap-e774476d-3696-4489-b028-16c25f8db1ca
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/project-honey-pot-spam-trap/
+    google-query: inurl:"/wp-content/plugins/project-honey-pot-spam-trap/"
+    shodan-query: http.html:"wp-content/plugins/project-honey-pot-spam-trap/"
+  name: 'Project Honey Pot Spam Trap <= 1.0.1 - Cross-Site Request Forgery to Stored
+    Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/e774476d-3696-4489-b028-16c25f8db1ca?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,project-honey-pot-spam-trap,medium,candidate

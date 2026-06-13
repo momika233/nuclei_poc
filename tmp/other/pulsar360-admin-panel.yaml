@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Pulsar Admin
+    - User Control Panel
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/admin/config.php'
+id: pulsar360-admin-panel
+info:
+  author: tess
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Pulsar360 admin panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Pulsar Admin"
+    verified: true
+  name: Pulsar360 Admin Panel - Detect
+  severity: info
+  tags: panel,pulsar360,pulsar,admin

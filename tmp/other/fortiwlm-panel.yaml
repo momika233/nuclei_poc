@@ -1,0 +1,36 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>FortiWLM Login</title>
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/wlm/login?next=/wlm'
+id: fortiwlm-panel
+info:
+  author: EgemenKochisarli
+  classification:
+    cpe: cpe:2.3:a:fortinet:fortiwlm:*:*:*:*:*:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'Fortinet FortiWLM login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: fortiwlm
+    shodan-query: html:"fortiwlm"
+    vendor: fortinet
+  name: Fortinet FortiWLM Login Panel - Detect
+  reference:
+  - https://docs.fortinet.com/product/fortiwlm/8.6
+  severity: info
+  tags: panel,fortinet,fortiwlm,login

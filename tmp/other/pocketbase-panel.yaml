@@ -1,0 +1,31 @@
+http:
+- matchers:
+  - case-insensitive: true
+    part: body
+    type: word
+    words:
+    - <title>PocketBase
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/_/#/login'
+id: pocketbase-panel
+info:
+  author: userdehghani
+  description: 'PocketBase Login panel was discovered.
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: service["favicon.ico.image.mmh3"] == "981081715"
+    shodan-query: http.favicon.hash:981081715
+    verified: true
+  name: PocketBase Panel - Detect
+  reference:
+  - https://pocketbase.io/
+  - https://pocketbase.io/docs/
+  severity: info
+  tags: panel,pocketbase,login,detect,discovery

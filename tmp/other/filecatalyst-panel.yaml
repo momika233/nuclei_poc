@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - FileCatalyst file transfer solution
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/workflow/jsp/logon.jsp'
+id: filecatalyst-panel
+info:
+  author: DhiyaneshDK
+  description: 'Detects the presence of FileCatalyst file transfer solution login
+    panel
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: service["http.body"] matches "(?i)FileCatalyst file transfer solution"
+    shodan-query: html:"FileCatalyst file transfer solution"
+    verified: true
+  name: FileCatalyst File Transfer Solution - Detect
+  severity: info
+  tags: panel,login,filecatalyst,detect,discovery

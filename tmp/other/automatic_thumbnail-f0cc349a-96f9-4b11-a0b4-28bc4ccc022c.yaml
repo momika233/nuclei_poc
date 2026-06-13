@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - automatic-thumbnail
+  - dsl:
+    - compare_versions(version, '<= 1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/automatic-thumbnail/readme.txt'
+  redirects: true
+id: automatic_thumbnail-f0cc349a-96f9-4b11-a0b4-28bc4ccc022c
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/automatic-thumbnail/
+    google-query: inurl:"/wp-content/plugins/automatic-thumbnail/"
+    shodan-query: http.html:"wp-content/plugins/automatic-thumbnail/"
+  name: 'Auto Thumbnails <= 1.0 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode Attributes
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f0cc349a-96f9-4b11-a0b4-28bc4ccc022c?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,automatic-thumbnail,low,candidate

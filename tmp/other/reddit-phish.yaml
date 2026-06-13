@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Reddit - Dive into anything
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"reddit.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: reddit-phish
+info:
+  author: rxerium
+  description: 'A reddit phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: reddit phishing Detection
+  reference:
+  - https://reddit.com
+  severity: info
+  tags: phishing,reddit,osint

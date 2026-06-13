@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Download PuTTY - a free SSH and telnet client for Windows
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"putty.org")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: putty-phish
+info:
+  author: rxerium
+  description: 'A putty phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: putty phishing Detection
+  reference:
+  - https://putty.org
+  severity: info
+  tags: phishing,putty,osint

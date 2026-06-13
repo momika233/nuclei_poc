@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - image-compare-block
+  - dsl:
+    - compare_versions(version, '<= 1.6.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/image-compare-block/readme.txt'
+  redirects: true
+id: image_compare_block-f37fbbd8-234f-41bd-bb46-44de440f977c
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/image-compare-block/
+    google-query: inurl:"/wp-content/plugins/image-compare-block/"
+    shodan-query: http.html:"wp-content/plugins/image-compare-block/"
+  name: 'Beaf <= 1.6.2 - Authenticated (Admin+) Server-Side Request Forgery
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f37fbbd8-234f-41bd-bb46-44de440f977c?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,image-compare-block,low,candidate

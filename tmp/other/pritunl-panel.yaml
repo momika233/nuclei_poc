@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Pritunl</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: pritunl-panel
+info:
+  author: irshad ahamed
+  description: 'Realtime website and application monitoring tool
+
+    '
+  metadata:
+    max-request: 1
+    product: pritunl
+    shodan-query: title:"Pritunl"
+    vendor: pritunl
+    verified: true
+  name: Pritunl - Panel
+  reference:
+  - https://github.com/louislam/uptime-kuma
+  - https://uptime.kuma.pet/docs/
+  severity: info
+  tags: pritunl,panel,login

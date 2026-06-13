@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - canto-testimonials
+  - dsl:
+    - compare_versions(version, '<= 1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/canto-testimonials/readme.txt'
+  redirects: true
+id: canto_testimonials-6f2ef250-f951-4408-ac42-3272ddf46530
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/canto-testimonials/
+    google-query: inurl:"/wp-content/plugins/canto-testimonials/"
+    shodan-query: http.html:"wp-content/plugins/canto-testimonials/"
+  name: 'Canto Testimonials <= 1.0 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via ''fx'' Shortcode Attribute
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/6f2ef250-f951-4408-ac42-3272ddf46530?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,canto-testimonials,low,candidate

@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - open-ai-search-bar
+  - dsl:
+    - compare_versions(version, '<= 2.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/open-ai-search-bar/readme.txt'
+  redirects: true
+id: open_ai_search_bar-5b62aa7d-740f-447f-9086-5bc8286bc030
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/open-ai-search-bar/
+    google-query: inurl:"/wp-content/plugins/open-ai-search-bar/"
+    shodan-query: http.html:"wp-content/plugins/open-ai-search-bar/"
+  name: 'AI Search Bar <= 2.1 - Unauthenticated Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5b62aa7d-740f-447f-9086-5bc8286bc030?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,open-ai-search-bar,high,candidate

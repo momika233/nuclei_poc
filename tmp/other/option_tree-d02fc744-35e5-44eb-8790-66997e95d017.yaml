@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - option-tree
+  - dsl:
+    - compare_versions(version, '<= 2.5.5')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/option-tree/readme.txt'
+  redirects: true
+id: option_tree-d02fc744-35e5-44eb-8790-66997e95d017
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/option-tree/
+    google-query: inurl:"/wp-content/plugins/option-tree/"
+    shodan-query: http.html:"wp-content/plugins/option-tree/"
+  name: 'Option Tree <= 2.5.5 - Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/d02fc744-35e5-44eb-8790-66997e95d017?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,option-tree,high,candidate

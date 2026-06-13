@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - Ollama is running
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: ollama-llm-panel
+info:
+  author: pbuff07
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'Ollama LLM Panel was detected
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: Ollama is running
+    zoomeye-query: app:"Ollama LLM"
+  name: Ollama LLM Panel - Detect
+  severity: info
+  tags: panel,ollama,llm,detect

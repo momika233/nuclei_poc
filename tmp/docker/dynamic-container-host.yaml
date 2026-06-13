@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Dynamics Container Host</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: dynamic-container-host
+info:
+  author: DhiyaneshDk
+  description: Dynamics Container Host is detected in this template.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Dynamics Container Host"
+    verified: true
+  name: Dynamics Container Host - Detect
+  reference:
+  - https://www.facebook.com/photo/?fbid=631801132323743&set=pcb.631801782323678
+  severity: low
+  tags: exposure,dynamic,container,misconfig

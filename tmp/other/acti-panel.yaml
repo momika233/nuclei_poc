@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: and
+    type: word
+    words:
+    - Web Configurator
+    - ACTi
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/cgi-bin/videoconfiguration.cgi'
+id: acti-panel
+info:
+  author: DhiyaneshDk
+  metadata:
+    fofa-query: "app=\"ACTi-\u89C6\u9891\u76D1\u63A7\""
+    max-request: 1
+    shodan-query: title:"Web Configurator" html:"ACTi"
+    verified: true
+  name: ACTi Video Monitoring Panel - Detection
+  severity: info
+  tags: acti,panel,login,detect

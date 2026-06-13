@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - prepost-seo
+  - dsl:
+    - compare_versions(version, '<= 3.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/prepost-seo/readme.txt'
+  redirects: true
+id: prepost_seo-93385acc-aede-4948-b64e-d1ab23167d17
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/prepost-seo/
+    google-query: inurl:"/wp-content/plugins/prepost-seo/"
+    shodan-query: http.html:"wp-content/plugins/prepost-seo/"
+  name: 'PrePost SEO <= 3.0 - Authenticated(Administrator+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/93385acc-aede-4948-b64e-d1ab23167d17?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,prepost-seo,low,candidate

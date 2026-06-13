@@ -1,0 +1,30 @@
+id: posh-c2
+info:
+  author: pussycat0x
+  description: 'PoshC2 is a proxy aware C2 framework used to aid penetration testers
+    with red teaming, post-exploitation and lateral movement.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: ssl:"P18055077"
+    verified: 'true'
+  name: Posh C2 - Detect
+  reference: '- https://twitter.com/MichalKoczwara/status/1551639708949692416
+
+    - https://poshc2.readthedocs.io/en/latest/
+
+    '
+  severity: info
+  tags: c2,ssl,tls,ir,osint,malware,posh
+ssl:
+- address: '{{Host}}:{{Port}}'
+  extractors:
+  - json:
+    - .issuer_cn
+    type: json
+  matchers:
+  - part: issuer_cn
+    type: word
+    words:
+    - P18055077

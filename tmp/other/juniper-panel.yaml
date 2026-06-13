@@ -1,0 +1,40 @@
+http:
+- extractors:
+  - group: 1
+    name: model
+    part: body
+    regex:
+    - var modelphpStr = "(.*?)";
+    type: regex
+  host-redirects: true
+  matchers:
+  - part: body
+    regex:
+    - (i?)<title>(Log In - )?Juniper Web Device Manager</title>
+    type: regex
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: juniper-panel
+info:
+  author: bhutch
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'Juniper J-Web panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Juniper Web Device Manager"
+    verified: true
+  name: Juniper J-Web Panel - Detect
+  reference:
+  - https://www.juniper.net/documentation/us/en/software/jweb-ex/jweb-ex-application-package/topics/concept/ex-series-j-web-interface-overview.html
+  severity: info
+  tags: panel,juniper,vpn,login

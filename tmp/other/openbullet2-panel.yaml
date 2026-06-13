@@ -1,0 +1,29 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - <title>OpenBullet2</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: openbullet2-panel
+info:
+  author: MaStErChO
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+  description: 'Openbullet was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:-1264095219
+    verified: 'true'
+  name: OpenBullet 2 - Panel
+  severity: info
+  tags: openbullet,panel,login

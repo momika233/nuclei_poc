@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - multimedial-images
+  - dsl:
+    - compare_versions(version, '<= 1.0b')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/multimedial-images/readme.txt'
+  redirects: true
+id: multimedial_images-539cd606-1884-48df-beae-f5686a4e2400
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/multimedial-images/
+    google-query: inurl:"/wp-content/plugins/multimedial-images/"
+    shodan-query: http.html:"wp-content/plugins/multimedial-images/"
+  name: 'multimedial images <= 1.0b - Authenticated (Administrator+) SQL Injection
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/539cd606-1884-48df-beae-f5686a4e2400?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,multimedial-images,low,candidate

@@ -1,0 +1,42 @@
+flow: http(1) && http(2)
+http:
+- matchers:
+  - dsl:
+    - '!contains_any(body,"<title>Index of","<title>Directory listing of")'
+    internal: true
+    type: dsl
+  raw:
+  - 'GET / HTTP/1.1
+
+    Host: {{Hostname}}
+
+    '
+- host-redirects: true
+  matchers:
+  - condition: and
+    dsl:
+    - contains_any(body,"<title>Index of","<title>Directory listing of")
+    - status_code == 200
+    type: dsl
+  max-redirects: 2
+  raw:
+  - '@Host: {{Hostname}}
+
+    GET / HTTP/1.0
+
+
+    '
+  unsafe: true
+id: directory-listing-no-host-header
+info:
+  author: kazet
+  description: 'The HTTP server is configured to list files in the root directory
+    when no Host header is provided.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: Directory Listing - No Host header
+  severity: unknown
+  tags: misconfig,listing,vuln

@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - nginx-cache-optimizer
+  - dsl:
+    - compare_versions(version, '<= 1.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/nginx-cache-optimizer/readme.txt'
+  redirects: true
+id: nginx_cache_optimizer-7dd18e4e-9aa6-403e-aec3-21f33d739066
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/nginx-cache-optimizer/
+    google-query: inurl:"/wp-content/plugins/nginx-cache-optimizer/"
+    shodan-query: http.html:"wp-content/plugins/nginx-cache-optimizer/"
+  name: 'NGINX Cache Optimizer <= 1.1 - Missing Authorization to Authenticated (Subscriber+)
+    Dynamic Caching Exclusion Update
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/7dd18e4e-9aa6-403e-aec3-21f33d739066?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,nginx-cache-optimizer,low,candidate

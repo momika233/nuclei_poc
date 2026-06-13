@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - /startwlm/Start_Wlm.htm
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: kyocera-printer-panel
+info:
+  author: gy741
+  description: 'Kyocera printer panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:-50306417
+    verified: true
+  name: Kyocera Printer Panel - Detect
+  severity: info
+  tags: iot,panel,kyocera,printer

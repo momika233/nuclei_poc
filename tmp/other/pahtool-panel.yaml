@@ -1,0 +1,31 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - id="appVersion"\s+value="([0-9\.]+)"
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, ">PAHTool")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: pahtool-panel
+info:
+  author: righettod
+  description: 'PAHTool login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"PAHTool"
+    verified: true
+  name: PAHTool Login Panel - Detect
+  reference:
+  - http://www.inovultus.com/index.html
+  severity: info
+  tags: panel,pahtool,login,detect

@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Deezer | Listen to music | Online music streaming platform
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"deezer.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: deezer-phish
+info:
+  author: rxerium
+  description: 'A deezer phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: deezer phishing Detection
+  reference:
+  - https://deezer.com
+  severity: info
+  tags: phishing,deezer,osint

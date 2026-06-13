@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Oracle, OPERA</title>
+    - <title>OPERA Login
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/OperaLogin/Welcome.do'
+  stop-at-first-match: true
+id: oracle-opera-login
+info:
+  author: DhiyaneshDK,righettod
+  classification:
+    cwe-id: CWE-200
+  metadata:
+    max-request: 2
+    shodan-query: title:"Oracle Opera" && html:"/OperaLogin/Welcome.do"
+    verified: true
+  name: Oracle Opera Login - Detect
+  severity: info
+  tags: panel,opera,oracle,detect

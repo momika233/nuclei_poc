@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Decision Center Enterprise console</title>
+    - Sign in to Decision Center
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/teamserver/faces/login.jsp'
+id: ibm-dcec-panel
+info:
+  author: DhiyaneshDK
+  description: 'IBM Decision Center Enterprise Console panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: html:"Decision Center Enterprise console"
+    verified: true
+  name: IBM Decision Center Enterprise Console - Panel Detection
+  reference:
+  - https://www.ibm.com/docs/en/odm/8.5.1?topic=console-tutorial-getting-started-decision-center-enterprise
+  severity: info
+  tags: panel,ibm,login,detect,decision-center

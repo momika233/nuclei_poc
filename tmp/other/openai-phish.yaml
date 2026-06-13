@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Log in to OpenAI to continue to OpenAI Platform.
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"openai.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: openai-phish
+info:
+  author: rxerium
+  description: 'A openai phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: openai phishing Detection
+  reference:
+  - https://openai.com
+  severity: info
+  tags: phishing,openai,osint

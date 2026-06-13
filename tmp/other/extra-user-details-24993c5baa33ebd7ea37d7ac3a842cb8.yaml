@@ -1,0 +1,52 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - extra-user-details
+  - dsl:
+    - compare_versions(version, '<= 0.5')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/extra-user-details/readme.txt'
+  redirects: true
+id: extra-user-details-24993c5baa33ebd7ea37d7ac3a842cb8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/extra-user-details/
+    google-query: inurl:"/wp-content/plugins/extra-user-details/"
+    shodan-query: 'vuln:'
+  name: 'Extra User Details <= 0.5 - Cross-Site Request Forgery
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/81463022-c075-40e8-962d-b2ca27fd4f70?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,extra-user-details,medium

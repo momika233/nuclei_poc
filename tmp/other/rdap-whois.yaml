@@ -1,0 +1,99 @@
+http:
+- extractors:
+  - json:
+    - .status[]
+    name: status
+    part: body
+    type: json
+  - json:
+    - .events[] | select(.eventAction == "registration").eventDate
+    name: registrationDate
+    part: body
+    type: json
+  - json:
+    - .events[] | select(.eventAction == "last changed").eventDate
+    name: lastChangeDate
+    part: body
+    type: json
+  - json:
+    - .events[] | select(.eventAction == "expiration").eventDate
+    name: expirationDate
+    part: body
+    type: json
+  - json:
+    - .entities[] | select(.roles[] | contains("registrant")) | .vcardArray[1].[]
+      | select(.[0] == "fn") | .[-1]
+    name: registrantName
+    part: body
+    type: json
+  - json:
+    - .entities[] | select(.roles[] | contains("registrant")) | .vcardArray[1].[]
+      | select(.[0] == "org") | .[-1]
+    name: registrantOrg
+    part: body
+    type: json
+  - json:
+    - .entities[] | select(.roles[] | contains("registrant")) | .vcardArray[1].[]
+      | select(.[0] == "email") | .[-1]
+    name: registrantEmail
+    part: body
+    type: json
+  - json:
+    - .entities[] | select(.roles[] | contains("registrant")) | .vcardArray[1].[]
+      | select(.[0] == "tel") | .[-1]
+    name: registrantPhone
+    part: body
+    type: json
+  - json:
+    - .entities[] | select(.roles[] | contains("registrant")) | .vcardArray[1].[]
+      | select(.[0] == "adr") | .[-1][] | select(. != "")
+    name: registrantAddress
+    part: body
+    type: json
+  - json:
+    - .entities[] | select(.roles[] | contains("registrant")) | .vcardArray[1].[]
+      | select(.[0] == "adr") | .[-1][-1]
+    name: registrantCountry
+    part: body
+    type: json
+  - json:
+    - .nameservers[] | .ldhName
+    name: nameServers
+    part: body
+    type: json
+  - json:
+    - .secureDNS.delegationSigned // false
+    name: secureDNS
+    part: body
+    type: json
+  matchers:
+  - status:
+    - 200
+    type: status
+  max-redirects: 3
+  method: GET
+  path:
+  - https://www.rdap.net/domain/{{Host}}
+  redirects: true
+id: rdap-whois
+info:
+  author: ricardomaia,sttlr
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: 'RDAP (Registration Data Access Protocol) is a standard defined by
+    the IETF to replace the whois protocol
+
+    in queries for information about Internet resource records such as domain names,
+    IP addresses, and ASNs.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: RDAP WHOIS
+  reference:
+  - https://about.rdap.org/
+  severity: info
+  tags: miscellaneous,whois,rdap,osint,misc

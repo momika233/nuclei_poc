@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - 'Adobe: Creative, marketing and document management solutions'
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"adobe.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: adobe-phish
+info:
+  author: rxerium
+  description: 'An adobe phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: adobe phishing Detection
+  reference:
+  - https://adobe.com
+  severity: info
+  tags: phishing,adobe,osint

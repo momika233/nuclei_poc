@@ -1,0 +1,22 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "content=\"Monitorr", "Monitorr is loading", "title=\"Monitorr
+      Settings")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: monitorr-panel
+info:
+  author: ritikchaddha
+  metadata:
+    fofa-query: icon_hash="-211006074"
+    max-request: 1
+    shodan-query: http.favicon.hash:-211006074
+    verified: true
+  name: Monitorr Panel - Detect
+  severity: info
+  tags: panel,monitorr,detect

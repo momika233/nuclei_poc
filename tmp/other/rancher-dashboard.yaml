@@ -1,0 +1,38 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - content="Rancher Dashboard
+    - 'rancherEnv:'
+    - <title>Rancher
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/dashboard/auth/login'
+  stop-at-first-match: true
+id: rancher-dashboard
+info:
+  author: ritikchaddha,righettod
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Rancher Dashboard was detected.
+  metadata:
+    max-request: 2
+    product: rancher
+    shodan-query: http.favicon.hash:-1324930554
+    vendor: rancher
+    verified: 'true'
+  name: Rancher Dashboard Panel - Detect
+  reference:
+  - https://rancher.com/
+  severity: info
+  tags: panel,rancher,dashboard,login

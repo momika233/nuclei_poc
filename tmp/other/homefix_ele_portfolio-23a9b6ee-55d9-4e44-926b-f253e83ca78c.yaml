@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - homefix-ele-portfolio
+  - dsl:
+    - compare_versions(version, '<= 1.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/homefix-ele-portfolio/readme.txt'
+  redirects: true
+id: homefix_ele_portfolio-23a9b6ee-55d9-4e44-926b-f253e83ca78c
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/homefix-ele-portfolio/
+    google-query: inurl:"/wp-content/plugins/homefix-ele-portfolio/"
+    shodan-query: http.html:"wp-content/plugins/homefix-ele-portfolio/"
+  name: 'HomeFix Elementor Portfolio <= 1.0.1 - Missing Authorization
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/23a9b6ee-55d9-4e44-926b-f253e83ca78c?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,homefix-ele-portfolio,high,candidate

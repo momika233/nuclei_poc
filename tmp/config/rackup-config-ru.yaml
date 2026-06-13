@@ -1,0 +1,36 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - run Rails.application
+    - /config/environment
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Bundler.require
+    - require 'rubygems'
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}/config.ru'
+id: rackup-config-ru
+info:
+  author: DhiyaneshDk
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: Rackup configuration information was detected.
+  metadata:
+    max-request: 1
+    shodan-query: html:"config.ru"
+    verified: true
+  name: Rackup Configuration - Detect
+  reference:
+  - https://raw.githubusercontent.com/maurosoria/dirsearch/master/db/dicc.txt
+  - https://learn.co/lessons/config-ru-tutorial
+  severity: info
+  tags: exposure,files,config,rackup

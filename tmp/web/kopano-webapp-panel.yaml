@@ -1,0 +1,31 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - \?kv([0-9.]+)"
+    type: regex
+  host-redirects: true
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "<title>Kopano WebApp", "content=\"Kopano WebApp")
+    type: dsl
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/webapp/'
+id: kopano-webapp-panel
+info:
+  author: righettod
+  description: Kopano WebApp login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Kopano WebApp"
+    verified: true
+  name: Kopano WebApp Login Panel - Detect
+  reference:
+  - https://kopano.com/
+  severity: info
+  tags: panel,kopano,login,detect

@@ -1,0 +1,40 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - <b>M<\/b>altrail \(v<b>([0-9.]+)<\/b>
+    type: regex
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - Maltrail</title>
+    - /stamparm/maltrail/wiki
+    - <b>M</b>altrail
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: maltrail-panel
+info:
+  author: ritikchaddha
+  description: 'Maltrail is a malicious traffic detection system, utilizing publicly
+    available (black)lists containing malicious and/or generally suspicious trails,
+    along with static trails compiled from various AV reports and custom user defined
+    lists, where trail can be anything from domain name, URL (e.g. hXXp://109.162.38.120/harsh02.exe
+    for known malicious executable), IP address (e.g. 185.130.5.231 for known attacker)
+    or HTTP User-Agent header value.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Maltrail"
+    verified: true
+  name: Maltrail Panel - Detect
+  severity: info
+  tags: panel,maltrail,detect

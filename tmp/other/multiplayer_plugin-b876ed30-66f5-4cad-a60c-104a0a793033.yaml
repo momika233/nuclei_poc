@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - multiplayer-plugin
+  - dsl:
+    - compare_versions(version, '<= 3.7')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/multiplayer-plugin/readme.txt'
+  redirects: true
+id: multiplayer_plugin-b876ed30-66f5-4cad-a60c-104a0a793033
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/multiplayer-plugin/
+    google-query: inurl:"/wp-content/plugins/multiplayer-plugin/"
+    shodan-query: http.html:"wp-content/plugins/multiplayer-plugin/"
+  name: 'Multiplayer Games <= 3.7 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/b876ed30-66f5-4cad-a60c-104a0a793033?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,multiplayer-plugin,medium,candidate

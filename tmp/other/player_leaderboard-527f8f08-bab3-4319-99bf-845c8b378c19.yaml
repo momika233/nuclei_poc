@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - player-leaderboard
+  - dsl:
+    - compare_versions(version, '>= 1.0.0', '<= 1.0.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/player-leaderboard/readme.txt'
+  redirects: true
+id: player_leaderboard-527f8f08-bab3-4319-99bf-845c8b378c19
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/player-leaderboard/
+    google-query: inurl:"/wp-content/plugins/player-leaderboard/"
+    shodan-query: http.html:"wp-content/plugins/player-leaderboard/"
+  name: 'Player Leaderboard 1.0.0 - 1.0.2 - Authenticated (Contributor+) Local File
+    Inclusion
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/527f8f08-bab3-4319-99bf-845c8b378c19?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,player-leaderboard,low,candidate

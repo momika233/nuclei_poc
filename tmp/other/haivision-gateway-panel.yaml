@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "<title>Haivision Gateway", "content=\"Haivision Gateway")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: haivision-gateway-panel
+info:
+  author: righettod
+  description: Haivision Gateway login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Haivision Gateway"
+    verified: true
+  name: Haivision Gateway Login Panel - Detect
+  reference:
+  - https://www.haivision.com/
+  severity: info
+  tags: panel,haivision,login,detect

@@ -1,0 +1,30 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - 'VERSION_FULL\\u0022: \\u0022(.*?)\\u0022'
+    type: regex
+  matchers:
+  - part: body
+    type: word
+    words:
+    - FortiClient Endpoint Management Server
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/signin'
+id: forticlientems-panel
+info:
+  author: h4sh5
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:-800551065
+    verified: true
+  name: FortiClient Endpoint Management Server Panel - Detect
+  severity: info
+  tags: panel,fortinet,forticlient,ems,login,detect

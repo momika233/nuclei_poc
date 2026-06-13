@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, "<title>Graylog Web Interface")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: graylog-panel
+info:
+  author: righettod
+  description: 'Graylog login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"Graylog Web Interface"
+    verified: true
+  name: Graylog Login Panel - Detect
+  reference:
+  - https://graylog.org/
+  severity: info
+  tags: panel,graylog,login,detect

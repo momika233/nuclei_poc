@@ -1,0 +1,31 @@
+id: nginx-ui-dashboard
+info:
+  author: gy741
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  description: Nginx UI panel was detected.
+  metadata:
+    shodan-query: http.title:"nginx ui"
+    verified: true
+  name: Nginx UI Panel - Detect
+  reference:
+  - https://github.com/schenkd/nginx-ui
+  severity: low
+  tags: panel,nginx,exposure
+requests:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Nginx UI
+    - Main Config
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'

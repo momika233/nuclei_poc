@@ -1,0 +1,37 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <TITLE>Proofpoint Protection Server
+    - Proofpoint End User Application.
+    - Powered by Proofpoint
+  - part: header
+    type: word
+    words:
+    - PPSAUTH=
+  matchers-condition: or
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/euweb/login'
+  stop-at-first-match: true
+id: proofpoint-protection-server-panel
+info:
+  author: johnk3r
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Proofpoint Protection Server panel was detected.
+  metadata:
+    max-request: 2
+    product: proofpoint protection server
+    shodan-query: http.favicon.hash:942678640
+    vendor: proofpoint
+    verified: true
+  name: Proofpoint Protection Server Panel - Detect
+  severity: info
+  tags: panel,proofpoint,login,detect

@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - STAT TEST
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/eos/'
+id: eos-http-browser
+info:
+  author: DhiyaneshDk
+  metadata:
+    max-request: 2
+    shodan-query: title:"EOS HTTP Browser"
+    verified: true
+  name: EOS HTTP Browser
+  reference:
+  - https://www.facebook.com/photo/?fbid=634930085344181&set=pcb.634929508677572
+  severity: medium
+  tags: exposure,eos,httpbrowser,panel

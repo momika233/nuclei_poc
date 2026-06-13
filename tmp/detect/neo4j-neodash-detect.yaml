@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - contains(body, "<title>NeoDash - Neo4j Dashboard Builder")
+    - status_code == 200
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: neo4j-neodash-detect
+info:
+  author: icarot
+  classification:
+    cpe: cpe:2.3:a:neo4j:*:*:*:*:*:*:*:*:*
+  description: 'Detects a Neo4j Neodash web application, a Dashboard Builder for Neo4j.
+
+    '
+  metadata:
+    max-request: 1
+    product: neodash
+    shodan-query: title:"NeoDash"
+    vendor: neo4j
+    verified: true
+  name: Neo4j Neodash - Detect
+  severity: info
+  tags: tech,neodash,neo4j,detect,discovery

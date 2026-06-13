@@ -1,0 +1,36 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - engage-specific-config
+    - engage-lastAppUserType
+    - engage-lastHelperPatientContext
+    - engage-preferred-language
+    - engageManager.admin
+    - engageManager.user
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/app.js'
+id: exolis-engage-panel
+info:
+  author: righettod
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Exolis Engage panel was detected.
+  metadata:
+    google-query: intitle:"engage - Portail soignant"
+    max-request: 1
+    shodan-query: html:"engage - Portail soignant"
+    verified: true
+  name: Exolis Engage Panel - Detect
+  reference:
+  - https://www.exolis.fr/en/solution-2/
+  severity: info
+  tags: panel,exolis,engage

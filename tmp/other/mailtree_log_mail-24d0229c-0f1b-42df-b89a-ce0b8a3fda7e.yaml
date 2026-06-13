@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - mailtree-log-mail
+  - dsl:
+    - compare_versions(version, '<= 1.0.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/mailtree-log-mail/readme.txt'
+  redirects: true
+id: mailtree_log_mail-24d0229c-0f1b-42df-b89a-ce0b8a3fda7e
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/mailtree-log-mail/
+    google-query: inurl:"/wp-content/plugins/mailtree-log-mail/"
+    shodan-query: http.html:"wp-content/plugins/mailtree-log-mail/"
+  name: 'Mailtree Log Mail <= 1.0.0 - Unauthenticated Stored Cross-Site Scripting
+    via Email Subject
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/24d0229c-0f1b-42df-b89a-ce0b8a3fda7e?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,mailtree-log-mail,high,candidate

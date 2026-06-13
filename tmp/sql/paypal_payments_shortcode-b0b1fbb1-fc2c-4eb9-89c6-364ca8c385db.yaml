@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - paypal-payments-shortcode
+  - dsl:
+    - compare_versions(version, '<= 1.01')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/paypal-payments-shortcode/readme.txt'
+  redirects: true
+id: paypal_payments_shortcode-b0b1fbb1-fc2c-4eb9-89c6-364ca8c385db
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/paypal-payments-shortcode/
+    google-query: inurl:"/wp-content/plugins/paypal-payments-shortcode/"
+    shodan-query: http.html:"wp-content/plugins/paypal-payments-shortcode/"
+  name: 'Paypal Payment Shortcode <= 1.01 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via ''buttom_image'' Shortcode Attribute
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/b0b1fbb1-fc2c-4eb9-89c6-364ca8c385db?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,paypal-payments-shortcode,low,candidate

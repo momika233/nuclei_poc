@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "<title>beyondtrust privileged remote access login",
+      "privileged-remote-access") && contains(to_lower(body), "login")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login/login'
+  - '{{BaseURL}}/login/pre_login_agreement'
+  stop-at-first-match: true
+id: beyondtrust-priv-panel
+info:
+  author: righettod
+  description: 'BeyondTrust Privileged Remote Access login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.html:"BeyondTrust Privileged Remote Access Login"
+    verified: true
+  name: BeyondTrust Privileged Remote Access - Panel
+  reference:
+  - https://www.beyondtrust.com/products/privileged-remote-access
+  severity: info
+  tags: panel,beyondtrust,login,detect

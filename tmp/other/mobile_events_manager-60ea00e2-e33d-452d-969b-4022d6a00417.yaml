@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - mobile-events-manager
+  - dsl:
+    - compare_versions(version, '< 1.4.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/mobile-events-manager/readme.txt'
+  redirects: true
+id: mobile_events_manager-60ea00e2-e33d-452d-969b-4022d6a00417
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/mobile-events-manager/
+    google-query: inurl:"/wp-content/plugins/mobile-events-manager/"
+    shodan-query: http.html:"wp-content/plugins/mobile-events-manager/"
+  name: 'Mobile Events Manager < 1.4.4 - Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/60ea00e2-e33d-452d-969b-4022d6a00417?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,mobile-events-manager,high,candidate

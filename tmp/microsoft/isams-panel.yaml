@@ -1,0 +1,38 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - Version&nbsp;([0-9\.]+)
+    type: regex
+  host-redirects: true
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - iSAMS Ltd
+    - iSAMS Authentication Server
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/auth'
+id: isams-panel
+info:
+  author: righettod
+  description: 'iSAMS was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:-81573405
+    verified: true
+  name: iSAMS Panel - Detect
+  reference:
+  - https://www.isams.com/platform/the-platform
+  severity: info
+  tags: panel,isams,login

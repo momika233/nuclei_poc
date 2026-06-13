@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - my-email-shortcode
+  - dsl:
+    - compare_versions(version, '<= 0.91')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/my-email-shortcode/readme.txt'
+  redirects: true
+id: my_email_shortcode-6c9f5515-cdf5-4883-bdeb-1de53bcc615a
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/my-email-shortcode/
+    google-query: inurl:"/wp-content/plugins/my-email-shortcode/"
+    shodan-query: http.html:"wp-content/plugins/my-email-shortcode/"
+  name: 'My Email Shortcode <= 0.91 - [Improper Neutralization of Input During Web
+    Page Generation (''Cross-site Scripting'')]
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/6c9f5515-cdf5-4883-bdeb-1de53bcc615a?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,my-email-shortcode,high,candidate

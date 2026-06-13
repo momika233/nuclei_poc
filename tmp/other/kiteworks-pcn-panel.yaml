@@ -1,0 +1,37 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - Secured by Kiteworks
+    - Return to sign in
+  - part: header
+    type: word
+    words:
+    - application/octet-stream
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login/locales/login_en.json'
+id: kiteworks-pcn-panel
+info:
+  author: righettod
+  description: 'Kiteworks PCN Login Panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: kiteworks
+    shodan-query: http.favicon.hash:-1215318992
+    vendor: accellion
+    verified: true
+  name: Kiteworks PCN Panel - Detect
+  reference:
+  - https://www.kiteworks.com/platform/private-content-network/
+  severity: info
+  tags: panel,kiteworks,login,detect

@@ -1,0 +1,32 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - module.exports = {
+    - 'presets: ['
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/babel.config.js'
+id: babel-config-exposure
+info:
+  author: DhiyaneshDK
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: Babel configuration information was detected.
+  metadata:
+    max-request: 1
+    shodan-query: html:"babel.config.js"
+    verified: true
+  name: Babel Configuration - Detect
+  reference:
+  - https://babeljs.io/docs/en/configuration
+  severity: info
+  tags: exposure,config,file

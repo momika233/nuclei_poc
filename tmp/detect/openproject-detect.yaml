@@ -1,0 +1,36 @@
+http:
+- matchers:
+  - condition: or
+    regex:
+    - .*OpenProject.Foundation.\(OPF\)
+    - <generator uri=.*openproject.org.*>
+    type: regex
+  - condition: and
+    type: word
+    words:
+    - OpenProject
+    - instanceName
+  - part: header
+    type: word
+    words:
+    - _open_project_session
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/api/v3'
+  - '{{BaseURL}}/activity.atom'
+  stop-at-first-match: true
+id: openproject-detect
+info:
+  author: ricardomaia
+  description: OpenProject is an open source web-based project management software.
+  metadata:
+    max-request: 3
+    shodan-query: title:"openproject"
+    verified: 'true'
+  name: OpenProject - Detect
+  reference:
+  - https://www.openproject.org/
+  severity: info
+  tags: tech,openproject,api,detect

@@ -1,0 +1,42 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - <script[^>]*src=['"](http[^s'">][^'">]*)['"]
+    - <iframe[^>]*src=['"](http[^s'">][^'">]*)['"]
+    - <object[^>]*data=['"](http[^s'">][^'">]*)['"]
+    type: regex
+  host-redirects: true
+  matchers:
+  - part: body
+    regex:
+    - <script[^>]*src=['"]http://[^'">]+['"]
+    - <iframe[^>]*src=['"]http://[^'">]+['"]
+    - <object[^>]*data=['"]http://[^'">]+['"]
+    type: regex
+  - dsl:
+    - startswith(tostring(BaseURL), "https://")
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: mixed-active-content
+info:
+  author: Liwermor
+  description: 'This check detects if there are any active content loaded over HTTP
+    instead of HTTPS.
+
+    '
+  metadata:
+    max-request: 1
+  name: Mixed Active Content
+  reference:
+  - https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content
+  - https://portswigger.net/kb/issues/01000400_mixed-content
+  - https://resources.infosecinstitute.com/topics/vulnerabilities/https-mixed-content-vulnerability/
+  - https://docs.gitlab.com/ee/user/application_security/dast/checks/319.1.html
+  severity: info
+  tags: misconfig

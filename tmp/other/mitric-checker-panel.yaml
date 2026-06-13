@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "/checker/", "bg-blue-checker", "checker platform")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/QSA/Login.aspx'
+  - '{{BaseURL}}/API/External/GetPrivacy'
+  stop-at-first-match: true
+id: mitric-checker-panel
+info:
+  author: righettod
+  description: 'Mitric Checker login panel was detected.
+
+    '
+  metadata:
+    max-request: 2
+    verified: true
+  name: Mitric Checker Login Panel - Detect
+  reference:
+  - https://www.mitric.com/en/audit-with-checker/
+  severity: info
+  tags: panel,mitric,login,detect

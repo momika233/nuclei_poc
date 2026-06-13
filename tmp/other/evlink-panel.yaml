@@ -1,0 +1,24 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - EVlink Local Controller</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: evlink-panel
+info:
+  author: ritikchaddha
+  metadata:
+    fofa-query: title="EVlink Local Controller"
+    max-request: 1
+    shodan-query: title:"EVlink Local Controller"
+    verified: true
+  name: EVlink Local Controller - Detection
+  severity: info
+  tags: panel,evlink,login,detect

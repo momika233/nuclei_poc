@@ -1,0 +1,53 @@
+http:
+- extractors:
+  - group: 1
+    internal: true
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - '(?mi)Stable tag: ([0-9.]+)'
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - elementskit
+  - dsl:
+    - compare_versions(version, '<= 3.6.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/elementskit/readme.txt'
+  redirects: true
+id: elementskit-217b8bd14a13df56dc3cb223b2080783
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/elementskit/
+    google-query: inurl:"/wp-content/plugins/elementskit/"
+    shodan-query: 'vuln:'
+  name: 'ElementsKit PRO <= 3.6.1 - Authenticated (Contributor+) Server-Side Request
+    Forgery
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/6417269d-3d49-4f33-b92a-5aacb052bab0?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,elementskit,low

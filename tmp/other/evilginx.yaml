@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200 && contains(body, 'Evilginx')
+    - ("b18d778b4e4b6bf1fd5b2d790c941270145a6a6d" == sha1(body))
+    type: dsl
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: evilginx
+info:
+  author: pussycat0x
+  description: 'Evilginx2 is a man-in-the-middle attack framework used for phishing
+    login credentials along with session cookies which in turn allows bypassing 2-factor
+    authentication protection.
+
+    '
+  metadata:
+    censys-query: b18d778b4e4b6bf1fd5b2d790c941270145a6a6d
+    max-request: 1
+    verified: 'true'
+  name: EvilGinx - Detect
+  reference:
+  - https://dmcxblue.gitbook.io/red-team-notes-2-0/red-team-infrastructure/delivery/evilginx
+  severity: info
+  tags: tech,evilginx,c2,phishing,panel

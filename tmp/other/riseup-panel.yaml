@@ -1,0 +1,35 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - cfg.envRiseUp
+    - imgresize.riseup.ai
+    - content.riseup.ai
+  - part: body
+    type: word
+    words:
+    - login-page
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/Account/login'
+id: riseup-panel
+info:
+  author: righettod
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Rise Up login panel was detected.
+  metadata:
+    max-request: 1
+    verified: true
+  name: Rise Up Login Panel - Detect
+  reference:
+  - https://www.riseup.ai/en/
+  severity: info
+  tags: panel,riseup

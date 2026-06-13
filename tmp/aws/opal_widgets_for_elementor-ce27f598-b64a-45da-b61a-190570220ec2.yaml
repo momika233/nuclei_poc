@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - opal-widgets-for-elementor
+  - dsl:
+    - compare_versions(version, '<= 1.6.9')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/opal-widgets-for-elementor/readme.txt'
+  redirects: true
+id: opal_widgets_for_elementor-ce27f598-b64a-45da-b61a-190570220ec2
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/opal-widgets-for-elementor/
+    google-query: inurl:"/wp-content/plugins/opal-widgets-for-elementor/"
+    shodan-query: http.html:"wp-content/plugins/opal-widgets-for-elementor/"
+  name: 'Opal Widgets For Elementor <= 1.6.9 - Authenticated (Contributor+) Stored
+    Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/ce27f598-b64a-45da-b61a-190570220ec2?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,opal-widgets-for-elementor,low,candidate

@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Sign In - Overseerr
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: overseerr-panel
+info:
+  author: rxerium
+  description: 'Overseerr is a request management and media discovery tool built to
+    work with your existing Plex ecosystem.
+
+    '
+  metadata:
+    fofa-query: Overseerr account
+    max-request: 1
+    verified: true
+  name: Overseerr Panel - Detect
+  reference:
+  - https://overseerr.dev/
+  - https://github.com/sct/overseerr
+  severity: info
+  tags: panel,overseerr,detect

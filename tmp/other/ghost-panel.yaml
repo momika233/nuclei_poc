@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: or
+    part: body
+    type: word
+    words:
+    - <title>Ghost Admin
+    - content="Ghost"
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}/ghost/#/signin'
+id: ghost-panel
+info:
+  author: userdehghani
+  classification:
+    cpe: cpe:2.3:a:ghost:ghost:*:*:*:*:*:*:*:*
+  description: 'Beautiful, modern publishing with email newsletters and paid subscriptions
+    built-in.
+
+    '
+  metadata:
+    fofa-query: app="Ghost"
+    max-request: 1
+    product: ghost
+    vendor: ghost
+    verified: true
+  name: Ghost Panel - Detect
+  reference:
+  - https://ghost.org/
+  severity: info
+  tags: panel,ghost,login,detect,discovery

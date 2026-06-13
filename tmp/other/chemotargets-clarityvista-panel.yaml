@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "<title>clarityvista", "content=\"clarity pharmacovigilance")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: chemotargets-clarityvista-panel
+info:
+  author: righettod
+  description: 'Chemotargets Clarity Vista login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"ClarityVista"
+    verified: true
+  name: Chemotargets Clarity Vista Login Panel - Detect
+  reference:
+  - https://chemotargets.com/clarityvista/
+  severity: info
+  tags: panel,chemotargets,login,detect

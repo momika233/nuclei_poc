@@ -1,0 +1,41 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (erigon/[0-9_.]+)
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(header, "application/json")
+    - contains(body, "erigon")
+    type: dsl
+  raw:
+  - 'POST / HTTP/1.1
+
+    Host: {{Hostname}}
+
+    Content-Type: application/json
+
+
+    {"method":"web3_clientVersion","params":[],"id":1,"jsonrpc":"2.0"}
+
+    '
+id: erigon-server-detect
+info:
+  author: Nullfuzz
+  description: 'Erigon is an implementation of Ethereum (execution layer with embeddable
+    consensus layer). By default Erigon runs a JSON-RPC HTTP server on port 8545/TCP
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: product:"Erigon"
+    verified: true
+  name: Erigon JSON-RPC HTTP Server - Detect
+  reference:
+  - https://github.com/ledgerwatch/erigon
+  severity: info
+  tags: tech,erigon,ethereum,web3,blockchain

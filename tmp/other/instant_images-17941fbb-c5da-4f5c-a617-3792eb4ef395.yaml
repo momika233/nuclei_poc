@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - instant-images
+  - dsl:
+    - compare_versions(version, '<= 6.1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/instant-images/readme.txt'
+  redirects: true
+id: instant_images-17941fbb-c5da-4f5c-a617-3792eb4ef395
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/instant-images/
+    google-query: inurl:"/wp-content/plugins/instant-images/"
+    shodan-query: http.html:"wp-content/plugins/instant-images/"
+  name: 'Instant Images <= 6.1.0 - Authenticated (Author+) Arbitrary Options Update
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/17941fbb-c5da-4f5c-a617-3792eb4ef395?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,instant-images,low,candidate

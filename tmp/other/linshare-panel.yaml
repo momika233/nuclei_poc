@@ -1,0 +1,29 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(body, "<title>LinShare", "x-ng-app=\"linshareAdminApp")
+    type: dsl
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/login'
+  - '{{BaseURL}}/new/login'
+  stop-at-first-match: true
+id: linshare-panel
+info:
+  author: righettod
+  description: LinShare login panel was detected.
+  metadata:
+    max-request: 3
+    shodan-query: http.title:"LinShare"
+    verified: true
+  name: LinShare Login Panel - Detect
+  reference:
+  - https://www.linshare.org/
+  - https://github.com/linagora/linshare
+  severity: info
+  tags: panel,linshare,login,detect

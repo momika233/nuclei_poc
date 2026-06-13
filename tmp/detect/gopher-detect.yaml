@@ -1,0 +1,24 @@
+id: gopher-detect
+info:
+  author: pry0cc
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'Gopher service was detected.
+
+    '
+  metadata:
+    max-request: 1
+  name: Gopher Service - Detect
+  severity: info
+  tags: network,gopher,detect
+tcp:
+- host:
+  - '{{Hostname}}'
+  inputs:
+  - data: "\r\n"
+  matchers:
+  - dsl:
+    - contains(to_lower(raw), 'gopher')
+    type: dsl
+  port: 70

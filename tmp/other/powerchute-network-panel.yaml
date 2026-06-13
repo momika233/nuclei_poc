@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>PowerChute Network Shutdown</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: powerchute-network-panel
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: html:"PowerChute Network Shutdown"
+    verified: true
+  name: PowerChute Network Shutdown Panel - Detect
+  severity: info
+  tags: panel,login,powerchute,detect

@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - <title>Dockge</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: dockge-panel
+info:
+  author: rxerium
+  description: 'A fancy, easy-to-use and reactive self-hosted docker compose.yaml
+    stack-oriented manager
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Dockge"
+    verified: true
+  name: Dockge Panel - Detect
+  reference:
+  - https://github.com/louislam/dockge
+  - https://dockge.kuma.pet/
+  severity: info
+  tags: panel,dockge,login

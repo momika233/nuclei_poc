@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - pCloud - Europe's Most Secure Cloud Storage
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"pcloud.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: pcloud-phish
+info:
+  author: rxerium
+  description: 'A pcloud phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: pcloud phishing Detection
+  reference:
+  - https://pcloud.com
+  severity: info
+  tags: phishing,pcloud,osint

@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - case-insensitive: true
+    part: body
+    type: word
+    words:
+    - OpenNebula
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: opennebula-panel
+info:
+  author: kh4sh3i
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'OpenNebula login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.html:"opennebula"
+    verified: true
+  name: OpenNebula Login Panel - Detect
+  reference:
+  - https://opennebula.io/
+  - https://github.com/OpenNebula
+  severity: info
+  tags: panel,opennebula,cloud

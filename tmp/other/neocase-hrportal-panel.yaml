@@ -1,0 +1,32 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - name="version"\s+content="([0-9\.]+)"
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(to_lower(body), "neocase") && contains(to_lower(body), "hr portal")
+      && contains(to_lower(body), "login")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: neocase-hrportal-panel
+info:
+  author: righettod
+  description: 'Neocase HR Portal login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: Neocase HR Portal Login Panel - Detect
+  reference:
+  - https://www.neocasesoftware.com/neocase-hr-solution/
+  - https://www.neocasesoftware.com/self-service-portal-module/
+  severity: info
+  tags: panel,neocase,login,detect

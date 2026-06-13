@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - contains_any(body, "dockwatch-maintenance", "Restart Dockwatch")
+    - status_code == 200
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/login.php'
+id: dockwatch-panel
+info:
+  author: s4e-io
+  description: 'Dockwatch panel was discovered
+
+    '
+  metadata:
+    fofa-query: icon_hash="1991646591"
+    max-request: 1
+    verified: true
+  name: Dockwatch Panel - Detect
+  severity: info
+  tags: panel,login,dockwatch,detect,discovery

@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>AKHQ</title>
+    - AKHQ_PREFIX_UI
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/ui/login'
+id: akhq-panel
+info:
+  author: DhiyaneshDK
+  description: 'AKHQ Panel was discovered.
+
+    '
+  metadata:
+    fofa-query: body="AKHQ_PREFIX_UI"
+    max-request: 1
+    shodan-query: http.favicon.hash:855432563
+    verified: true
+  name: AKHQ Panel - Detect
+  severity: info
+  tags: akhq,panel,login,detect

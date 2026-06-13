@@ -1,0 +1,34 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Valid Reports Servlet Commands
+    - rwservlet
+    - killengine
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/reports/'
+  - '{{BaseURL}}/ora/reports/'
+  - '{{BaseURL}}/oracle/reports/'
+  stop-at-first-match: true
+id: oracle-reports-services
+info:
+  author: dogasantos
+  description: Oracle Reports Services - Servlet Command dashboard
+  metadata:
+    max-request: 3
+    shodan-query: title:"Oracle Forms"
+    verified: true
+  name: Oracle Reports Services - Servlet
+  severity: info
+  tags: exposure,oracle,misconfig

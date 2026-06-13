@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - jackmail-newsletters
+  - dsl:
+    - compare_versions(version, '<= 1.2.22')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/jackmail-newsletters/readme.txt'
+  redirects: true
+id: jackmail_newsletters-084a209f-c67b-4df9-9f4b-c537ea065a50
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/jackmail-newsletters/
+    google-query: inurl:"/wp-content/plugins/jackmail-newsletters/"
+    shodan-query: http.html:"wp-content/plugins/jackmail-newsletters/"
+  name: 'Emails & Newsletters with Jackmail <= 1.2.22 - Authenticated (Subscriber+)
+    CSV Injecton
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/084a209f-c67b-4df9-9f4b-c537ea065a50?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,jackmail-newsletters,low,candidate

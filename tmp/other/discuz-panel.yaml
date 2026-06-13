@@ -1,0 +1,32 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - <em>X([0-9.]+)<\/em><\/p>
+    type: regex
+  host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - discuz_uid =
+    - discuz</a>
+    - Powered by Discuz!
+    - content="Discuz
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: discuz-panel
+info:
+  author: ritikchaddha
+  metadata:
+    fofa-query: title="Discuz!"
+    max-request: 1
+    shodan-query: title:"Discuz!"
+    verified: true
+  name: Discuz Panel - Detection
+  severity: info
+  tags: panel,discuz,detect,login

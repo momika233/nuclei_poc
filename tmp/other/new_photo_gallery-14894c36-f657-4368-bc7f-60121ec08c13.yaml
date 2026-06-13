@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - new-photo-gallery
+  - dsl:
+    - compare_versions(version, '<= 1.4.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/new-photo-gallery/readme.txt'
+  redirects: true
+id: new_photo_gallery-14894c36-f657-4368-bc7f-60121ec08c13
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/new-photo-gallery/
+    google-query: inurl:"/wp-content/plugins/new-photo-gallery/"
+    shodan-query: http.html:"wp-content/plugins/new-photo-gallery/"
+  name: 'Photo Gallery <= 1.4.2 - Authenticated(Contributor+) PHP Object Injection
+    via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/14894c36-f657-4368-bc7f-60121ec08c13?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,new-photo-gallery,low,candidate

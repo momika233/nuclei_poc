@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - heureka
+  - dsl:
+    - compare_versions(version, '<= 1.1.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/heureka/readme.txt'
+  redirects: true
+id: heureka-0210ee40-543a-42ce-b7da-e5bbae19d852
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/heureka/
+    google-query: inurl:"/wp-content/plugins/heureka/"
+    shodan-query: http.html:"wp-content/plugins/heureka/"
+  name: 'Heureka <= 1.1.0 - Missing Authorization
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/0210ee40-543a-42ce-b7da-e5bbae19d852?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,heureka,high,candidate

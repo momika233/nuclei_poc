@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Avast | Download Free Antivirus &amp; VPN | 100% Free &amp; Easy
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"avast.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: avast-phish
+info:
+  author: rxerium
+  description: 'An avast phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: avast phishing Detection
+  reference:
+  - https://avast.com
+  severity: info
+  tags: phishing,avast,osint

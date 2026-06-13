@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - quick-featured-images
+  - dsl:
+    - compare_versions(version, '<= 13.7.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/quick-featured-images/readme.txt'
+  redirects: true
+id: quick_featured_images-4f9a1cfc-5e52-40da-bb9d-8f2b46d37c8c
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/quick-featured-images/
+    google-query: inurl:"/wp-content/plugins/quick-featured-images/"
+    shodan-query: http.html:"wp-content/plugins/quick-featured-images/"
+  name: 'Quick Featured Images <= 13.7.2 - Insecure Direct Object Reference to Image
+    Manipulation
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/4f9a1cfc-5e52-40da-bb9d-8f2b46d37c8c?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,quick-featured-images,low,candidate

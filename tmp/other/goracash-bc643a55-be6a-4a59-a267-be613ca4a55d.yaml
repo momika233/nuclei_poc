@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - goracash
+  - dsl:
+    - compare_versions(version, '<= 1.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/goracash/readme.txt'
+  redirects: true
+id: goracash-bc643a55-be6a-4a59-a267-be613ca4a55d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/goracash/
+    google-query: inurl:"/wp-content/plugins/goracash/"
+    shodan-query: http.html:"wp-content/plugins/goracash/"
+  name: 'Goracash <= 1.1 - Authenticated (Administrator+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/bc643a55-be6a-4a59-a267-be613ca4a55d?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,goracash,low,candidate

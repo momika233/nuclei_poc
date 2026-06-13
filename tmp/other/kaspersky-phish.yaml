@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Kaspersky Cyber Security Solutions for Home and Business  | Kaspersky
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"kaspersky.co.uk")'
+    - '!contains(host,"kaspersky.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: kaspersky-phish
+info:
+  author: rxerium
+  description: 'A kaspersky phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: kaspersky phishing Detection
+  reference:
+  - https://kaspersky.co.uk
+  severity: info
+  tags: phishing,kaspersky,osint

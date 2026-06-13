@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Battle.net Login
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"battle.net")'
+    - '!contains(host,"blizzard.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: battlenet-phish
+info:
+  author: rxerium
+  description: 'A battlenet phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: battlenet phishing Detection
+  reference:
+  - https://eu.account.battle.net/login
+  severity: info
+  tags: phishing,battlenet,osint

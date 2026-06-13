@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - phonetrack-meu-site-manager
+  - dsl:
+    - compare_versions(version, '<= 0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/phonetrack-meu-site-manager/readme.txt'
+  redirects: true
+id: phonetrack_meu_site_manager-d5d7e59e-962c-45d9-b3be-033bccf4c6b1
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/phonetrack-meu-site-manager/
+    google-query: inurl:"/wp-content/plugins/phonetrack-meu-site-manager/"
+    shodan-query: http.html:"wp-content/plugins/phonetrack-meu-site-manager/"
+  name: 'PhoneTrack Meu Site Manager <= 0.1 - Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/d5d7e59e-962c-45d9-b3be-033bccf4c6b1?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,phonetrack-meu-site-manager,high,candidate
