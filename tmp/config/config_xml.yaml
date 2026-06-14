@@ -3,7 +3,7 @@ info:
   name: Search for config.xml
   author: nithissh
   severity: high
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/debug/config.xml"
