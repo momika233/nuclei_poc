@@ -32,4 +32,4 @@ info:
     verified: true
   name: Sitemap Detection
   severity: info
-  tags: misc,generic,sitemap
+  tags: miscellaneous,misc,generic,sitemap

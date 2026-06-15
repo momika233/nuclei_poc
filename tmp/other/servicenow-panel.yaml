@@ -1,0 +1,40 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)g_builddate\s+=\s+"([0-9._-]+)"
+    type: regex
+  matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - ServiceNow
+    - window.NOW.
+    - NOW.user.userID
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login.do'
+id: servicenow-panel
+info:
+  author: righettod
+  description: 'ServiceNow Login Panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: servicenow
+    shodan-query: http.favicon.hash:1701804003
+    vendor: servicenow
+    verified: true
+  name: ServiceNow Login Panel - Detect
+  reference:
+  - https://www.servicenow.com/
+  severity: info
+  tags: panel,servicenow,login,detect

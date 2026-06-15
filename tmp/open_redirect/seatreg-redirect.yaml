@@ -1,6 +1,5 @@
 http:
-- cookie-reuse: true
-  extractors:
+- extractors:
   - group: 1
     internal: true
     name: seatreg-admin-nonce

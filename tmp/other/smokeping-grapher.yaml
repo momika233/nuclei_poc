@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - SmokePing Latency Page for
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/smokeping/'
+id: smokeping-grapher
+info:
+  author: DhiyaneshDk
+  description: SmokePing Latency Page is exposed.
+  metadata:
+    max-request: 1
+    shodan-query: title:"SmokePing Latency Page for Network Latency Grapher"
+    verified: true
+  name: SmokePing Latency Page for Network Latency Grapher
+  reference:
+  - https://www.facebook.com/photo/?fbid=620494143454442&set=a.467014098802448
+  severity: low
+  tags: misconfig,smokeping,latency,grapher

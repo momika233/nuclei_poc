@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Discover TV, Broadband & Mobile Phone Packages with Sky
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"sky.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: sky-phish
+info:
+  author: rxerium
+  description: 'A sky phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: sky phishing Detection
+  reference:
+  - https://sky.com
+  severity: info
+  tags: phishing,sky,osint

@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Saia PCD Web Server</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/pwdform.htm'
+id: saia-pcd-panel
+info:
+  author: DhiyaneshDk
+  description: 'Saia PCD Web Server panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: service["http.body"] matches "(?i)Saia PCD Web Server"
+    shodan-query: html:"Saia PCD Web Server"
+  name: Saia PCD Web Server Panel - Detect
+  severity: info
+  tags: saia,login,panel,pcd,discovery

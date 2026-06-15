@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - sliderspack-all-in-one-image-sliders
+  - dsl:
+    - compare_versions(version, '<= 2.0.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/sliderspack-all-in-one-image-sliders/readme.txt'
+  redirects: true
+id: sliderspack_all_in_one_image_sliders-fb5cb7ce-127a-4f9a-b52e-1e957560ca55
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/sliderspack-all-in-one-image-sliders/
+    google-query: inurl:"/wp-content/plugins/sliderspack-all-in-one-image-sliders/"
+    shodan-query: http.html:"wp-content/plugins/sliderspack-all-in-one-image-sliders/"
+  name: 'Slider a SlidersPack <= 2.0.2 - Missing Authorization via wp_spaios_save_attachment_data
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/fb5cb7ce-127a-4f9a-b52e-1e957560ca55?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,sliderspack-all-in-one-image-sliders,high,candidate

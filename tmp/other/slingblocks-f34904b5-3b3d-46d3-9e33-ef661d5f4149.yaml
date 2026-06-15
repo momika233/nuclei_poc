@@ -1,0 +1,44 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - slingblocks
+  - dsl:
+    - compare_versions(version, '<= 1.5.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/slingblocks/readme.txt'
+  redirects: true
+id: slingblocks-f34904b5-3b3d-46d3-9e33-ef661d5f4149
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/slingblocks/
+    google-query: inurl:"/wp-content/plugins/slingblocks/"
+    shodan-query: http.html:"wp-content/plugins/slingblocks/"
+  name: "SlingBlocks \u2013 Gutenberg Blocks by FunnelKit (Formerly WooFunnels) <=\
+    \ 1.5.0 - Authenticated (Contributor+) Stored Cross-Site Scripting\n"
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f34904b5-3b3d-46d3-9e33-ef661d5f4149?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,slingblocks,low,candidate

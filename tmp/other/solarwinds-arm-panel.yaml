@@ -1,0 +1,37 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Solarwinds Access Rights Manager</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: solarwinds-arm-panel
+info:
+  author: bhutch
+  classification:
+    cpe: cpe:2.3:a:solarwinds:access_rights_manager:*:*:*:*:*:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'SolarWinds ARM login panel was detected.
+
+    '
+  metadata:
+    censys-query: services.http.response.html_title="Solarwinds Access Rights Manager"
+    max-request: 1
+    product: access_rights_manager
+    shodan-query: http.favicon.hash:-1416464161
+    vendor: solarwinds
+    verified: true
+  name: SolarWinds ARM (Access Rights Manager) - Detect
+  reference:
+  - https://www.solarwinds.com/access-rights-manager
+  severity: info
+  tags: panel,solarwinds

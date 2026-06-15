@@ -1,0 +1,82 @@
+id: smb-enum
+info:
+  author: pussycat0x
+  description: 'SMS Information Extraction is a sophisticated and efficient system
+    designed to retrieve critical information from a remote computer or device through
+    short text messages. This technology enables users to remotely access essential
+    details about a computer, such as its operating system (OS) version, computer
+    name, and hostname,
+
+    all via SMS communication.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: port:445
+    verified: true
+  name: SMB - Enumeration
+  reference:
+  - https://nmap.org/nsedoc/scripts/smb-security-mode.html
+  severity: info
+  tags: js,network,smb,enum
+javascript:
+- args:
+    Host: '{{Host}}'
+    Port: '445'
+  code: 'var m = require("nuclei/smb");
+
+    var c = m.SMBClient();
+
+    var response = c.ListSMBv2Metadata(Host, Port);
+
+    Export(response);
+
+    '
+  extractors:
+  - internal: true
+    json:
+    - .OSVersion
+    name: OSVersion
+    type: json
+  - internal: true
+    json:
+    - .NetBIOSComputerName
+    name: NetBIOSComputerName
+    type: json
+  - internal: true
+    json:
+    - .NetBIOSDomainName
+    name: NetBIOSDomainName
+    type: json
+  - internal: true
+    json:
+    - .DNSComputerName
+    name: DNSComputerName
+    type: json
+  - internal: true
+    json:
+    - .DNSDomainName
+    name: DNSDomainName
+    type: json
+  - internal: true
+    json:
+    - .ForestName
+    name: ForestName
+    type: json
+  - json:
+    - '"OSVersion: "+ .OSVersion '
+    - '"NetBIOSComputerName: "+ .NetBIOSComputerName '
+    - '"NetBIOSDomainName: "+ .NetBIOSDomainName '
+    - '"DNSComputerNamen: "+ .DNSComputerName '
+    - '"DNSComputerName: "+ .DNSComputerName '
+    - '"ForestName: "+ .ForestName'
+    type: json
+  matchers:
+  - dsl:
+    - len(OSVersion) != 0
+    - len(NetBIOSComputerName) != 0
+    - len(NetBIOSDomainName) != 0
+    - len(DNSComputerName) != 0
+    - len(DNSDomainName) != 0
+    - len(ForestName) != 0
+    type: dsl

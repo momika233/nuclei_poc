@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Samsung UK | Mobile | Home Electronics | Home Appliances | TV
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"samsung.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: samsung-phish
+info:
+  author: rxerium
+  description: 'A samsung phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: samsung phishing Detection
+  reference:
+  - https://samsung.com
+  severity: info
+  tags: phishing,samsung,osint

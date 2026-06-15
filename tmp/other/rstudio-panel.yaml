@@ -1,0 +1,29 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>RStudio Sign In</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/auth-sign-in?appUri=%2F'
+id: rstudio-panel
+info:
+  author: DhiyaneshDk
+  description: 'RStudio Sign In panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)RStudio Sign
+      In"})
+    shodan-query: title:"RStudio Sign In"
+  name: RStudio Sign In Panel - Detect
+  severity: info
+  tags: rstudio,login,panel,discovery

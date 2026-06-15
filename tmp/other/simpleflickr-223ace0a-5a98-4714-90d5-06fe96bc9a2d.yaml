@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - simpleflickr
+  - dsl:
+    - compare_versions(version, '<= 3.0.3')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/simpleflickr/readme.txt'
+  redirects: true
+id: simpleflickr-223ace0a-5a98-4714-90d5-06fe96bc9a2d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/simpleflickr/
+    google-query: inurl:"/wp-content/plugins/simpleflickr/"
+    shodan-query: http.html:"wp-content/plugins/simpleflickr/"
+  name: 'SimpleFlickr <= 3.0.3 - Cross-Site Request Forgery to Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/223ace0a-5a98-4714-90d5-06fe96bc9a2d?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,simpleflickr,medium,candidate

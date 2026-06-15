@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>SoftEther VPN Server</title>
+  - status:
+    - 202
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: softether-vpn-panel
+info:
+  author: bhutch
+  description: 'SoftEther VPN panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"SoftEther VPN Server"
+    verified: true
+  name: SoftEther VPN Panel - Detect
+  severity: info
+  tags: panel,vpn,softether

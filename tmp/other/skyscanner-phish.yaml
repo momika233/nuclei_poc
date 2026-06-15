@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Compare Cheap Flights &amp; Book Airline Tickets to Everywhere | Skyscanner
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"skyscanner.net")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: skyscanner-phish
+info:
+  author: rxerium
+  description: 'A skyscanner phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: skyscanner phishing Detection
+  reference:
+  - https://skyscanner.net
+  severity: info
+  tags: phishing,skyscanner,osint

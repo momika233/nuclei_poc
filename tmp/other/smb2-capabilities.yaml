@@ -1,0 +1,33 @@
+id: smb2-capabilities
+info:
+  author: pussycat0x
+  description: 'Attempts to list the supported capabilities in a SMBv2 server for
+    each enabled dialect.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: port:445
+  name: smb2-capabilities - Enumeration
+  reference:
+  - https://nmap.org/nsedoc/scripts/smb2-capabilities.html
+  severity: info
+  tags: js,network,smb,enum
+javascript:
+- args:
+    Host: '{{Host}}'
+    Port: '445'
+  code: 'var m = require("nuclei/smb");
+
+    var c = m.SMBClient();
+
+    var response = c.ConnectSMBInfoMode(Host, Port);
+
+    Export(response);
+
+    '
+  extractors:
+  - json:
+    - .Capabilities | with_entries(select(.value == true)) | keys
+    part: response
+    type: json

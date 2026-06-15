@@ -1,0 +1,34 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>SAUTER moduWeb Vision</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+id: sauter-moduwebvision-panel
+info:
+  author: righettod
+  classification:
+    cpe: cpe:2.3:o:sauter:moduweb_vision:*:*:*:*:*:*:*:*
+  description: 'Sauter moduWeb Vision was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: moduweb_vision
+    shodan-query: http.favicon.hash:-1663319756
+    vendor: sauter
+    verified: true
+  name: SAUTER moduWeb Vision Panel - Detect
+  reference:
+  - https://www.sauter-controls.com
+  severity: info
+  tags: panel,moduweb,sauter,login

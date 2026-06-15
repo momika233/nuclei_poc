@@ -1,0 +1,34 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: and
+    part: body
+    type: word
+    words:
+    - /DLPCenter/js/
+    - SOMANSA
+  - dsl:
+    - status_code==200 && ("-1217239281" == mmh3(base64_py(body)))
+    type: dsl
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}/DLPCenter/loginform.sms'
+  - '{{BaseURL}}/DLPCenter/images/favicon.ico'
+  stop-at-first-match: true
+id: somansa-dlp-detect
+info:
+  author: gy741,ritikchaddha
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Somansa DLP login panel was detected.
+  metadata:
+    max-request: 2
+    shodan-query: http.html:"DLP system"
+    verified: true
+  name: Somansa DLP Login Panel - Detect
+  reference:
+  - https://www.somansa.com/solution/integrated_solution/dlp/
+  severity: info
+  tags: panel,somansa,dlp

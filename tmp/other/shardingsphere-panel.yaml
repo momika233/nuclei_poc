@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>ShardingSphere ElasticJob UI</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/#/login'
+id: shardingsphere-panel
+info:
+  author: DhiyaneshDk
+  classification:
+    cpe: cpe:2.3:a:apache:shardingsphere_elasticjob-ui:*:*:*:*:*:*:*:*
+    cwe-id: CWE-200
+  description: An ShardingSphere ElasticJob UI panel was detected.
+  metadata:
+    max-request: 1
+    product: shardingsphere_elasticjob-ui
+    shodan-query: http.favicon.hash:816588900
+    vendor: apache
+    verified: true
+  name: ShardingSphere ElasticJob UI Panel
+  severity: info
+  tags: panel,shardingsphere,login,apache

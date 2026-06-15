@@ -1,0 +1,34 @@
+http:
+- matchers:
+  - condition: and
+    type: word
+    words:
+    - ShareFile Login
+    - password
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/Authentication/Login'
+id: sharefile-panel
+info:
+  author: irshad ahamed
+  classification:
+    cpe: cpe:2.3:a:citrix:sharefile:*:*:*:*:*:*:*:*
+  description: 'ShareFile is a cloud-based file sharing and collaboration platform
+    that provides secure access to files from anywhere.
+
+    '
+  metadata:
+    max-request: 1
+    product: sharefile
+    shodan-query: title:"ShareFile Login"
+    vendor: citrix
+    verified: true
+  name: Sharefile Login - Panel
+  reference:
+  - https://www.sharefile.com/
+  severity: info
+  tags: sharefile,login,panel,detect,citrix

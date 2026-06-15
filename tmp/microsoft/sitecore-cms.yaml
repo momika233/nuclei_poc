@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: header
+    regex:
+    - 'Location: /sitecore/service/notfound.aspx'
+    type: regex
+  - status:
+    - 302
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/-/media/doo-doo.ashx'
+id: sitecore-cms
+info:
+  author: RandomDhiraj
+  description: 'Detect Sitecore Content Management System (CMS) websites based on
+    a redirect from the sitecore media handler URL pattern to the notfound.aspx page.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"sitecore"
+    verified: true
+  name: Sitecore CMS - Detect
+  reference: 'https://www.sitecore.com
+
+    '
+  severity: info
+  tags: cms,sitecore,tech

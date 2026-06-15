@@ -1,0 +1,26 @@
+id: shadowpad-c2
+info:
+  author: pussycat0x
+  description: "ShadowPad constitutes various plugins having specific functionality\
+    \ and the malware has the capability to \u201Cplug\u201D or \u201Cunplug\u201D\
+    \ these plugins at run-time in shellcode format. It can also load additional plugins\
+    \ dynamically from the C2 server when required.\n"
+  metadata:
+    censys-query: services.tls.certificates.leaf_data.subject_dn="C=CN, ST=myprovince,
+      L=mycity, O=myorganization, OU=mygroup, CN=myServer"
+    max-request: 1
+    verified: 'true'
+  name: ShadowPad C2 Infrastructure - Detect
+  severity: info
+  tags: ssl,tls,c2,ir,osint,malware,shadowpad
+ssl:
+- address: '{{Host}}:{{Port}}'
+  extractors:
+  - json:
+    - .subject_dn
+    type: json
+  matchers:
+  - part: subject_dn
+    type: word
+    words:
+    - CN=myServer, OU=mygroup, O=myorganization, L=mycity, ST=myprovince, C=CN

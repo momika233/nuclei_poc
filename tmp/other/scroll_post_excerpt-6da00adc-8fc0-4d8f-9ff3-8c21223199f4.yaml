@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - scroll-post-excerpt
+  - dsl:
+    - compare_versions(version, '<= 8.0')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/scroll-post-excerpt/readme.txt'
+  redirects: true
+id: scroll_post_excerpt-6da00adc-8fc0-4d8f-9ff3-8c21223199f4
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/scroll-post-excerpt/
+    google-query: inurl:"/wp-content/plugins/scroll-post-excerpt/"
+    shodan-query: http.html:"wp-content/plugins/scroll-post-excerpt/"
+  name: 'Scroll post excerpt <= 8.0 - Authenticated (Administrator+) Stored Cross-Site
+    Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/6da00adc-8fc0-4d8f-9ff3-8c21223199f4?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,scroll-post-excerpt,low,candidate

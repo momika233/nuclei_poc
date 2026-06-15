@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Setup | Shopware
+    - install
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/public/recovery/install/index.php'
+id: shopware-installer
+info:
+  author: DhiyaneshDk
+  description: Shopware is susceptible to the Installation page exposure due to misconfiguration.
+  metadata:
+    fofa-query: title="Installation | Shopware 6"
+    max-request: 1
+    verified: true
+  name: Shopware Installer
+  reference:
+  - https://www.shopware.com/en/
+  severity: high
+  tags: misconfig,shopware,install,exposure

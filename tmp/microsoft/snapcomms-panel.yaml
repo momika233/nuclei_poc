@@ -1,0 +1,33 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - version=([0-9.]+)
+    type: regex
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>SnapComms Content Manager</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/Manager/'
+id: snapcomms-panel
+info:
+  author: righettod
+  description: 'SnapComms Content Manager was detected.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: SnapComms Content Manager Panel - Detect
+  reference:
+  - https://www.snapcomms.com/
+  severity: info
+  tags: panel,snapcomms,login,detect

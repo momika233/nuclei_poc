@@ -6,6 +6,8 @@ http:
     words:
     - <title>SMTP2GO</title>
     - 2022 &copy; SMTP2GO.
+    - mailto:ticket@smtp2go.com
+    - href="https://www.smtp2go.com/"
   - status:
     - 200
     type: status
@@ -17,7 +19,7 @@ http:
   redirects: true
 id: smtp2go-detect
 info:
-  author: pikpikcu
+  author: pikpikcu,righettod
   metadata:
     max-request: 1
     shodan-query: http.title:"smtp2go"

@@ -1,0 +1,23 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>RTM WEB</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/Login'
+id: rtm-web-panel
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    shodan-query: RTM WEB
+    verified: true
+  name: RTM WEB - Panel
+  severity: info
+  tags: panel,login,rtm-web

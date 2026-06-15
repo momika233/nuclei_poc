@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - si-captcha-for-wordpress
+  - dsl:
+    - compare_versions(version, '< 2.7.6')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/si-captcha-for-wordpress/readme.txt'
+  redirects: true
+id: si_captcha_for_wordpress-f7d80a23-f55d-4ab8-b139-daf5bc436d4f
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/si-captcha-for-wordpress/
+    google-query: inurl:"/wp-content/plugins/si-captcha-for-wordpress/"
+    shodan-query: http.html:"wp-content/plugins/si-captcha-for-wordpress/"
+  name: 'SI CAPTCHA Anti-Spam < 2.7.6 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f7d80a23-f55d-4ab8-b139-daf5bc436d4f?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,si-captcha-for-wordpress,medium,candidate

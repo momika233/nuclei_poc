@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - condition: and
+    type: word
+    words:
+    - <title>SPA Cart Installation</title>
+    - PHP Version
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/install/'
+id: spa-cart-installer
+info:
+  author: pussycat0x
+  description: SPA Cart  installer was found.
+  metadata:
+    fofa-query: title="SPA Cart Installation"
+    max-request: 1
+  name: SPA Cart - Installer
+  reference:
+  - https://spa-cart.com/
+  severity: high
+  tags: spa-cart,exposure,installer,misconfig

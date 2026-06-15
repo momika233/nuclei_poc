@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - slideshowpro-shortcode
+  - dsl:
+    - compare_versions(version, '<= 1.0.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/slideshowpro-shortcode/readme.txt'
+  redirects: true
+id: slideshowpro_shortcode-51467cef-9624-4dd9-a368-d3b5fac7bb3d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/slideshowpro-shortcode/
+    google-query: inurl:"/wp-content/plugins/slideshowpro-shortcode/"
+    shodan-query: http.html:"wp-content/plugins/slideshowpro-shortcode/"
+  name: 'SlideShowPro SC <= 1.0.2 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via ''album'' Shortcode Attribute
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/51467cef-9624-4dd9-a368-d3b5fac7bb3d?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,slideshowpro-shortcode,low,candidate

@@ -1,0 +1,35 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - <title>Shell In A Box</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: shell-box
+info:
+  author: irshad ahamed
+  classification:
+    cpe: cpe:2.3:a:shellinabox_project:shellinabox:*:*:*:*:*:*:*:*
+  description: 'Shell In A Box implements a web server that can export arbitrary command
+    line tools to a web based terminal emulator
+
+    '
+  metadata:
+    max-request: 1
+    product: shellinabox
+    shodan-query: http.favicon.hash:-629968763
+    vendor: shellinabox_project
+    verified: true
+  name: Shell In A Box - Detect
+  reference:
+  - https://github.com/shellinabox/shellinabox
+  - https://www.cvedetails.com/vulnerability-list/vendor_id-15771/product_id-33062/Shellinabox-Project-Shellinabox.html
+  severity: info
+  tags: shell,emulator,detect,panel,login,shellinabox_project

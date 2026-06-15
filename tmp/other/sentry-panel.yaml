@@ -1,0 +1,37 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - (?i)"current":\s*"([0-9a-z.-]+)"
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, "/sentry/") && contains(body, "Login")
+    type: dsl
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  redirects: true
+id: sentry-panel
+info:
+  author: righettod
+  classification:
+    cpe: cpe:2.3:a:sentry:sentry:*:*:*:*:*:*:*:*
+  description: 'Sentry login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: sentry
+    shodan-query: http.title:"Login | Sentry"
+    vendor: sentry
+    verified: true
+  name: Sentry Login Panel
+  reference:
+  - https://sentry.io/
+  severity: info
+  tags: panel,sentry,login

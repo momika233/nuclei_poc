@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - schedulicity-online-appointment-booking
+  - dsl:
+    - compare_versions(version, '<= 2.21')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/schedulicity-online-appointment-booking/readme.txt'
+  redirects: true
+id: schedulicity_online_appointment_booking-24b26f17-f973-4a0e-85e2-a70a394246e2
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/schedulicity-online-appointment-booking/
+    google-query: inurl:"/wp-content/plugins/schedulicity-online-appointment-booking/"
+    shodan-query: http.html:"wp-content/plugins/schedulicity-online-appointment-booking/"
+  name: 'Schedulicity - Easy Online Scheduling <= 2.21 - Authenticated (Contributor+)
+    Stored Cross-Site Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/24b26f17-f973-4a0e-85e2-a70a394246e2?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,schedulicity-online-appointment-booking,low,candidate

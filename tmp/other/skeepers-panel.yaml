@@ -1,0 +1,33 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - Version\s+([0-9\.]+)\s+-
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(to_lower(body), "skeepers") && contains(to_lower(body), "login")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/backend/login'
+  - '{{BaseURL}}'
+  stop-at-first-match: true
+id: skeepers-panel
+info:
+  author: righettod
+  description: 'Skeepers login panel was detected.
+
+    '
+  metadata:
+    max-request: 2
+    shodan-query: http.title:"Skeepers"
+    verified: true
+  name: Skeepers Login Panel - Detect
+  reference:
+  - https://skeepers.io
+  severity: info
+  tags: panel,skeepers,login,detect

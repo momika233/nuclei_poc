@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - Login -  Speedtest Tracker
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/admin/login'
+id: speedtest-panel
+info:
+  author: rxerium
+  description: 'Speedtest panel was discovered
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Speedtest Tracker"
+    verified: true
+  name: Speedtest Panel - Detection
+  reference:
+  - https://github.com/alexjustesen/speedtest-tracker
+  - https://docs.speedtest-tracker.dev/
+  severity: info
+  tags: speedtest,tracker,panel,login

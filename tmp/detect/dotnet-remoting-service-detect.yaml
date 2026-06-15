@@ -1,0 +1,33 @@
+id: dotnet-remoting-service-detect
+info:
+  author: pussycat0x
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: 'Microsoft .NET Remoting httpd was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: product:"MS .NET Remoting httpd"
+    verified: true
+  name: Microsoft .NET Remoting httpd - Detect
+  severity: info
+  tags: network,detect,microsoft,dotnet
+tcp:
+- extractors:
+  - regex:
+    - .NET CLR ([0-9.]+)
+    type: regex
+  host:
+  - '{{Hostname}}'
+  inputs:
+  - data: '
+
+      '
+  matchers:
+  - type: word
+    words:
+    - 'Server: MS .NET Remoting'
+  matchers-condition: and
+  port: 8080

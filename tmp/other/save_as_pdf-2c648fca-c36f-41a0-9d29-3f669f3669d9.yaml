@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - save-as-pdf
+  - dsl:
+    - compare_versions(version, '<= 1.9.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/save-as-pdf/readme.txt'
+  redirects: true
+id: save_as_pdf-2c648fca-c36f-41a0-9d29-3f669f3669d9
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/save-as-pdf/
+    google-query: inurl:"/wp-content/plugins/save-as-pdf/"
+    shodan-query: http.html:"wp-content/plugins/save-as-pdf/"
+  name: 'Save as PDF Button <= 1.9.2 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via restpackpdfbutton Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/2c648fca-c36f-41a0-9d29-3f669f3669d9?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,save-as-pdf,low,candidate
