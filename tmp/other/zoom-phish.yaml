@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - One platform to connect | Zoom
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"zoom.us")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: zoom-phish
+info:
+  author: rxerium
+  description: 'A zoom phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: zoom phishing Detection
+  reference:
+  - https://zoom.us
+  severity: info
+  tags: phishing,zoom,osint

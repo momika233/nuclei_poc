@@ -1,0 +1,46 @@
+id: ssh-weak-algo-supported
+info:
+  author: pussycat0x
+  description: 'SSH weak algorithms are outdated cryptographic methods that pose security
+    risks. Identifying and disabling these vulnerable algorithms is crucial for enhancing
+    the overall security of SSH connections.
+
+    '
+  metadata:
+    max-request: 2
+    shodan-query: product:"OpenSSH"
+    verified: true
+  name: SSH Weak Algorithms Supported
+  reference:
+  - https://www.tenable.com/plugins/nessus/90317
+  severity: medium
+  tags: js,enum,ssh,misconfig,network
+javascript:
+- args:
+    Host: '{{Host}}'
+    Port: '22'
+  code: 'let m = require("nuclei/ssh");
+
+    let c = m.SSHClient();
+
+    let response = c.ConnectSSHInfoMode(Host, Port);
+
+    Export(response);
+
+    '
+  matchers:
+  - condition: and
+    type: word
+    words:
+    - client_to_server_ciphers
+    - server_to_client_ciphers
+  - condition: or
+    type: word
+    words:
+    - arcfour
+    - arcfour128
+    - arcfour256
+  matchers-condition: and
+  pre-condition: 'isPortOpen(Host,Port);
+
+    '

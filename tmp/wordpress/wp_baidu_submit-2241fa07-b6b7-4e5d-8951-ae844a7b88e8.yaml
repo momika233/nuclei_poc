@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-baidu-submit
+  - dsl:
+    - compare_versions(version, '<= 1.2.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-baidu-submit/readme.txt'
+  redirects: true
+id: wp_baidu_submit-2241fa07-b6b7-4e5d-8951-ae844a7b88e8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-baidu-submit/
+    google-query: inurl:"/wp-content/plugins/wp-baidu-submit/"
+    shodan-query: http.html:"wp-content/plugins/wp-baidu-submit/"
+  name: 'WP BaiDu Submit <= 1.2.1 - Authenticated (Admin+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/2241fa07-b6b7-4e5d-8951-ae844a7b88e8?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,wp-baidu-submit,low,candidate

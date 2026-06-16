@@ -1,0 +1,37 @@
+http:
+- matchers:
+  - case-insensitive: true
+    condition: or
+    part: body
+    type: word
+    words:
+    - <title>Unleash
+    - content="unleash
+    - alt="getunleash
+    - Sign-in - Unleash hosted
+  - dsl:
+    - status_code==200 && ("-608690655" == mmh3(base64_py(body)))
+    type: dsl
+  matchers-condition: or
+  method: GET
+  path:
+  - '{{BaseURL}}/login'
+  - '{{BaseURL}}/sign-in'
+  - '{{BaseURL}}/favicon.ico'
+  stop-at-first-match: true
+id: unleash-panel
+info:
+  author: userdehghani
+  description: 'Open-source feature management solution built for developers.
+
+    '
+  metadata:
+    max-request: 3
+    runzero-match: service["favicon.ico.image.mmh3"] == "-608690655"
+    shodan-query: http.favicon.hash:-608690655
+    verified: true
+  name: Unleash Panel - Detect
+  reference:
+  - https://www.getunleash.io/
+  severity: info
+  tags: panel,unleash,login,detect,discovery

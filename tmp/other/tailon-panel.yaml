@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Tailon
+    - class="tailon-dark
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: tailon-panel
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 1
+    shodan-query: title:"tailon"
+    verified: true
+  name: Tailon Panel - Detect
+  reference:
+  - https://github.com/gvalkov/tailon
+  severity: unknown
+  tags: panel,tailon,detect

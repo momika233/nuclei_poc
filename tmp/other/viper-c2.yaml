@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 404
+    - ("057f3b5488605b4d224d038e340866e2cdfed4a3" == sha1(body))
+    type: dsl
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: viper-c2
+info:
+  author: pussycat0x
+  description: 'Viper is a graphical intranet penetration tool, which modularizes
+    and weaponizes the tactics and technologies commonly used in the process of Intranet
+    penetration.
+
+    '
+  metadata:
+    censys-query: 057f3b5488605b4d224d038e340866e2cdfed4a3
+    max-request: 1
+    shodan-query: http.html_hash:1015055567
+    verified: 'true'
+  name: Viper C2 - Detect
+  reference:
+  - https://twitter.com/MichalKoczwara/status/1635724410274414596
+  severity: info
+  tags: tech,viper,c2,malware,ir,panel

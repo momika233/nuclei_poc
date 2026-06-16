@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - 'Trip.com: Book cheap flights, hotels, car rentals, trains and more'
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"trip.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: trip-phish
+info:
+  author: rxerium
+  description: 'A trip phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: trip phishing Detection
+  reference:
+  - https://trip.com
+  severity: info
+  tags: phishing,trip,osint

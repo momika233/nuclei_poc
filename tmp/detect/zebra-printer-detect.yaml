@@ -16,6 +16,7 @@ http:
 id: zebra-printer-detect
 info:
   author: gy741
+  description: Zebra Printer panel was detected.
   metadata:
     max-request: 1
     shodan-query: html:"Zebra Technologies"

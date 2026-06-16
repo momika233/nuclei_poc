@@ -1,0 +1,26 @@
+id: vnc-service-detect
+info:
+  author: pussycat0x
+  classification:
+    cwe-id: CWE-200
+  description: A Virtual Network Computing (VNC) service was detected.
+  metadata:
+    max-request: 1
+  name: VNC Service Detection
+  severity: info
+  tags: network,vnc,service,detect
+tcp:
+- extractors:
+  - part: body
+    regex:
+    - RFB ([0-9.]+)
+    type: regex
+  host:
+  - '{{Hostname}}'
+  inputs:
+  - data: "\r\n"
+  matchers:
+  - type: word
+    words:
+    - RFB
+  port: 5900

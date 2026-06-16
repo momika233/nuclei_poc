@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wc-multishipping
+  - dsl:
+    - compare_versions(version, '<= 2.3.5')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wc-multishipping/readme.txt'
+  redirects: true
+id: wc_multishipping-4b19657c-3e95-42cf-8d1a-64fa50b3b82b
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wc-multishipping/
+    google-query: inurl:"/wp-content/plugins/wc-multishipping/"
+    shodan-query: http.html:"wp-content/plugins/wc-multishipping/"
+  name: 'WCMultiShipping <= 2.3.5 - Missing Authorization to Log Export
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/4b19657c-3e95-42cf-8d1a-64fa50b3b82b?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,wc-multishipping,high,candidate

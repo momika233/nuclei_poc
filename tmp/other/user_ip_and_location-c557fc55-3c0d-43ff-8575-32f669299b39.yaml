@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - user-ip-and-location
+  - dsl:
+    - compare_versions(version, '<= 2.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/user-ip-and-location/readme.txt'
+  redirects: true
+id: user_ip_and_location-c557fc55-3c0d-43ff-8575-32f669299b39
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/user-ip-and-location/
+    google-query: inurl:"/wp-content/plugins/user-ip-and-location/"
+    shodan-query: http.html:"wp-content/plugins/user-ip-and-location/"
+  name: 'User IP and Location <= 2.2 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c557fc55-3c0d-43ff-8575-32f669299b39?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,user-ip-and-location,low,candidate

@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - dsl:
+    - Host != ip
+    type: dsl
+  - part: body
+    type: word
+    words:
+    - <html><body>You are being <a href="https://uptime.betterstack.com">redirected</a>.</body></html>
+  - status:
+    - 302
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: uptime-takeover
+info:
+  author: philippedelteil
+  metadata:
+    max-request: 1
+  name: Uptime Takeover Detection
+  reference:
+  - https://github.com/EdOverflow/can-i-take-over-xyz/issues/368
+  severity: high
+  tags: takeover,uptime

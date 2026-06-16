@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - theme-switcha
+  - dsl:
+    - compare_versions(version, '<= 3.3')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/theme-switcha/readme.txt'
+  redirects: true
+id: theme_switcha-2b0937fe-3ea6-427a-aef7-539c08687abb
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/theme-switcha/
+    google-query: inurl:"/wp-content/plugins/theme-switcha/"
+    shodan-query: http.html:"wp-content/plugins/theme-switcha/"
+  name: 'Theme Switcha <= 3.3 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/2b0937fe-3ea6-427a-aef7-539c08687abb?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,theme-switcha,low,candidate

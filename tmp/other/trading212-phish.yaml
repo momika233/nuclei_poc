@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Commission-free investing for everyone | Trading 212
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"trading212.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: trading212-phish
+info:
+  author: rxerium
+  description: 'A trading212 phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: trading212 phishing Detection
+  reference:
+  - https://trading212.com
+  severity: info
+  tags: phishing,trading212,osint

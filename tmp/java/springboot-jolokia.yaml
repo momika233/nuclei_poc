@@ -28,6 +28,7 @@ http:
 id: springboot-jolokia
 info:
   author: DhiyaneshDK
+  description: Springboot Jolokia Actuator is exposed.
   metadata:
     max-request: 2
     shodan-query: title:"Eureka"

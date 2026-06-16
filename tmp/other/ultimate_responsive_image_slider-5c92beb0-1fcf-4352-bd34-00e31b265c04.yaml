@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - ultimate-responsive-image-slider
+  - dsl:
+    - compare_versions(version, '<= 3.5.11')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/ultimate-responsive-image-slider/readme.txt'
+  redirects: true
+id: ultimate_responsive_image_slider-5c92beb0-1fcf-4352-bd34-00e31b265c04
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/ultimate-responsive-image-slider/
+    google-query: inurl:"/wp-content/plugins/ultimate-responsive-image-slider/"
+    shodan-query: http.html:"wp-content/plugins/ultimate-responsive-image-slider/"
+  name: 'Ultimate Responsive Image Slider <= 3.5.11 - Missing Authorization via AJAX
+    action
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5c92beb0-1fcf-4352-bd34-00e31b265c04?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,ultimate-responsive-image-slider,high,candidate

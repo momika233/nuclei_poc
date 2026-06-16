@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - splash-header
+  - dsl:
+    - compare_versions(version, '< 1.20.8')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/splash-header/readme.txt'
+  redirects: true
+id: splash_header-b6c9814e-e854-4420-9ec1-d843187bd9e7
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/splash-header/
+    google-query: inurl:"/wp-content/plugins/splash-header/"
+    shodan-query: http.html:"wp-content/plugins/splash-header/"
+  name: 'Splash Header < 1.20.8 - Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/b6c9814e-e854-4420-9ec1-d843187bd9e7?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,splash-header,high,candidate

@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - <title>Yacht</title>
+    - but Yacht do
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: yacht-panel
+info:
+  author: Fur1na
+  description: 'Yacht is a web management platform for managing Docker containers.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+    zoomeye-query: app="Yacht"
+  name: Yacht Login Panel - Detect
+  severity: info
+  tags: panel,yacht,login,detect,discovery

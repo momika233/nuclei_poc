@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-backup-manager
+  - dsl:
+    - compare_versions(version, '<= 1.13.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-backup-manager/readme.txt'
+  redirects: true
+id: wp_backup_manager-5ee3416b-d6df-4f8b-834b-4e78516c00ba
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-backup-manager/
+    google-query: inurl:"/wp-content/plugins/wp-backup-manager/"
+    shodan-query: http.html:"wp-content/plugins/wp-backup-manager/"
+  name: 'WP Backup Manager <= 1.13.1 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5ee3416b-d6df-4f8b-834b-4e78516c00ba?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,wp-backup-manager,medium,candidate

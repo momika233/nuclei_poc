@@ -1,0 +1,32 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - "<title>Supershell - \u767B\u5F55</title>"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: supershell-c2
+info:
+  author: pussycat0x
+  description: 'Supershell is a C2 remote control platform accessed through WEB services.
+    By establishing a reverse SSH tunnel, a fully interactive shell can be obtained,
+    and it supports multi-platform architecture Payload.
+
+    '
+  metadata:
+    fofa-query: icon_hash="-1010228102"
+    max-request: 1
+    verified: true
+  name: Supershell C2 - Detect
+  reference:
+  - https://twitter.com/S4nsLimit3/status/1693619836339859497
+  - https://github.com/tdragon6/Supershell/blob/main/README_EN.md
+  severity: info
+  tags: c2,ir,osint,supershell,panel

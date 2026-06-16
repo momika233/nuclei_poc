@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - woo-related-products-refresh-on-reload
+  - dsl:
+    - compare_versions(version, '<= 3.3.15')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/woo-related-products-refresh-on-reload/readme.txt'
+  redirects: true
+id: woo_related_products_refresh_on_reload-a98498b8-9397-42e9-9c99-a576975c9ac9
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/woo-related-products-refresh-on-reload/
+    google-query: inurl:"/wp-content/plugins/woo-related-products-refresh-on-reload/"
+    shodan-query: http.html:"wp-content/plugins/woo-related-products-refresh-on-reload/"
+  name: 'Related Products for WooCommerce <= 3.3.15 - Authenticated (Contributor+)
+    Stored Cross-Site Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/a98498b8-9397-42e9-9c99-a576975c9ac9?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,woo-related-products-refresh-on-reload,low,candidate

@@ -1,0 +1,32 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "<title>zammad helpdesk</title>", "zammad_form_script")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: zammad-helpdesk-panel
+info:
+  author: righettod
+  description: 'Zammad is an open source helpdesk and customer support system that
+    provides ticket management, live chat, and knowledge base functionality. This
+    template detects exposed Zammad installations.
+
+    '
+  metadata:
+    fofa-query: title="Zammad Helpdesk"
+    max-request: 1
+    product: zammad
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Zammad Helpdesk"})
+    shodan-query: http.title:"Zammad Helpdesk"
+    vendor: zammad
+    verified: true
+  name: Zammad Helpdesk Panel - Detect
+  reference:
+  - https://github.com/zammad/zammad
+  - https://zammad.org/
+  severity: info
+  tags: panel,zammad,detect,helpdesk,ticketing,discovery

@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - triberr-wordpress-plugin
+  - dsl:
+    - compare_versions(version, '<= 4.1.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/triberr-wordpress-plugin/readme.txt'
+  redirects: true
+id: triberr_wordpress_plugin-5e8a8e0e-6dc0-4d9f-aee3-1fd940c49d3d
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/triberr-wordpress-plugin/
+    google-query: inurl:"/wp-content/plugins/triberr-wordpress-plugin/"
+    shodan-query: http.html:"wp-content/plugins/triberr-wordpress-plugin/"
+  name: 'Triberr <= 4.1.1 - Authenticated (Administrator+) Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/5e8a8e0e-6dc0-4d9f-aee3-1fd940c49d3d?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,triberr-wordpress-plugin,low,candidate

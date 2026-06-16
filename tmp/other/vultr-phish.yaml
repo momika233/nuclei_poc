@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Log In to your Vultr Account - Vultr.com
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"vultr.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: vultr-phish
+info:
+  author: rxerium
+  description: 'A vultr phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: vultr phishing Detection
+  reference:
+  - https://my.vultr.com/
+  severity: info
+  tags: phishing,vultr,osint

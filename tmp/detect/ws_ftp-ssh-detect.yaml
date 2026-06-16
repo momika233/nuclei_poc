@@ -1,0 +1,31 @@
+id: ws_ftp-ssh-detect
+info:
+  author: johnk3r
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  description: 'WS_FTP-SSH service was detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: ws_ftp
+    shodan-query: WS_FTP port:22
+    vendor: progress
+    verified: true
+  name: WS_FTP-SSH Service - Detect
+  severity: info
+  tags: network,ssh,ws_ftp,detect,progress
+tcp:
+- extractors:
+  - regex:
+    - (?i)SSH-(.*)-WS_FTP-SSH[^\r]+
+    type: regex
+  host:
+  - '{{Hostname}}'
+  matchers:
+  - regex:
+    - (?i)WS_FTP-SSH
+    type: regex
+  port: 22

@@ -1,0 +1,43 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - '"><injectable>'
+    - '''><injectable>'
+  - part: content_type
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  - condition: or
+    negative: true
+    part: body
+    type: word
+    words:
+    - <title>Access Denied</title>
+    - You don't have permission to access
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/a%22%3E%3Cinjectable%3E'
+  - '{{BaseURL}}/a%27%3E%3Cinjectable%3E'
+  stop-at-first-match: true
+id: xss-uri-reflected
+info:
+  author: nadino,geeknik,matejsmycka
+  classification:
+    cwe-id:
+    - CWE-79
+  description: 'Reflected cross-site scripting vulnerability was discovered via generic
+    testing. Manual testing is needed to verify exploitation.
+
+    '
+  metadata:
+    max-request: 1
+  name: Reflected XSS
+  severity: low
+  tags: generic,vuln,xss

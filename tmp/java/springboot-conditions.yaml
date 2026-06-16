@@ -25,6 +25,7 @@ http:
 id: springboot-conditions
 info:
   author: DhiyaneshDK
+  description: Springboot Conditions Actuator is exposed.
   metadata:
     max-request: 2
     shodan-query: title:"Eureka"

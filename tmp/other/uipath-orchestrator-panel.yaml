@@ -1,0 +1,31 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - \?(?:version|v)=([0-9.]+)
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(to_lower(body), "<title>uipath orchestrator")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/Account/Login'
+id: uipath-orchestrator-panel
+info:
+  author: righettod
+  description: 'UiPath Orchestrator login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: http.title:"UiPath Orchestrator"
+    verified: true
+  name: UiPath Orchestrator Login Panel - Detect
+  reference:
+  - https://www.uipath.com/
+  severity: info
+  tags: panel,uipath,login,detect

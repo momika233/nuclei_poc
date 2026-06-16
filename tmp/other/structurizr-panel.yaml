@@ -1,0 +1,37 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>Structurizr
+    - alt="Structurizr
+    - structurizrBackground
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/signin'
+  stop-at-first-match: true
+id: structurizr-panel
+info:
+  author: DhiyaneshDk
+  classification:
+    cpe: cpe:2.3:a:structurizr:on-premises_installation:*:*:*:*:*:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Structurizr login panel was detected.
+  metadata:
+    max-request: 2
+    product: on-premises_installation
+    shodan-query: http.favicon.hash:1199592666
+    vendor: structurizr
+    verified: true
+  name: Structurizr Panel - Detect
+  severity: info
+  tags: panel,structurizr,detect

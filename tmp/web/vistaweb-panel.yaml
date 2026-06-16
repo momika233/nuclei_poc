@@ -1,0 +1,31 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - v=([0-9.]+)
+    type: regex
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(body, "login") && contains(body, "/lib/@resa/identityserver/") && contains(body,
+      "resa.aero")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/account/login'
+id: vistaweb-panel
+info:
+  author: righettod
+  description: 'Vista Web login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: Vista Web Login Panel
+  reference:
+  - https://resa.aero/solutions-operations-facturation/vista-web/
+  severity: info
+  tags: panel,vistaweb,login

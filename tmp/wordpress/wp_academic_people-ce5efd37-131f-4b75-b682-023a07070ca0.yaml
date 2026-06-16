@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-academic-people
+  - dsl:
+    - compare_versions(version, '<= 0.4.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-academic-people/readme.txt'
+  redirects: true
+id: wp_academic_people-ce5efd37-131f-4b75-b682-023a07070ca0
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-academic-people/
+    google-query: inurl:"/wp-content/plugins/wp-academic-people/"
+    shodan-query: http.html:"wp-content/plugins/wp-academic-people/"
+  name: 'WP Academic People List <= 0.4.1 - Reflected Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/ce5efd37-131f-4b75-b682-023a07070ca0?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,wp-academic-people,medium,candidate

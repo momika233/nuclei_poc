@@ -1,0 +1,37 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>WhatsUp Gold</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}/NmConsole'
+  - '{{BaseURL}}'
+  stop-at-first-match: true
+id: whatsup-gold-panel
+info:
+  author: rxerium
+  classification:
+    cpe: cpe:2.3:a:progress:whatsup_gold:*:*:*:*:*:*:*:*
+  description: 'Whatsup Gold login panel was detected.
+
+    '
+  metadata:
+    max-request: 2
+    product: whatsup_gold
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)WhatsUp Gold"})
+    shodan-query: title:"WhatsUp Gold" http.favicon.hash:-2107233094
+    vendor: progress
+    verified: true
+  name: Whatsup Gold Login Panel - Detect
+  reference:
+  - https://www.whatsupgold.com/
+  severity: info
+  tags: panel,whatsup-gold,detect,discovery

@@ -25,6 +25,7 @@ http:
 id: springboot-features
 info:
   author: DhiyaneshDK
+  description: Springboot Features Actuator is exposed.
   metadata:
     max-request: 2
     shodan-query: title:"Eureka"

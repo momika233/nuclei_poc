@@ -1,0 +1,32 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - <title>Unibox Administration</title>
+    - Please Login to continue
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: unibox-panel
+info:
+  author: theamanrawat
+  description: Unibox Administrator panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:176427349
+    verified: true
+  name: Unibox Panel - Detect
+  severity: info
+  tags: panel,unibox,login

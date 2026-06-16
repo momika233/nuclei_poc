@@ -1,0 +1,21 @@
+http:
+- extractors:
+  - part: body
+    regex:
+    - (?i)\b(hvb\.[a-z0-9_-]{138,212})(?:['|\"|\n|\r|\s|\x60|;]|$)
+    type: regex
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: vault-batch-token
+info:
+  author: DhiyaneshDK
+  metadata:
+    max-request: 1
+    verified: true
+  name: Vault Batch Token
+  reference:
+  - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/vault-batch-token.go
+  - https://github.com/semgrep/semgrep-rules/blob/develop/generic/secrets/gitleaks/vault-batch-token.yaml
+  severity: info
+  tags: vault,exposure,tokens,vuln

@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - 'Target : Expect More. Pay Less.'
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"target.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: target-phish
+info:
+  author: rxerium
+  description: 'A target phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: target phishing Detection
+  reference:
+  - https://target.com
+  severity: info
+  tags: phishing,target,osint

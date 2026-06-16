@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wp-download-manager
+  - dsl:
+    - compare_versions(version, '< 1.61')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wp-download-manager/readme.txt'
+  redirects: true
+id: wp_download_manager-822f5b92-8c58-4132-80a7-d15e1215c934
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wp-download-manager/
+    google-query: inurl:"/wp-content/plugins/wp-download-manager/"
+    shodan-query: http.html:"wp-content/plugins/wp-download-manager/"
+  name: 'WP-DownloadManager Plugin < 1.61 - Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/822f5b92-8c58-4132-80a7-d15e1215c934?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,wp-download-manager,high,candidate

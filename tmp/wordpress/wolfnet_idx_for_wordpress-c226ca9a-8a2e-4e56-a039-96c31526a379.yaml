@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wolfnet-idx-for-wordpress
+  - dsl:
+    - compare_versions(version, '<= 1.19.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wolfnet-idx-for-wordpress/readme.txt'
+  redirects: true
+id: wolfnet_idx_for_wordpress-c226ca9a-8a2e-4e56-a039-96c31526a379
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wolfnet-idx-for-wordpress/
+    google-query: inurl:"/wp-content/plugins/wolfnet-idx-for-wordpress/"
+    shodan-query: http.html:"wp-content/plugins/wolfnet-idx-for-wordpress/"
+  name: 'WolfNet IDX for WordPress <= 1.19.1 - Authenticated (Admin+) Stored Cross-Site
+    Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c226ca9a-8a2e-4e56-a039-96c31526a379?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,wolfnet-idx-for-wordpress,low,candidate

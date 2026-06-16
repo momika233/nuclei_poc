@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - stars-testimonials-with-slider-and-masonry-grid
+  - dsl:
+    - compare_versions(version, '<= 3.3.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/stars-testimonials-with-slider-and-masonry-grid/readme.txt'
+  redirects: true
+id: stars_testimonials_with_slider_and_masonry_grid-fccd9631-4703-4e40-9de1-96576cf9c4d8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/stars-testimonials-with-slider-and-masonry-grid/
+    google-query: inurl:"/wp-content/plugins/stars-testimonials-with-slider-and-masonry-grid/"
+    shodan-query: http.html:"wp-content/plugins/stars-testimonials-with-slider-and-masonry-grid/"
+  name: 'Stars Testimonials <= 3.3.4 - Authenticated (Contributor+) Stored Cross-Site
+    Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/fccd9631-4703-4e40-9de1-96576cf9c4d8?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,stars-testimonials-with-slider-and-masonry-grid,low,candidate

@@ -1,0 +1,29 @@
+id: telnet-detect
+info:
+  author: pussycat0x
+  description: 'Telnet is a network protocol used to virtually access a computer and
+    to provide a two-way, collaborative and text-based communication channel between
+    two machines.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: port:23 telnet
+    verified: true
+  name: Telnet Detection
+  severity: info
+  tags: network,telnet,detect
+tcp:
+- host:
+  - '{{Hostname}}'
+  inputs:
+  - data: '
+
+      '
+  matchers:
+  - condition: and
+    type: word
+    words:
+    - Telnet
+    - Login authentication
+  port: 23

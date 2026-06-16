@@ -1,0 +1,31 @@
+id: xlight-ftp-service-detect
+info:
+  author: pussycat0x
+  description: 'The File Transfer Protocol (FTP) is a standard network protocol used
+    to transfer computer files between a client and server on a computer network.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: product:"Xlight ftpd"
+    verified: true
+  name: Xlight FTP Service Detect
+  severity: info
+  tags: network,ftp,xlight,detect
+tcp:
+- extractors:
+  - regex:
+    - Xlight FTP Server ([0-9.]+)
+    type: regex
+  host:
+  - '{{Hostname}}'
+  inputs:
+  - data: '
+
+      '
+  matchers:
+  - part: body
+    type: word
+    words:
+    - Xlight FTP Server
+  port: 21

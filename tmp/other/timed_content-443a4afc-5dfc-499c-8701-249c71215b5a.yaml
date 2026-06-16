@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - timed-content
+  - dsl:
+    - compare_versions(version, '<= 2.72')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/timed-content/readme.txt'
+  redirects: true
+id: timed_content-443a4afc-5dfc-499c-8701-249c71215b5a
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/timed-content/
+    google-query: inurl:"/wp-content/plugins/timed-content/"
+    shodan-query: http.html:"wp-content/plugins/timed-content/"
+  name: 'Timed Content <= 2.72 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/443a4afc-5dfc-499c-8701-249c71215b5a?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,timed-content,low,candidate

@@ -1,0 +1,34 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Viminfo version
+    - Command Line History
+  - part: header
+    type: word
+    words:
+    - application/octet-stream
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/.viminfo'
+id: viminfo-disclosure
+info:
+  author: DhiyaneshDK
+  description: 'Viminfo file was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: html:"Viminfo"
+    verified: true
+  name: Viminfo - File Disclosure
+  reference:
+  - https://renenyffenegger.ch/notes/development/vim/editing/viminfo/index
+  severity: low
+  tags: devops,exposure,viminfo,config

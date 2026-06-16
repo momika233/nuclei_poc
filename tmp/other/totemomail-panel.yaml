@@ -1,0 +1,37 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - /responsiveUI/javax.faces.resource/images/totemomail_logo.svg.xhtml
+    - /responsiveUI/javax.faces.resource/css/custom.css.xhtml?con=totemo
+    - "<title>WebMail login: totemomail\xAE WebMail</title>"
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/responsiveUI/'
+  - '{{BaseURL}}/responsiveUI/webmail/folder.xhtml'
+  stop-at-first-match: true
+id: totemomail-panel
+info:
+  author: johnk3r,daffainfo
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: Totemomail login panel was detected.
+  metadata:
+    google-query: intext:"totemomail" inurl:responsiveUI
+    max-request: 2
+    product: totemomail
+    vendor: totemo
+    verified: true
+  name: Totemomail Login Panel - Detect
+  reference:
+  - https://www.totemo.com/en/products/email-encryption
+  severity: info
+  tags: totemomail,panel

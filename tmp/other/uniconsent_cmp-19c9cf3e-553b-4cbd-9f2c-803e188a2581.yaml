@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - uniconsent-cmp
+  - dsl:
+    - compare_versions(version, '<= 1.4.3')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/uniconsent-cmp/readme.txt'
+  redirects: true
+id: uniconsent_cmp-19c9cf3e-553b-4cbd-9f2c-803e188a2581
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/uniconsent-cmp/
+    google-query: inurl:"/wp-content/plugins/uniconsent-cmp/"
+    shodan-query: http.html:"wp-content/plugins/uniconsent-cmp/"
+  name: 'UniConsent Cookie Consent CMP for GDPR / CCPA <= 1.4.3 - Authenticated (Administrator+)
+    Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/19c9cf3e-553b-4cbd-9f2c-803e188a2581?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,uniconsent-cmp,low,candidate

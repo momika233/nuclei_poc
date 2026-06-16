@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - ultimate-faqs
+  - dsl:
+    - compare_versions(version, '< 1.8.22')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/ultimate-faqs/readme.txt'
+  redirects: true
+id: ultimate_faqs-a1818e80-e580-45d4-88ab-018cb1723947
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/ultimate-faqs/
+    google-query: inurl:"/wp-content/plugins/ultimate-faqs/"
+    shodan-query: http.html:"wp-content/plugins/ultimate-faqs/"
+  name: 'Ultimate Faqs <= 1.8.21 - Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/a1818e80-e580-45d4-88ab-018cb1723947?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,ultimate-faqs,high,candidate

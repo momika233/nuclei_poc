@@ -1,0 +1,25 @@
+id: wildcard-tls
+info:
+  author: lucky0x0d
+  description: 'Checks a sites certificate to see if there are wildcard CN or SAN
+    entries.
+
+    '
+  metadata:
+    max-request: 1
+  name: Wildcard TLS Certificate
+  reference:
+  - https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html#carefully-consider-the-use-of-wildcard-certificates
+  severity: info
+  tags: ssl,tls,wildcard
+ssl:
+- address: '{{Host}}:{{Port}}'
+  extractors:
+  - dsl:
+    - '"CN: " + subject_cn'
+    - '" SAN: " + subject_an'
+    type: dsl
+  matchers:
+  - dsl:
+    - wildcard_certificate == true
+    type: dsl

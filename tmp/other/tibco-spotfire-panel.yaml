@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>TIBCO Spotfire Server
+    - content="TIBCO Spotfire
+    - /spotfire/ui/
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/spotfire/login.html'
+  stop-at-first-match: true
+id: tibco-spotfire-panel
+info:
+  author: righettod
+  description: 'TIBCO Spotfire login panel was detected.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: TIBCO Spotfire Server
+    verified: true
+  name: TIBCO Spotfire Login Panel - Detect
+  reference:
+  - https://www.tibco.com/products/tibco-spotfire
+  severity: info
+  tags: panel,tibco,login,detect

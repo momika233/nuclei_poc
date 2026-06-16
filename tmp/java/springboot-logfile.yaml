@@ -23,6 +23,7 @@ http:
 id: springboot-logfile
 info:
   author: DhiyaneshDK
+  description: Springboot Logfile Actuator is exposed.
   metadata:
     max-request: 3
     shodan-query: title:"Eureka"

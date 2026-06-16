@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Uptime Kuma</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/dashboard'
+id: uptime-kuma-panel
+info:
+  author: irshad ahamed
+  description: 'Realtime website and application monitoring tool
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: title:"Uptime Kuma"
+    verified: true
+  name: Uptime Kuma - Panel
+  reference:
+  - https://github.com/louislam/uptime-kuma
+  - https://uptime.kuma.pet/docs/
+  severity: info
+  tags: uptime,kuma,panel,login

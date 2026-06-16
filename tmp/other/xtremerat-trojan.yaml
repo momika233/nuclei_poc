@@ -1,0 +1,28 @@
+id: xtremerat-trojan
+info:
+  author: pussycat0x
+  description: 'Xtreme Rat is a Remote Access Trojan that can steal information. This
+    RAT has been used in attacks targeting Israeli and Syrian governments last 2012.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: product:'XtremeRAT Trojan'
+    verified: true
+  name: XtremeRAT Trojan - Detect
+  reference:
+  - https://github.com/montysecurity/C2-Tracker/blob/main/tracker.py
+  severity: info
+  tags: network,c2,ir,osint,cti,xtreamerat
+tcp:
+- host:
+  - '{{Hostname}}'
+  inputs:
+  - data: 2E
+    type: hex
+  matchers:
+  - regex:
+    - ^X$
+    type: regex
+  port: 10001
+  read-size: 1024

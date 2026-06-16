@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wamate-confirm
+  - dsl:
+    - compare_versions(version, '<= 2.0.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wamate-confirm/readme.txt'
+  redirects: true
+id: wamate_confirm-f9566fdd-c4ad-4971-b23b-bcf76c8b5cef
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wamate-confirm/
+    google-query: inurl:"/wp-content/plugins/wamate-confirm/"
+    shodan-query: http.html:"wp-content/plugins/wamate-confirm/"
+  name: 'WaMate Confirm <= 2.0.1 - Missing Authorization to Authenticated (Subscriber+)
+    Arbitrary Phone Number Blocking/Unblocking
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f9566fdd-c4ad-4971-b23b-bcf76c8b5cef?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,wamate-confirm,low,candidate

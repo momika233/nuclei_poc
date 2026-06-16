@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - testimonial-slider-shortcode
+  - dsl:
+    - compare_versions(version, '< 1.1.9')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/testimonial-slider-shortcode/readme.txt'
+  redirects: true
+id: testimonial_slider_shortcode-30cb1b8c-84ce-4401-9c30-775efb257fe6
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/testimonial-slider-shortcode/
+    google-query: inurl:"/wp-content/plugins/testimonial-slider-shortcode/"
+    shodan-query: http.html:"wp-content/plugins/testimonial-slider-shortcode/"
+  name: 'Testimonial Slider Shortcode <= 1.1.8 - Authenticated (Contributor+) Cross-Site
+    Scripting Vulnerability via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/30cb1b8c-84ce-4401-9c30-775efb257fe6?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,testimonial-slider-shortcode,low,candidate

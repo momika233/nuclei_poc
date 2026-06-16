@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wordpress-member-private-conversation
+  - dsl:
+    - compare_versions(version, '< 1.4')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wordpress-member-private-conversation/readme.txt'
+  redirects: true
+id: wordpress_member_private_conversation-f9b67fc9-87a2-4bd6-a45b-fdfe43ce7ed8
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wordpress-member-private-conversation/
+    google-query: inurl:"/wp-content/plugins/wordpress-member-private-conversation/"
+    shodan-query: http.html:"wp-content/plugins/wordpress-member-private-conversation/"
+  name: 'Nmedia WordPress Member Conversation < 1.4 - Arbitrary File Upload
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f9b67fc9-87a2-4bd6-a45b-fdfe43ce7ed8?source=api-scan
+  severity: critical
+  tags: cve,wordpress,wp-plugin,wordpress-member-private-conversation,critical,candidate

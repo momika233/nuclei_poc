@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - tiny-carousel-horizontal-slider
+  - dsl:
+    - compare_versions(version, '<= 8.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/tiny-carousel-horizontal-slider/readme.txt'
+  redirects: true
+id: tiny_carousel_horizontal_slider-d2a3ad97-b4ea-4ad9-ac83-071e56cb8df7
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/tiny-carousel-horizontal-slider/
+    google-query: inurl:"/wp-content/plugins/tiny-carousel-horizontal-slider/"
+    shodan-query: http.html:"wp-content/plugins/tiny-carousel-horizontal-slider/"
+  name: 'Tiny Carousel Horizontal Slider <= 8.1 - Authenticated (Administrator+) Stored
+    Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/d2a3ad97-b4ea-4ad9-ac83-071e56cb8df7?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,tiny-carousel-horizontal-slider,low,candidate

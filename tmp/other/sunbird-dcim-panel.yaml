@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <title>dcTrack - Operations</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/dcim/'
+  stop-at-first-match: true
+id: sunbird-dcim-panel
+info:
+  author: bhutch
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Sunbird DCIM login panel was detected.
+  metadata:
+    max-request: 2
+    shodan-query: http.favicon.hash:781922099
+    verified: true
+  name: Sunbird DCIM - Detect
+  severity: info
+  tags: sunbird,panel,login

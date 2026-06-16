@@ -1,0 +1,70 @@
+dns:
+- matchers:
+  - name: cloudflare
+    type: word
+    words:
+    - dns.cloudflare.com
+  - name: amazon-web-services
+    type: word
+    words:
+    - awsdns
+  - name: akamai
+    type: word
+    words:
+    - hostmaster.akamai.com
+  - name: azure
+    type: word
+    words:
+    - azure-dns.com
+  - name: ns1
+    type: word
+    words:
+    - nsone.net
+  - name: verizon
+    type: word
+    words:
+    - verizon.com
+  - name: google-cloud-platform
+    type: word
+    words:
+    - googledomains.com
+    - google.com
+  - name: alibaba
+    type: word
+    words:
+    - alibabadns.com
+  - name: safeway
+    type: word
+    words:
+    - safeway.com
+  - name: mark-monitor
+    type: word
+    words:
+    - markmonitor.com
+    - markmonitor.zone
+  - name: hetznet
+    type: word
+    words:
+    - hetzner.com
+  - name: edge-cast
+    type: word
+    words:
+    - edgecastdns.net
+  matchers-condition: or
+  name: '{{FQDN}}'
+  type: SOA
+id: soa-detect
+info:
+  author: rxerium
+  description: 'Detects which domain provider a domain is using, detected through
+    SOA records
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: SOA Record Service - Detection
+  reference:
+  - https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/
+  severity: info
+  tags: dns,soa

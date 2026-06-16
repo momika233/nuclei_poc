@@ -1,0 +1,34 @@
+http:
+- matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <title>WebTitan Cloud
+    - alt="WebTitan Cloud Logo
+    - title="WebTitan
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/login.php'
+id: webtitan-cloud-panel
+info:
+  author: ritikchaddha
+  description: 'WebTitan Cloud is a cloud-based web filtering solution that monitors,
+    controls, and protects users and businesses online. It blocks malware, phishing,
+    viruses, ransomware, and malicious sites.
+
+    '
+  metadata:
+    fofa-query: title="WebTitan"
+    max-request: 1
+    product: webtitan
+    shodan-query: http.favicon.hash:1090061843
+    vendor: titanhq
+    verified: true
+  name: WebTitan Cloud Panel - Detect
+  severity: info
+  tags: panel,webtitan,cloud,detect

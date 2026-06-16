@@ -1,0 +1,25 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Trilium Notes setup
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/setup'
+id: trilium-notes-installer
+info:
+  author: DhiyaneshDk
+  description: 'Detects if the Trilium Notes setup page is accessible.
+
+    '
+  metadata:
+    max-request: 1
+    shodan-query: html:"Trilium Notes"
+  name: Trilium Notes Installer - Exposure
+  severity: high
+  tags: trilium,setup,misconfig,installer,vuln

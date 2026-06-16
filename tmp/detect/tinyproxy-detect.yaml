@@ -1,0 +1,33 @@
+http:
+- extractors:
+  - kval:
+    - server
+    type: kval
+  matchers:
+  - case-insensitive: true
+    part: header
+    type: word
+    words:
+    - 'server: tinyproxy'
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: tinyproxy-detect
+info:
+  author: bhutch
+  classification:
+    cpe: cpe:2.3:a:tinyproxy_project:tinyproxy:*:*:*:*:*:*:*:*
+  description: 'Lightweight HTTP/HTTPS proxy daemon for POSIX operating systems
+
+    '
+  metadata:
+    max-request: 1
+    product: tinyproxy
+    shodan-query: 'Server: tinyproxy'
+    vendor: tinyproxy_project
+    verified: true
+  name: Tinyproxy - Detect
+  reference:
+  - https://github.com/tinyproxy/tinyproxy
+  severity: info
+  tags: tech,proxy,detect,discovery

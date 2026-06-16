@@ -1,0 +1,26 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    type: word
+    words:
+    - Installing publication system...
+    - SPIP
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 1
+  method: GET
+  path:
+  - '{{BaseURL}}/ecrire/?exec=install'
+id: spip-install
+info:
+  author: DhiyaneshDK
+  description: SPIP is susceptible to the Installation page exposure due to misconfiguration.
+  metadata:
+    max-request: 1
+    verified: 'true'
+  name: SPIP Install - Exposure
+  severity: high
+  tags: exposure,spip,install,misconfig

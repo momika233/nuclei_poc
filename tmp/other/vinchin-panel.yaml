@@ -1,0 +1,27 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - Vinchin Backup & Recovery
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: vinchin-panel
+info:
+  author: pussycat0x
+  classification:
+    cwe-id: CWE-200
+  description: Vinchin Backup & Recovery login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: html:"VinChin"
+    verified: true
+  name: Vinchin Backup & Recovery Panel - Detect
+  severity: info
+  tags: panel,vinchin,login

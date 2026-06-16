@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains_any(to_lower(body), "zoraxy</title>", "zoraxy.csrf.token")
+    type: dsl
+  method: GET
+  path:
+  - '{{BaseURL}}/web/login.html'
+id: zoraxy-panel
+info:
+  author: righettod
+  description: 'Zoraxy products was detected.
+
+    '
+  metadata:
+    max-request: 1
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Login \\| Zoraxy"})
+    shodan-query: http.title:"Login | Zoraxy"
+    verified: true
+  name: Zoraxy Login Panel - Detect
+  reference:
+  - https://github.com/tobychui/zoraxy
+  - https://zoraxy.aroz.org/
+  severity: info
+  tags: panel,zoraxy,login,discovery

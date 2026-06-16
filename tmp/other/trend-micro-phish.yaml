@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Trend Micro (UK) | Internet Security Antivirus - PC &amp; Mac
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"trendmicro.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: trend-micro-phish
+info:
+  author: rxerium
+  description: 'A trend micro phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: trend micro phishing Detection
+  reference:
+  - https://trendmicro.com
+  severity: info
+  tags: phishing,trend-micro,osint

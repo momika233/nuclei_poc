@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - 'WinSCP :: Official Site :: Free SFTP and FTP client for Windows'
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"winscp.net")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: winscp-phish
+info:
+  author: rxerium
+  description: 'A winscp phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: winscp phishing Detection
+  reference:
+  - https://winscp.net
+  severity: info
+  tags: phishing,winscp,osint

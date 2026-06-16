@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - weekly-schedule
+  - dsl:
+    - compare_versions(version, '< 3.4.3')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/weekly-schedule/readme.txt'
+  redirects: true
+id: weekly_schedule-94f03821-eb33-4eb6-b7ff-b32a74facdd2
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/weekly-schedule/
+    google-query: inurl:"/wp-content/plugins/weekly-schedule/"
+    shodan-query: http.html:"wp-content/plugins/weekly-schedule/"
+  name: 'Weekly Schedule <= 3.4.2 - Stored Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/94f03821-eb33-4eb6-b7ff-b32a74facdd2?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,weekly-schedule,high,candidate

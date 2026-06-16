@@ -1,0 +1,44 @@
+flow: http(1) && http(2)
+http:
+- matchers:
+  - internal: true
+    name: token
+    part: body
+    regex:
+    - ([0-9a-z-]{36})
+    type: regex
+  method: GET
+  path:
+  - '{{BaseURL}}'
+- disable-path-automerge: true
+  extractors:
+  - dsl:
+    - token
+    type: dsl
+  matchers:
+  - condition: and
+    dsl:
+    - status_code == 200
+    - contains(content_type, 'application/json')
+    - contains(body, 'remaining_requests')
+    type: dsl
+  raw:
+  - '@Host: https://app.zenserp.com:443
+
+    GET /api/v2/status HTTP/1.1
+
+    Host: app.zenserp.com
+
+    Apikey: {{token}}
+
+    '
+id: zenserp-api-key
+info:
+  author: ritikchaddha
+  metadata:
+    max-request: 2
+  name: Zenserp Api Key
+  reference:
+  - https://github.com/trufflesecurity/trufflehog/blob/main/pkg/detectors/zenserp/zenserp.go
+  severity: high
+  tags: exposure,token,zenserp,apikey,vuln

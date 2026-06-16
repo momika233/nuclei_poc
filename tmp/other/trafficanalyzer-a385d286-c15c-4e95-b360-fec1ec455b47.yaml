@@ -1,0 +1,45 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - trafficanalyzer
+  - dsl:
+    - compare_versions(version, '<= 3.4.1')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/trafficanalyzer/readme.txt'
+  redirects: true
+id: trafficanalyzer-a385d286-c15c-4e95-b360-fec1ec455b47
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/trafficanalyzer/
+    google-query: inurl:"/wp-content/plugins/trafficanalyzer/"
+    shodan-query: http.html:"wp-content/plugins/trafficanalyzer/"
+  name: 'Traffic Analyzer < 3.4.2 - Cross-Site Scripting
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/a385d286-c15c-4e95-b360-fec1ec455b47?source=api-scan
+  severity: high
+  tags: cve,wordpress,wp-plugin,trafficanalyzer,high,candidate

@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - ultimate-carousel-for-visual-composer
+  - dsl:
+    - compare_versions(version, '<= 2.6')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/ultimate-carousel-for-visual-composer/readme.txt'
+  redirects: true
+id: ultimate_carousel_for_visual_composer-c97fc289-1ee3-4401-a57e-b4c8d998259e
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/ultimate-carousel-for-visual-composer/
+    google-query: inurl:"/wp-content/plugins/ultimate-carousel-for-visual-composer/"
+    shodan-query: http.html:"wp-content/plugins/ultimate-carousel-for-visual-composer/"
+  name: 'Ultimate Carousel For WPBakery Page Builder <= 2.6 - Authenticated (Contributor+)
+    Stored Cross-Site Scripting via Shortcode
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c97fc289-1ee3-4401-a57e-b4c8d998259e?source=api-scan
+  severity: low
+  tags: cve,wordpress,wp-plugin,ultimate-carousel-for-visual-composer,low,candidate

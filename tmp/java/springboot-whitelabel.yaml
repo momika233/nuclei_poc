@@ -1,0 +1,33 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: body
+    type: word
+    words:
+    - <h1>Whitelabel Error Page</h1>
+  - part: header
+    type: word
+    words:
+    - text/html
+  matchers-condition: and
+  max-redirects: 3
+  raw:
+  - 'GET / HTTP/1.1
+
+    Host: {{Hostname}}
+
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+
+    '
+id: springboot-whitelabel
+info:
+  author: Matt Miller
+  metadata:
+    max-request: 1
+    shodan-query: html:"Whitelabel Error Page"
+    verified: true
+  name: SpringBoot WhiteLabel Error Page - Detect
+  reference:
+  - https://codingnconcepts.com/spring-boot/disable-whitelabel-error-page-spring-boot/
+  severity: info
+  tags: tech,spring,springboot,errorpage

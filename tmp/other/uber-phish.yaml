@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - Explore the Uber Platform | Uber
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"uber.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: uber-phish
+info:
+  author: rxerium
+  description: 'A uber phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: uber phishing Detection
+  reference:
+  - https://uber.com
+  severity: info
+  tags: phishing,uber,osint

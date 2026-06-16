@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - type: word
+    words:
+    - "TeamViewer \u2013 The Remote Connectivity Software"
+  - status:
+    - 200
+    type: status
+  - dsl:
+    - '!contains(host,"teamviewer.com")'
+    type: dsl
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: teamviewer-phish
+info:
+  author: rxerium
+  description: 'A teamviewer phishing website was detected
+
+    '
+  metadata:
+    max-request: 1
+  name: teamviewer phishing Detection
+  reference:
+  - https://teamviewer.com
+  severity: info
+  tags: phishing,teamviewer,osint

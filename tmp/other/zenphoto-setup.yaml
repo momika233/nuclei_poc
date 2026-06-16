@@ -1,0 +1,29 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Welcome to Zenphoto! This page will set up Zenphoto
+  method: GET
+  path:
+  - '{{BaseURL}}/zp-core/setup/index.php'
+  - '{{BaseURL}}/zp/zp-core/setup/index.php'
+  - '{{BaseURL}}/gallery/zp-core/setup/index.php'
+  - '{{BaseURL}}/zenphoto/zp-core/setup/index.php'
+  stop-at-first-match: true
+id: zenphoto-setup
+info:
+  author: pdteam
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:H
+    cvss-score: 9.4
+    cwe-id: CWE-284
+  description: Zenphoto setup page before version 1.5 is susceptible to sensitive
+    information disclosure due to misconfiguration.
+  metadata:
+    max-request: 4
+    shodan-query: title:"Zenphoto install"
+    verified: true
+  name: Zenphoto <1.5 Installer - Detect
+  severity: critical
+  tags: misconfig,panel,zenphoto,setup,installer

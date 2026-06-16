@@ -17,6 +17,7 @@ http:
 id: spring-eureka
 info:
   author: tess
+  description: Spring Eureka is exposed.
   metadata:
     max-request: 1
     shodan-query: title:"Eureka"

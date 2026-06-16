@@ -1,0 +1,36 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - Bricks - Visual Website Builder
+  - part: body
+    regex:
+    - Stable tag:([ 0-9.]+)
+    type: regex
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/themes/bricks/readme.txt'
+id: wp-bricks-builder-theme
+info:
+  author: Anonymous
+  classification:
+    cpe: cpe:2.3:a:bricksbuilder:bricks:*:*:*:*:wordpress:*:*:*
+  description: '- Checks for Bricks Builder Theme versions.
+
+    '
+  metadata:
+    max-request: 1
+    product: bricks
+    publicwww-query: /wp-content/themes/bricks/
+    vendor: bricksbuilder
+    verified: true
+  name: WordPress Bricks Builder Theme Version
+  reference:
+  - https://0day.today/exploit/description/39489
+  severity: info
+  tags: wordpress,theme,wp-theme,wp,bricks,discovery

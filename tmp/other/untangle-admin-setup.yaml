@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - <title>Setup Wizard</title>
+    - java.untangle.com
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/setup/setup.do'
+id: untangle-admin-setup
+info:
+  author: ritikchaddha
+  description: Untangle Exposed Admin Signup is exposed publicly.
+  metadata:
+    fofa-query: title="Setup Wizard" && "untangle"
+    max-request: 1
+    shodan-query: title:"Setup Wizard" html:"untangle"
+    verified: true
+  name: Untangle Exposed Admin Signup
+  severity: medium
+  tags: misconfig,untangle,admin,setup

@@ -1,0 +1,18 @@
+id: wp-admin
+info:
+  author: owando
+  name: WordPress Exposed Admin Page
+  reference: https://wpmudev.com/blog/hide-wordpress-login-page/
+  severity: medium
+  tags: panel,wordpress
+requests:
+- matchers:
+  - status:
+    - 302
+    - 200
+    - 301
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-admin/'

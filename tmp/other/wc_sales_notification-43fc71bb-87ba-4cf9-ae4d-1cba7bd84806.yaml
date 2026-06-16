@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    name: version
+    part: body
+    regex:
+    - (?mi)Stable tag:\s*([0-9.]+)
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - wc-sales-notification
+  - dsl:
+    - compare_versions(version, '<= 1.2.2')
+    type: dsl
+  matchers-condition: and
+  max-redirects: 3
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wc-sales-notification/readme.txt'
+  redirects: true
+id: wc_sales_notification-43fc71bb-87ba-4cf9-ae4d-1cba7bd84806
+info:
+  author: topscoder
+  classification:
+    cve-id: null
+    cvss-metrics: null
+    cvss-score: null
+  description: ''
+  metadata:
+    fofa-query: wp-content/plugins/wc-sales-notification/
+    google-query: inurl:"/wp-content/plugins/wc-sales-notification/"
+    shodan-query: http.html:"wp-content/plugins/wc-sales-notification/"
+  name: 'WC Sales Notification <= 1.2.2 - Cross-Site Request Forgery to Arbitrary
+    Plugin Activation
+
+    '
+  reference:
+  - https://github.com/topscoder/nuclei-wordfence-cve
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/43fc71bb-87ba-4cf9-ae4d-1cba7bd84806?source=api-scan
+  severity: medium
+  tags: cve,wordpress,wp-plugin,wc-sales-notification,medium,candidate

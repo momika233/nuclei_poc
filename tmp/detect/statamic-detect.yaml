@@ -1,0 +1,31 @@
+http:
+- host-redirects: true
+  matchers:
+  - part: header
+    regex:
+    - X-Powered-By:(.*)Statamic
+    type: regex
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: statamic-detect
+info:
+  author: geeknik
+  classification:
+    cpe: cpe:2.3:a:statamic:statamic:*:*:*:*:*:*:*:*
+  description: 'Statamic is the flat-first, Laravel + Git powered CMS designed for
+    building beautiful, easy to manage websites.
+
+    '
+  metadata:
+    max-request: 1
+    product: statamic
+    shodan-query: Statamic
+    vendor: statamic
+    verified: true
+  name: Statamic - Detect
+  reference:
+  - https://github.com/statamic/cms
+  severity: info
+  tags: tech,statamic,detect,discovery

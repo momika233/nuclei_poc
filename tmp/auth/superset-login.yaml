@@ -1,0 +1,46 @@
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - '&#34;version_string&#34;:\s+&#34;([0-9a-z\.\-]+)&#34;'
+    type: regex
+  host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - alt="Superset"
+    - <title>Superset</title>
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}/login'
+  stop-at-first-match: true
+id: superset-login
+info:
+  author: DhiyaneshDk,righettod
+  classification:
+    cpe: cpe:2.3:a:apache:superset:*:*:*:*:*:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Apache Superset login panel was detected.
+  metadata:
+    max-request: 2
+    product: superset
+    shodan-query: http.favicon.hash:1582430156
+    vendor: apache
+    verified: true
+  name: Apache Superset Login Panel - Detect
+  severity: info
+  tags: panel,superset,apache

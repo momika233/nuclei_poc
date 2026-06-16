@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Web Viewer for Samsung DVR</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: web-viewer-panel
+info:
+  author: JustaAcat
+  classification:
+    cpe: cpe:2.3:h:samsung:dvr:*:*:*:*:*:*:*:*
+  metadata:
+    max-request: 1
+    product: dvr
+    shodan-query: title:"Web Viewer for Samsung DVR"
+    vendor: samsung
+    verified: true
+  name: Web Viewer for Samsung DVR - Detect
+  severity: info
+  tags: panel,web-viewer,detect,samsung
