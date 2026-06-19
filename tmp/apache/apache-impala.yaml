@@ -1,0 +1,30 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Apache Impala
+    - Process Info
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: apache-impala
+info:
+  author: DhiyaneshDk
+  description: Apache Impala is exposed.
+  metadata:
+    max-request: 1
+    shodan-query: http.favicon.hash:587330928
+    verified: true
+  name: Apache Impala - Exposure
+  reference:
+  - https://www.facebook.com/photo/?fbid=627585602745296&set=pcb.627585619411961
+  severity: medium
+  tags: misconfig,apache,impala

@@ -1,0 +1,36 @@
+id: glpi-installer
+
+info:
+  name: GLPI Installation Page - Exposure
+  author: DhiyaneshDK
+  severity: high
+  description: |
+    Detects exposed GLPI Setup page.
+  reference:
+    - https://glpi-project.org/
+  classification:
+    cpe: cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*
+  metadata:
+    verified: true
+    max-request: 1
+    vendor: glpi-project
+    product: glpi
+    shodan-query: html:"Setup GLPI"
+  tags: misconfig,install,exposure,glpi,vuln
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/install.php"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Setup GLPI"
+
+      - type: status
+        status:
+          - 200
+

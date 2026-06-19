@@ -1,0 +1,30 @@
+id: bitvise-detect
+info:
+  name: SSH Bitvise Service - Detect
+  author: abdullahisik
+  severity: info
+  description: |
+    Bitvise SSH service was detected.
+  reference:
+    - https://www.bitvise.com/
+    - https://vulners.com/openvas/OPENVAS:1361412562310813387
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+    cpe: cpe:/a:bitvise:winsshd,cpe:2.3:a:bitvise:winsshd:*:*:*:*:*:*:*:*
+  metadata:
+    max-request: 1
+    shodan-query: product:"bitvise"
+  tags: bitvise,detect,detection,discovery,network,ssh,tcp
+tcp:
+  - extractors:
+      - regex:
+          - 'SSH([-0-9.]+) FlowSsh: Bitvise ([A-Z a-z()]+) ([0-9.]+)'
+        type: regex
+    host:
+      - '{{Hostname}}'
+    matchers:
+      - regex:
+          - (?i)Bitvise
+        type: regex
+    port: 22
