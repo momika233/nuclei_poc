@@ -1,0 +1,16 @@
+file:
+- extensions:
+  - all
+  extractors:
+  - regex:
+    - https://(?:www.)?hooks\.zapier\.com/hooks/catch/[A-Za-z0-9]+/[A-Za-z0-9]+/
+    type: regex
+id: zapier-webhook
+info:
+  author: Devang-Solanki
+  name: Zapier Webhook
+  reference:
+  - https://github.com/streaak/keyhacks#Zapier-Webhook-Token
+  - https://docs.gitguardian.com/secrets-detection/detectors/specifics/zapier_webhook_url
+  severity: high
+  tags: file,keys,token,zapier

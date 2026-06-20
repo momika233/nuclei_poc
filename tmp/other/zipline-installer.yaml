@@ -1,0 +1,30 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Setup Zipline
+    - Configuration
+    - Create a super-admin account
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/setup'
+id: zipline-installer
+info:
+  author: pussycat0x
+  description: 'Zipline installer setup was detected.
+
+    '
+  metadata:
+    max-request: 1
+    verified: true
+  name: Zipline - Installer
+  reference:
+  - https://zipline.diced.sh/docs/get-started/docker
+  severity: critical
+  tags: misconfig,setup,zipline,installer,vuln

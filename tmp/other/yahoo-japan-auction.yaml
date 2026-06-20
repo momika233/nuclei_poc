@@ -1,0 +1,27 @@
+http:
+- matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    type: word
+    words:
+    - "\u51FA\u54C1\u8005"
+  matchers-condition: and
+  method: GET
+  path:
+  - https://auctions.yahoo.co.jp/follow/list/{{user}}
+id: yahoo-japan-auction
+info:
+  author: dwisiswant0
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: Yahoo! JAPAN Auction user name information check was conducted.
+  metadata:
+    max-request: 1
+  name: Yahoo! JAPAN Auction User Name Information - Detect
+  severity: info
+  tags: osint,osint-shopping,yahoo-japan-auction
+self-contained: true

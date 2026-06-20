@@ -1,0 +1,37 @@
+http:
+- host-redirects: true
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - content="FreshRSS
+    - alt="FreshRSS
+    - About FreshRSS
+    - FreshRSS</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  max-redirects: 2
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: freshrss-panel
+info:
+  author: ritikchaddha
+  classification:
+    cpe: cpe:2.3:a:freshrss:freshrss:*:*:*:*:*:*:*:*
+  description: 'Freshrss panel has been detected.
+
+    '
+  metadata:
+    max-request: 1
+    product: freshrss
+    runzero-match: any(each(service["html.titles"]), {# matches "(?i)Freshrss"})
+    shodan-query: title:"Freshrss"
+    vendor: freshrss
+    verified: true
+  name: Freshrss Panel - Detect
+  severity: info
+  tags: freshrss,panel,detect,discovery
