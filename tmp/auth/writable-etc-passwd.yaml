@@ -1,0 +1,28 @@
+code:
+- engine:
+  - sh
+  - bash
+  matchers:
+  - part: code_1_response
+    type: word
+    words:
+    - Writable
+  - negative: true
+    part: code_1_response
+    type: word
+    words:
+    - Not writable
+  source: '[ -w "/etc/passwd" ] && echo "Writable" || echo "Not writable"
+
+    '
+id: writable-etc-passwd
+info:
+  author: daffainfo
+  metadata:
+    verified: true
+  name: /etc/passwd writable - Privilege Escalation
+  reference:
+  - https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-etc-passwd
+  severity: high
+  tags: code,linux,privesc,local
+self-contained: true

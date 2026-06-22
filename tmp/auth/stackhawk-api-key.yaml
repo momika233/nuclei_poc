@@ -1,0 +1,17 @@
+file:
+- extensions:
+  - all
+  extractors:
+  - regex:
+    - hawk\.[0-9A-Za-z\-_]{20}\.[0-9A-Za-z\-_]{20}
+    type: regex
+id: stackhawk-api-key
+info:
+  author: hazana
+  metadata:
+    verified: 'true'
+  name: StackHawk API Key
+  reference:
+  - https://docs.stackhawk.com/apidocs.html
+  severity: medium
+  tags: token,file
