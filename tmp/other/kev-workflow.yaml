@@ -1,8 +1,0 @@
-id: kev-workflow
-info:
-  author: king-alexander
-  description: This workflow runs the relevant Nuclei templates to detect Known Exploited
-    Vulnerabilities.
-  name: KEV Workflow
-workflows:
-- tags: kev
