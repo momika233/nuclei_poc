@@ -1,0 +1,35 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - <title>Mesos</title>
+    - Apache
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+  - '{{BaseURL}}:5050'
+  stop-at-first-match: true
+id: apache-mesos-panel
+info:
+  author: pikpikcu
+  classification:
+    cpe: cpe:2.3:a:apache:mesos:*:*:*:*:jenkins:*:*:*
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: Apache Mesos panel was detected.
+  metadata:
+    fofa-query: app="APACHE-MESOS"
+    max-request: 2
+    product: mesos
+    shodan-query: http.title:"Mesos"
+    vendor: apache
+    verified: true
+  name: Apache Mesos - Panel Detect
+  severity: info
+  tags: panel,apache,mesos

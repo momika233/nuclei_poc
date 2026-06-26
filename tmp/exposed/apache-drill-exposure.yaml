@@ -1,0 +1,28 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Apache Drill</title>
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
+id: apache-drill-exposure
+info:
+  author: DhiyaneshDK
+  description: Apache Drill is exposed.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Apache Drill"
+    verified: true
+  name: Apache Drill Exposure
+  severity: low
+  tags: misconfig,exposure,apache,drill
