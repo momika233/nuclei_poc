@@ -1,0 +1,26 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - '"ip"'
+    - '"city"'
+    - '"org"'
+    - '"postal"'
+    - '"timezone"'
+  method: GET
+  path:
+  - https://ipinfo.io/?token={{token}}
+id: api-ipinfo
+info:
+  author: 0xpugazh
+  metadata:
+    max-request: 1
+    verified: true
+  name: IPinfo API Test
+  reference:
+  - https://ipinfo.io/developers
+  severity: info
+  tags: token-spray,ipinfo
+self-contained: true

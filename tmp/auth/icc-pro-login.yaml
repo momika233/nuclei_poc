@@ -1,0 +1,33 @@
+http:
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Login to ICC PRO system</title>
+  - part: header
+    type: word
+    words:
+    - text/html
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/Account/Login'
+id: icc-pro-login
+info:
+  author: DhiyaneshDk
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+  description: ICC PRO login panel was detected.
+  metadata:
+    max-request: 1
+    shodan-query: title:"Login to ICC PRO system"
+    verified: true
+  name: ICC PRO Login Panel - Detect
+  reference:
+  - https://www.exploit-db.com/ghdb/7980
+  severity: info
+  tags: panel,icc-pro,edb
