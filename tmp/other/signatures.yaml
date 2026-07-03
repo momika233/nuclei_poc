@@ -1,0 +1,1649 @@
+id: cms_made_simple
+
+info:
+  name: cms_made_simple_version_fingerprint
+  severity: info
+  author: glatisant & erwan
+
+requests:
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/doc/CHANGELOG.txt"
+
+    matchers:
+      - type: dsl
+        name: 1.9.4.3
+        dsl:
+          - "(\"4a644c95913c1b7ec49c3079d07d6ddb\" == md5(body))"
+      - type: dsl
+        name: 1.9.4.2
+        dsl:
+          - "(\"82003bfca0fab4553070a89f4096867f\" == md5(body))"
+      - type: dsl
+        name: 1.9.4.1
+        dsl:
+          - "(\"16ec2e9ce36db5bddfbd07a737ac4374\" == md5(body))"
+      - type: dsl
+        name: 1.9.4
+        dsl:
+          - "(\"4da5a7f41e9dd30def84b3de2bef4b25\" == md5(body))"
+      - type: dsl
+        name: 1.9.3
+        dsl:
+          - "(\"ae4b152e4756fa08b9f47dcf9366f19c\" == md5(body))"
+      - type: dsl
+        name: 1.9.2
+        dsl:
+          - "(\"d5aa9ef73e44aeb547e2788e32982167\" == md5(body))"
+      - type: dsl
+        name: 1.9.1
+        dsl:
+          - "(\"43011bb989894943dbf156ae5d0bfb68\" == md5(body))"
+      - type: dsl
+        name: 1.9
+        dsl:
+          - "(\"3c0f605b6cf63b2b9455d4bf20026378\" == md5(body))"
+      - type: dsl
+        name: 1.8.2
+        dsl:
+          - "(\"3892c7697c2112312d7b1f8189ae2dad\" == md5(body))"
+      - type: dsl
+        name: 1.8.1
+        dsl:
+          - "(\"bc9fe86d112ce21aaeb6207d0bdaef4b\" == md5(body))"
+      - type: dsl
+        name: 1.8
+        dsl:
+          - "(\"b0617b419e6483b6c291fb31b23cd23b\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"74147da47a3a6e90372e62ab6fc3892e\" == md5(body))"
+      - type: dsl
+        name: 1.7
+        dsl:
+          - "(\"fd3eb44235a310b2ebb0bbc7a52a585d\" == md5(body))"
+      - type: dsl
+        name: 1.6.9
+        dsl:
+          - "(\"1226ae95d60f858c3e36be74c77e5213\" == md5(body))"
+      - type: dsl
+        name: 1.6.8
+        dsl:
+          - "(\"49df03c195d05cec363c92bcb329efc3\" == md5(body))"
+      - type: dsl
+        name: 1.6.7
+        dsl:
+          - "(\"5588288b0ff7a34ecc4f66fe2e8ff07e\" == md5(body))"
+      - type: dsl
+        name: 1.6.6
+        dsl:
+          - "(\"bf9cbd0f460ca957421b32e24a7303a3\" == md5(body))"
+      - type: dsl
+        name: 1.6.5
+        dsl:
+          - "(\"05c2eb7c95b332596cc3a63a32bc8e9e\" == md5(body))"
+      - type: dsl
+        name: 1.6.4
+        dsl:
+          - "(\"2ddcc727bfd3aa56201a0874114c2ac5\" == md5(body))"
+      - type: dsl
+        name: 1.6.3
+        dsl:
+          - "(\"fe0c40b041b0f1adf917632a01f9a30c\" == md5(body))"
+      - type: dsl
+        name: 1.6.2
+        dsl:
+          - "(\"f6c92b75dca3603331e007a14bdd35a9\" == md5(body))"
+      - type: dsl
+        name: 1.6.10
+        dsl:
+          - "(\"b7e66fbc9dddf61cfe7249c499075576\" == md5(body))"
+      - type: dsl
+        name: 1.6.1
+        dsl:
+          - "(\"9e5c0be654947e26952722dcbd0ed5ce\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"1be4121bec271ab2320a49dcfd6b5793\" == md5(body))"
+      - type: dsl
+        name: 1.5.4
+        dsl:
+          - "(\"4091686177d3d9c603febcdb465fd2fc\" == md5(body))"
+      - type: dsl
+        name: 1.5.3
+        dsl:
+          - "(\"74b4c5a298dffccc27b353686267e756\" == md5(body))"
+      - type: dsl
+        name: 1.5.2
+        dsl:
+          - "(\"f10a5faa94d83ce32a31c78e3852ce2e\" == md5(body))"
+      - type: dsl
+        name: 1.5.1
+        dsl:
+          - "(\"40512d650b2e9212d6781998e1b3bf2e\" == md5(body))"
+      - type: dsl
+        name: 1.5
+        dsl:
+          - "(\"191998371c0479a12759c7df64bc9285\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"e7aa2cf03749d843d16923f8d9161018\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"389d3a637b0259a9922e7c316aa60607\" == md5(body))"
+      - type: dsl
+        name: 1.3.1
+        dsl:
+          - "(\"faa5e946ade6441519c27ea588896acc\" == md5(body))"
+      - type: dsl
+        name: 1.3
+        dsl:
+          - "(\"973256770c0a501e7e799fbf908f4bbb\" == md5(body))"
+      - type: dsl
+        name: 1.2.5
+        dsl:
+          - "(\"ee39dc74de8205b72f191b5de5852718\" == md5(body))"
+      - type: dsl
+        name: 1.2.4
+        dsl:
+          - "(\"90103e6fb490f818b4f96c01d95e2178\" == md5(body))"
+      - type: dsl
+        name: 1.2.3
+        dsl:
+          - "(\"e6eca8d548a04988caba956cb75292d0\" == md5(body))"
+      - type: dsl
+        name: 1.2.2
+        dsl:
+          - "(\"8f2d5b49f4a4557abb265863150547e5\" == md5(body))"
+      - type: dsl
+        name: 1.2.1
+        dsl:
+          - "(\"a705220475119ea6a010b78e82eae052\" == md5(body))"
+      - type: dsl
+        name: 1.2
+        dsl:
+          - "(\"e473bcd0f5ce7dedf9fb9ed53bc87542\" == md5(body))"
+      - type: dsl
+        name: 1.12.2
+        dsl:
+          - "(\"db870c5ec70c659cdef933d9eb6edc91\" == md5(body))"
+      - type: dsl
+        name: 1.12.1
+        dsl:
+          - "(\"1368e93614c57a5a67ac3c730b3b14ab\" == md5(body))"
+      - type: dsl
+        name: 1.12
+        dsl:
+          - "(\"ab62b4c4751d85698a456af25e76cce8\" == md5(body))"
+      - type: dsl
+        name: 1.11.9
+        dsl:
+          - "(\"e4fdb199a0e5d14c4c886201e8f01049\" == md5(body))"
+      - type: dsl
+        name: 1.11.8
+        dsl:
+          - "(\"b45a6e34ccd643b57905d84caae00671\" == md5(body))"
+      - type: dsl
+        name: 1.11.7
+        dsl:
+          - "(\"129d1e61abb4ba0c52d4c8d58f517db7\" == md5(body))"
+      - type: dsl
+        name: 1.11.6
+        dsl:
+          - "(\"63396c111d1fb25341846d0e0d2ff6e7\" == md5(body))"
+      - type: dsl
+        name: 1.11.5
+        dsl:
+          - "(\"c5ef5354eedd6fe58a0b64a20d156ee9\" == md5(body))"
+      - type: dsl
+        name: 1.11.4
+        dsl:
+          - "(\"1b94baef572cc898d577553112f7d7f8\" == md5(body))"
+      - type: dsl
+        name: 1.11.3
+        dsl:
+          - "(\"6fd4e1851fcba0fd02ccf3e1e53b9131\" == md5(body))"
+      - type: dsl
+        name: 1.11.2.1
+        dsl:
+          - "(\"48c51a2f5a91dab89234da29509b2b7f\" == md5(body))"
+      - type: dsl
+        name: 1.11.2
+        dsl:
+          - "(\"a2d56ffbdb30968ff751eb1a2d350190\" == md5(body))"
+      - type: dsl
+        name: 1.11.13
+        dsl:
+          - "(\"48f7177ebc9586ee3a61921d8b78e0ea\" == md5(body))"
+      - type: dsl
+        name: 1.11.12
+        dsl:
+          - "(\"a3b9f5cd6717242a39f00518c1472e5c\" == md5(body))"
+      - type: dsl
+        name: 1.11.11
+        dsl:
+          - "(\"6d524bdf6a6097aac5067daeeb6c9140\" == md5(body))"
+      - type: dsl
+        name: 1.11.10
+        dsl:
+          - "(\"3d1593aa792660e07d8e6b081e655e65\" == md5(body))"
+      - type: dsl
+        name: 1.11.1
+        dsl:
+          - "(\"f9d8637d5c0a4447effc37605a26847b\" == md5(body))"
+      - type: dsl
+        name: 1.11
+        dsl:
+          - "(\"f102075ea9bb57333b1f9519902e584f\" == md5(body))"
+      - type: dsl
+        name: 1.10.3
+        dsl:
+          - "(\"a982daa17272b51ff52b2d2b276ef7c6\" == md5(body))"
+      - type: dsl
+        name: 1.10.2
+        dsl:
+          - "(\"245d4f314095b437a02e50eedf5d059d\" == md5(body))"
+      - type: dsl
+        name: 1.10.1
+        dsl:
+          - "(\"5fb55c566d518ec6a8938708edcbd607\" == md5(body))"
+      - type: dsl
+        name: 1.10
+        dsl:
+          - "(\"062d4544d1104b7b052189e5bc8f7d36\" == md5(body))"
+      - type: dsl
+        name: 1.1.4.1
+        dsl:
+          - "(\"12e602e8508f27f3ae865a587e684236\" == md5(body))"
+      - type: dsl
+        name: 1.1.3.1
+        dsl:
+          - "(\"f3e3acd664b3976cd5cd7cf73b40d35c\" == md5(body))"
+      - type: dsl
+        name: 1.1.2
+        dsl:
+          - "(\"8ad9a9fd57f455aa0d805804fd770c7b\" == md5(body))"
+      - type: dsl
+        name: 1.1.1
+        dsl:
+          - "(\"32f1ff7f667fc64130d7310db45e6de6\" == md5(body))"
+      - type: dsl
+        name: 1.1
+        dsl:
+          - "(\"878244f4fa0c87b64c6e151f057a2728\" == md5(body))"
+      - type: dsl
+        name: 1.0.8
+        dsl:
+          - "(\"64fad296e519df635f6294852eed888f\" == md5(body))"
+      - type: dsl
+        name: 1.0.7
+        dsl:
+          - "(\"20a37630c908e5a07986e8f0299cb9c4\" == md5(body))"
+      - type: dsl
+        name: 1.0.6
+        dsl:
+          - "(\"a9ec29a62798f048343c6a139934f127\" == md5(body))"
+      - type: dsl
+        name: 1.0.5
+        dsl:
+          - "(\"17fd11ad3d749816ccfe6517a4c55ddf\" == md5(body))"
+      - type: dsl
+        name: 1.0.4
+        dsl:
+          - "(\"2414d386f0f09f4965018ab95eb18853\" == md5(body))"
+      - type: dsl
+        name: 1.0.3
+        dsl:
+          - "(\"4fa17f5508a51e37360c92394282749e\" == md5(body))"
+      - type: dsl
+        name: 1.0.2
+        dsl:
+          - "(\"c6e5f6470b35fe20d6c01b145053de0b\" == md5(body))"
+      - type: dsl
+        name: 1.0.1
+        dsl:
+          - "(\"da322afd87536e14aad804b9f8ccc0f0\" == md5(body))"
+      - type: dsl
+        name: 1.0
+        dsl:
+          - "(\"072d546fc3e6ef83e019b61e494c579f\" == md5(body))"
+      - type: dsl
+        name: 0.13
+        dsl:
+          - "(\"47d86bb74ed4d1bd7abbcdd541bd7592\" == md5(body))"
+      - type: dsl
+        name: 0.12.2
+        dsl:
+          - "(\"bbde4ddc64ec12b7f6d2863376d9e5c1\" == md5(body))"
+      - type: dsl
+        name: 0.12.1
+        dsl:
+          - "(\"7327e49342238a2669e2fc57f6f006f7\" == md5(body))"
+      - type: dsl
+        name: 0.12
+        dsl:
+          - "(\"9be4ab2df4d22265d02bcd4eb70dd380\" == md5(body))"
+      - type: dsl
+        name: 0.11.2
+        dsl:
+          - "(\"2adc64c85399002cd46163d34f2dee1d\" == md5(body))"
+      - type: dsl
+        name: 0.11.1
+        dsl:
+          - "(\"dc2b02fa20bf53fd95ac2f762dd784c7\" == md5(body))"
+      - type: dsl
+        name: 0.11
+        dsl:
+          - "(\"fb29436d6182660749f45ceae884d4ba\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/templates/changelog.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.9.3 - 1.9.4.3
+        dsl:
+          - "(\"4d904f498368b5d6a5fc0d9505cea850\" == md5(body))"
+      - type: dsl
+        name: 1.9.2
+        dsl:
+          - "(\"209d8770a52e82a0e840899cd557194e\" == md5(body))"
+      - type: dsl
+        name: 1.9.1
+        dsl:
+          - "(\"c3ab8644500b75f2b06c31bec9f5eede\" == md5(body))"
+      - type: dsl
+        name: 1.9
+        dsl:
+          - "(\"c6fe3bf78479f80e91c9f749bc453ea1\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"e256d6a5097edd2e90a9df3741d728b9\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"d3ca4c9a4727d03867c88a4e3ea63a28\" == md5(body))"
+      - type: dsl
+        name: 1.7
+        dsl:
+          - "(\"3c6829cf5407330bc6bd33459643b15f\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.6.10
+        dsl:
+          - "(\"4ab7db638787e7a2e835963f83265086\" == md5(body))"
+      - type: dsl
+        name: 1.6.6
+        dsl:
+          - "(\"81b7dfa39c539388e6487c2c02a574fa\" == md5(body))"
+      - type: dsl
+        name: 1.6.5
+        dsl:
+          - "(\"3b6d33343c7e485ceee86af648f3712a\" == md5(body))"
+      - type: dsl
+        name: 1.6.4
+        dsl:
+          - "(\"ef8a8e9a961eb71ca69fe6c65272d798\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.3
+        dsl:
+          - "(\"0eaa3eee965d67a74090fe5e19c95053\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"b7a906ce7d095d7be7894da43c948d9e\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"d6e9cad0b0a1f892579c718c9e7e8287\" == md5(body))"
+      - type: dsl
+        name: 1.5.2
+        dsl:
+          - "(\"f69692169ece6529963f07cac0511682\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.1
+        dsl:
+          - "(\"5eb482032112746d91685203278cd254\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"11546c9de9731dab55df3690bbda5392\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"a6e1a3bd63225bd3cdc3a6635e55a995\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/News/changelog.inc"
+
+    matchers:
+      - type: dsl
+        name: 1.9.4.3
+        dsl:
+          - "(\"3779b87953a1eb3450fc5f73f331b41d\" == md5(body))"
+      - type: dsl
+        name: 1.9.4.2
+        dsl:
+          - "(\"f34bd3d556e32515f36b0c869b52157d\" == md5(body))"
+      - type: dsl
+        name: 1.9.4 - 1.9.4.1
+        dsl:
+          - "(\"5464cb1788cd2cb17053b8b5f034cbd3\" == md5(body))"
+      - type: dsl
+        name: 1.9.3
+        dsl:
+          - "(\"40af57edca8d457d2e54c49e309d025a\" == md5(body))"
+      - type: dsl
+        name: 1.7.1 - 1.9.2
+        dsl:
+          - "(\"28a104c9b7c98815129fb66e910446c2\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.7
+        dsl:
+          - "(\"1e862e59ff1cc1e6fab9853ba97749ca\" == md5(body))"
+      - type: dsl
+        name: 1.6.5 - 1.6.6
+        dsl:
+          - "(\"47631415ccb2a12e90866ab1463e6ab4\" == md5(body))"
+      - type: dsl
+        name: 1.6.2 - 1.6.4
+        dsl:
+          - "(\"2eb4b36907600abd73661a5591e3bef9\" == md5(body))"
+      - type: dsl
+        name: 1.6.10
+        dsl:
+          - "(\"9be0b93eea1677e2bb35602484976ac2\" == md5(body))"
+      - type: dsl
+        name: 1.6.1
+        dsl:
+          - "(\"3656b8f18e2563ec213b09a4937cc12f\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"51982bd7d2b3502f555ff1e35719655e\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"bb5f4f0465eab2ec14a04f9f12f69369\" == md5(body))"
+      - type: dsl
+        name: 1.5.2
+        dsl:
+          - "(\"d73d930b0bed7ac1e57cd25d1c85cc98\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.1
+        dsl:
+          - "(\"a841e2e9268f4275f76943cef91ddf29\" == md5(body))"
+      - type: dsl
+        name: 1.12 - 1.12.2
+        dsl:
+          - "(\"589fb129900facfc56da77194f3a9e7b\" == md5(body))"
+      - type: dsl
+        name: 1.11.5 - 1.11.9
+        dsl:
+          - "(\"38b5fde0c6cef6ce11be831c59968528\" == md5(body))"
+      - type: dsl
+        name: 1.11.2 - 1.11.4
+        dsl:
+          - "(\"d79433ed6762b947157c33a4de59b5c5\" == md5(body))"
+      - type: dsl
+        name: 1.11.13
+        dsl:
+          - "(\"ad39b4589345610e2fcb75d6d3f0e282\" == md5(body))"
+      - type: dsl
+        name: 1.11.11 - 1.11.12
+        dsl:
+          - "(\"f5f5030fc2e19613bbc6127fdc4b0bdd\" == md5(body))"
+      - type: dsl
+        name: 1.11.10
+        dsl:
+          - "(\"83920941e2d4433f15edc4af0d18b682\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.11.1
+        dsl:
+          - "(\"404c5ad0ec1c4868c1512da7801f87c0\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/schemas/extra.sql"
+
+    matchers:
+      - type: dsl
+        name: 1.9.1 - 1.9.4.3
+        dsl:
+          - "(\"2a5ae6072463bcedd80efe922382675d\" == md5(body))"
+      - type: dsl
+        name: 1.9
+        dsl:
+          - "(\"92c08bb7a9751d0fa26dea768bac1511\" == md5(body))"
+      - type: dsl
+        name: 1.8.1 - 1.8.2
+        dsl:
+          - "(\"2e644a0c55f0bcb9bd31957f3ac1aa52\" == md5(body))"
+      - type: dsl
+        name: 1.8
+        dsl:
+          - "(\"6074b76e4994200f13ca791d79262621\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"e4c4db06f61e18ccd780d2eafb587ab4\" == md5(body))"
+      - type: dsl
+        name: 1.6.6 - 1.7
+        dsl:
+          - "(\"895c36ae45068e9f490652ecd7fa12c3\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.5
+        dsl:
+          - "(\"adbf6891e5db33b5f3a7de7885117b45\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"9c66f5ce9a3a3084cd4d3d99a1e040ab\" == md5(body))"
+      - type: dsl
+        name: 1.5.4
+        dsl:
+          - "(\"bb2bd7473293c2cc5a97cbde0dfb63ca\" == md5(body))"
+      - type: dsl
+        name: 1.5.3
+        dsl:
+          - "(\"f731804de420926d30eae6627bd23105\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.2
+        dsl:
+          - "(\"139adc2384ad93ca5023eb526e81aa2d\" == md5(body))"
+      - type: dsl
+        name: 1.4 - 1.4.1
+        dsl:
+          - "(\"4b846c8fb771af9a03d92ee97f1a9abd\" == md5(body))"
+      - type: dsl
+        name: 1.2 - 1.3.1
+        dsl:
+          - "(\"fc93df5ee3381ed73fb19243a693f01b\" == md5(body))"
+      - type: dsl
+        name: 1.11.8 - 1.12.2
+        dsl:
+          - "(\"611a20e3f5ff89b034c7b72b3daf874f\" == md5(body))"
+      - type: dsl
+        name: 1.11.6 - 1.11.7
+        dsl:
+          - "(\"4cf748aa5bb2d4a46f8a44f00a518f89\" == md5(body))"
+      - type: dsl
+        name: 1.11.3 - 1.11.5
+        dsl:
+          - "(\"b2c2826fad791bd5a27aa1559295c521\" == md5(body))"
+      - type: dsl
+        name: 1.11.2 - 1.11.2.1
+        dsl:
+          - "(\"b0d7a5e07ec0400fdb18c792f3e38bfa\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.11.1
+        dsl:
+          - "(\"bade977ce549c5e5af7ab4822ca474fe\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.10.3
+        dsl:
+          - "(\"009f9657a0f31e4dad64eb90b7be3b9c\" == md5(body))"
+      - type: dsl
+        name: 1.1 - 1.1.4.1
+        dsl:
+          - "(\"405153e142569db1013c4f51d6e86f85\" == md5(body))"
+      - type: dsl
+        name: 1.0.5 - 1.0.8
+        dsl:
+          - "(\"10f730da008c5e1f4caffb0b7d0a9dc8\" == md5(body))"
+      - type: dsl
+        name: 1.0.3 - 1.0.4
+        dsl:
+          - "(\"c0d1edaa0d9288d2ef7433605a395517\" == md5(body))"
+      - type: dsl
+        name: 1.0.2
+        dsl:
+          - "(\"9a6adab0645e675e256c1c71295f22e1\" == md5(body))"
+      - type: dsl
+        name: 1.0 - 1.0.1
+        dsl:
+          - "(\"dfd231f3b1db45f97e457c163814771b\" == md5(body))"
+      - type: dsl
+        name: 0.13
+        dsl:
+          - "(\"8e40acf54835a563a78eaa66a1eccc0a\" == md5(body))"
+      - type: dsl
+        name: 0.12 - 0.12.2
+        dsl:
+          - "(\"dfa5ea055630cf9a10b29b76d4e3a0ef\" == md5(body))"
+      - type: dsl
+        name: 0.11 - 0.11.2
+        dsl:
+          - "(\"28cf6db7d033153ae2a6aa45596e750f\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/schemas/initial.sql"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"3e38fd590270cb7636eae0fce99010fb\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"a298596e83870ee74493304ecd00f97a\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"5e51ee1366084ab06ce1f4e7cae9637d\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.7
+        dsl:
+          - "(\"0b1c44bdc9cdbf29c4270d2849b7c4a3\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"edacb62afda24c690c527f2f1e0c54d3\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"f59f3fc10dd6eaf6f461b7e2598dcb0c\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.2
+        dsl:
+          - "(\"345ed52b4f13710163aeb43e3f8b80b9\" == md5(body))"
+      - type: dsl
+        name: 1.4 - 1.4.1
+        dsl:
+          - "(\"b0c3a2224f173f9884c683abfb470396\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"a08250bb8f0dec3d5a257a73c5b11ec4\" == md5(body))"
+      - type: dsl
+        name: 1.2 - 1.2.5
+        dsl:
+          - "(\"5abf4f976b3b1c7d63c40221cc8afe1c\" == md5(body))"
+      - type: dsl
+        name: 1.11.8 - 1.12.2
+        dsl:
+          - "(\"d4059867606889e0adf1aaeed596c984\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.11.7
+        dsl:
+          - "(\"e0994f695323c838b2a301044fe6bd03\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.10.3
+        dsl:
+          - "(\"776a4ff78084ae7d6dc572c9fef79ef7\" == md5(body))"
+      - type: dsl
+        name: 1.1 - 1.1.4.1
+        dsl:
+          - "(\"7fe16326973d14046a4ded487dc4c2e8\" == md5(body))"
+      - type: dsl
+        name: 1.0.5 - 1.0.8
+        dsl:
+          - "(\"d0c5b077cb71334017a8907130b41dd7\" == md5(body))"
+      - type: dsl
+        name: 1.0.3 - 1.0.4
+        dsl:
+          - "(\"347336fe037634c7b1de8a2b2054db93\" == md5(body))"
+      - type: dsl
+        name: 1.0.2
+        dsl:
+          - "(\"16dd46fa1d54a5d5999a4dc954f76c8c\" == md5(body))"
+      - type: dsl
+        name: 1.0 - 1.0.1
+        dsl:
+          - "(\"957624048c3ca4f09d2fcd32168bc151\" == md5(body))"
+      - type: dsl
+        name: 0.13
+        dsl:
+          - "(\"c61766ce1981a956dba4b94302e696f0\" == md5(body))"
+      - type: dsl
+        name: 0.12.1 - 0.12.2
+        dsl:
+          - "(\"fa4baa5f471e2a102d542ce528fb331f\" == md5(body))"
+      - type: dsl
+        name: 0.12
+        dsl:
+          - "(\"fb936049fc4fd1315cb00f56ab41ff13\" == md5(body))"
+      - type: dsl
+        name: 0.11.2
+        dsl:
+          - "(\"e0e483b2e8ea4373fd1bd8f9a709ee95\" == md5(body))"
+      - type: dsl
+        name: 0.11.1
+        dsl:
+          - "(\"c690b8960b889767f618abb3b287b678\" == md5(body))"
+      - type: dsl
+        name: 0.11
+        dsl:
+          - "(\"0ce7f084227083fe3d98035cb35b97dc\" == md5(body))"
+      - type: dsl
+        name: 0.10.3 - 0.10.4
+        dsl:
+          - "(\"a1527d0e44edf049d849520bd341cc26\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/MicroTiny/templates/microtinyconfig.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.11.13 - 1.12.2
+        dsl:
+          - "(\"31ef933f30d838df79438be8e49e521d\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.11.9
+        dsl:
+          - "(\"39afb2b5d14aa15f02e4c5289eeed1db\" == md5(body))"
+      - type: dsl
+        name: 1.11.12
+        dsl:
+          - "(\"8fe09279af764671272653b9b6116f93\" == md5(body))"
+      - type: dsl
+        name: 1.11.11
+        dsl:
+          - "(\"fb24ff10e628f1b723e5d73fb4376289\" == md5(body))"
+      - type: dsl
+        name: 1.11.10
+        dsl:
+          - "(\"a8b785e17c83133c1d4af4e601cbc3e0\" == md5(body))"
+      - type: dsl
+        name: 1.10.3
+        dsl:
+          - "(\"54dffe8937a5c0a1b7ba73f789a74e3d\" == md5(body))"
+      - type: dsl
+        name: 1.10.1 - 1.10.2
+        dsl:
+          - "(\"47ba31c328027dc21b78c41b2393ce58\" == md5(body))"
+      - type: dsl
+        name: 1.10
+        dsl:
+          - "(\"d10a819de0f4f143ec31e29ccb5d2e15\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/tinymce/jscripts/tiny_mce/tiny_mce.js"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"df792ddce1e2e4d68146751758d156a7\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"a6c24549800937d4d792b4376d4afd94\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"30406416b236edf5f9423e56ab09aa20\" == md5(body))"
+      - type: dsl
+        name: 1.7
+        dsl:
+          - "(\"487b6ed759965914cb1c3b522152f0b6\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.6.10
+        dsl:
+          - "(\"d2335654103b5101ebe619d47ad67d68\" == md5(body))"
+      - type: dsl
+        name: 1.6.5 - 1.6.6
+        dsl:
+          - "(\"10ab9d53eeee67e965758659fed1f8aa\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.4
+        dsl:
+          - "(\"a2ab08e402c47c4745a9853cc813e3a7\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"c05c31e09f53819fe3ffe4d2b921ed4d\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.4
+        dsl:
+          - "(\"d5ad45a5d077883ade1df6442160189b\" == md5(body))"
+      - type: dsl
+        name: 1.4 - 1.4.1
+        dsl:
+          - "(\"35f98a53dd50907c60b872213da50deb\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"22ec54dae52f8203c6d9f61198a2f3cf\" == md5(body))"
+      - type: dsl
+        name: 1.1.1 - 1.2.5
+        dsl:
+          - "(\"3eb8811087d12da532f336c7d58f3bc0\" == md5(body))"
+      - type: dsl
+        name: 1.1
+        dsl:
+          - "(\"07d06a23234895a9de3d6bb77d4c488b\" == md5(body))"
+      - type: dsl
+        name: 0.10.3 - 0.10.4
+        dsl:
+          - "(\"7ec7ed82727c24c84b1051b7d3328086\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/doc/htaccess.txt"
+
+    matchers:
+      - type: dsl
+        name: 1.9.3 - 1.9.4.3
+        dsl:
+          - "(\"003e074f9fceaa4bd45c6e20b1d83de4\" == md5(body))"
+      - type: dsl
+        name: 1.9 - 1.9.2
+        dsl:
+          - "(\"ec04c842bef7bf2cf7cbb9083d8bacf6\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"91899e4c1bb144b2b8d039f0777e84cc\" == md5(body))"
+      - type: dsl
+        name: 1.6.6 - 1.7.1
+        dsl:
+          - "(\"38fc563603503a3d77a7e36a62059bc9\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.6.5
+        dsl:
+          - "(\"7374741d00c0b4d0229be07230ed01ca\" == md5(body))"
+      - type: dsl
+        name: 1.5.2 - 1.5.4
+        dsl:
+          - "(\"843c6868f5bd084a4a4009703dcad42d\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.1
+        dsl:
+          - "(\"163dc24dc1bd436f07c65dbad32b75dd\" == md5(body))"
+      - type: dsl
+        name: 1.4 - 1.4.1
+        dsl:
+          - "(\"0dfdc94cb03f1015e40ff70f08e64239\" == md5(body))"
+      - type: dsl
+        name: 0.13 - 1.3.1
+        dsl:
+          - "(\"a31082af74565bf08f8764bf20bcaf89\" == md5(body))"
+      - type: dsl
+        name: 1.12.1 - 1.12.2
+        dsl:
+          - "(\"0851217ac1108f76ae49f16ea5dc7911\" == md5(body))"
+      - type: dsl
+        name: 1.11.13 - 1.12
+        dsl:
+          - "(\"b6e7722e3981a25bb31560ce96130b81\" == md5(body))"
+      - type: dsl
+        name: 1.11.8 - 1.11.11
+        dsl:
+          - "(\"4be101ab5240f5d7cb029eada7e120c0\" == md5(body))"
+      - type: dsl
+        name: 1.11.7
+        dsl:
+          - "(\"23654fad30b9fa1a72ac629eda7b4255\" == md5(body))"
+      - type: dsl
+        name: 1.11.6
+        dsl:
+          - "(\"f0c53cb4e1f3bff237600246d2aa5592\" == md5(body))"
+      - type: dsl
+        name: 1.11.5
+        dsl:
+          - "(\"ddeb960dac90323ff7eb2adf077c7926\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.11.4
+        dsl:
+          - "(\"8909c5eb8d972c57b2dd3813aa6a56f9\" == md5(body))"
+      - type: dsl
+        name: 1.11.12
+        dsl:
+          - "(\"7c92df2d730ffc811d7436deee50ac88\" == md5(body))"
+      - type: dsl
+        name: 0.11 - 0.12.2
+        dsl:
+          - "(\"b25c6c30a57ccacf1fbc2f9d05f15a41\" == md5(body))"
+      - type: dsl
+        name: 0.10.3 - 0.10.4
+        dsl:
+          - "(\"51c71feea8083907375b4dab886cb1dc\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin/themes/NCleanGrey/css/style-rtl.css"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"0e63108e667a39a7722d781baf070d50\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.8.2
+        dsl:
+          - "(\"13f34190037e220ba135b61024dca2a8\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"01731e662c0070de9a756e5cddad9a69\" == md5(body))"
+      - type: dsl
+        name: 1.5.1 - 1.5.2
+        dsl:
+          - "(\"b838e1b6401c01610e4d71fa69f7ec65\" == md5(body))"
+      - type: dsl
+        name: 1.5
+        dsl:
+          - "(\"374167f9da7e4b5e0f5393ddf14e7d67\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"e772159c95ca0f34cfe5c94eacfcc0c2\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"d4fdb2ef2429b371d90c75d811e686eb\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"8b8a06ab60dd662ff8bfd3d08495a8a2\" == md5(body))"
+      - type: dsl
+        name: 1.12 - 1.12.2
+        dsl:
+          - "(\"dce99a16945985f68f195c6cbcf4e1db\" == md5(body))"
+      - type: dsl
+        name: 1.11.2 - 1.11.13
+        dsl:
+          - "(\"345f4d20dd1ca5dd16ba4f4f5cb3fd4e\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.11.1
+        dsl:
+          - "(\"25545a824ba7177b349777e43a52c2bb\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.10.3
+        dsl:
+          - "(\"017ef9c93c9d42258eff4c5f11479b3f\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin/themes/NCleanGrey/css/ie6.css"
+
+    matchers:
+      - type: dsl
+        name: 1.6 - 1.9.4.3
+        dsl:
+          - "(\"6d4d535b97e465292cfb1e7ac9f31bd3\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"3289df1b1ef717a3d07acc48253c6c8f\" == md5(body))"
+      - type: dsl
+        name: 1.5.1 - 1.5.2
+        dsl:
+          - "(\"f65ae8dafb12c84bb57e39884eaebc1d\" == md5(body))"
+      - type: dsl
+        name: 1.5
+        dsl:
+          - "(\"7d2e90b425655f5f21481b96ed4289d7\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"6428f490b33b34491e92f486d5ba3b39\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"dd6d8421b90f3f908f54e007ca6d50f4\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin/themes/NCleanGrey/css/style.css"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"12480258e4271b70d06dea09b86b3bc4\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.8.2
+        dsl:
+          - "(\"bac5c617138c494b5cd0dae8f3c005eb\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"4dedd213aa410196cbaf2de23247ff5c\" == md5(body))"
+      - type: dsl
+        name: 1.5.1 - 1.5.2
+        dsl:
+          - "(\"783155da227e2e28d5f91008fa9374c5\" == md5(body))"
+      - type: dsl
+        name: 1.5
+        dsl:
+          - "(\"71481898a8e6224ee652488d5c9e35ac\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"e772159c95ca0f34cfe5c94eacfcc0c2\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"d4fdb2ef2429b371d90c75d811e686eb\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"8b8a06ab60dd662ff8bfd3d08495a8a2\" == md5(body))"
+      - type: dsl
+        name: 1.12 - 1.12.2
+        dsl:
+          - "(\"47128cefcecfb6aec6093872104707a8\" == md5(body))"
+      - type: dsl
+        name: 1.11.3 - 1.11.13
+        dsl:
+          - "(\"737b4e52eb65f9f13e161ba416a20ef3\" == md5(body))"
+      - type: dsl
+        name: 1.11.2 - 1.11.2.1
+        dsl:
+          - "(\"5662f00989bc33b184ff69aae7c291bb\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.11.1
+        dsl:
+          - "(\"15dba67a7ff040868c1f1da5ecee4c5e\" == md5(body))"
+      - type: dsl
+        name: 1.10.2 - 1.10.3
+        dsl:
+          - "(\"cd8dfe408be63fae59324f1601211a00\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.10.1
+        dsl:
+          - "(\"b7379561dc4eb66f202ed063049cf1a7\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin/themes/NCleanGrey/docs/CHANGELOG.txt"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.12.2
+        dsl:
+          - "(\"e5fb788c5ef47f18bbe599e89910c358\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.8.2
+        dsl:
+          - "(\"d861cb526b9d6ccf49227956a5e4aa6e\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"249b3e3ef69b76a6aa74fdeb56262330\" == md5(body))"
+      - type: dsl
+        name: 1.5.1 - 1.5.2
+        dsl:
+          - "(\"3c534026c68c26f955c008b6637267e1\" == md5(body))"
+      - type: dsl
+        name: 1.5
+        dsl:
+          - "(\"964d906955ada2872e020d07a521808b\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"f8fd3cfbf5cea3e9fa283b6c7fa8f9bb\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"8075d866fd19cbda51f9e498a3028b5f\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin/templates/changeusergroup.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.6 - 1.9.4.3
+        dsl:
+          - "(\"287b1a6d11d84c0554c748b34ebf8d7a\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"fb304aca6d67f965cf7a4cb544b6e9c2\" == md5(body))"
+      - type: dsl
+        name: 1.5.2
+        dsl:
+          - "(\"283136bfc6d449f150c4e803a7d6afc8\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.1
+        dsl:
+          - "(\"4e7d671d3301e23eb85d03b84623ebca\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"ce4b1083e078e6bd90d09afbcb28d6ad\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"d7b12ffc53a4f6e4ffe77764425a1a8c\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.12.2
+        dsl:
+          - "(\"0734cf3a4178dcd0102a5cda2a6fd241\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.10.3
+        dsl:
+          - "(\"d9b5f233904e304af1f7662d75bed4ab\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/releasenotes.txt"
+
+    matchers:
+      - type: dsl
+        name: 1.9.1 - 1.9.4.3
+        dsl:
+          - "(\"b45826b0ee6a8b220120613c9a41c03c\" == md5(body))"
+      - type: dsl
+        name: 1.9
+        dsl:
+          - "(\"aaf111fb1262097d0522e54ca58d6450\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"08975d7001394be5af2ad6e75926d4bb\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"0481451eb57b420ed28144d0be9938a4\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.7
+        dsl:
+          - "(\"327f85db0f002a58e29214db3ac2aaff\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.12.2
+        dsl:
+          - "(\"53771e9d22721d9d779fd9b7e6411799\" == md5(body))"
+      - type: dsl
+        name: 1.10.1 - 1.10.3
+        dsl:
+          - "(\"a9fd2a558a85a0295ffeadfbfcbb4155\" == md5(body))"
+      - type: dsl
+        name: 1.10
+        dsl:
+          - "(\"b3cd11354bd8af8ffcbf9189f4a18d3c\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/MenuManager/templates/cssmenu.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.9.2 - 1.12.2
+        dsl:
+          - "(\"58bb51accfe0bf11a68e92b29a90d2ad\" == md5(body))"
+      - type: dsl
+        name: 1.9.1
+        dsl:
+          - "(\"4cf7d6a7e82704bf6b1e7ad859e76456\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.9
+        dsl:
+          - "(\"e77252d1dca8f12ac0c15029c572b945\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"6c19eb200e49519f7a839c4b77baf726\" == md5(body))"
+      - type: dsl
+        name: 1.0 - 1.5.4
+        dsl:
+          - "(\"8b979c2819a63bc93a5e44627602ef52\" == md5(body))"
+      - type: dsl
+        name: 0.12.1 - 0.13
+        dsl:
+          - "(\"5e031b876b9ce29b313e530af27c37bd\" == md5(body))"
+      - type: dsl
+        name: 0.12
+        dsl:
+          - "(\"946d11d620115fc3fc93affafd0a3aa9\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/tinymce/jscripts/tiny_mce/themes/advanced/editor_template.js"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"de50f43e740d9bcbb0bb5e5f31b0c45a\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"a7fe1a62cf44e6345713c791286adc79\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"cab9c31f55310eb26214997e643ea7fe\" == md5(body))"
+      - type: dsl
+        name: 1.7
+        dsl:
+          - "(\"359e3895ff158025c833d86a7c3966cb\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.6.10
+        dsl:
+          - "(\"4c542e6fa26de139de7ded887a4149d6\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.6.6
+        dsl:
+          - "(\"e4f47b78c98d99433c91ec4a145f7ff5\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.4
+        dsl:
+          - "(\"4df470db24b9de21aab371c7178973eb\" == md5(body))"
+      - type: dsl
+        name: 1.4 - 1.4.1
+        dsl:
+          - "(\"6b1b4ae45fe39b7b444d0dac8bbeb400\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"70c1d071e582fc5a05b4e6fe33a96de9\" == md5(body))"
+      - type: dsl
+        name: 1.1.1 - 1.2.5
+        dsl:
+          - "(\"a27793c19b167a7799f425092c08012c\" == md5(body))"
+      - type: dsl
+        name: 1.1
+        dsl:
+          - "(\"d9145f6be2f35ab3eeabf84eaada83fd\" == md5(body))"
+      - type: dsl
+        name: 0.10.3 - 0.10.4
+        dsl:
+          - "(\"c6b5e111e73a9369f45be915705e6e4f\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/templates/tinyconfig.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"7f67e398996371f3150cfc14471ab0a3\" == md5(body))"
+      - type: dsl
+        name: 1.7.1 - 1.8.2
+        dsl:
+          - "(\"67488ba6a65811ad0f243b0532010694\" == md5(body))"
+      - type: dsl
+        name: 1.6.6 - 1.7
+        dsl:
+          - "(\"a616811d16db93af949e95e2da5b1e2d\" == md5(body))"
+      - type: dsl
+        name: 1.6.4 - 1.6.5
+        dsl:
+          - "(\"b67e3f2f1d6b9a7c9921a4bab399b2e5\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.3
+        dsl:
+          - "(\"906697384663ba3377f0f89137478997\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"5b3eb0ef3a04dbadd5d57be61093050a\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"9b871eae4ebfa716b7b3a0ce4c188374\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.2
+        dsl:
+          - "(\"d42ac00a1da00fa6fdc4721548db6224\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"ff7eae07417641d89735b1b54c6ed204\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"60671fe1c646d6a994576f20d946579e\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"c0da666d15c0aead35ab1a023f1b8fff\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin/templates/systeminfo.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.7 - 1.9.4.3
+        dsl:
+          - "(\"be3247ec337f9b9687e11d7491fbb281\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.6.10
+        dsl:
+          - "(\"7f88444639e3fb13a6d0fbc2e6ceb320\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.4
+        dsl:
+          - "(\"d3865a01d5fd4dc3d067d4a8f907e698\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"66ca63676fc3dfd4d0ccbd7d5b5584f7\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"226b196aadafde703a7d4e7222fcae67\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.12.2
+        dsl:
+          - "(\"bb8ea00f01e95b17cb3d66a676c4496e\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/FileManager/templates/changelog.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.9.3 - 1.9.4.3
+        dsl:
+          - "(\"0593641a3daa63a4049a765d7406614c\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.9.2
+        dsl:
+          - "(\"6b522ed121dedb4e3c19327c49776cc5\" == md5(body))"
+      - type: dsl
+        name: 1.6.4 - 1.6.6
+        dsl:
+          - "(\"e493b5b4b61fa43d2f5974a064ce9b8b\" == md5(body))"
+      - type: dsl
+        name: 1.6 - 1.6.3
+        dsl:
+          - "(\"b0c21de40b85ba173aaf9e74f9b91b24\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.5.4
+        dsl:
+          - "(\"24d66e63fcdc140924e8aceb74e94ac0\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.2
+        dsl:
+          - "(\"0dcf217c7481f9c934595910fe5a46bb\" == md5(body))"
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"c8df7b4bf88a06b2370c25724b407844\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"49c85dce7b460b9973790c3c0fe124a6\" == md5(body))"
+      - type: dsl
+        name: 1.11 - 1.12.2
+        dsl:
+          - "(\"876b3de4ce9c0e94c36db49d5603fcfb\" == md5(body))"
+      - type: dsl
+        name: 1.10 - 1.10.3
+        dsl:
+          - "(\"e75097e0654d612712370b5dcfb85f69\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/News/templates/rssfeed.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.3 - 1.9.4.3
+        dsl:
+          - "(\"cb4fb82177dcc4ec3d1d0fa8449e18c4\" == md5(body))"
+      - type: dsl
+        name: 1.0 - 1.2.5
+        dsl:
+          - "(\"0f65eab7ad76acbcccfe08afe6df9a9a\" == md5(body))"
+      - type: dsl
+        name: 0.13
+        dsl:
+          - "(\"10992a0e559c109d376602d50fdcfd3f\" == md5(body))"
+      - type: dsl
+        name: 0.12 - 0.12.2
+        dsl:
+          - "(\"1e880ff441dfb74d36dcf37b3d9f315b\" == md5(body))"
+      - type: dsl
+        name: 0.11.2
+        dsl:
+          - "(\"fb570c48d4e76f2afd057fc86c655355\" == md5(body))"
+      - type: dsl
+        name: 0.11 - 0.11.1
+        dsl:
+          - "(\"f0e351c236e18e40ad3d44e3a0045c6b\" == md5(body))"
+      - type: dsl
+        name: 0.10.3 - 0.10.4
+        dsl:
+          - "(\"b9478d2094ea82eab33036de457b1ee9\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/MenuManager/templates/simple_navigation.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.9.2 - 1.12.2
+        dsl:
+          - "(\"912e41993d605d9935000bb170079e1b\" == md5(body))"
+      - type: dsl
+        name: 1.9.1
+        dsl:
+          - "(\"3a37460946985d28a212031787403a4b\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.9
+        dsl:
+          - "(\"e2ce9fea2cc59ecf9d193e95a16691e8\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"1c9ba3400a7b6daf8e519e6daa3eab10\" == md5(body))"
+      - type: dsl
+        name: 1.0 - 1.5.4
+        dsl:
+          - "(\"3579c343d0e0f349d8a42dbd72409e02\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/tinymce/jscripts/tiny_mce/plugins/paste/editor_plugin.js"
+
+    matchers:
+      - type: dsl
+        name: 1.8 - 1.9.4.3
+        dsl:
+          - "(\"2bf074e592db4c23d54f79bb2e12f65f\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"23ccfae6758f2b42abf993f3a94ce521\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.7
+        dsl:
+          - "(\"f56838ca22980e306c2d503287c932a6\" == md5(body))"
+      - type: dsl
+        name: 1.6.5 - 1.6.6
+        dsl:
+          - "(\"6e426764b0e2bd6e1481cc8dc7cf8ab8\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.4
+        dsl:
+          - "(\"86d090540898bdaacabfa0d81cc18b31\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"9dd40208db3da392eb63eb44d962b1f6\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.4
+        dsl:
+          - "(\"5b145b1c56b55c90b4aea900fce25880\" == md5(body))"
+      - type: dsl
+        name: 1.1 - 1.2.5
+        dsl:
+          - "(\"bf30cc0882b81bf1bf1beab3285115b4\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/tinymce/jscripts/tiny_mce/plugins/table/js/table.js"
+
+    matchers:
+      - type: dsl
+        name: 1.9 - 1.9.4.3
+        dsl:
+          - "(\"b66a89f52a6e387a238c8cbaf2bc355e\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.8.2
+        dsl:
+          - "(\"347bdaad580adeb61ee51c0175819a9a\" == md5(body))"
+      - type: dsl
+        name: 1.7.1
+        dsl:
+          - "(\"c7a9f4ed643f8aa7719b2809aa065f73\" == md5(body))"
+      - type: dsl
+        name: 1.6.7 - 1.7
+        dsl:
+          - "(\"a5c89bb3bc1b60989ee80dc001be8900\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.6
+        dsl:
+          - "(\"bf4d0417a09224ca603891b7880ed366\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"78693eff72482a9828b4c9dcce611565\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.4
+        dsl:
+          - "(\"db3fbeddf77b5f6541316c2dc33e71b0\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.4.1
+        dsl:
+          - "(\"427314b4196fb4c485c1c7fb266b5226\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/modules/TinyMCE/tinymce/jscripts/tiny_mce/plugins/table/table.htm"
+
+    matchers:
+      - type: dsl
+        name: 1.7 - 1.9.4.3
+        dsl:
+          - "(\"84b70f7c6796fad9a1bd953901d8406c\" == md5(body))"
+      - type: dsl
+        name: 1.6.1 - 1.6.10
+        dsl:
+          - "(\"a91a48fcb858b0403b8abfe0f5913e46\" == md5(body))"
+      - type: dsl
+        name: 1.6
+        dsl:
+          - "(\"2c622da518b5cf66161939eb516382cf\" == md5(body))"
+      - type: dsl
+        name: 1.4 - 1.5.4
+        dsl:
+          - "(\"8eaf68b57c9322259402021fbf6b057a\" == md5(body))"
+      - type: dsl
+        name: 1.3 - 1.3.1
+        dsl:
+          - "(\"ced7fc455cc8d1d29615d3a724c8af19\" == md5(body))"
+      - type: dsl
+        name: 1.1.1 - 1.2.5
+        dsl:
+          - "(\"00f31a01465d245e737ffcdec1bae9f7\" == md5(body))"
+      - type: dsl
+        name: 1.1
+        dsl:
+          - "(\"da82f3e3ca0209b631005407b1ef7f34\" == md5(body))"
+      - type: dsl
+        name: 0.10.3 - 0.10.4
+        dsl:
+          - "(\"4d7eb129ea2ad85880065c05bff50b8f\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/doc/AUTHORS.txt"
+
+    matchers:
+      - type: dsl
+        name: 1.9.4 - 1.12.2
+        dsl:
+          - "(\"d33316afac8ffca372f64076b579464a\" == md5(body))"
+      - type: dsl
+        name: 1.8 - 1.9.3
+        dsl:
+          - "(\"678626bcf8bd6d7130884dfe8aabc606\" == md5(body))"
+      - type: dsl
+        name: 1.5.3 - 1.7.1
+        dsl:
+          - "(\"628fa2ce3a8d9d77bb77cd2178e27c4c\" == md5(body))"
+      - type: dsl
+        name: 1.5 - 1.5.2
+        dsl:
+          - "(\"b188dab1506ef1c8f9dcd7b6c74b7e09\" == md5(body))"
+      - type: dsl
+        name: 1.2.1 - 1.4.1
+        dsl:
+          - "(\"ddc2bd908a98476f07022d272889c6fc\" == md5(body))"
+      - type: dsl
+        name: 1.2
+        dsl:
+          - "(\"f1afd57aae241db9e4903d7830d582f3\" == md5(body))"
+      - type: dsl
+        name: 0.12 - 1.1.4.1
+        dsl:
+          - "(\"9d28631f90e76517643dd0cf27996003\" == md5(body))"
+      - type: dsl
+        name: 0.11.2
+        dsl:
+          - "(\"c6a50f39305b8e42930f0811b967a311\" == md5(body))"
+      - type: dsl
+        name: 0.11 - 0.11.1
+        dsl:
+          - "(\"1c3093797be6cfa015c07e8700892025\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/templates/page5.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"ec271deb12a5fbd6c7161b2ce116d24c\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"4b71dfd41f9fd3af1ba8700a889b78be\" == md5(body))"
+      - type: dsl
+        name: 1.0.6 - 1.3.1
+        dsl:
+          - "(\"3eee108f8fa5498039ca5e7f725be5ea\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/templates/page1.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"8cbe994f990e689ecab97a8d724cab3d\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"541172ab17b91750846c5036e44949ad\" == md5(body))"
+      - type: dsl
+        name: 1.0.6 - 1.3.1
+        dsl:
+          - "(\"64dfb62788dd07e6b2b469b436d863d2\" == md5(body))"
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/install/templates/page2.tpl"
+
+    matchers:
+      - type: dsl
+        name: 1.4.1
+        dsl:
+          - "(\"856d76c43b403c833738f1f98f717b57\" == md5(body))"
+      - type: dsl
+        name: 1.4
+        dsl:
+          - "(\"fbff402b83af05cd9032b03fbe266590\" == md5(body))"
+      - type: dsl
