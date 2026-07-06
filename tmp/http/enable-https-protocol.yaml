@@ -1,0 +1,38 @@
+file:
+- extensions:
+  - xml
+  matchers:
+  - condition: and
+    negative: true
+    type: word
+    words:
+    - <webgui>
+    - <protocol>https</protocol>
+  - condition: and
+    type: word
+    words:
+    - <pfsense>
+    - <system>
+  matchers-condition: and
+id: enable-https-protocol
+info:
+  author: pussycat0x
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
+  description: 'PfSense Web Admin Management Portal is recommended to be accessible
+    using only HTTPS protocol. HTTP transmits all data, including passwords, in clear
+    text over the network and provides no assurance of the identity of the hosts involved,
+    making it possible for an attacker to obtain sensitive information, modify data,
+    and/or execute unauthorized operations.
+
+    '
+  metadata:
+    verified: true
+  name: Pfsense Web Admin Management Portal HTTPS Not Set - Detect
+  reference: 'https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+    '
+  severity: info
+  tags: firewall,config,audit,pfsense,file
