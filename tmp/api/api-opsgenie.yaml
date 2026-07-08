@@ -1,0 +1,26 @@
+http:
+- headers:
+    Authorization: GenieKey {{token}}
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - '"data":'
+    - '"paging":'
+    - '"took":'
+  method: GET
+  path:
+  - https://api.opsgenie.com/v2/alerts
+id: api-opsgenie
+info:
+  author: 0xpugazh
+  description: Forex currency market data
+  metadata:
+    max-request: 1
+  name: OpsGenie API Test
+  reference:
+  - https://docs.opsgenie.com/docs/api-overview
+  severity: info
+  tags: token-spray,opsgenie
+self-contained: true
