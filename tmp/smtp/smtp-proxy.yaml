@@ -1,23 +1,23 @@
 id: smtp-proxy
 info:
-  name: SpamFilter for ISP smtpd
+  name: IronMail SMTP proxy
   author: nmap,cn-kali-team
   tags: detect,tech,smtp-proxy,service
   severity: info
   metadata:
-    hostname: $1
-    info: Unregistered
-    operating_system: Windows
-    rarity: 0
-    version: $2
+    product: ironmail
+    rarity: 3
+    vendor: ciphertrust
+    verified: true
 tcp:
-- name: 'null'
+- name: help
   inputs:
-  - data: ''
+  - data: HELP\r\n
   host:
   - '{{Hostname}}'
+  port: 1,7,21,25,79,113,119,515,587,1111,1311,12345,2401,2627,3000,3493,6560,14690,22490,6666-6670
   extractors:
   - name: smtp-proxy
     type: regex
     regex:
-    - ^220 ([-\w_.]+) Welcome SpamFilter for ISP SMTP Server v([\d.]+) - Unlicensed Evaluation Copy\r\n
+    - ^220 SMTP SDC Ready\r\n250 \+OK entry follows, ends in \.\r\n
