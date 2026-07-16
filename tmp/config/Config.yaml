@@ -4,7 +4,7 @@ info:
   name: Configuration issues in Android apk file
   description: This template can be used to detect basic Configuration issues from the apk
   author: rahulkadavil
-  severity: medium
+  severity: Medium
   tags: Configuration issues
   
 file:

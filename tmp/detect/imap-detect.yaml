@@ -1,31 +1,46 @@
 id: imap-detect
+
 info:
-  author: pussycat0x
-  classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cwe-id: CWE-200
-  description: 'IMAP was detected.
-
-    '
-  metadata:
-    max-request: 1
-    shodan-query: imap
-    verified: true
-  name: IMAP - Detect
+  name: IMAP Service - Detect
+  author: zan8in
   severity: info
-  tags: network,detect,imap,mail
-tcp:
-- host:
-  - '{{Hostname}}'
-  inputs:
-  - data: '
+  verified: true
+  description: |-
+    IMAP 的全称是 Internet Message Access Protocol。
+    它是一种用于访问和管理电子邮件服务器上邮件的协议。
+    与 POP3 不同，IMAP 允许用户在多个设备上同步查看和管理邮件，而无需下载到本地设备。
+    默认端口
+    IMAP 非加密端口：143
+    IMAP over SSL/TLS 加密端口：993（现代绝对的标准和必选项）
+    fofa: protocol="imap"
+  tags: network,imap,fingerprint
+  created: 2026/01/09
 
-      '
-  matchers:
-  - condition: and
-    type: word
-    words:
-    - 'OK '
-    - IMAP4rev1
-  matchers-condition: and
-  port: 143
+set:
+  host: request.url.host
+rules:
+  r0:
+    request:
+      type: tcp
+      host: "{{host}}"
+      steps:
+        - read:
+            read-size: 4096
+            read-timeout: 3
+            read-until: "\r\n"
+            read-type: bytes
+            save-as: banner
+    expression: banner.bcontains(b"* OK") && banner.ibcontains(b"imap")
+  r1:
+    request:
+      type: ssl
+      host: "{{host}}"
+      steps:
+        - read:
+            read-size: 4096
+            read-timeout: 3
+            read-until: "\r\n"
+            read-type: bytes
+            save-as: banner
+    expression: banner.bcontains(b"* OK") && banner.ibcontains(b"imap")
+expression: r0() || r1()

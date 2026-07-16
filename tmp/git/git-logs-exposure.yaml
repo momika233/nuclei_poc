@@ -11,6 +11,7 @@ requests:
   - method: GET
     path:
       - "{{BaseURL}}/.git/logs/HEAD"
+      - "{{BaseURL}}/.git/logs/refs"
 
     matchers-condition: and
     matchers:
@@ -18,15 +19,11 @@ requests:
         dsl:
           - "!contains(tolower(body), '<html')"
           - "!contains(tolower(body), '<body')"
-
       - type: word
         part: header
         words:
           - "application/octet-stream"
-
-      - type: regex
-        regex:
-          - '^([a-z0-9]+) '
+        condition: and
 
       - type: status
         status:

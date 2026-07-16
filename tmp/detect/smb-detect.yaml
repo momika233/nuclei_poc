@@ -1,27 +1,31 @@
 id: smb-detect
-info:
-  author: pussycat0x
-  description: 'SMB (Server Message Block) is a network-layered protocol mainly used
-    on Windows for sharing files, printers, and communication between network-attached
-    computers. SMB related vulnerabilities can be levaraged to compromise large-scale
-    systems.
 
-    '
-  metadata:
-    max-request: 1
-  name: SMB Detection
-  severity: low
-  tags: network,windows,smb,service,detect
-tcp:
-- host:
-  - '{{Hostname}}'
-  inputs:
-  - data: 00000031ff534d4272000000001845680000000000000000000000000000be2200000100000e00024e54204c4d20302e3132000200
-    type: hex
-  matchers:
-  - condition: and
-    type: word
-    words:
-    - SMBr
-    - NT LM
-  port: 445
+info:
+  name: SMB Service - Detect
+  author: zan8in
+  severity: info
+  verified: true
+  description: |-
+    SMB 的全称是 Server Message Block。
+    它是一种网络文件共享协议，主要用于在计算机之间共享文件、打印机、串行端口等资源，并进行网络通信。
+    简单理解，它就是让您能在“网络邻居”或通过 \\192.168.1.100 这样的路径访问另一台电脑上文件夹的技术基础。
+    fofa: protocol="smb"
+  tags: network,smb,fingerprint
+  created: 2026/01/09
+
+set:
+  host: request.url.host
+rules:
+  r0:
+    request:
+      type: tcp
+      host: "{{host}}"
+      steps:
+        - write:
+            data: "00000066fe534d42400000000000000000003f0000000000000000000000000000000000fffe000000000000000000000000000000000000000000000000000000000000000000000000240001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            data-type: hex
+        - read:
+            read-size: 4096
+            read-timeout: 3
+    expression: response.raw.bcontains(b"\xfeSMB")
+expression: r0()
