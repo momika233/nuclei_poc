@@ -1,37 +1,27 @@
 id: svn-leak
-
 info:
-  name: SVN 代码托管泄漏
-  author: zan8in
-  severity: high
-  verified: true
-  description: |
-    Subversion (SVN) 是一个开源的版本控制系统。
-    当 .svn 目录被错误地暴露在 Web 服务器上时，攻击者可以访问其中的 entries 或 wc.db 文件，
-    从而获取源代码的版本信息、文件结构，甚至下载源代码。
-    影响文件：
-    - /.svn/entries (旧版本 SVN)
-    - /.svn/wc.db (新版本 SVN)
-    fofa: protocol="svn"
-  reference:
-    - https://github.com/h4rryp0tt3r/svndigger
-  tags: svn,leak
-  created: 2025/10/27
+  name: SVN Leak Source
+  risk: Medium
+  confidence: Certain
 
-rules:
-  r0:
-    request:
-      method: GET
-      path: /.svn/entries
-    expression: |
-      response.status == 200 && (
-        ("^[0-9]+[\\r\\n]+".bmatches(response.body) && response.body.bcontains(b"dir")) ||
-        (response.body.bcontains(b"<?xml") && response.body.bcontains(b"svn:"))
-      )
-  r1:
-    request:
-      method: GET
-      path: /.svn/wc.db
-    expression: response.status == 200 && response.body.bcontains(b"SQLite format 3")
+params:
+  - root: '{{.BaseURL}}'
 
-expression: r0() || r1()
+variables:
+  - svnfile: |
+      .svn/entries
+      .svn/all-wcprops
+      CVS/Entries
+
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+      {{.root}}/{{.svnfile}}
+    headers:
+      - User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3984.0 Safari/537.36
+    detections:
+      - >-
+        StatusCode() == 200 && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "text/plain")) && StringSearch("body", "END")  && StringSearch("body", "svn:")
+      - >-
+        StatusCode() == 200 && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "text/plain")) && StringSearch("body","dir") && StringSearch("body", "file")
