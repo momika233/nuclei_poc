@@ -1,0 +1,19 @@
+file:
+- extensions:
+  - all
+  matchers:
+  - condition: or
+    regex:
+    - '[^\.]*\.createReadStream\([^\)]*\, <[\s\S]*?\> [^\)]*\)'
+    - '[^\.]*\.readFile\([^\)]*\, <[\s\S]*?\> [^\)]*\)'
+    - '[^\.]*\.readFileSync\([^\)]*\, <[\s\S]*?\> [^\)]*\)'
+    - '[^\.]*\.readFileAsync\([^\)]*\, <[\s\S]*?\> [^\)]*\)'
+    type: regex
+id: generic-path-traversal
+info:
+  author: me_dheeraj (https://twitter.com/Dheerajmadhukar)
+  description: Untrusted user input in readFile()/readFileSync() can endup in Directory
+    Traversal Attacks.
+  name: Generic - Path Traversal
+  severity: info
+  tags: file,nodejs
