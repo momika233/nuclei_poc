@@ -1,13 +1,13 @@
 id: rtsp
 info:
-  name: Helix DNA Server
+  name: Darwin Streaming Server
   author: nmap,cn-kali-team
   tags: detect,tech,rtsp,service
   severity: info
   metadata:
     fallback:
     - get-request
-    operating_system: Windows
+    operating_system: FreeBSD
     rarity: 5
     version: $1
 tcp:
@@ -16,9 +16,9 @@ tcp:
   - data: OPTIONS / RTSP/1.0\r\n\r\n
   host:
   - '{{Hostname}}'
-  port: 80,554,3052,3372,5000,7000,7070,8080,10000
+  port: 80,554,3052,3372,5000,7070,8080,10000
   extractors:
   - name: rtsp
     type: regex
     regex:
-    - '(?i)^RTSP/1\.0 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: Helix Server Version ([\d.]+) \(win32\)'
+    - '^RTSP/1\.0 \d\d\d .*\r\nServer: DSS/([\d.]+) \(Build/[\d.]+; Platform/FreeBSD'

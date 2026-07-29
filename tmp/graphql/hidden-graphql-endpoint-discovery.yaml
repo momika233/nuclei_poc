@@ -1,0 +1,21 @@
+id: hidden-graphql-endpoint-discovery
+info:
+  author: qaisar
+  description: 'Detects potential security issues related to hidden GraphQL endpoint
+    discovery.
+
+    '
+  name: Hidden GraphQL Endpoint Discovery Test
+  severity: medium
+requests:
+- data:
+  - raw: '{"query": "{__schema { types { name } } }"}'
+  headers:
+    content-type:
+    - application/json
+  method: POST
+  path:
+  - /graphql
+  - /api
+tags:
+- web
