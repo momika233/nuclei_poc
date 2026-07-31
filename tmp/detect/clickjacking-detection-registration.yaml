@@ -1,0 +1,16 @@
+id: clickjacking-detection-registration
+info:
+  author: qaisar
+  description: 'Detects potential issues related to clickjacking in the registration
+    form during the account registration process.
+
+    '
+  name: Clickjacking Detection in Registration Form Test
+  severity: high
+requests:
+- method: GET
+  path:
+  - /register
+  - /signup
+tags:
+- web
