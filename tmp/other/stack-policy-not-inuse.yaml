@@ -1,0 +1,57 @@
+code:
+- engine:
+  - sh
+  - bash
+  extractors:
+  - internal: true
+    json:
+    - .[]
+    name: stacksummaries
+    type: json
+  source: 'aws cloudformation list-stacks --region $region --output json --query ''StackSummaries[*].StackName''
+
+    '
+- engine:
+  - sh
+  - bash
+  extractors:
+  - dsl:
+    - stacksummary + " No Stack Policy In Use"
+    type: dsl
+  matchers:
+  - negative: true
+    type: word
+    words:
+    - StackPolicyBody
+    - Effect
+  source: 'aws cloudformation get-stack-policy --region $region --stack-name $stacksummary
+    --output json
+
+    '
+flow: "code(1)\nfor(let StackSummaries of iterate(template.stacksummaries)){\n  set(\"\
+  stacksummary\", StackSummaries)\n  code(2)\n}\n"
+id: stack-policy-not-inuse
+info:
+  author: DhiyaneshDK
+  description: 'Ensure your AWS CloudFormation stacks are using policies as a fail-safe
+    mechanism in order to prevent accidental updates to stack resources.
+
+    '
+  impact: 'Lack of a CloudFormation Stack Policy allows unrestricted modifications
+    to stack resources, increasing the risk of unintended or harmful changes.
+
+    '
+  name: CloudFormation Stack Policy - Not In Use
+  reference:
+  - https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/CloudFormation/cloudformation-stack-policy.html
+  - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
+  remediation: 'Implement a CloudFormation Stack Policy to restrict updates to critical
+    resources, defining explicit rules for which resources can be modified during
+    stack updates.
+
+    '
+  severity: medium
+  tags: cloud,devops,aws,amazon,cloudformation,aws-cloud-config
+self-contained: true
+variables:
+  region: us-west-2
