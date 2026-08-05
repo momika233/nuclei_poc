@@ -1,0 +1,21 @@
+id: hidden-ldap-injection
+info:
+  author: qaisar
+  description: 'Detects potential security issues related to hidden LDAP Injection
+    vulnerabilities.
+
+    '
+  name: Hidden LDAP Injection Test
+  severity: high
+requests:
+- data:
+  - raw: '{"query": "(|(uid=user1)(uid=*)(objectclass=*))"}'
+  headers:
+    content-type:
+    - application/json
+  method: POST
+  path:
+  - /search-users
+  - /process-ldap-query
+tags:
+- web
