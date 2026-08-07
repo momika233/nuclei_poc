@@ -1,27 +1,25 @@
 id: osint-consulta-host-ip-ipwhois
-
 info:
-  name: OSINT Consulta IP Ipwhois
   author: Mrcl0wn / OSINT Brazuca
-  severity: info
   description: Consulta dados de IP via API ipwhois.app
+  name: OSINT Consulta IP Ipwhois
+  severity: info
   tags: ip,consulta,osint
-
-self-contained: true
 requests:
-  - method: GET
-    path:
-      - "https://ipwhois.app/json/{{IP}}"
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "ip"
-      - type: status
-        status:
-          - 200
-    extractors:
-          - type: json
-            part: body
-            json:
-              - '.'  # JQ like syntax for extraction
+- extractors:
+  - json:
+    - .
+    part: body
+    type: json
+  matchers:
+  - part: body
+    type: word
+    words:
+    - ip
+  - status:
+    - 200
+    type: status
+  method: GET
+  path:
+  - https://ipwhois.app/json/{{IP}}
+self-contained: true

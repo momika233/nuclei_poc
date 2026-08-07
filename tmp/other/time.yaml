@@ -1,33 +1,21 @@
-id: sqli-error-based
-
+id: time
 info:
-  name: Error based SQL Injection
-  author: geeknik,pdteam
-  severity: critical
-  description: |
-    Direct SQL Command Injection is a technique where an attacker creates or alters existing SQL commands to expose hidden data,
-    or to override valuable ones, or even to execute dangerous system level commands on the database host.
-    This is accomplished by the application taking user input and combining it with static parameters to build an SQL query .
-  tags: sqli,error,dast
-
-http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    payloads:
-      injection:
-        - "sleep(10)#"
-
-    fuzzing:
-      - part: query
-        type: postfix
-        fuzz:
-          - "{{injection}}"
-          
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - 'duration>=9'
+  name: 32 bits
+  author: nmap,cn-kali-team
+  tags: detect,tech,time,service
+  severity: info
+  metadata:
+    info: 32 bits
+    rarity: 3
+tcp:
+- name: help
+  inputs:
+  - data: help\r\n\r\n
+  host:
+  - '{{Hostname}}'
+  port: 7,13,37,42
+  extractors:
+  - name: time
+    type: regex
+    regex:
+    - (?i)^[\xd5-\xef]...$

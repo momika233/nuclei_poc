@@ -1,10 +1,20 @@
-protocol: TCP
-directive_name: epmd
-directive_str: \0\x01\x6e
-rarity: 8
-ports:
-  - 4369
-matches:
-  - service: epmd
-    pattern: ^\0\0\x11\x11
-    version_info: ' p/Erlang Port Mapper Daemon/'
+id: epmd
+info:
+  name: Erlang Port Mapper Daemon
+  author: nmap,cn-kali-team
+  tags: detect,tech,epmd,service
+  severity: info
+  metadata:
+    rarity: 8
+tcp:
+- name: epmd
+  inputs:
+  - data: \0\x01\x6e
+  host:
+  - '{{Hostname}}'
+  port: '4369'
+  extractors:
+  - name: epmd
+    type: regex
+    regex:
+    - ^\0\0\x11\x11
