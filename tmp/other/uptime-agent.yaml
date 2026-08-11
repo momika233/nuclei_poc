@@ -17,4 +17,4 @@ tcp:
   - name: uptime-agent
     type: regex
     regex:
-    - ^ERR\n$
+    - ^ERR - Command '\xe0\xb6VU\xd8\xbaVU' not found\n

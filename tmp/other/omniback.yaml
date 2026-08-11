@@ -1,11 +1,12 @@
 id: omniback
 info:
-  name: HP OpenView Omniback
+  name: HP OpenView Omniback/Data Protector
   author: nmap,cn-kali-team
   tags: detect,tech,omniback,service
   severity: info
   metadata:
-    operating_system: Windows
+    hostname: $1
+    operating_system: Unix
     rarity: 4
 tcp:
 - name: smbprog-neg
@@ -18,4 +19,4 @@ tcp:
   - name: omniback
     type: regex
     regex:
-    - '(?i)^\x00\x00\x00.\xff\xfe1\x005\x00\x00\x00 \x00\x07\x00\x01\x00\[\x001\x002\x00:\x001\x00\]\x00\x00\x00 \x00\x07\x00\x02\x00\[\x002\x000\x000\x003\x00\]\x00\x00\x00 '
+    - (?i)^\x00\x00\x00.15\x00 \x07\x01\[12:1\]\x00 \x07\x02\[2003\]\x00 \x07\x051\d+\x00 INET\x00 ([\w._-]+)\x00

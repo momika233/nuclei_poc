@@ -21,4 +21,4 @@ tcp:
   - name: soap
     type: regex
     regex:
-    - '^HTTP/1\.1 401 Unauthorized\r\nWWW-Authenticate: Digest realm=\"realtek\.com\.tw\", qop=\"auth\", nonce=\"[0-9a-f]+\", opaque=\"[0-9a-f]+\"\r\nServer: gSOAP/([\w._-]+)\r\n'
+    - '(?i)^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: gSOAP/([\d.]+)\r\n'
