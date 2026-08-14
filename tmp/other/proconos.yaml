@@ -1,22 +1,13 @@
-id: proconos
-info:
-  name: ProConOS
-  author: nmap,cn-kali-team
-  tags: detect,tech,proconos,service
-  severity: info
-  metadata:
-    info: 'PLC: $2; project: $3/$4; source: $5'
-    rarity: 9
-    version: $1
-tcp:
-- name: proconos
-  inputs:
-  - data: \xcc\x01\x00\x0b\x40\x02\x00\x00\x47\xee
-  host:
-  - '{{Hostname}}'
-  port: '20547'
-  extractors:
-  - name: proconos
-    type: regex
-    regex:
-    - (?i)^\xcc\x01...\x02\x92\x00V\d+\.\d+ProConOS V([\d.]+) \w\w\w +\d+ \d+\x00+\x00([^\x00]+)\x00+([^\x00]+)\x00+([^\x00]+)\x00+([^\x00]+)\x00
+protocol: TCP
+directive_name: proconos
+directive_str: \xcc\x01\x00\x0b\x40\x02\x00\x00\x47\xee
+rarity: 9
+ports:
+  - 20547
+matches:
+  - service: proconos
+    pattern: ^\xcc\x01...\x02\x92\0V\d+\.\d+ProConOS V([\d.]+) \w\w\w +\d+ \d+\0+\0([^\0]+)\0+([^\0]+)\0+([^\0]+)\0+([^\0]+)\0
+    version_info: 's p/ProConOS/ v/$1/ i|PLC: $2; project: $3/$4; source: $5|'
+  - service: echo
+    pattern: ^\xcc\x01\0\x0b@\x02\0\0G\xee
+    version_info: ''
