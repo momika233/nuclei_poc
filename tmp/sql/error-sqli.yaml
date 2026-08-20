@@ -2,7 +2,7 @@ id: error-sqli
 info:
   author: oscuridad1010
   name: Blind SQL Injection time based detection of sql backend
-  severity: high
+  severity: High
   tags: sql0
 requests:
 - extractors:

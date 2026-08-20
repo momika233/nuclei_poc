@@ -1,31 +1,32 @@
-id: vnc-detect
+id: vnc-service-detection
 
 info:
-  name: VNC Service - Detect
-  author: zan8in
+  name: VNC Service Detection
+  author: pussycat0x
   severity: info
-  verified: true
-  description: |-
-    VNC service was detected.
-  tags: network,vnc,fingerprint
-  created: 2026/01/09
+  description: A Virtual Network Computing (VNC) service was detected.
+  classification:
+    cwe-id: CWE-200
+  tags: network,vnc,service
+  metadata:
+  mongoid: 0000
 
-set:
-  host: request.url.host
-rules:
-  r0:
-    request:
-      type: tcp
-      host: "{{host}}"
-      steps:
-        - read:
-            read-size: 4096
-            read-timeout: 3
-            read-until: "\n"
-    expression: response.raw.bcontains(b"RFB ")
+network:
+  - inputs:
+      - data: "\r\n"
+    host:
+      - "{{Host}}:5900"
+      - "{{Hostname}}"
+
+    matchers:
+      - type: word
+        words:
+          - "RFB"
+
     extractors:
       - type: regex
-        extractor:
-          ext: '"(?i)(?P<vnc>RFB ([0-9.]+))".bsubmatch(response.raw)'
-          vnc: ext["vnc"]
-expression: r0()
+        part: body
+        regex:
+          - "RFB ([0-9.]+)"
+
+# Enhanced by mp on 2022/04/20

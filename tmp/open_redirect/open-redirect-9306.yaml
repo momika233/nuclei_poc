@@ -3,7 +3,7 @@ info:
   name: Open Redirect Issues
   description: This template can be used to detect Open Redirect vulnerability in the host.
   author: rahulkadavil
-  severity: low
+  severity: Low
   tags: Open Redirect
 requests:
   - method: GET
