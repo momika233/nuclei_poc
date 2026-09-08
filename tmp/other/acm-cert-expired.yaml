@@ -1,0 +1,42 @@
+code:
+- engine:
+  - sh
+  - bash
+  extractors:
+  - json:
+    - .CertificateSummaryList[] | .CertificateArn
+    name: certificatearn
+    type: json
+  - dsl:
+    - region + " AWS region have expired SSL/TLS certificates"
+    type: dsl
+  matchers:
+  - type: word
+    words:
+    - CertificateArn
+  source: 'aws acm list-certificates --region $region --certificate-statuses EXPIRED
+
+    '
+id: acm-cert-expired
+info:
+  author: princechaddha
+  description: 'Ensure removal of expired SSL/TLS certificates in AWS Certificate
+    Manager to comply with Amazon Security Best Practices.
+
+    '
+  impact: 'Expired certificates can lead to service interruptions and expose applications
+    to man-in-the-middle attacks.
+
+    '
+  name: Expired ACM Certificates
+  reference:
+  - https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html
+  remediation: 'Regularly review ACM for expired certificates and delete them or replace
+    with updated versions.
+
+    '
+  severity: high
+  tags: cloud,devops,aws,amazon,acm,aws-cloud-config
+self-contained: true
+variables:
+  region: us-east-1
