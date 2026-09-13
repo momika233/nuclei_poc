@@ -1,0 +1,45 @@
+code:
+- engine:
+  - sh
+  - bash
+  extractors:
+  - internal: true
+    json:
+    - .[]
+    name: users
+    type: json
+  source: 'aws iam list-users --query ''Users[*].UserName''
+
+    '
+- engine:
+  - sh
+  - bash
+  extractors:
+  - internal: true
+    name: accesskey
+    regex:
+    - ^AK.*
+    type: regex
+  - dsl:
+    - '"The IAM Key " + accesskey +" is older than 90 days"'
+    type: dsl
+  source: 'aws iam list-access-keys --user-name $user | jq -r ''.AccessKeyMetadata[]
+    | select((.CreateDate[:-6] | strptime("%Y-%m-%dT%H:%M:%S") | mktime) < (now -
+    (90 * 86400))) | .AccessKeyId''
+
+    '
+flow: "code(1)\nfor(let UserName of iterate(template.users)){\n  set(\"user\", UserName)\n\
+  \  code(2)\n}\n"
+id: iam-key-rotation-90days
+info:
+  author: princechaddha
+  description: 'Checks if IAM user access keys are rotated every 90 days to minimize
+    accidental exposures and unauthorized access risks
+
+    '
+  name: IAM Access Key Rotation - 90-Day Policy
+  reference:
+  - https://docs.aws.amazon.com/cli/latest/reference/iam/list-access-keys.html
+  severity: high
+  tags: cloud,devops,aws,amazon,iam,aws-cloud-config
+self-contained: true
